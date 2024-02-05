@@ -14,7 +14,7 @@ export default function Layout() {
   return (
     <html lang="en">
       <body className={`${comfortaa.className}`}>
-        <div style={{ maxWidth: '1920px', margin: '0 auto' }}>
+        <div>
           <Home />
         </div>
       </body>
