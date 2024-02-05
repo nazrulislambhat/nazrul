@@ -9,7 +9,7 @@ export default function Home() {
     to-indigo-600
     background-animate"
     >
-      <div className="bg-background shadow-xl rounded-xl sm:p-12 xl:p-24">
+      <div className="bg-background shadow-xl rounded-xl p-12 sm:p-12 xl:p-24">
         <h1 className="text-terinary font-bold text-sm">
           we're working on it!
         </h1>
