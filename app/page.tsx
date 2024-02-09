@@ -1,5 +1,10 @@
-import Image from 'next/image';
-import Slider from '../components/slider';
+import About from '../components/about';
+import Footer from '../components/footer';
+import Hero from '../components/hero';
+import Info from '../components/info';
+import Nav from '../components/nav';
+import Projects from '../components/projects';
+import Services from '../components/services';
 export default function Home() {
   return (
     <main
@@ -20,6 +25,7 @@ export default function Home() {
           get in touch
         </a>
       </div>
+
     </main>
   );
 }
