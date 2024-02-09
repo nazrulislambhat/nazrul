@@ -20,7 +20,6 @@ export default function Home() {
           get in touch
         </a>
       </div>
-      <Slider />
     </main>
   );
 }
