@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import Slider from '../components/slider';
 export default function Home() {
   return (
     <main
@@ -20,6 +20,7 @@ export default function Home() {
           get in touch
         </a>
       </div>
+      <Slider />
     </main>
   );
 }
