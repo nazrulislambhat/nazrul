@@ -54,14 +54,14 @@ body {
 }
 
 .link-hover1 {
-  box-shadow: inset 0 0 0 0 #4c06e8;
+  box-shadow: inset 0 0 0 0 #c3dd22;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  color: #4c06e8;
+  color: #c3dd22;
   padding: 0.2rem 0.5rem;
 }
 .link-hover1:hover {
-  color: #c3dd22;
-  box-shadow: inset 100px 0 0 0 #4c06e8;
+  color: #4c06e8;
+  box-shadow: inset 100px 0 0 0 #c3dd22;
 }
 .link-hover2 {
   position: relative;
