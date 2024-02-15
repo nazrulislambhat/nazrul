@@ -1,5 +1,10 @@
-import Image from 'next/image';
-
+import About from '../components/about';
+import Footer from '../components/footer';
+import Hero from '../components/hero';
+import Info from '../components/info';
+import Nav from '../components/nav';
+import Projects from '../components/projects';
+import Services from '../components/services';
 export default function Home() {
   return (
     <main className="min-h-screen bg-background flex items-center text-center justify-center flex-col">
