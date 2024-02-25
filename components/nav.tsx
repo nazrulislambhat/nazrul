@@ -16,7 +16,7 @@ export default function NavCpt() {
         />
       </Link>
 
-      <ul className="flex gap-6 xl:gap-10 font-bold items-end">
+      <ul className="flex gap-4 xl:gap-10 font-bold items-end">
         <li>
           <Link href="#" className="active hover:opacity-100 hover:text-orange">
             home.
