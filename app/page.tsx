@@ -1,9 +1,10 @@
-import HeroCpt from '@/components/hero';
-import NavCpt from '../components/nav';
+'use client';
+import MainMenu from '../components/Menu';
+
 export default function Home() {
   return (
     <main>
-      <NavCpt />
+      <MainMenu />
     </main>
   );
 }
