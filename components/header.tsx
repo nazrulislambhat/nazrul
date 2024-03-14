@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaTimes, FaMinus, FaWindowRestore, FaBars } from 'react-icons/fa';
 import Nav from './nav';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import logo from '../assets/logo.png';
 export default function Header() {
   const [showIcon, setShowIcon] = useState(false);
   const [minimizeIcon, setMinimizeIcon] = useState(false);
@@ -14,9 +15,9 @@ export default function Header() {
   };
   return (
     <>
-      <div className="flex justify-between bg-darkBackground opacity-95 pl-6 relative py-6 xl:border-b-2 xl:border-background items-center ">
+      <div className="flex justify-between bg-background opacity-95 pl-6 relative py-6 items-center ">
         <div className="header flex align-middle justify-start items-center">
-          <motion.div
+          {/* <motion.div
             className="icons-container flex items-center gap-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -49,20 +50,28 @@ export default function Header() {
                 <FaWindowRestore className="resize-icon text-darkBackground font-bold opacity-80 text-[8px]" />
               )}
             </span>
-          </motion.div>
+          </motion.div> */}
 
-          <motion.a
-            className="animate-text font-bold text-xl xl:text-2xl bg-gradient-to-r from-green to-secondary bg-clip-text text-transparent opacity-100 uppercase ml-6"
-            href="/"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            {'{ Nazrul }'}
-          </motion.a>
+          <div className="logo flex items-center justify-center gap-[5px]">
+            <motion.a
+              className="animate-text font-bold text-2xl xl:text-2xl bg-gradient-to-r from-green to-primary bg-clip-text text-transparent opacity-100 uppercase"
+              href="/"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <Image
+                src={logo}
+                alt="logo"
+                width={50}
+                height={50}
+                className="rounded-full border-1 border-1-background hover:bg-orange"
+              />
+            </motion.a>
+          </div>
         </div>
         <motion.button
-          className="menu-toggle text-background absolute right-10 z-50 text-xl"
+          className="menu-toggle text-darkBackground absolute right-10 z-50 text-xl"
           onClick={toggleMenu}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
