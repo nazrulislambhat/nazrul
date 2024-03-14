@@ -3,7 +3,12 @@ import { motion } from 'framer-motion';
 
 export default function Nav() {
   return (
-    <nav className="bg-darkBackground max-width flex justify-center items-center py-2 px-6 rounded-full">
+    <motion.nav
+      className="bg-darkBackground max-width flex justify-center items-center py-2 px-6 rounded-full"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <ul className="flex flex-col xl:flex-row uppercase text-xl text-center  text-background gap-8">
         <li>
           <Link
@@ -46,6 +51,6 @@ export default function Nav() {
           </Link>
         </li>
       </ul>
-    </nav>
+    </motion.nav>
   );
 }
