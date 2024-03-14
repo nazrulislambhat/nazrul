@@ -21,6 +21,7 @@ Welcome to my portfolio website, showcasing my skills and talents as a Full Stac
 This project is a personal portfolio website built using Next.js and React. It highlights my expertise, projects, and achievements as a Full Stack Engineer. The website is designed with a clean and modern UI using Tailwind CSS for styling, TypeScript for type safety, email integration for contact, and Framer Motion for smooth animations.
 
 ## Overview
+
 - [Main] - production ready
 - [Development] - will be merged to stage
 - [Stage] - will be merged to main
@@ -29,6 +30,7 @@ This project is a personal portfolio website built using Next.js and React. It h
 
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
+- [HeroIcons](https://heroicons.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - Email Integration (?)

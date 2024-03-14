@@ -1,13 +1,10 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default function Nav({ isOpen }) {
+export default function Nav() {
   return (
-    <motion.nav
+    <nav
       className={`bg-darkBackground fixed top-12 left-0 h-full w-full z-10 flex justify-center items-center`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isOpen ? 1 : 0 }}
-      transition={{ duration: 0.3 }}
     >
       <ul className="flex flex-col uppercase text-4xl text-center text-background">
         <li>
@@ -51,6 +48,6 @@ export default function Nav({ isOpen }) {
           </Link>
         </li>
       </ul>
-    </motion.nav>
+    </nav>
   );
 }
