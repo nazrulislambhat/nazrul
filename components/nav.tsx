@@ -1,19 +1,7 @@
-import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '../assets/logo.png';
 export default function NavCpt() {
   return (
     <nav className="">
-      <Link href="/">
-        <Image
-          className="bg-orange rounded-full cursor-pointer"
-          src={Logo}
-          alt="logo"
-          width={48}
-          height={48}
-        />
-      </Link>
       <ul className="flex">
         <li>
           <Link href="#" className="active hover:opacity-100 hover:text-orange">

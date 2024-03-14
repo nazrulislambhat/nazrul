@@ -1,9 +1,10 @@
 'use client';
-import Nav from '../components/nav';
-
+import Header from '@/components/header';
+import Nav from '@/components/nav';
 export default function Home() {
   return (
     <main>
+      <Header />
       <Nav />
     </main>
   );
