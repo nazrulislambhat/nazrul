@@ -14,7 +14,7 @@ export default function Header() {
   };
   return (
     <>
-      <div className="flex justify-between bg-darkBackground opacity-95 pl-6 py-4 xl:border-b-2 xl:border-background items-center ">
+      <div className="flex justify-between bg-darkBackground opacity-95 pl-6 relative py-6 xl:border-b-2 xl:border-background items-center ">
         <div className="header flex align-middle justify-start items-center">
           <motion.div
             className="icons-container flex items-center gap-2"
@@ -58,7 +58,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            {'< Nazrul />'}
+            {'{ Nazrul }'}
           </motion.a>
         </div>
         <motion.button

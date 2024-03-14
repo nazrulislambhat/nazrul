@@ -16,7 +16,7 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
-        text: 'text 4s ease infinite',
+        text: 'text 5s ease infinite',
       },
       colors: {
         primary: '#4C06E8',
