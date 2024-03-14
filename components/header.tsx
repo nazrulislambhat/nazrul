@@ -44,8 +44,11 @@ export default function Header() {
             )}
           </span>{' '}
         </div>
-        <Link href="/" className="text-background opacity-80 text-xs ml-6">
-          Nazrul Islam
+        <Link
+          href="/"
+          className="animate-text font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-100 uppercase ml-6"
+        >
+          {'< Nazrul />'}
         </Link>
       </div>
       <button

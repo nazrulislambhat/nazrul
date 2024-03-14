@@ -32,7 +32,7 @@ export default function Nav() {
         <li>
           <Link
             href="#projects"
-            className="hover:animate-text hover:bg-gradient-to-r hover:from-yellow  hover:to-cool hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
+            className="hover:animate-text hover:bg-gradient-to-r hover:from-yellow  hover:to-secondary hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
           >
             projects.
           </Link>
@@ -40,7 +40,7 @@ export default function Nav() {
         <li>
           <Link
             href="#contact"
-            className="hover:animate-text hover:bg-gradient-to-r hover:from-cool  hover:to-yellow hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
+            className="hover:animate-text hover:bg-gradient-to-r hover:from-secondary  hover:to-yellow hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
           >
             contact.
           </Link>
