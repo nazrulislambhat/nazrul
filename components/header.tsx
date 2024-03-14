@@ -2,11 +2,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaTimes, FaMinus, FaWindowRestore, FaBars } from 'react-icons/fa';
 import Nav from './nav';
-import { motion, AnimatePresence } from 'framer-motion';
-const menuItemVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0 },
-};
+import { motion } from 'framer-motion';
+
 export default function Header() {
   const [showIcon, setShowIcon] = useState(false);
   const [minimizeIcon, setMinimizeIcon] = useState(false);
@@ -16,7 +13,7 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="flex justify-between bg-darkBackground px-6 py-4 opacity-90 xl:border-b-2 xl:border-background">
+    <div className="flex  justify-between bg-darkBackground px-6 py-4 opacity-90 xl:border-b-2 xl:border-background">
       <div className="header flex align-middle justify-start items-center">
         <div className="icons-container flex items-center gap-2">
           <span
@@ -51,22 +48,20 @@ export default function Header() {
           Nazrul Islam
         </Link>
       </div>
-      <button className="menu-toggle text-background " onClick={toggleMenu}>
+      <button className="menu-toggle text-background absolute right-10 " onClick={toggleMenu}>
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={menuItemVariants}
-            className="menu-items"
-          >
-            <Nav isOpen={isOpen} toggleMenu={toggleMenu} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+      {isOpen && (
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          className="menu-items"
+        >
+          <Nav isOpen={isOpen} toggleMenu={toggleMenu} />
+        </motion.div>
+      )}
     </div>
   );
 }
