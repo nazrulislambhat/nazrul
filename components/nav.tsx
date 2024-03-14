@@ -1,53 +1,56 @@
-import React from 'react';
-import Image from 'next/image';
-import Logo from '../assets/logo.png';
 import Link from 'next/link';
-import { Button } from '@nextui-org/react';
-export default function NavCpt() {
-  return (
-    <nav className="rounded-full bg-white flex items-center justify-between px-4 py-2 sm:py-4 sm:px-4 my-2 mx-2 xl:mx-12">
-      <Link href="/">
-        <Image
-          className="bg-orange rounded-full cursor-pointer"
-          src={Logo}
-          alt="logo"
-          width={48}
-          height={48}
-        />
-      </Link>
+import { motion } from 'framer-motion';
 
-      <ul className="flex gap-4 xl:gap-10 font-bold items-end">
+export default function Nav({ isOpen }) {
+  return (
+    <motion.nav
+      className={`bg-darkBackground fixed top-12 left-0 h-full w-full z-10 flex justify-center items-center`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isOpen ? 1 : 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <ul className="flex flex-col uppercase text-4xl text-center text-background">
         <li>
-          <Link href="#" className="active hover:opacity-100 hover:text-orange">
+          <Link
+            href="#hero"
+            className="active hover:opacity-100 hover:text-secondary  hover:stroke-white-2"
+          >
             home.
           </Link>
         </li>
         <li>
           <Link
-            href="#"
-            className="opacity-50 hover:opacity-100 hover:text-orange"
-          >
-            works.
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="#"
-            className="opacity-50 hover:opacity-100 hover:text-orange"
-          >
-            contact.
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="#"
-            className="opacity-50 hover:opacity-100 hover:text-orange"
+            href="#about"
+            className="opacity-50 hover:opacity-100 hover:text-secondary"
           >
             about.
           </Link>
         </li>
+        <li>
+          <Link
+            href="#skills"
+            className="opacity-50 hover:opacity-100 hover:text-secondary"
+          >
+            skills.
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="#projects"
+            className="opacity-50 hover:opacity-100 hover:text-secondary"
+          >
+            projects.
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="#contact"
+            className="opacity-50 hover:opacity-100 hover:text-secondary"
+          >
+            contact.
+          </Link>
+        </li>
       </ul>
-      
-    </nav>
+    </motion.nav>
   );
 }

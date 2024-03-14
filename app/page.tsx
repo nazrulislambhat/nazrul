@@ -1,10 +1,9 @@
 'use client';
-import MainMenu from '../components/Menu';
-
+import Header from '@/components/header';
 export default function Home() {
   return (
     <main>
-      <MainMenu />
+      <Header />
     </main>
   );
 }
