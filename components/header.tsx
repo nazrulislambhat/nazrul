@@ -52,7 +52,7 @@ export default function Header() {
           </motion.div>
 
           <motion.a
-            className="animate-text font-bold bg-gradient-to-r from-green to-secondary bg-clip-text text-transparent opacity-100 uppercase ml-6"
+            className="animate-text font-bold text-xl xl:text-2xl bg-gradient-to-r from-green to-secondary bg-clip-text text-transparent opacity-100 uppercase ml-6"
             href="/"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
