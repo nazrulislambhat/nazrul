@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 export default function Nav() {
   return (
-    <nav className="bg-darkBackground opacity-95 fixed left-0 h-full w-full flex justify-center items-center">
-      <ul className="flex flex-col uppercase text-4xl text-center text-background gap-8">
+    <nav className="fixed left-0 h-full w-full flex justify-center items-center">
+      <ul className="flex flex-col uppercase text-4xl text-center text-darkBackground gap-8">
         <li>
           <Link
             href="#hero"

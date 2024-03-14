@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaTimes, FaMinus, FaWindowRestore, FaBars } from 'react-icons/fa';
 import Nav from './nav';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 
 export default function Header() {
   const [showIcon, setShowIcon] = useState(false);
@@ -14,9 +14,14 @@ export default function Header() {
   };
   return (
     <>
-      <div className="flex justify-between bg-darkBackground pl-6 py-4 xl:border-b-2 xl:border-background items-center">
+      <div className="flex justify-between bg-darkBackground opacity-95 pl-6 py-4 xl:border-b-2 xl:border-background items-center ">
         <div className="header flex align-middle justify-start items-center">
-          <div className="icons-container flex items-center gap-2">
+          <motion.div
+            className="icons-container flex items-center gap-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             <span
               className="icon cancel bg-orange rounded-full w-[15px] h-[15px] flex items-center justify-center"
               onMouseEnter={() => setShowIcon(true)}
@@ -44,20 +49,27 @@ export default function Header() {
                 <FaWindowRestore className="resize-icon text-darkBackground font-bold opacity-80 text-[8px]" />
               )}
             </span>{' '}
-          </div>
-          <Link
+          </motion.div>
+
+          <motion.a
+            className="animate-text font-bold bg-gradient-to-r from-green to-secondary bg-clip-text text-transparent opacity-100 uppercase ml-6"
             href="/"
-            className="animate-text font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-100 uppercase ml-6"
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ duration: 1 }} 
           >
             {'< Nazrul />'}
-          </Link>
+          </motion.a>
         </div>
-        <button
+        <motion.button
           className="menu-toggle text-background absolute right-10 z-50 text-xl"
           onClick={toggleMenu}
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ duration: 1 }} 
         >
           {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        </motion.button>
       </div>
       {isOpen && <Nav />}
     </>

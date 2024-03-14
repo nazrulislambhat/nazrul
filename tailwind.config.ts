@@ -21,10 +21,8 @@ const config: Config = {
       colors: {
         primary: '#4C06E8',
         secondary: '#17BEBB',
-        terinary: '#101935',
-        darkGrey: '#131313',
         background: '#f2f2f2',
-        darkBackground: '#011627',
+        darkBackground: '#091540',
         orange: '#E83A06',
         purple: '#5E239D',
         white: '#ffffff',
