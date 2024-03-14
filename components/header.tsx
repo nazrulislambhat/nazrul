@@ -48,20 +48,12 @@ export default function Header() {
           Nazrul Islam
         </Link>
       </div>
-      <button className="menu-toggle text-background absolute right-10 " onClick={toggleMenu}>
+      <button
+        className="menu-toggle text-background absolute right-10 "
+        onClick={toggleMenu}
+      >
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
-
-      {isOpen && (
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          className="menu-items"
-        >
-          <Nav isOpen={isOpen} toggleMenu={toggleMenu} />
-        </motion.div>
-      )}
     </div>
   );
 }
