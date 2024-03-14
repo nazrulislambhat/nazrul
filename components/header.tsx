@@ -13,7 +13,7 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="flex  justify-between bg-darkBackground px-6 py-4 opacity-90 xl:border-b-2 xl:border-background">
+    <div className="flex  justify-between bg-darkBackground px-6 py-4 opacity-95 xl:border-b-2 xl:border-background">
       <div className="header flex align-middle justify-start items-center">
         <div className="icons-container flex items-center gap-2">
           <span

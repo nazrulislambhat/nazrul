@@ -3,14 +3,12 @@ import { motion } from 'framer-motion';
 
 export default function Nav() {
   return (
-    <nav
-      className={`bg-darkBackground fixed top-12 left-0 h-full w-full z-10 flex justify-center items-center`}
-    >
-      <ul className="flex flex-col uppercase text-4xl text-center text-background">
+    <nav className="bg-darkBackground fixed top-12 left-0 h-full w-full z-10 flex justify-center items-center">
+      <ul className="flex flex-col uppercase text-4xl text-center text-background gap-8">
         <li>
           <Link
             href="#hero"
-            className="active hover:opacity-100 hover:text-secondary  hover:stroke-white-2"
+            className="hover:animate-text hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
           >
             home.
           </Link>
@@ -18,7 +16,7 @@ export default function Nav() {
         <li>
           <Link
             href="#about"
-            className="opacity-50 hover:opacity-100 hover:text-secondary"
+            className="hover:animate-text hover:bg-gradient-to-r hover:from-secondary  hover:to-primary hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
           >
             about.
           </Link>
@@ -26,7 +24,7 @@ export default function Nav() {
         <li>
           <Link
             href="#skills"
-            className="opacity-50 hover:opacity-100 hover:text-secondary"
+            className="hover:animate-text hover:bg-gradient-to-r hover:from-orange  hover:to-yellow hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
           >
             skills.
           </Link>
@@ -34,7 +32,7 @@ export default function Nav() {
         <li>
           <Link
             href="#projects"
-            className="opacity-50 hover:opacity-100 hover:text-secondary"
+            className="hover:animate-text hover:bg-gradient-to-r hover:from-yellow  hover:to-cool hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
           >
             projects.
           </Link>
@@ -42,7 +40,7 @@ export default function Nav() {
         <li>
           <Link
             href="#contact"
-            className="opacity-50 hover:opacity-100 hover:text-secondary"
+            className="hover:animate-text hover:bg-gradient-to-r hover:from-cool  hover:to-yellow hover:bg-clip-text hover:text-transparent opacity-50 hover:opacity-100"
           >
             contact.
           </Link>

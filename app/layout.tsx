@@ -5,7 +5,7 @@ import './globals.css';
 import { Providers } from './providers';
 
 const comfortaa = Comfortaa({ subsets: ['latin'] });
-
+const inter = Inter_Tight({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Nazrul Islam - Full Stack Engineer | Software Developer',
   description: 'Software Engineer',

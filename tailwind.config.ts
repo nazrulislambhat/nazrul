@@ -15,6 +15,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        text: 'text 4s ease infinite',
+      },
       colors: {
         primary: '#4C06E8',
         secondary: '#6DECAF',
@@ -28,6 +31,18 @@ const config: Config = {
         white: '#ffffff',
         yellow: '#FFC914',
         green: '#58BC82',
+      },
+      keyframes: {
+        text: {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center',
+          },
+        },
       },
     },
   },
