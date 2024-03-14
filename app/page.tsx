@@ -1,10 +1,10 @@
 'use client';
-import MainMenu from '../components/Menu';
+import Nav from '../components/nav';
 
 export default function Home() {
   return (
     <main>
-      <MainMenu />
+      <Nav />
     </main>
   );
 }
