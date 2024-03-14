@@ -14,84 +14,27 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
   return (
-    <>
-      <div className="flex justify-between bg-background opacity-95 pl-6 relative py-6 items-center ">
-        <div className="header flex align-middle justify-start items-center">
-          {/* <motion.div
-            className="icons-container flex items-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <span
-              className="icon cancel bg-orange rounded-full w-[15px] h-[15px] flex items-center justify-center"
-              onMouseEnter={() => setShowIcon(true)}
-              onMouseLeave={() => setShowIcon(false)}
-            >
-              {showIcon && (
-                <FaTimes className="show-icon text-darkBackground opacity-80 text-[8px]" />
-              )}
-            </span>
-            <span
-              className="icon minimize bg-yellow rounded-full w-[15px] h-[15px] flex items-center justify-center"
-              onMouseEnter={() => setMinimizeIcon(true)}
-              onMouseLeave={() => setMinimizeIcon(false)}
-            >
-              {minimizeIcon && (
-                <FaMinus className="minimize-icon text-darkBackground opacity-80 text-[8px]" />
-              )}
-            </span>
-            <span
-              className="icon minimize bg-green rounded-full w-[15px] h-[15px] flex items-center justify-center"
-              onMouseEnter={() => setResizeIcon(true)}
-              onMouseLeave={() => setResizeIcon(false)}
-            >
-              {resizeIcon && (
-                <FaWindowRestore className="resize-icon text-darkBackground font-bold opacity-80 text-[8px]" />
-              )}
-            </span>
-          </motion.div> */}
-
-          <div className="logo flex items-center justify-center gap-[5px]">
-            <motion.a
-              className="animate-text font-bold text-2xl xl:text-2xl bg-gradient-to-r from-green to-primary bg-clip-text text-transparent opacity-100 uppercase"
-              href="/"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
-              <Image
-                src={logo}
-                alt="logo"
-                width={50}
-                height={50}
-                className="rounded-full border-1 border-1-background hover:bg-orange"
-              />
-            </motion.a>
-          </div>
-        </div>
-        <motion.button
-          className="menu-toggle text-darkBackground absolute right-10 z-50 text-xl"
-          onClick={toggleMenu}
+    <div className="header flex justify-between bg-background opacity-95 px-12 mt-4 relative items-center ">
+      <div className="logo">
+        <motion.a
+          className="animate-text font-bold text-2xl xl:text-2xl bg-gradient-to-r from-green to-primary bg-clip-text text-transparent opacity-100 uppercase"
+          href="/"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </motion.button>
+          <Image
+            src={logo}
+            alt="logo"
+            width={50}
+            height={50}
+            className="rounded-full border-1 border-1-background hover:bg-darkBackground"
+          />
+        </motion.a>
       </div>
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Nav />
-          </motion.div>
-        )}
+        <Nav />
       </AnimatePresence>
-    </>
+    </div>
   );
 }
