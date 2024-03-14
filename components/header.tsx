@@ -2,6 +2,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaTimes, FaMinus, FaWindowRestore, FaBars } from 'react-icons/fa';
 import Nav from './nav';
+import { motion, AnimatePresence } from 'framer-motion';
+const menuItemVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0 },
+};
 export default function Header() {
   const [showIcon, setShowIcon] = useState(false);
   const [minimizeIcon, setMinimizeIcon] = useState(false);
@@ -49,6 +54,19 @@ export default function Header() {
       <button className="menu-toggle text-background " onClick={toggleMenu}>
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={menuItemVariants}
+            className="menu-items"
+          >
+            <Nav isOpen={isOpen} toggleMenu={toggleMenu} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
