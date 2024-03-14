@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaTimes, FaMinus, FaWindowRestore, FaBars } from 'react-icons/fa';
 import Nav from './nav';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [showIcon, setShowIcon] = useState(false);
@@ -48,15 +48,15 @@ export default function Header() {
               {resizeIcon && (
                 <FaWindowRestore className="resize-icon text-darkBackground font-bold opacity-80 text-[8px]" />
               )}
-            </span>{' '}
+            </span>
           </motion.div>
 
           <motion.a
             className="animate-text font-bold bg-gradient-to-r from-green to-secondary bg-clip-text text-transparent opacity-100 uppercase ml-6"
             href="/"
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ duration: 1 }} 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
           >
             {'< Nazrul />'}
           </motion.a>
@@ -64,14 +64,25 @@ export default function Header() {
         <motion.button
           className="menu-toggle text-background absolute right-10 z-50 text-xl"
           onClick={toggleMenu}
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ duration: 1 }} 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </motion.button>
       </div>
-      {isOpen && <Nav />}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Nav />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

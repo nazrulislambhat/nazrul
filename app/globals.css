@@ -7,11 +7,3 @@
   margin: 0 auto;
 }
 
-.flip-vertical {
-  transition: transform 0.3s ease;
-  color: red;
-}
-
-.flip-vertical:hover {
-  transform: scaleY(-1);
-}
