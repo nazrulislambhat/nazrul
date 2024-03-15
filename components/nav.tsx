@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,8 +12,6 @@ export default function Nav() {
   return (
     <div className="relative flex items-center">
       <div className={`xl:block flex ${isOpen ? 'block' : 'hidden'}`}>
-        {' '}
-        {/* Ensure menu is always visible on desktop */}
         <motion.nav
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
