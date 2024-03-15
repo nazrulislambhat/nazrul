@@ -20,7 +20,7 @@ export default function Header() {
             alt="logo"
             width={50}
             height={50}
-            className="rounded-full border-1 border-1-background hover:bg-secondary"
+            className="rounded-full border-1 border-1-background hover:bg-gradient-to-r hover:from-secondary hover:to-green hover:animate-text"
           />
         </motion.a>
       </div>
@@ -32,7 +32,7 @@ export default function Header() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         rel="noopener noreferrer"
-        className="hover:animate-text hover:bg-gradient-to-r hover:from-secondary hover:to-yellow hover:bg-clip-text hover:text-transparent opacity-100 text-xs font-semibold text-background border-b-transparent link pb-0.5 hover:scale-95 xl:block hidden"
+        className="hover:animate-text hover:bg-gradient-to-r hover:from-secondary hover:to-green hover:bg-clip-text hover:text-transparent opacity-100 text-xs font-semibold text-background border-b-transparent link pb-0.5 hover:scale-95 xl:flex xl:items-center hidden"
       >
         meeting
         <FaExternalLinkAlt className="ml-1 text-background border-b-transparent text-[10px] link pb-0.5 flex items-center" />
