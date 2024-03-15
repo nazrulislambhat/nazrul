@@ -70,7 +70,7 @@ export default function Nav() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         onClick={toggleMenu}
-        className="focus:outline-none xl:hidden absolute bg-secondary text-richBlue rounded-md p-2 right-0"
+        className="focus:outline-none xl:hidden absolute bg-gradient-to-r from-secondary to-green text-richBlue rounded-md p-2 right-0 animate-text"
       >
         {isOpen ? (
           <FaTimes className="text-xl" />
