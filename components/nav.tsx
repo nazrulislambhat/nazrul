@@ -18,8 +18,8 @@ export default function Nav() {
           transition={{ duration: 1 }}
           className="flex justify-center items-center py-2 px-6 bg-richBlack fixed w-screen h-screen xl:relative xl:bg-transparent xl:h-auto xl:w-auto left-0 top-0 xl:top-auto xl:left-auto "
         >
-          <ul className="flex flex-col xl:flex-row text-4xl xl:text-base text-center text-background gap-8">
-            <li>
+          <ul className="flex flex-col xl:flex-row text-4xl xl:text-base text-center text-background gap-8 xl:gap-20">
+            <li className="relative hover-effect">
               <Link
                 href="#hero"
                 className="hover:animate-text  hover:bg-gradient-to-r hover:from-secondary hover:to-green hover:bg-clip-text hover:text-transparent opacity-100 font-bold pb-1 link"
