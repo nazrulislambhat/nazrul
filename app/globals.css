@@ -28,5 +28,5 @@
 .link:hover::before {
   transform-origin: left;
   transform: scaleX(1);
-  background: linear-gradient(to right, #00d2ff, #cde77f);
+  background: linear-gradient(to right, #4831d3, #ccf380);
 }

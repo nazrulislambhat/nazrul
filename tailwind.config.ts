@@ -19,16 +19,11 @@ const config: Config = {
         text: 'text 5s ease infinite',
       },
       colors: {
-        primary: '#4C06E8',
-        secondary: '#17BEBB',
-        background: '#f2f2f2',
-        richBlue: '#091540',
-        richBlack: '#001A23',
-        orange: '#E83A06',
-        purple: '#5E239D',
-        white: '#ffffff',
-        yellow: '#FFC914',
-        green: '#CDE77F',
+        primary: '#4831D3',
+        secondary: '#CCF380',
+        third: '#3D155F',
+        whiteBackground: '#F9F9F9',
+        background: '#F5F4FC',
       },
       keyframes: {
         text: {
