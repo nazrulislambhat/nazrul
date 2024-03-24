@@ -6,6 +6,27 @@
   max-width: 1920px;
   margin: 0 auto;
 }
-.padding {
-  padding: 0 4rem;
+.link {
+  position: relative;
+  text-decoration: none;
+}
+
+.link::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.link:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+  background: linear-gradient(to right, #ccf380, #ccf380);
 }

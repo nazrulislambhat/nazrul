@@ -15,19 +15,27 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        text: 'text 5s ease infinite',
+      },
       colors: {
-        primary: '#4C06E8',
-        secondary: '#6DECAF',
-        terinary: '#101935',
-        darkGrey: '#131313',
-        background: '#f2f2f2',
-        darkBackground: '#011627',
-        cool: '#17BEBB',
-        orange: '#E83A06',
-        purple: '#5E239D',
-        white: '#ffffff',
-        yellow: '#FFC914',
-        green: '#58BC82',
+        primary: '#4831D3',
+        secondary: '#CCF380',
+        third: '#3D155F',
+        whiteBackground: '#F9F9F9',
+        background: '#F5F4FC',
+      },
+      keyframes: {
+        text: {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center',
+          },
+        },
       },
     },
   },

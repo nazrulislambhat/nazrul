@@ -1,59 +1,42 @@
 import Link from 'next/link';
-import { useState } from 'react';
-import { FaTimes, FaMinus, FaWindowRestore, FaBars } from 'react-icons/fa';
-import Nav from './nav';
-import { motion } from 'framer-motion';
 
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import Nav from './nav';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import logo from '../assets/logo.png';
 export default function Header() {
-  const [showIcon, setShowIcon] = useState(false);
-  const [minimizeIcon, setMinimizeIcon] = useState(false);
-  const [resizeIcon, setResizeIcon] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
   return (
-    <div className="flex  justify-between bg-darkBackground px-6 py-4 opacity-90 xl:border-b-2 xl:border-background">
-      <div className="header flex align-middle justify-start items-center">
-        <div className="icons-container flex items-center gap-2">
-          <span
-            className="icon cancel bg-orange rounded-full w-[15px] h-[15px] flex items-center justify-center"
-            onMouseEnter={() => setShowIcon(true)}
-            onMouseLeave={() => setShowIcon(false)}
-          >
-            {showIcon && (
-              <FaTimes className="show-icon text-darkBackground opacity-80 text-[8px]" />
-            )}
-          </span>
-          <span
-            className="icon minimize bg-yellow rounded-full w-[15px] h-[15px] flex items-center justify-center"
-            onMouseEnter={() => setMinimizeIcon(true)}
-            onMouseLeave={() => setMinimizeIcon(false)}
-          >
-            {minimizeIcon && (
-              <FaMinus className="minimize-icon text-darkBackground opacity-80 text-[8px]" />
-            )}
-          </span>
-          <span
-            className="icon minimize bg-green rounded-full w-[15px] h-[15px] flex items-center justify-center"
-            onMouseEnter={() => setResizeIcon(true)}
-            onMouseLeave={() => setResizeIcon(false)}
-          >
-            {resizeIcon && (
-              <FaWindowRestore className="resize-icon text-darkBackground font-bold opacity-80 text-[8px]" />
-            )}
-          </span>{' '}
-        </div>
-        <Link href="/" className="text-background opacity-80 text-xs ml-6">
-          Nazrul Islam
-        </Link>
+    <div className="header flex justify-between  opacity-95  px-6 xl:px-12 my-4 relative items-center ">
+      <div className="logo">
+        <motion.a
+          href="/"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <Image
+            src={logo}
+            alt="logo"
+            width={50}
+            height={50}
+            className="rounded-full border-1 border-1-background hover:bg-secondary "
+          />
+        </motion.a>
       </div>
-      <button
-        className="menu-toggle text-background absolute right-10 "
-        onClick={toggleMenu}
+      <Nav />
+      <motion.a
+        href="https://cal.com/nazrul"
+        target="_blank"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        rel="noopener noreferrer"
+        className="hover:animate-text  hover:text-secondary text-xs font-semibold text-background border-b-transparent link pb-0.5 hover:scale-95 xl:flex xl:items-center hidden"
       >
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </button>
+        meeting
+        <FaExternalLinkAlt className="ml-1 text-background border-b-transparent text-[10px] link pb-0.5 flex items-center" />
+      </motion.a>
     </div>
   );
 }
