@@ -44,51 +44,51 @@ export default function Resume() {
               <span className="absolute inset-x-0  bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
             </div>
             <ul className="text-xs font-semibold text-black opacity-80 flex flex-col gap-[4px]">
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 JavaScript
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 React JS
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 CSS/SaSS
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 LessCSS
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 TailwindCSS
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 Bootstrap
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 Styled Components
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 TypeScript
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 Next JS
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 NextUI
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 GraphQL
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                 MUI
               </li>
@@ -102,47 +102,47 @@ export default function Resume() {
               <span className="absolute inset-x-0  bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
             </div>
             <ul className="text-xs font-semibold text-black opacity-80 flex flex-col gap-[4px]">
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Vite
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Redux
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Git
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Vercel
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Docker
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Heroku
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Webpack
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Gulp
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Babel
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 Drupal
               </li>
-              <li className="flex items-center gap-1">
+              <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                 WordPress
               </li>
@@ -187,7 +187,7 @@ export default function Resume() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                @OneSeven<sup>17</sup>
+                OneSeven Technologies
               </a>
             </p>
             <p className="text-black opacity-90 text-base pb-8 leading-8">
@@ -225,32 +225,32 @@ export default function Resume() {
               </div>
               <div className="millboard">
                 <div className="relative mb-2 mt-6 font-bold inline-block">
-                  <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
+                  <p className="text-third font-bold flex z-10 text-base w-fit relative">
                     Millboard
                   </p>
                   <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
                 </div>
                 <ul className="flex flex-col gap-1 opacity-90">
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Elevated codebase as Frontend Engineer by making significant
                     contributions.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Specialized in creating responsive components and resolving
                     bugs.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Integrated JavaScript, GIT, SASS, and React JS technologies.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Collaborated closely with the team to deliver high-quality
                     solutions.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Reviewed and merged pull requests, mentored team members.
                   </li>
@@ -258,33 +258,33 @@ export default function Resume() {
               </div>
               <div className="cast-bbb-veolia">
                 <div className="relative mb-2 mt-6 font-bold inline-block">
-                  <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
+                  <p className="text-third font-bold z-10 text-base w-fit relative">
                     CAST, British Business Bank, Veolia
                   </p>
                   <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
                 </div>
                 <ul className="flex flex-col gap-1 opacity-90">
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Crafted responsive components and resolved bugs as Frontend
                     Engineer.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Implemented HTML, CSS, JavaScript, GIT, SASS, and React JS
                     technologies.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Fostered collaboration within the team for delivering
                     user-friendly solutions.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Collaborated closely with the team to deliver high-quality
                     solutions.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Contributed to enhancement and maintenance of frontend
                     codebase.
@@ -293,28 +293,28 @@ export default function Resume() {
               </div>
               <div className="NMDB">
                 <div className="relative mb-2 mt-6 font-bold inline-block">
-                  <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
+                  <p className="text-third font-bold z-10 text-base w-fit relative">
                     NMDB
                   </p>
                   <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
                 </div>
                 <ul className="flex flex-col gap-1 opacity-90">
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Utilized Next.js and Tailwind CSS for a movie database
                     project.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Created a sleek and responsive user interface with Next.js'
                     server-side rendering.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Integrated The Movie Database (TMDb) API for fetching movie
                     data.
                   </li>
-                  <li className="text-xs font-semibold flex items-center gap-1">
+                  <li className="text-xs font-semibold flex items-center gap-2">
                     <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     Designed intuitive user experience using Tailwind CSS.
                   </li>
@@ -346,57 +346,45 @@ export default function Resume() {
                   <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
                 </div>
                 <ul className="flex flex-col gap-1 opacity-90">
-                  <li className="text-xs font-semibold leading-5 opacity-90">
+                  <li className="text-xs font-semibold leading-5 opacity-90 flex items-center gap-2">
+                    <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
                     While pursuing my master's degree, I gained valuable
                     experience working as a developer and partner with esteemed
                     companies such as BaylinMedia USA, Phandroid USA, and IIT
                     Roorkee, among others, both nationally and internationally.
-                    Presently, I am actively managing ongoing freelance
-                    projects, overseeing various client requirements and tasks.
-                    This hands-on involvement has equipped me with comprehensive
+                    Presently.
+                  </li>
+                  <li className="text-xs font-semibold leading-5 opacity-90 flex items-center gap-2">
+                    <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+                    I am actively managing ongoing freelance projects,
+                    overseeing various client requirements and tasks. This
+                    hands-on involvement has equipped me with comprehensive
                     skills in managing both the backend and frontend aspects of
                     websites, with notable projects including fossnoobs.com,
                     ifedtrust.com, mehandibysana.com, thekunafah.com, and more.
-                    Furthermore, my journey led me to establish OneSeven
-                    Technologies, a pioneering agency renowned for its expertise
-                    in digital integration and innovation. At OneSeven, we
-                    specialize in creating digital synergy by seamlessly
-                    integrating technologies. Our proficiency spans across
-                    React, JavaScript, Next.js, Drupal, and WordPress, enabling
-                    us to deliver exceptional solutions tailored to our clients'
-                    needs. During my tenure at OneSeven Technologies, I took
-                    charge of launching and overseeing various blogs, websites,
-                    and projects, most notably FossNoobs Media and HackingSaga
+                  </li>
+                  <li className="text-xs font-semibold leading-5 opacity-90 flex items-center gap-2">
+                    <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+                    My journey led me to establish OneSeven Technologies, a
+                    pioneering agency renowned for its expertise in digital
+                    integration and innovation. At OneSeven, we specialize in
+                    creating digital synergy by seamlessly integrating
+                    technologies. Our proficiency spans across React,
+                    JavaScript, Next.js, Drupal, and WordPress, enabling us to
+                    deliver exceptional solutions tailored to our clients'
+                    needs.
+                  </li>
+                  <li className="text-xs font-semibold leading-5 opacity-90 flex items-center gap-2">
+                    <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+                    During my tenure at OneSeven Technologies, I took charge of
+                    launching and overseeing various blogs, websites, and
+                    projects, most notably FossNoobs Media and HackingSaga
                     Media. Through effective leadership, I cultivated successful
                     partnerships with esteemed brands such as ExpressVPN,
                     NordVPN, IIT Roorkee, AtlasVPS, Surfshark, and others.
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-          <div className="projects">
-            <span>Projects</span>
-            <div className="project1">
-              <h3>Project Name</h3>
-              <p>description</p>
-              <ul>
-                <li>what i did</li>
-              </ul>
-            </div>
-            <div className="project2">
-              <h3>Project Name</h3>
-              <p>description</p>
-              <ul>
-                <li>what i did</li>
-              </ul>
-            </div>
-            <div className="project3">
-              <h3>Project Name</h3>
-              <p>description</p>
-              <ul>
-                <li>what i did</li>
-              </ul>
             </div>
           </div>
         </div>
