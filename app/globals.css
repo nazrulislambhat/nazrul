@@ -10,6 +10,7 @@
   position: relative;
   text-decoration: none;
 }
+
 .link::before {
   content: '';
   position: absolute;

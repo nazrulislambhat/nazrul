@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaFileDownload, FaLinkedin } from 'react-icons/fa';
 import { MdOutlineWebAsset, MdMailOutline, MdLocationOn } from 'react-icons/md';
-
+import { Inter_Tight } from 'next/font/google';
+const inter = Inter_Tight({ subsets: ['latin'] });
 export default function Resume() {
   return (
     <div className="boxed bg-background border-1 border-third m-8 overflow-x-hidden">
@@ -42,7 +43,7 @@ export default function Resume() {
               </p>
               <span className="absolute inset-x-0  bottom-1 h-2 w-full bg-secondary z-0"></span>
             </div>
-            <ul className="text-xs font-semibold text-black flex flex-col gap-[4px]">
+            <ul className="text-xs font-semibold text-black opacity-80 flex flex-col gap-[4px]">
               <li className="flex items-center gap-1">
                 <span className="w-[5px] h-[5px] inline-block bg-third rotate-45"></span>
                 JavaScript
@@ -53,7 +54,7 @@ export default function Resume() {
               </li>
               <li className="flex items-center gap-1">
                 <span className="w-[5px] h-[5px] inline-block bg-third rotate-45"></span>
-                SaSS
+                CSS/SaSS
               </li>
               <li className="flex items-center gap-1">
                 <span className="w-[5px] h-[5px] inline-block bg-third rotate-45"></span>
@@ -100,7 +101,7 @@ export default function Resume() {
               </p>
               <span className="absolute inset-x-0  bottom-1 h-2 w-full bg-secondary z-0"></span>
             </div>
-            <ul className="text-xs font-semibold text-black flex flex-col gap-[4px]">
+            <ul className="text-xs font-semibold text-black opacity-80 flex flex-col gap-[4px]">
               <li className="flex items-center gap-1">
                 <span className="w-[5px] h-[5px] inline-block bg-primary rotate-45"></span>
                 Vite
@@ -150,15 +151,39 @@ export default function Resume() {
         </div>
         <div className="about relative  pl-12 py-24 w-screen overflow-hidden">
           <div className="download absolute top-6 right-28 flex gap-2 items-center ">
-            <button>
-              <FaFileDownload className="text-primary text-2xl" />
-            </button>
-            <FaLinkedin className="text-[#0077B5] text-2xl" />
+            <a
+              href="https://drive.google.com/file/d/15-5JnG6SAuE--pMtUHeR5TQrsQSxIClF/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFileDownload className="text-primary hover:text-third text-2xl" />
+            </a>
+            <a
+              href="https://linkedin.com/in/nazrulislambhat"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="text-[#0077B5] text-2xl" />
+            </a>
           </div>
-          <div className="about__intro">
-            <h1>Nazrul</h1>
-            <p>title</p>
-            <p>description</p>
+          <div className="about__intro border-b-4 max-w-[1280px]">
+            <h1
+              className={`${inter.className} text-primary font-semibold text-8xl pb-4 tracking-wide`}
+            >
+              Nazrul Islam
+            </h1>
+            <p className="text-2xl text-black font-semibold tracking-wide pb-12">
+              Software Engineer | Frontend Engineer
+            </p>
+            <p className="text-black opacity-80 text-base pb-8 leading-8">
+              Experienced Software Engineer with 4+ years of experience in
+              front-end technologies, particularly within the JS(ES6+) ecosystem
+              encompassing React.JS and Next.JS, I am committed to harnessing
+              technology for complex problem-solving. My track record showcases
+              a consistent ability to exceed expectations and deliver
+              exceptional outcomes. I have a proven ability to quickly grasp and
+              master new technologies, ensuring I stay ahead of the curve.
+            </p>
           </div>
           <div className="experience">
             <span>Experience</span>
