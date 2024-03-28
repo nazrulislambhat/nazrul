@@ -18,6 +18,7 @@
   display: block;
   height: 2px;
   border-radius: 2px;
+  background-color: #fc5130;
   bottom: 0;
   left: 0;
   transform-origin: right;
@@ -29,4 +30,29 @@
   transform-origin: left;
   transform: scaleX(1);
   background: linear-gradient(to right, #ccf380, #ccf380);
+}
+.link-primary {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-primary::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  display: block;
+  height: 2px;
+  background-color: #fc5130;
+  border-radius: 2px;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.link-primary:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+  background: linear-gradient(to right, #4831d3, #4831d3);
 }

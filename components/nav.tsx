@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+
 import {
   FaXing,
   FaGitter,
@@ -59,6 +60,14 @@ export default function Nav() {
             </li>
             <li>
               <Link
+                href="/resume"
+                className="hover:animate-text text-background hover:text-secondary hover:opacity-100 pb-1 font-bold  link opacity-80"
+              >
+                resume
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="#contact"
                 className="hover:animate-text text-background hover:text-secondary hover:opacity-100 font-bold pb-1 link opacity-80 "
               >
@@ -73,7 +82,7 @@ export default function Nav() {
           transition={{ duration: 1 }}
           className="flex say-salaam flex-col py-6 bg-primary relative xl:h-auto xl:w-96 px-8"
         >
-          <span className="text-background uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-40 tracking-[2rem]">
+          <span className="text-background uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-40 tracking-[2rem] hover:opacity-80">
             Say Salaam
           </span>
           <ul className="flex flex-col text-4xl xl:text-base gap-1 xl:gap-2">
