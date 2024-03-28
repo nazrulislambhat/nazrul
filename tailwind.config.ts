@@ -22,9 +22,11 @@ const config: Config = {
         primary: '#4831D3',
         secondary: '#CCF380',
         third: '#3D155F',
+        red: '#FC5130',
         whiteBackground: '#F9F9F9',
         background: '#F5F4FC',
       },
+
       keyframes: {
         text: {
           '0%, 100%': {
@@ -41,5 +43,6 @@ const config: Config = {
   },
   darkMode: 'class',
   plugins: [nextui()],
+  important: true,
 };
 export default config;
