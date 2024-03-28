@@ -22,7 +22,7 @@ export default function Nav() {
   return (
     <div className="relative flex items-center">
       <div
-        className={`flex flex-col h-[100%] xl:h-auto fixed justify-between left-0 top-0 xl:right-16 xl:top-16 xl:left-auto ${
+        className={`flex flex-col h-[100%] xl:h-auto fixed justify-between left-0 top-0 xl:right-16 xl:top-12 xl:left-auto ${
           isOpen ? 'block' : 'hidden'
         }`}
       >
@@ -30,7 +30,7 @@ export default function Nav() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex menu px-8 items-center pt-32 xl:pt-16 pb-6 z-0 bg-primary h-[100%] xl:h-auto xl:w-96"
+          className="flex menu px-8 xl:rounded-t-md items-center pt-32 xl:pt-12 pb-6 z-0 bg-primary h-[100%] xl:h-auto xl:w-96"
         >
           <ul className="flex flex-col xl:flex-col text-base xl:text-base gap-8">
             <li>
@@ -106,7 +106,7 @@ export default function Nav() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex social py-6 bg-primary relative xl:h-auto xl:w-96 px-8"
+          className="flex social pt-6 pb-12 bg-primary relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md"
         >
           <ul className="flex justify-between w-[100%]">
             <li>

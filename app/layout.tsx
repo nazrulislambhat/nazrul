@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="max-width">
+    <html lang="en" className="boxed bg-whiteBackground">
       <meta name="theme-color" content="#4831D3" />
       <body className={`${comfortaa.className}`}>
         <Providers>{children}</Providers>
