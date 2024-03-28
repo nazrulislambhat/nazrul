@@ -6,9 +6,9 @@ import { Inter_Tight } from 'next/font/google';
 const inter = Inter_Tight({ subsets: ['latin'] });
 export default function Resume() {
   return (
-    <div className="boxed bg-background border-1 border-third m-8 overflow-x-hidden">
+    <div className="boxed bg-background m-8 overflow-x-hidden ">
       <div className="inner flex w-screen justify-start">
-        <div className="skills pl-12 border-r-4 border-primary xl:py-24 xl:w-96">
+        <div className="skills pl-12 border-r-4 border-whiteBackground xl:py-24 xl:w-96">
           <div className="contact pb-12 flex flex-col gap-2">
             <div className="relative inline-block">
               <a
@@ -166,14 +166,22 @@ export default function Resume() {
               <FaLinkedin className="text-[#0077B5] text-2xl" />
             </a>
           </div>
-          <div className="about__intro border-b-4 max-w-[1280px]">
+          <div className="about__intro border-b-4 border-whiteBackground  max-w-[1280px]">
             <h1
               className={`${inter.className} text-primary font-semibold text-8xl pb-4 tracking-wide`}
             >
               Nazrul Islam
             </h1>
-            <p className="text-2xl text-black font-semibold tracking-wide pb-12">
-              Software Engineer | Frontend Engineer
+            <p className="text-2xl text-black font-semibold tracking-wide pb-12 flex items-center gap-2">
+              Frontend Software Engineer | Founder
+              <a
+                href="https://oneseven.dev"
+                className="text-xs link-primary text-primary py-1 font-bold"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @OneSeven<sup>17</sup>
+              </a>
             </p>
             <p className="text-black opacity-80 text-base pb-8 leading-8">
               Experienced Software Engineer with 4+ years of experience in
