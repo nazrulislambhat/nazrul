@@ -25,6 +25,7 @@ const config: Config = {
         red: '#FC5130',
         whiteBackground: '#F9F9F9',
         background: '#F5F4FC',
+        resume: '#D6EADF',
       },
 
       keyframes: {
