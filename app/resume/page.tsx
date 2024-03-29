@@ -8,7 +8,7 @@ import Projects from '../../components/projects';
 const inter = Inter_Tight({ subsets: ['latin'] });
 export default function Resume() {
   return (
-    <div className="boxed bg-background m-4 xl:m-8 overflow-x-hidden ">
+    <div className="boxed bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden ">
       <div className=" flex flex-col xl:flex-row w-screen justify-start">
         <div className="skills pl-8 xl:pl-12 border-r-4 border-whiteBackground xl:py-24 xl:w-96">
           <div className="contact pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-2">
