@@ -183,7 +183,7 @@ export default function Resume() {
             >
               Nazrul Islam
             </h1>
-            <p className="text-base xl:text-2xl text-black font-semibold tracking-wide pb-8 xl:pb-12 flex flex-col xl:flex-row xl:items-center gap-2">
+            <p className="text-xs xl:text-2xl text-black font-semibold tracking-wide pb-8 xl:pb-12 flex flex-col xl:flex-row xl:items-center gap-2">
               Frontend Software Engineer | Founder
               <a
                 href="https://oneseven.dev"
