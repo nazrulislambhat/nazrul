@@ -8,18 +8,18 @@ export default function Experience() {
         <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
       </div>
       <div className="axelerant max-w-[1280px]  ">
-        <div className="flex items-center justify-between">
-          <div className="flex w-full items-center justify-start gap-2">
-            <h3 className="company text-primary text-base font-bold">
+        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between">
+          <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
+            <h3 className="company text-primary text-base font-bold whitespace-nowrap">
               Axelerant Technologies
             </h3>
-            |
+            <span className="hidden xl:block">|</span>
             <h4 className="role font-semibold text-black text-xs">
               Software / Frontend Engineer (L3)
             </h4>
-            <span className="h-[2px] rounded-full bg-black flex-grow"></span>
+            <span className="h-[2px] xl:block hidden rounded-full bg-black flex-grow"></span>
           </div>
-          <p className="duration text-xs ml-2 text-black font-semibold whitespace-nowrap">
+          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-black font-semibold whitespace-nowrap">
             Nov 2021 - Present
           </p>
         </div>
@@ -118,24 +118,24 @@ export default function Experience() {
         </div>
       </div>
       <div className="oneseven max-w-[1280px]  ">
-        <div className="flex items-center justify-between mt-6">
-          <div className="flex w-full items-center justify-start gap-2 ">
-            <h3 className="company text-primary text-base font-bold">
+        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-auto">
+          <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
+            <h3 className="company text-primary text-base font-bold whitespace-nowrap">
               OneSeven Technologies
             </h3>
-            |
+            <span className="hidden xl:block">|</span>
             <h4 className="role font-semibold text-black text-xs">
-              Founder & CEO
+              Founder
             </h4>
-            <span className="h-[2px] rounded-full bg-black flex-grow"></span>
+            <span className="h-[2px] xl:block hidden rounded-full bg-black flex-grow"></span>
           </div>
-          <p className="duration text-xs ml-2 text-black font-semibold whitespace-nowrap">
-            Nov 2019 - Present
+          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-black font-semibold whitespace-nowrap">
+            March 2019 - Present
           </p>
         </div>
 
         <div className="oneseven">
-          <div className="relative mb-2 mt-2 font-bold inline-block">
+          <div className="relative mb-2 mt-6 font-bold inline-block">
             <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
               what i did:
             </p>

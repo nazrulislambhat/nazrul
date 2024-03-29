@@ -179,7 +179,7 @@ export default function Resume() {
           </div>
           <div className="about__intro border-b-4 border-whiteBackground max-w-[1280px] ">
             <h1
-              className={`${inter.className} text-primary font-semibold text-6xl xl:text-8xl pb-4 tracking-wide`}
+              className={`${inter.className} text-primary font-semibold text-5xl xl:text-8xl pb-4 tracking-wide`}
             >
               Nazrul Islam
             </h1>
@@ -194,7 +194,7 @@ export default function Resume() {
                 OneSeven Technologies
               </a>
             </p>
-            <p className="text-black opacity-90 text-base pb-8 leading-8 xl:w-auto">
+            <p className="text-black opacity-90 text-base pb-8 leading-7 xl:leading-8 xl:w-auto">
               Experienced Software Engineer with 4+ years of experience in
               front-end technologies, particularly within the JS(ES6+) ecosystem
               encompassing React.JS and Next.JS, I am committed to harnessing
