@@ -153,8 +153,8 @@ export default function Resume() {
             </div>
           </div>
         </div>
-        <div className="about relative  pl-8  xl:pr-28 xl:py-24 max-w-[85%]  xl:w-screen overflow-hidden">
-          <div className="download py-12 xl:absolute xl:top-6 xl:right-28 flex gap-2 items-center ">
+        <div className="about relative pl-8 xl:pr-28 xl:py-24 max-w-[85%]  xl:w-screen overflow-hidden">
+          <div className="download py-8 xl:py-12 xl:absolute xl:top-6 xl:right-28 flex gap-2 items-center ">
             <a
               href="https://drive.google.com/file/d/15-5JnG6SAuE--pMtUHeR5TQrsQSxIClF/view?usp=sharing"
               target="_blank"
@@ -177,7 +177,7 @@ export default function Resume() {
               <FaGithub className="text-third hover:text-primary text-2xl" />
             </a>
           </div>
-          <div className="about__intro border-b-4 border-whiteBackground max-w-[1280px] ">
+          <div className="about-intro border-b-4 border-whiteBackground max-w-[1280px] ">
             <h1
               className={`${inter.className} text-primary font-semibold text-5xl xl:text-8xl pb-4 tracking-wide`}
             >

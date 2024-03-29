@@ -7,7 +7,7 @@ export default function Experience() {
         </p>
         <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
       </div>
-      <div className="axelerant max-w-[1280px]  ">
+      <div className="axelerant max-w-[1280px]">
         <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between">
           <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
             <h3 className="company text-primary text-base font-bold whitespace-nowrap">
@@ -118,15 +118,13 @@ export default function Experience() {
         </div>
       </div>
       <div className="oneseven max-w-[1280px]  ">
-        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-auto">
+        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-8">
           <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
             <h3 className="company text-primary text-base font-bold whitespace-nowrap">
               OneSeven Technologies
             </h3>
             <span className="hidden xl:block">|</span>
-            <h4 className="role font-semibold text-black text-xs">
-              Founder
-            </h4>
+            <h4 className="role font-semibold text-black text-xs">Founder</h4>
             <span className="h-[2px] xl:block hidden rounded-full bg-black flex-grow"></span>
           </div>
           <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-black font-semibold whitespace-nowrap">
@@ -142,40 +140,48 @@ export default function Experience() {
             <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
           </div>
           <ul className="flex flex-col gap-1 opacity-80">
-            <li className="text-xs font-semibold opacity-80 flex items-center gap-2">
+            <li className="flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              While pursuing my master's degree, I gained valuable experience
-              working as a developer and partner with esteemed companies such as
-              BaylinMedia USA, Phandroid USA, and IIT Roorkee, among others,
-              both nationally and internationally. Presently.
+              <p className="text-xs font-semibold opacity-80 ">
+                While pursuing my master's degree, I gained valuable experience
+                working as a developer and partner with esteemed companies such
+                as BaylinMedia USA, Phandroid USA, and IIT Roorkee, among
+                others, both nationally and internationally. Presently.
+              </p>
             </li>
-            <li className="text-xs font-semibold opacity-80 flex items-center gap-2">
+            <li className="flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              I am actively managing ongoing freelance projects, overseeing
-              various client requirements and tasks. This hands-on involvement
-              has equipped me with comprehensive skills in managing both the
-              backend and frontend aspects of websites, with notable projects
-              including fossnoobs.com, ifedtrust.com, mehandibysana.com,
-              thekunafah.com, and more.
+              <p className="text-xs font-semibold opacity-80 ">
+                I am actively managing ongoing freelance projects, overseeing
+                various client requirements and tasks. This hands-on involvement
+                has equipped me with comprehensive skills in managing both the
+                backend and frontend aspects of websites, with notable projects
+                including fossnoobs.com, ifedtrust.com, mehandibysana.com,
+                thekunafah.com, and more.
+              </p>
             </li>
-            <li className="text-xs font-semibold opacity-80 flex items-center gap-2">
+            <li className="flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              My journey led me to establish OneSeven Technologies, a pioneering
-              agency renowned for its expertise in digital integration and
-              innovation. At OneSeven, we specialize in creating digital synergy
-              by seamlessly integrating technologies. Our proficiency spans
-              across React, JavaScript, Next.js, Drupal, and WordPress, enabling
-              us to deliver exceptional solutions tailored to our clients'
-              needs.
+              <p className="text-xs font-semibold opacity-80">
+                My journey led me to establish OneSeven Technologies, a
+                pioneering agency renowned for its expertise in digital
+                integration and innovation. At OneSeven, we specialize in
+                creating digital synergy by seamlessly integrating technologies.
+                Our proficiency spans across React, JavaScript, Next.js, Drupal,
+                and WordPress, enabling us to deliver exceptional solutions
+                tailored to our clients' needs.
+              </p>
             </li>
-            <li className="text-xs font-semibold opacity-80 flex items-center gap-2">
+            <li className="flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              During my tenure at OneSeven Technologies, I took charge of
-              launching and overseeing various blogs, websites, and projects,
-              most notably FossNoobs Media and HackingSaga Media. Through
-              effective leadership, I cultivated successful partnerships with
-              esteemed brands such as ExpressVPN, NordVPN, IIT Roorkee,
-              AtlasVPS, Surfshark, and others.
+              <p className="text-xs font-semibold opacity-80">
+                During my tenure at OneSeven Technologies, I took charge of
+                launching and overseeing various blogs, websites, and projects,
+                most notably FossNoobs Media and HackingSaga Media. Through
+                effective leadership, I cultivated successful partnerships with
+                esteemed brands such as ExpressVPN, NordVPN, IIT Roorkee,
+                AtlasVPS, Surfshark, and others.
+              </p>
             </li>
           </ul>
         </div>
