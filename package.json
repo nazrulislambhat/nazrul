@@ -17,6 +17,7 @@
     "@mui/material": "^5.15.14",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@nextui-org/react": "^2.2.9",
+    "@vercel/speed-insights": "^1.0.10",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.13",
     "html2pdf.js": "^0.10.1",
