@@ -38,7 +38,7 @@ export default function Resume() {
               <span className="absolute inset-x-0  bottom-1 h-2 w-[50%] xl:w-[76%] bg-secondary z-0 opacity-80"></span>
             </div>
           </div>
-          <div className="flex flex-row xl:flex-col xl:gap-0 gap-12">
+          <div className="flex flex-row xl:flex-col xl:gap-0 gap-8">
             <div className="core">
               <div className="relative mb-4 font-bold inline-block">
                 <p className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative">
