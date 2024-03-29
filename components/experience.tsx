@@ -139,14 +139,14 @@ export default function Experience() {
             </p>
             <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
           </div>
-          <ul className="flex flex-col gap-1 opacity-80">
+          <ul className="flex flex-col gap-2 opacity-80">
             <li className="flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               <p className="text-xs font-semibold opacity-80 ">
                 While pursuing my master's degree, I gained valuable experience
                 working as a developer and partner with esteemed companies such
                 as BaylinMedia USA, Phandroid USA, and IIT Roorkee, among
-                others, both nationally and internationally. Presently.
+                others, both nationally and internationally.
               </p>
             </li>
             <li className="flex items-center gap-2">
