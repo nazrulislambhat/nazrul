@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/127f3d08-2480-4cf9-82cf-ea6dc2057bc7/deploy-status)](https://app.netlify.com/sites/nazrulislambhat/deploys)
+
 ![5113755](https://github.com/nazrulislambhat/nazrul/assets/24292032/dfe226d4-dd13-4871-b655-39de74ccd992)
 
 # Portfolio Website
