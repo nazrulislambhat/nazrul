@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter_Tight, Comfortaa } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
@@ -16,6 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <meta name="theme-color" content="#4831D3" />
       <body className={`${comfortaa.className}`}>
         <Providers>{children}</Providers>
+        <SpeedInsights />
       </body>
     </html>
   );
