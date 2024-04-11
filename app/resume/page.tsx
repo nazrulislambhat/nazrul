@@ -186,12 +186,12 @@ export default function Resume() {
             <p className="text-xs xl:text-2xl text-black font-semibold tracking-wide pb-8 xl:pb-12 flex flex-col xl:flex-row xl:items-center gap-2">
               Frontend Software Engineer | Founder
               <a
-                href="https://oneseven.dev"
+                href="https://StackForest.dev"
                 className="text-xs link-primary text-primary py-1 font-bold w-fit"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                OneSeven Technologies
+                StackForest Technologies
               </a>
             </p>
             <p className="text-black opacity-90 text-base pb-8 leading-7 xl:leading-8 xl:w-auto">

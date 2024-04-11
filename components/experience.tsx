@@ -117,11 +117,11 @@ export default function Experience() {
           </ul>
         </div>
       </div>
-      <div className="oneseven max-w-[1280px]  ">
+      <div className="StackForest max-w-[1280px]  ">
         <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-8">
           <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
             <h3 className="company text-primary text-base font-bold whitespace-nowrap">
-              OneSeven Technologies
+              StackForest Technologies
             </h3>
             <span className="hidden xl:block">|</span>
             <h4 className="role font-semibold text-black text-xs">Founder</h4>
@@ -132,7 +132,7 @@ export default function Experience() {
           </p>
         </div>
 
-        <div className="oneseven">
+        <div className="StackForest">
           <div className="relative mb-2 mt-6 font-bold inline-block">
             <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
               what i did:
@@ -163,9 +163,9 @@ export default function Experience() {
             <li className="flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               <p className="text-xs font-semibold opacity-80">
-                My journey led me to establish OneSeven Technologies, a
+                My journey led me to establish StackForest Technologies, a
                 pioneering agency renowned for its expertise in digital
-                integration and innovation. At OneSeven, we specialize in
+                integration and innovation. At StackForest, we specialize in
                 creating digital synergy by seamlessly integrating technologies.
                 Our proficiency spans across React, JavaScript, Next.js, Drupal,
                 and WordPress, enabling us to deliver exceptional solutions
@@ -175,7 +175,7 @@ export default function Experience() {
             <li className="flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               <p className="text-xs font-semibold opacity-80">
-                During my tenure at OneSeven Technologies, I took charge of
+                During my tenure at StackForest Technologies, I took charge of
                 launching and overseeing various blogs, websites, and projects,
                 most notably FossNoobs Media and HackingSaga Media. Through
                 effective leadership, I cultivated successful partnerships with
