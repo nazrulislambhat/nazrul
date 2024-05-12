@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <div className="relative h-[100vh] xl:h-[500px] text-white  px-8 xl:mb-16 xl:px-64 pt-32 bg-primary">
+    <div className="relative h-[100vh] text-white  px-8 xl:mb-16 xl:px-64 pt-32 bg-primary">
       <div className="  relative">
         <h1 className="heading xl:text-7xl xl:pb-24">
           I am Nazrul Islam , and I engineer code that shapes destinies.
