@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaFileDownload, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdOutlineWebAsset, MdMailOutline, MdLocationOn } from 'react-icons/md';
 import { Inter_Tight } from 'next/font/google';
@@ -20,7 +19,7 @@ export default function Resume() {
                 <MdOutlineWebAsset />
                 nazrulislam.dev
               </a>
-              <span className="absolute inset-x-0  bottom-1 h-2 w-[35%] xl:w-[50%] bg-secondary z-0 opacity-80"></span>
+              <span className="absolute inset-x-0  bottom-1 h-2 w-[160px] bg-secondary z-0 opacity-80"></span>
             </div>
             <h5 className="font-semibold text-xs flex items-center gap-1 text-black">
               <MdLocationOn />
@@ -35,7 +34,7 @@ export default function Resume() {
                 nazrul@nazrulislam.dev
               </a>
 
-              <span className="absolute inset-x-0  bottom-1 h-2 w-[50%] xl:w-[76%] bg-secondary z-0 opacity-80"></span>
+              <span className="absolute inset-x-0  bottom-1 h-2 w-[230px] bg-secondary z-0 opacity-80"></span>
             </div>
           </div>
           <div className="flex flex-row xl:flex-col xl:gap-0 gap-8">
@@ -187,7 +186,7 @@ export default function Resume() {
               Frontend Software Engineer | Founder
               <a
                 href="https://StackForest.dev"
-                className="text-xs link-primary text-primary py-1 font-bold w-fit"
+                className="text-xs bg-third text-secondary px-2 rounded-md py-2 font-bold w-fit hover:bg-primary"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -195,11 +194,14 @@ export default function Resume() {
               </a>
             </p>
             <p className="text-black opacity-90 text-base pb-8 leading-7 xl:leading-8 xl:w-auto">
-              Experienced Software Engineer with 4+ years of experience in
-              front-end technologies, particularly within the JS(ES6+) ecosystem
-              encompassing React.JS and Next.JS, I am committed to harnessing
-              technology for complex problem-solving. My track record showcases
-              a consistent ability to exceed expectations and deliver
+              <span className="font-bold">Experienced Software Engineer</span>{' '}
+              with 4+ years of experience in front-end technologies,
+              particularly within the{' '}
+              <span className="font-bold">JS(ES6+)</span> ecosystem encompassing{' '}
+              <span className="font-bold">React JS</span> and{' '}
+              <span className="font-bold">Next JS</span>, I am committed to
+              harnessing technology for complex problem-solving. My track record
+              showcases a consistent ability to exceed expectations and deliver
               exceptional outcomes. I have a proven ability to quickly grasp and
               master new technologies, ensuring I stay ahead of the curve.
             </p>

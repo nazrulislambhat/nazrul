@@ -17,9 +17,9 @@ export default function Experience() {
             <h4 className="role font-semibold text-black text-xs">
               Software / Frontend Engineer (L3)
             </h4>
-            <span className="h-[2px] xl:block hidden rounded-full bg-black flex-grow"></span>
+            <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
           </div>
-          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-black font-semibold whitespace-nowrap">
+          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
             Nov 2021 - Present
           </p>
         </div>
@@ -31,25 +31,25 @@ export default function Experience() {
             <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
           </div>
           <ul className="flex flex-col gap-1 opacity-80">
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Elevated codebase as Frontend Engineer by making significant
               contributions.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Specialized in creating responsive components and resolving bugs.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Integrated JavaScript, GIT, SASS, and React JS technologies.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Collaborated closely with the team to deliver high-quality
               solutions.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Reviewed and merged pull requests, mentored team members.
             </li>
@@ -63,27 +63,27 @@ export default function Experience() {
             <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
           </div>
           <ul className="flex flex-col gap-1 opacity-80">
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Crafted responsive components and resolved bugs as Frontend
               Engineer.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Implemented HTML, CSS, JavaScript, GIT, SASS, and React JS
               technologies.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Fostered collaboration within the team for delivering
               user-friendly solutions.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Collaborated closely with the team to deliver high-quality
               solutions.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Contributed to enhancement and maintenance of frontend codebase.
             </li>
@@ -97,20 +97,20 @@ export default function Experience() {
             <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
           </div>
           <ul className="flex flex-col gap-1 opacity-80">
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Utilized Next.js and Tailwind CSS for a movie database project.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Created a sleek and responsive user interface with Next.js'
               server-side rendering.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Integrated The Movie Database (TMDb) API for fetching movie data.
             </li>
-            <li className="text-xs font-semibold flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Designed intuitive user experience using Tailwind CSS.
             </li>
@@ -125,9 +125,9 @@ export default function Experience() {
             </h3>
             <span className="hidden xl:block">|</span>
             <h4 className="role font-semibold text-black text-xs">Founder</h4>
-            <span className="h-[2px] xl:block hidden rounded-full bg-black flex-grow"></span>
+            <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
           </div>
-          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-black font-semibold whitespace-nowrap">
+          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
             March 2019 - Present
           </p>
         </div>
@@ -140,48 +140,40 @@ export default function Experience() {
             <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
           </div>
           <ul className="flex flex-col gap-2 opacity-80">
-            <li className="flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              <p className="text-xs font-semibold opacity-80 ">
-                While pursuing my master's degree, I gained valuable experience
-                working as a developer and partner with esteemed companies such
-                as BaylinMedia USA, Phandroid USA, and IIT Roorkee, among
-                others, both nationally and internationally.
-              </p>
+              While pursuing my master's degree, I gained valuable experience
+              working as a developer and partner with esteemed companies such as
+              BaylinMedia USA, Phandroid USA, and IIT Roorkee, among others,
+              both nationally and internationally.
             </li>
-            <li className="flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              <p className="text-xs font-semibold opacity-80 ">
-                I am actively managing ongoing freelance projects, overseeing
-                various client requirements and tasks. This hands-on involvement
-                has equipped me with comprehensive skills in managing both the
-                backend and frontend aspects of websites, with notable projects
-                including fossnoobs.com, ifedtrust.com, mehandibysana.com,
-                thekunafah.com, and more.
-              </p>
+              I am actively managing ongoing freelance projects, overseeing
+              various client requirements and tasks. This hands-on involvement
+              has equipped me with comprehensive skills in managing both the
+              backend and frontend aspects of websites, with notable projects
+              including fossnoobs.com, ifedtrust.com, mehandibysana.com,
+              thekunafah.com, and more.
             </li>
-            <li className="flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              <p className="text-xs font-semibold opacity-80">
-                My journey led me to establish StackForest Technologies, a
-                pioneering agency renowned for its expertise in digital
-                integration and innovation. At StackForest, we specialize in
-                creating digital synergy by seamlessly integrating technologies.
-                Our proficiency spans across React, JavaScript, Next.js, Drupal,
-                and WordPress, enabling us to deliver exceptional solutions
-                tailored to our clients' needs.
-              </p>
+              My journey led me to establish StackForest Technologies, a
+              pioneering agency renowned for its expertise in digital
+              integration and innovation. At StackForest, we specialize in
+              creating digital synergy by seamlessly integrating technologies.
+              Our proficiency spans across React, JavaScript, Next.js, Drupal,
+              and WordPress, enabling us to deliver exceptional solutions
+              tailored to our clients' needs.
             </li>
-            <li className="flex items-center gap-2">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              <p className="text-xs font-semibold opacity-80">
-                During my tenure at StackForest Technologies, I took charge of
-                launching and overseeing various blogs, websites, and projects,
-                most notably FossNoobs Media and HackingSaga Media. Through
-                effective leadership, I cultivated successful partnerships with
-                esteemed brands such as ExpressVPN, NordVPN, IIT Roorkee,
-                AtlasVPS, Surfshark, and others.
-              </p>
+              During my tenure at StackForest Technologies, I took charge of
+              launching and overseeing various blogs, websites, and projects,
+              most notably FossNoobs Media and HackingSaga Media. Through
+              effective leadership, I cultivated successful partnerships with
+              esteemed brands such as ExpressVPN, NordVPN, IIT Roorkee,
+              AtlasVPS, Surfshark, and others.
             </li>
           </ul>
         </div>

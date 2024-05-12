@@ -23,7 +23,7 @@ export default function Nav() {
   return (
     <div className="relative flex items-center">
       <div
-        className={`flex flex-col h-[100%] xl:h-auto fixed justify-between left-0 top-0 xl:right-16 xl:top-12 xl:left-auto ${
+        className={`flex flex-col w-[100%] h-[100%] lg:right-0 lg:w-auto xl:h-auto fixed justify-between left-0 top-0 xl:right-16 xl:top-12 xl:left-auto ${
           isOpen ? 'block' : 'hidden'
         }`}
       >
@@ -31,7 +31,7 @@ export default function Nav() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex menu px-8 xl:rounded-t-md items-center pt-32 xl:pt-12 pb-6 z-0 bg-primary h-[100%] xl:h-auto xl:w-96"
+          className="flex menu px-8 xl:rounded-t-md items-center pt-32 xl:pt-12 pb-6 z-0 bg-third h-[100%] xl:h-auto xl:w-96"
         >
           <ul className="flex flex-col xl:flex-col text-base xl:text-base gap-8">
             <li>
@@ -80,7 +80,7 @@ export default function Nav() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex say-salaam flex-col py-6 bg-primary relative xl:h-auto xl:w-96 px-8"
+          className="flex say-salaam flex-col py-6 bg-third relative xl:h-auto xl:w-96 px-8"
         >
           <span className="text-background uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-40 tracking-[2rem] hover:opacity-80">
             Say Salaam
@@ -115,7 +115,7 @@ export default function Nav() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex social pt-6 pb-12 bg-primary relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md"
+          className="flex social pt-6 pb-12 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md"
         >
           <ul className="flex justify-between w-[100%]">
             <li>
@@ -181,9 +181,9 @@ export default function Nav() {
         className="focus:outline-none absolute right-0 top-0 animate-text"
       >
         {isOpen ? (
-          <FaXing className="text-3xl close z-10 text-secondary xl:text-primary" />
+          <FaXing className="text-3xl close z-10 text-secondary xl:text-secondary" />
         ) : (
-          <FaGitter className="text-3xl open text-primary rotate-90" />
+          <FaGitter className="text-3xl open text-secondary rotate-90" />
         )}
       </motion.button>
     </div>

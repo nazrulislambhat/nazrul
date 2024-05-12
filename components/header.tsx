@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import logo from '../assets/logo.png';
 export default function Header() {
   return (
-    <div className="header flex justify-between px-6 xl:px-12 my-4 relative items-center ">
+    <div className="header flex justify-between px-6 xl:px-12 sticky top-4 z-50 items-center ">
       <motion.a
         href="/"
         initial={{ opacity: 0 }}
