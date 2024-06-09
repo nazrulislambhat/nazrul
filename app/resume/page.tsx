@@ -185,8 +185,8 @@ export default function Resume() {
             <p className="text-xs xl:text-2xl text-black font-semibold tracking-wide pb-8 xl:pb-12 flex flex-col xl:flex-row xl:items-center gap-2">
               Frontend Software Engineer | Founder
               <a
-                href="https://StackForest.dev"
-                className="text-xs link text-third rounded-md py-2 font-bold w-fit "
+                href="https://stackforest.dev"
+                className="text-sm text-primary font-bold  w-fit hover:text-third"
                 target="_blank"
                 rel="noopener noreferrer"
               >
