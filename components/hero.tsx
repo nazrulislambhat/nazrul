@@ -16,7 +16,7 @@ function Hero() {
           turning lines of code into digital wonders.
         </p>
       </div>
-      <p className="about selection:bg-secondary selection:text-primary opacity-50 xl:text-[3rem] xl:leading-[3rem] xl:pt-52 xl:mb-32">
+      <p className="about selection:bg-secondary text-sm selection:text-primary xl:text-[3rem] xl:leading-[3rem] xl:pt-52 xl:mb-32">
         Nazrul Islam, an enthusiastic software developer, excels in transforming
         lines of code into digital marvels. Armed with a computer science{' '}
         <span className="border-b-2 border-secondary">Masters Degree</span> and
