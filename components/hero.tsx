@@ -16,14 +16,15 @@ function Hero() {
           turning lines of code into digital wonders.
         </p>
       </div>
-      <p className="about h-screen selection:bg-secondary selection:text-primary opacity-50 xl:text-6xl text-xs leading-4 xl:pt-52 xl:mb-32">
+      <p className="about h-screen selection:bg-secondary selection:text-primary opacity-50 xl:text-[3rem] xl:leading-[3rem] xl:pt-52 xl:mb-32">
         Nazrul Islam, an enthusiastic software developer, excels in transforming
-        lines of code into digital marvels. Armed with a computer science
-        Masters Degree and a talent for inventive problem-solving, Nazrul Islam is
-        committed to enhancing the digital landscape. Beyond coding, Nazrul
-        Islam embraces the beauty of nature, enjoying outdoor adventures. This
-        multifaceted approach allows Nazrul Islam to find harmony not only in
-        software development but also in life's diverse experiences.
+        lines of code into digital marvels. Armed with a computer science{' '}
+        <span className="border-b-2 border-secondary">Masters Degree</span> and
+        a talent for inventive problem-solving, Nazrul Islam is committed to
+        enhancing the digital landscape. Beyond coding, Nazrul Islam embraces
+        the beauty of nature, enjoying outdoor adventures. This multifaceted
+        approach allows Nazrul Islam to find harmony not only in software
+        development but also in life's diverse experiences.
       </p>
     </div>
   );
