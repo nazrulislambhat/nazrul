@@ -185,12 +185,12 @@ export default function Resume() {
             <p className="text-xs xl:text-2xl text-black font-semibold tracking-wide pb-8 xl:pb-12 flex flex-col xl:flex-row xl:items-center gap-2">
               Frontend Software Engineer | Founder
               <a
-                href="https://stackforest.dev"
+                href="https://stacknothing.com"
                 className="text-sm text-primary font-bold  w-fit hover:text-third"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                StackForest Technologies
+                StackNothing
               </a>
             </p>
             <p className="text-black opacity-90 text-base pb-8 leading-7 xl:leading-8 xl:w-auto">
