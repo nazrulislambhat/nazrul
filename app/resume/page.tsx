@@ -4,21 +4,22 @@ import { MdOutlineWebAsset, MdMailOutline, MdLocationOn } from 'react-icons/md';
 import { Inter_Tight } from 'next/font/google';
 import Experience from '../../components/experience';
 import Projects from '../../components/projects';
+import Link from 'next/link';
 const inter = Inter_Tight({ subsets: ['latin'] });
 export default function Resume() {
   return (
     <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden ">
-      <div className=" flex flex-col xl:flex-row w-screen justify-start">
+      <div className=" flex flex-col xl:flex-row w-screen justify-start boxed">
         <div className="skills pl-8 xl:pl-12 border-r-4 border-whiteBackground xl:py-24 xl:w-96">
           <div className="contact pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-2">
             <div className="relative inline-block">
-              <a
+              <Link
                 href="https://nazrulislam.dev"
                 className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative"
               >
                 <MdOutlineWebAsset />
                 nazrulislam.dev
-              </a>
+              </Link>
               <span className="absolute inset-x-0  bottom-1 h-2 w-[160px] bg-secondary z-0 opacity-80"></span>
             </div>
             <h5 className="font-semibold text-xs flex items-center gap-1 text-black">
@@ -154,27 +155,27 @@ export default function Resume() {
         </div>
         <div className="about relative pl-8 xl:pr-28 xl:py-24 max-w-[85%]  xl:w-screen overflow-hidden">
           <div className="download py-8 xl:py-12 xl:absolute xl:top-6 xl:right-28 flex gap-2 items-center ">
-            <a
+            <Link
               href="https://drive.google.com/file/d/15-5JnG6SAuE--pMtUHeR5TQrsQSxIClF/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaFileDownload className="text-primary hover:text-third text-2xl" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://linkedin.com/in/nazrulislambhat"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaLinkedin className="text-[#0077B5] text-2xl" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://github.com/nazrulislambhat"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaGithub className="text-third hover:text-primary text-2xl" />
-            </a>
+            </Link>
           </div>
           <div className="about-intro border-b-4 border-whiteBackground max-w-[1280px] ">
             <h1
@@ -182,17 +183,31 @@ export default function Resume() {
             >
               Nazrul Islam
             </h1>
-            <p className="text-xs xl:text-2xl text-black font-semibold tracking-wide pb-8 xl:pb-12 flex flex-col xl:flex-row xl:items-center gap-2">
-              Frontend Software Engineer | Founder
-              <a
-                href="https://stacknothing.com"
-                className="text-sm text-primary font-bold  w-fit hover:text-third"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                StackNothing
-              </a>
-            </p>
+            <div className="flex xl:gap-4 gap-2 xl:flex-row flex-col mb-4 xl:mb-12 w-fit ">
+              <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
+                Frontend Software Engineer (L3) -
+                <Link
+                  href="https://axelerant.com"
+                  className="text-xs text-primary font-bold  w-fit link-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Axelerant Technologies
+                </Link>
+              </p>
+              <span className="xl:block hidden text-black">|</span>
+              <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
+                Founder & CEO -
+                <Link
+                  href="https://stacknothing.com"
+                  className="text-xs text-primary font-bold  w-fit link-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  StackNothing Technologies
+                </Link>
+              </p>
+            </div>
             <p className="text-black opacity-90 text-base pb-8 leading-7 xl:leading-8 xl:w-auto">
               <span className="font-bold">Experienced Software Engineer</span>{' '}
               with 4+ years of experience in front-end technologies,

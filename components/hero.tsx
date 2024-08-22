@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <div className="relative xl:min-h-[1440px] text-white px-8 xl:mb-16 xl:px-64 pt-32 pb-16 bg-primary">
+    <div className="relative xl:min-h-[1440px] text-white px-8 xl:mb-16 xl:px-64 pt-32 pb-16 boxed bg-primary">
       <div className="relative">
         <h1 className="heading text-xl xl:text-5xl xl:pb-16 selection:bg-secondary selection:text-primary pb-12">
           Software developer and sometimes writer. My daily routine consists of

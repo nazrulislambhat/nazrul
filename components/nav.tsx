@@ -37,7 +37,7 @@ export default function Nav() {
             <li>
               <Link
                 href="#about"
-                className="hover:animate-text text-background hover:text-secondary hover:opacity-100 font-bold link pb-1 opacity-80"
+                className="hover:link-primary text-background hover:text-secondary hover:opacity-100 font-bold link pb-1 opacity-80"
               >
                 about
               </Link>
@@ -45,7 +45,7 @@ export default function Nav() {
             <li>
               <Link
                 href="#skills"
-                className="hover:animate-text text-background hover:text-secondary hover:opacity-100 font-bold pb-1 link opacity-80"
+                className="hover:link-primary text-background hover:text-secondary hover:opacity-100 font-bold pb-1 link opacity-80"
               >
                 skills
               </Link>
@@ -53,7 +53,7 @@ export default function Nav() {
             <li>
               <Link
                 href="#projects"
-                className="hover:animate-text text-background hover:text-secondary hover:opacity-100 pb-1 font-bold  link  opacity-80"
+                className="hover:link-primary text-background hover:text-secondary hover:opacity-100 pb-1 font-bold  link  opacity-80"
               >
                 projects
               </Link>
@@ -61,7 +61,7 @@ export default function Nav() {
             <li>
               <Link
                 href="/resume"
-                className="hover:animate-text text-background hover:text-secondary hover:opacity-100 pb-1 font-bold  link opacity-80"
+                className="hover:link-primary text-background hover:text-secondary hover:opacity-100 pb-1 font-bold  link opacity-80"
               >
                 resume
               </Link>
@@ -69,7 +69,7 @@ export default function Nav() {
             <li>
               <Link
                 href="#contact"
-                className="hover:animate-text text-background hover:text-secondary hover:opacity-100 font-bold pb-1 link opacity-80 "
+                className="hover:link-primary text-background hover:text-secondary hover:opacity-100 font-bold pb-1 link opacity-80 "
               >
                 contact
               </Link>
@@ -89,7 +89,7 @@ export default function Nav() {
             <li>
               <Link
                 href="mailto:nazrul@nazrulislam.dev"
-                className="hover:animate-text  hover:text-secondary pb-1  text-xs hover:opacity-100  text-background link hover:scale-105 w-fit opacity-80"
+                className="hover:link-primary  hover:text-secondary pb-1  text-xs hover:opacity-100  text-background link hover:scale-105 w-fit opacity-80"
               >
                 nazrul@nazrulislam.dev
               </Link>
@@ -103,7 +103,7 @@ export default function Nav() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
                 rel="noopener noreferrer"
-                className="hover:animate-text hover:text-secondary pb-1 hover:opacity-100 text-xs text-background link hover:scale-105 flex items-center w-fit opacity-80"
+                className="hover:link-primary hover:text-secondary pb-1 hover:opacity-100 text-xs text-background link hover:scale-105 flex items-center w-fit opacity-80"
               >
                 meeting
                 <FaExternalLinkAlt className="ml-1 text-background  hover:opacity-100 hover:text-secondary text-[10px] link flex items-center opacity-80 w-fit" />
@@ -128,7 +128,7 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 className=""
               >
-                <FaGithub className="hover:animate-text hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
+                <FaGithub className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
               </motion.a>
             </li>
             <li>
@@ -141,7 +141,7 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 className=""
               >
-                <FaLinkedin className="hover:animate-text hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
+                <FaLinkedin className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
               </motion.a>
             </li>
             <li>
@@ -154,7 +154,7 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 className=""
               >
-                <FaInstagram className="hover:animate-text hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
+                <FaInstagram className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
               </motion.a>
             </li>
             <li>
@@ -167,7 +167,7 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 className=""
               >
-                <FaYoutube className="hover:animate-text hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
+                <FaYoutube className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
               </motion.a>
             </li>
           </ul>
@@ -178,7 +178,7 @@ export default function Nav() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         onClick={toggleMenu}
-        className="focus:outline-none absolute right-0 top-0 animate-text"
+        className="focus:outline-none absolute right-0 top-0 link-primary"
       >
         {isOpen ? (
           <FaXing className="text-3xl close z-10 text-secondary xl:text-secondary" />

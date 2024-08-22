@@ -54,5 +54,6 @@
 .link-primary:hover::before {
   transform-origin: left;
   transform: scaleX(1);
+
   background: linear-gradient(to right, #4831d3, #4831d3);
 }
