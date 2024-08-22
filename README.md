@@ -22,12 +22,11 @@ Welcome to my portfolio website, showcasing my skills and talents as a Full Stac
 
 This project is a personal portfolio website built using Next.js and React. It highlights my expertise, projects, and achievements as a Full Stack Engineer. The website is designed with a clean and modern UI using Tailwind CSS for styling, TypeScript for type safety, email integration for contact, and Framer Motion for smooth animations.
 
-## Overview
+## Deployments & Branches
 
 - [Dev](https://nazrul-stacknothing.vercel.app) - Dev
 - [Prod](https://nazrulislam.in/) - Prod
 - [Final](https://nazrulislam.dev/) - Final
-
 
 ## Technologies Used
 
