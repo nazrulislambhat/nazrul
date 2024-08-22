@@ -2,10 +2,6 @@
 
 ![5113755](https://github.com/nazrulislambhat/nazrul/assets/24292032/dfe226d4-dd13-4871-b655-39de74ccd992)
 
-- [Dev](https://nazrul-stacknothing.vercel.app)
-- [Prod](https://nazrulislam.in/)
-- [Final Prod](https://nazrulislam.dev/)
-
 # Portfolio Website
 
 Welcome to my portfolio website, showcasing my skills and talents as a Full Stack Engineer.
@@ -26,11 +22,11 @@ Welcome to my portfolio website, showcasing my skills and talents as a Full Stac
 
 This project is a personal portfolio website built using Next.js and React. It highlights my expertise, projects, and achievements as a Full Stack Engineer. The website is designed with a clean and modern UI using Tailwind CSS for styling, TypeScript for type safety, email integration for contact, and Framer Motion for smooth animations.
 
-## Overview
+## Deployments & Branches
 
-- [Main] - production ready
-- [Development] - will be merged to stage
-- [Stage] - will be merged to main
+- [Dev](https://nazrul-stacknothing.vercel.app) - Dev
+- [Prod](https://nazrulislam.in/) - Prod
+- [Final](https://nazrulislam.dev/) - Final
 
 ## Technologies Used
 
