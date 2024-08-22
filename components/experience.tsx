@@ -117,11 +117,11 @@ export default function Experience() {
           </ul>
         </div>
       </div>
-      <div className="StackForest max-w-[1280px]  ">
+      <div className="StackNothing max-w-[1280px]  ">
         <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-8">
           <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
             <h3 className="company text-primary text-base font-bold whitespace-nowrap">
-              StackForest Technologies
+              StackNothing Technologies
             </h3>
             <span className="hidden xl:block">|</span>
             <h4 className="role font-semibold text-black text-xs">Founder</h4>
@@ -132,7 +132,7 @@ export default function Experience() {
           </p>
         </div>
 
-        <div className="StackForest">
+        <div className="StackNothing">
           <div className="relative mb-2 mt-6 font-bold inline-block">
             <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
               what i did:
@@ -158,9 +158,9 @@ export default function Experience() {
             </li>
             <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              My journey led me to establish StackForest Technologies, a
+              My journey led me to establish StackNothing Technologies, a
               pioneering agency renowned for its expertise in digital
-              integration and innovation. At StackForest, we specialize in
+              integration and innovation. At StackNothing, we specialize in
               creating digital synergy by seamlessly integrating technologies.
               Our proficiency spans across React, JavaScript, Next.js, Drupal,
               and WordPress, enabling us to deliver exceptional solutions
@@ -168,7 +168,7 @@ export default function Experience() {
             </li>
             <li className="text-[12px] font-semibold flex items-center gap-2">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              During my tenure at StackForest Technologies, I took charge of
+              During my tenure at StackNothing Technologies, I took charge of
               launching and overseeing various blogs, websites, and projects,
               most notably FossNoobs Media and HackingSaga Media. Through
               effective leadership, I cultivated successful partnerships with

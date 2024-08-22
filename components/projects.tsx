@@ -14,14 +14,14 @@ export default function Projects() {
           projects, with some documented on my{' '}
           <Link
             href="https://github.com/nazrulislambhat"
-            className="hover:animate-text font-bold pb-1 text-xs hover:opacity-100  text-primary link-primary hover:scale-105 w-fit opacity-100"
+            className="hover:link-primary font-bold pb-1 text-xs hover:opacity-100  text-primary link-primary hover:scale-105 w-fit opacity-100"
           >
             Github
           </Link>{' '}
           profile and others showcased on my website at
           <Link
             href="/work"
-            className="hover:animate-text font-bold pb-1 text-xs hover:opacity-100 mx-1 text-primary link-primary hover:scale-105 w-fit opacity-100"
+            className="hover:link-primary font-bold pb-1 text-xs hover:opacity-100 mx-1 text-primary link-primary hover:scale-105 w-fit opacity-100"
           >
             work
           </Link>
