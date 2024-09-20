@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Inter_Tight, Comfortaa } from 'next/font/google';
+import { Inter_Tight, Comfortaa, Archivo } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 
 const comfortaa = Comfortaa({ subsets: ['latin'] });
 const inter = Inter_Tight({ subsets: ['latin'] });
+const archivo = Archivo({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Nazrul Islam - Full Stack Engineer | Software Developer',
   description: 'Software Engineer',
