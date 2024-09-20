@@ -23,7 +23,7 @@ export default function Nav() {
   return (
     <div className="relative flex items-center">
       <div
-        className={`flex flex-col w-[100%] h-[100%] lg:right-0 lg:w-auto xl:h-auto fixed justify-between left-0 top-0 xl:right-16 xl:top-12 xl:left-auto ${
+        className={`flex flex-col w-[100%] h-[100%] lg:right-0 lg:w-auto xl:h-auto fixed xl:absolute justify-between left-0 top-0 xl:right-0 xl:top-12 xl:left-auto ${
           isOpen ? 'block' : 'hidden'
         }`}
       >
@@ -178,12 +178,12 @@ export default function Nav() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         onClick={toggleMenu}
-        className="focus:outline-none absolute right-0 top-0 link-primary"
+        className="focus:outline-none absolute right-0 top-0"
       >
         {isOpen ? (
           <FaXing className="text-3xl close z-10 text-secondary xl:text-secondary" />
         ) : (
-          <FaGitter className="text-3xl open text-secondary rotate-90" />
+          <FaGitter className="text-3xl open text-secondary   rotate-90" />
         )}
       </motion.button>
     </div>
