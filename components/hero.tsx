@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <div className="relative xl:min-h-[40rem] text-white px-8 xl:mb-16 xl:px-64 pt-32 pb-16 boxed bg-primary">
+    <div className="relative xl:min-h-fit text-white px-8 xl:mb-16 xl:px-64 pt-32 pb-16 boxed bg-primary">
       <div className="relative">
         <h1 className="heading text-xl xl:text-5xl xl:pb-16 selection:bg-secondary selection:text-primary pb-12">
           Software developer and sometimes writer. My daily routine consists of
@@ -11,10 +11,10 @@ function Hero() {
           </span>
         </h1>
 
-        <p className="subheading-one xl:block selection:bg-secondary selection:text-primary py-8 uppercase max-w-xs xl:max-w-lg clear-both xl:float-right tracking-wide text-xs xl:text-sm">
+        {/* <p className="subheading-one xl:block selection:bg-secondary selection:text-primary py-8 uppercase max-w-xs xl:max-w-lg clear-both xl:float-right tracking-wide text-xs xl:text-sm">
           Nazrul Islam is a passionate software developer with a knack for
           turning lines of code into digital wonders.
-        </p>
+        </p> */}
       </div>
       {/* <p className="about selection:bg-secondary text-sm selection:text-primary xl:text-[3rem] xl:leading-[3rem] xl:pt-52 xl:mb-32">
         Nazrul Islam, an enthusiastic software developer, excels in transforming
