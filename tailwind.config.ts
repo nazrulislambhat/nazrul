@@ -28,6 +28,8 @@ const config: Config = {
         background: '#F5F4FC',
         resume: '#D6EADF',
         orange: '#fc5130',
+        newBackground: '#EEEBE9',
+        newPrimary: '#FF7A00',
       },
 
       keyframes: {
