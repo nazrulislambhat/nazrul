@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import Nav from './nav';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
