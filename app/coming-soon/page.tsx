@@ -1,83 +1,60 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import logo from '../../assets/logo.png';
-import Image from 'next/image';
-const ComingSoon = () => {
-  const textRef = useRef(null);
-  const subTextRef = useRef(null);
+import { motion } from 'framer-motion';
+import Header from '@/components/header';
+
+import { FaExternalLinkAlt } from 'react-icons/fa';
+
+function ComingSoon() {
+  const [progress, setProgress] = useState(20.0001);
 
   useEffect(() => {
-    // GSAP animation for text scaling and opacity
-    gsap.fromTo(
-      textRef.current,
-      { scale: 0.8, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.5, ease: 'power4.out' }
-    );
+    const interval = setInterval(() => {
+      setProgress((prevProgress) =>
+        prevProgress >= 100 ? 100 : prevProgress + 0.02
+      );
+    }, 50); // Update every 100 milliseconds
 
-    gsap.fromTo(
-      subTextRef.current,
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, delay: 0.5, duration: 1, ease: 'power2.out' }
-    );
+    return () => clearInterval(interval);
   }, []);
-
   return (
-    <div className="relative flex flex-col items-center text-center justify-center h-screen bg-gradient-to-br from-third via-red to-primary text-white overflow-hidden">
-      <motion.div
-        className="absolute h-80 w-80 xl:w-[800px] xl:h-[800px] bg-white bg-opacity-10 rounded-full"
-        animate={{
-          scale: [0.9, 1, 0.9],
-          opacity: [0.8, 1, 0.8],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 3,
-          ease: 'easeInOut',
-        }}
-      />
-
-      <div>
-        {/* <motion.a
-          href="/"
+    <div className="">
+      <Header />
+      <div className="flex flex-col items-start justify-center align-middle boxed h-screen rounded bg-primary">
+        <h1 className="text-white text-3xl xl:text-8xl flex justify-center items-center align-middle mx-8 mb-4 ">
+          in the making
+        </h1>
+        <span
+          className="h-fit text-xs max-w-[85%] xl:max-w-[95%] font-bold px-4 py-1 bg-secondary rounded-xl mx-8 mb-4 bg-gradient-to-r text-primary from-secondary to-red"
+          style={{
+            width: `${progress}%`,
+            transition: 'width 0.1s linear',
+          }}
+        >
+          {progress.toFixed(4)}%
+        </span>
+        <Link
+          className="text-secondary font-semibold text-xs mx-8 mb-4 link "
+          href="mailto:nazrul@nazrulislam.dev"
+        >
+          nazrul@nazrulislam.dev
+        </Link>
+        <motion.a
+          href="https://cal.com/nazrul"
+          target="_blank"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="logo inline-block my-8"
+          rel="noopener noreferrer"
+          className="hover:link-primary hover:text-secondary mx-8 mb-4 hover:opacity-100 text-xs text-background link hover:scale-105 flex items-center w-fit opacity-80"
         >
-          <Image
-            src={logo}
-            alt="logo"
-            width={50}
-            height={50}
-            className="rounded-full border-1 border-1-background z-10 bg-primary hover:bg-secondary "
-          />
-        </motion.a> */}
-        <h1
-          ref={textRef}
-          className="text-base xl:text-xl font-bold tracking-wide mb-8"
-        >
-          something
-          <span className="bg-secondary px-2 py-4 rounded-lg xl:px-4 xl:py-6 text-primary xl:rounded-2xl">
-            awesome
-          </span>
-          is coming soon
-        </h1>
-
-        <motion.p className="text-sm mt-8">
-          <a href="mailto:nazrul@nazrulislam.dev" className="hover:link link">
-            nazrul@nazrulislam.dev
-          </a>{' '}
-          |{' '}
-          <a href="tel:+919469444007" className="hover:link link">
-            9469444007
-          </a>
-        </motion.p>
+          meeting
+          <FaExternalLinkAlt className="ml-1 text-background  hover:opacity-100 hover:text-secondary text-[10px] link flex items-center opacity-80 w-fit" />
+        </motion.a>
       </div>
     </div>
   );
-};
+}
 
 export default ComingSoon;
