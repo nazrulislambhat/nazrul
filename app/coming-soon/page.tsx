@@ -14,7 +14,7 @@ function ComingSoon() {
       setProgress((prevProgress) =>
         prevProgress >= 100 ? 100 : prevProgress + 0.02
       );
-    }, 1000); // Update every 100 milliseconds
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
