@@ -1,17 +1,18 @@
 import React from 'react';
 import { FaFileDownload, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdOutlineWebAsset, MdMailOutline, MdLocationOn } from 'react-icons/md';
-import { Inter_Tight } from 'next/font/google';
+import { Inter_Tight, Archivo } from 'next/font/google';
 import Experience from '../../components/experience';
 import Projects from '../../components/projects';
 import Link from 'next/link';
 const inter = Inter_Tight({ subsets: ['latin'] });
+const archivo = Archivo({ subsets: ['latin'] });
 export default function Resume() {
   return (
     <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden ">
       <div className=" flex flex-col xl:flex-row w-screen justify-start boxed">
         <div className="skills pl-8 xl:pl-12 border-r-4 border-whiteBackground xl:py-24 xl:w-96">
-          <div className="contact pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-2">
+          <div className="contact pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
             <div className="relative inline-block">
               <Link
                 href="https://nazrulislam.dev"
@@ -22,20 +23,29 @@ export default function Resume() {
               </Link>
               <span className="absolute inset-x-0  bottom-1 h-2 w-[160px] bg-secondary z-0 opacity-80"></span>
             </div>
-            <h5 className="font-semibold text-xs flex items-center gap-1 text-black">
+            <h5 className="font-semibold text-xs flex mb-4 items-center gap-1 text-black">
               <MdLocationOn />
               Bengaluru, Karnataka
             </h5>
             <div className="relative inline-block">
               <a
                 href="mailto:nazrul@nazrulislam.dev"
-                className="text-primary font-bold z-10 text-base w-fit relative flex items-center gap-1 "
+                className="text-primary font-bold z-10 text-xs w-fit underline-offset-2 underline relative flex items-center gap-1 "
               >
                 <MdMailOutline />
                 nazrul@nazrulislam.dev
               </a>
-
-              <span className="absolute inset-x-0  bottom-1 h-2 w-[230px] bg-secondary z-0 opacity-80"></span>
+              <span className="absolute inset-x-0  bottom-1 h-2 w-[170px] bg-secondary z-0 opacity-80"></span>
+            </div>
+            <div className="relative inline-block">
+              <a
+                href="mailto:nazrul@stacknothing.com"
+                className="text-primary font-bold z-10 text-xs w-fit underline underline-offset-2 relative flex items-center gap-1 "
+              >
+                <MdMailOutline />
+                nazrul@stacknothing.com
+              </a>
+              <span className="absolute inset-x-0  bottom-1 h-2 w-[185px] bg-secondary z-0 opacity-80"></span>
             </div>
           </div>
           <div className="flex flex-row xl:flex-col xl:gap-0 gap-8">
@@ -115,6 +125,18 @@ export default function Resume() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
+                  GraphQL
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
+                  React Testing Library
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
+                  Zustand
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Git
                 </li>
                 <li className="flex items-center gap-2">
@@ -179,7 +201,7 @@ export default function Resume() {
           </div>
           <div className="about-intro border-b-4 border-whiteBackground max-w-[1280px] ">
             <h1
-              className={`${inter.className} text-primary font-semibold text-5xl xl:text-8xl pb-4 tracking-wide`}
+              className={`${archivo.className} text-primary font-semibold text-5xl xl:text-8xl pb-8 tracking-wide`}
             >
               Nazrul Islam
             </h1>
@@ -192,7 +214,7 @@ export default function Resume() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Axelerant Technologies
+                  Axelerant
                 </Link>
               </p>
               <span className="xl:block hidden text-black">|</span>
@@ -204,11 +226,11 @@ export default function Resume() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  StackNothing Technologies
+                  StackNothing
                 </Link>
               </p>
             </div>
-            <p className="text-black opacity-90 text-base pb-8 leading-7 xl:leading-8 xl:w-auto">
+            <p className="text-black opacity-90 text-sm pb-8 leading-7 xl:leading-8 xl:w-auto">
               <span className="font-bold">Experienced Software Engineer</span>{' '}
               with 4+ years of experience in front-end technologies,
               particularly within the{' '}

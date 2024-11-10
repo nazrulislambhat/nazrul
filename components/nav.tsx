@@ -61,6 +61,7 @@ export default function Nav() {
             <li>
               <Link
                 href="/resume"
+                target="_blank"
                 className="hover:link-primary text-background hover:text-secondary hover:opacity-100 pb-1 font-bold  link opacity-80"
               >
                 resume
