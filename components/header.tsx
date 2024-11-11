@@ -18,7 +18,7 @@ export default function Header() {
           alt="logo"
           width={50}
           height={50}
-          className="rounded-full border-1 absolute  border-1-background z-10 bg-primary hover:bg-secondary "
+          className="rounded-full border-1 absolute  border-1-background z-10 hover:bg-secondary bg-transparent "
         />
       </motion.a>
       <Nav />
