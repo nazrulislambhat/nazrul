@@ -5,9 +5,9 @@ import ComingSoon from './coming-soon/page';
 export default function Home() {
   return (
     <main>
-      {/* <Header />
-      <Hero /> */}
-      <ComingSoon />
+      <Header />
+      <Hero />
+      {/* <ComingSoon /> */}
     </main>
   );
 }
