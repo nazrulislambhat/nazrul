@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .boxed {
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 .link {
@@ -18,11 +18,11 @@
   display: block;
   height: 2px;
   border-radius: 2px;
-  background-color: #fc5130;
+  background-color: #ccf380;
   bottom: 0;
   left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
+  transform-origin: left;
+  transform: scaleX(0.4);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -42,12 +42,12 @@
   width: 100%;
   display: block;
   height: 2px;
-  background-color: #fc5130;
+  background-color: #4831d3;
   border-radius: 2px;
   bottom: 0;
   left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
+  transform-origin: left;
+  transform: scaleX(0.4);
   transition: transform 0.3s ease-in-out;
 }
 

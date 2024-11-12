@@ -30,7 +30,7 @@ export default function Resume() {
             <div className="relative inline-block">
               <a
                 href="mailto:nazrul@nazrulislam.dev"
-                className="text-primary font-bold z-10 text-xs w-fit underline-offset-2 underline relative flex items-center gap-1 "
+                className="text-primary font-bold z-10 text-xs w-fit hover:link relative flex items-center gap-1 "
               >
                 <MdMailOutline />
                 nazrul@nazrulislam.dev
@@ -40,7 +40,7 @@ export default function Resume() {
             <div className="relative inline-block">
               <a
                 href="mailto:nazrul@stacknothing.com"
-                className="text-primary font-bold z-10 text-xs w-fit underline underline-offset-2 relative flex items-center gap-1 "
+                className="text-primary font-bold z-10 text-xs w-fit  relative flex items-center gap-1 "
               >
                 <MdMailOutline />
                 nazrul@stacknothing.com
@@ -206,7 +206,7 @@ export default function Resume() {
               Nazrul Islam
             </h1>
             <div className="flex xl:gap-4 gap-2 xl:flex-row flex-col mb-4 xl:mb-12 w-fit ">
-              <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
+              {/* <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
                 Frontend Software Engineer (L3) -
                 <Link
                   href="https://axelerant.com"
@@ -217,7 +217,7 @@ export default function Resume() {
                   Axelerant
                 </Link>
               </p>
-              <span className="xl:block hidden text-black">|</span>
+              <span className="xl:block hidden text-black">|</span> */}
               <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
                 Founder & CEO -
                 <Link
@@ -226,7 +226,7 @@ export default function Resume() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  StackNothing
+                  StackNothing Technologies
                 </Link>
               </p>
             </div>

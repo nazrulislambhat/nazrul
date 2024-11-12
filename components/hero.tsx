@@ -1,26 +1,46 @@
 import Link from 'next/link';
+import { SiMinutemailer, SiGooglecalendar } from 'react-icons/si';
+import { BsRocketTakeoff } from 'react-icons/bs';
+
 function Hero() {
   return (
-    <div className="relative  text-white px-8 xl:mb-16 pt-32 pb-16 bg-primary">
+    <div className="relative text-white px-8 xl:mb-16 pt-36 pb-16 bg-primary">
       <div className="relative boxed">
-        <h1 className="heading text-xl xl:text-5xl pb-8 xl:pb-10 selection:bg-secondary selection:text-primary ">
-          Software Engineer and sometimes writer. My daily routine consists of
-          (but not limited to) drinking coffee, coding, writing, overcoming
-          boredom 🚀
+        <h1 className="heading text-xl xl:text-5xl pb-8 xl:pb-10 selection:bg-secondary selection:text-primary relative ">
+          Full Stack Engineer,
+          <span className="bg-secondary px-2  xl:px-4 text-primary  selection:bg-red selection:text-white">
+            helping brands build their online presence.
+          </span>
+          My daily routine consists of (but not limited to) drinking coffee,
+          coding, writing, overcoming boredom{' '}
+          <BsRocketTakeoff className="inline" />
         </h1>
-        <span className="border-b-1 border-secondary boxed">
-          Living in Namma Bengaluru
-        </span>
+        <span className="text-sm">Living in Namma Bengaluru ( ಬೆಂಗಳೂರು )</span>
         <p className="subheading-one boxed selection:bg-secondary selection:text-primary mt-6 mb-12 uppercase tracking-wide text-xs">
           Your trusted partner for strategy, design, development.
         </p>
-        <Link
-          href="https://cal.com/nazrul/"
-          target="_blank"
-          className="text-primary border-1 text-xs px-6 py-4 font-semibold border-secondary bg-secondary rounded-full hover:border-secondary hover:bg-transparent hover:text-secondary inline"
-        >
-          Schedule a call 📅
-        </Link>
+        <div className="flex items-center gap-8">
+          <p className="flex items-center gap-2 text-secondary">
+            <SiMinutemailer />
+            <Link
+              href="mailto:nazrul@nazrul.dev"
+              target="_blank"
+              className="link w-fit text-xs font-semibold text-secondary"
+            >
+              Write an Email
+            </Link>
+          </p>
+          <p className="flex items-center gap-2 text-secondary">
+            <SiGooglecalendar />
+            <Link
+              href="https://cal.com/nazrul/"
+              target="_blank"
+              className="link w-fit text-xs font-semibold text-secondary"
+            >
+              Schedule a call
+            </Link>
+          </p>
+        </div>
       </div>
       {/* <p className="about selection:bg-secondary text-sm selection:text-primary xl:text-[3rem] xl:leading-[3rem] xl:pt-52 xl:mb-32">
         Nazrul Islam, an enthusiastic software developer, excels in transforming

@@ -20,7 +20,7 @@ export default function Experience() {
             <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
           </div>
           <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
-            Nov 2021 - Present
+            Nov 2021 - Nov 2024
           </p>
         </div>
         <div className="millboard">
@@ -124,7 +124,7 @@ export default function Experience() {
               StackNothing Technologies
             </h3>
             <span className="hidden xl:block">|</span>
-            <h4 className="role font-semibold text-black text-xs">Founder</h4>
+            <h4 className="role font-semibold text-black text-xs">Founder & CEO</h4>
             <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
           </div>
           <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
