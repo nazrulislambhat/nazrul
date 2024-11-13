@@ -23,7 +23,7 @@ function Hero() {
           <p className="flex items-center gap-2 text-secondary">
             <SiMinutemailer />
             <Link
-              href="mailto:nazrul@nazrul.dev"
+              href="mailto:nazrul@nazrulislam.dev"
               target="_blank"
               className="link w-fit text-xs font-semibold text-secondary"
             >
