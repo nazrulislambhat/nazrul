@@ -23,7 +23,7 @@ function ComingSoon() {
       <Header />
       <div className="flex flex-col items-start justify-center align-middle boxed h-screen rounded bg-primary">
         <motion.h1
-          className="text-white text-2xl xl:text-8xl flex justify-center items-center align-middle mx-8 mb-4 selection:bg-secondary selection:text-primary "
+          className="text-background text-2xl xl:text-8xl flex justify-center items-center align-middle mx-8 mb-4 selection:bg-secondary selection:text-primary "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
