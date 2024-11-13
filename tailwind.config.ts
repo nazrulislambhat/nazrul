@@ -24,7 +24,6 @@ const config: Config = {
         third: '#3D155F',
         black: '#0D1821',
         red: '#FC5130',
-        whiteBackground: '#F9F9F9',
         background: '#F5F4FC',
         resume: '#D6EADF',
         orange: '#FF7A00',

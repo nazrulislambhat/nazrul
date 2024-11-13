@@ -27,26 +27,20 @@ export default function Resume() {
               <MdLocationOn />
               Bengaluru, Karnataka
             </h5>
-            <div className="relative inline-block">
-              <a
-                href="mailto:nazrul@nazrulislam.dev"
-                className="text-primary font-bold z-10 text-xs w-fit hover:link relative flex items-center gap-1 "
-              >
-                <MdMailOutline />
-                nazrul@nazrulislam.dev
-              </a>
-              <span className="absolute inset-x-0  bottom-1 h-2 w-[170px] bg-secondary z-0 opacity-80"></span>
-            </div>
-            <div className="relative inline-block">
-              <a
-                href="mailto:nazrul@stacknothing.com"
-                className="text-primary font-bold z-10 text-xs w-fit  relative flex items-center gap-1 "
-              >
-                <MdMailOutline />
-                nazrul@stacknothing.com
-              </a>
-              <span className="absolute inset-x-0  bottom-1 h-2 w-[185px] bg-secondary z-0 opacity-80"></span>
-            </div>
+            <Link
+              href="mailto:nazrul@nazrulislam.dev"
+              className="text-primary font-bold z-10 mb-2 text-xs w-fit link-primary hover:link relative flex items-center gap-1 "
+            >
+              <MdMailOutline />
+              nazrul@nazrulislam.dev
+            </Link>
+            <Link
+              href="mailto:nazrul@stacknothing.com"
+              className="text-primary font-bold z-10 text-xs w-fit link-primary relative flex items-center gap-1 "
+            >
+              <MdMailOutline />
+              nazrul@stacknothing.com
+            </Link>
           </div>
           <div className="flex flex-row xl:flex-col xl:gap-0 gap-8">
             <div className="core">

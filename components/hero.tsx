@@ -4,17 +4,18 @@ import { BsRocketTakeoff } from 'react-icons/bs';
 
 function Hero() {
   return (
-    <div className="relative text-white px-8 xl:mb-16 pt-36 pb-16 bg-primary">
+    <div className="relative text-background px-8 xl:mb-16 pt-36 pb-16 bg-primary">
       <div className="relative boxed">
-        <h1 className="heading text-xl xl:text-5xl pb-8 xl:pb-10 selection:bg-secondary selection:text-primary relative ">
-          Full Stack Engineer,
-          <span className="bg-secondary px-2  xl:px-4 text-primary  selection:bg-red selection:text-white">
-            helping brands build their online presence.
-          </span>
-          My daily routine consists of (but not limited to) drinking coffee,
-          coding, writing, overcoming boredom{' '}
-          <BsRocketTakeoff className="inline" />
+        <h1 className="heading text-xl xl:text-5xl pb-8 xl:pb-10 selection:bg-secondary selection:text-primary relative">
+          Full Stack Engineer, dedicated to{' '}
+          <span className="bg-secondary text-primary rounded-sm xl:rounded-md selection:bg-red selection:text-background">
+            empowering brands with impactful online experiences.
+          </span>{' '}
+          My daily workflow? Crafting elegant code, solving complex challenges,
+          and turning ideas into seamless digital journeys{' '}
+          <BsRocketTakeoff className="inline" />.
         </h1>
+
         <span className="text-sm">Living in Namma Bengaluru ( ಬೆಂಗಳೂರು )</span>
         <p className="subheading-one boxed selection:bg-secondary selection:text-primary mt-6 mb-12 uppercase tracking-wide text-xs">
           Your trusted partner for strategy, design, development.
@@ -27,7 +28,7 @@ function Hero() {
               target="_blank"
               className="link w-fit text-xs font-semibold text-secondary"
             >
-              Write an Email
+              write an email
             </Link>
           </p>
           <p className="flex items-center gap-2 text-secondary">
@@ -37,7 +38,7 @@ function Hero() {
               target="_blank"
               className="link w-fit text-xs font-semibold text-secondary"
             >
-              Schedule a call
+              schedule a call
             </Link>
           </p>
         </div>
