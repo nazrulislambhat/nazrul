@@ -5,7 +5,7 @@ import { BackgroundLines } from '@/components/ui/background-lines';
 
 function Hero() {
   return (
-    <BackgroundLines className="relative text-background px-8 pt-36 pb-24 xl:pt-48 bg-primary">
+    <BackgroundLines className="relative text-background px-8 xl:px-24 2xl:px-0 pt-36 pb-24 xl:pt-48 bg-primary">
       <div className="relative boxed">
         <h1 className="heading text-3xl font-bold md:text-4xl xl:text-6xl pb-4 xl:pb-6 selection:bg-secondary selection:text-primary relative">
           Full Stack Engineer

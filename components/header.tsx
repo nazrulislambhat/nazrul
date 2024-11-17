@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import logo from '../assets/logo.png';
 export default function Header() {
   return (
-    <div className="header relative flex justify-between px-8 xl:px-0 top-4 z-50 items-center boxed ">
+    <div className="header  pt-8 bg-primary relative flex justify-between px-8 xl:px-24 2xl:px-0 z-50 items-center max-width-[1440px] ">
       <motion.a
         href="/"
         initial={{ opacity: 0 }}
@@ -18,7 +18,7 @@ export default function Header() {
           alt="logo"
           width={50}
           height={50}
-          className="rounded-full border-1 absolute  border-1-background z-10 hover:bg-secondary bg-transparent "
+          className="rounded-full absolute border-secondary border-2 z-10 hover:bg-secondary bg-transparent "
         />
       </motion.a>
       <Nav />
