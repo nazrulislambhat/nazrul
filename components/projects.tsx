@@ -4,7 +4,7 @@ export default function Projects() {
     <div className="projects">
       <div className="relative mt-6 mb-4 font-bold inline-block">
         <p className="text-primary font-bold flex items-center gap-1 z-10 text-2xl w-fit relative">
-          Projects:
+          Projects: dillon verma
         </p>
         <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
       </div>
