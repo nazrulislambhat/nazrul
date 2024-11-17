@@ -11,7 +11,7 @@ export default function Resume() {
   return (
     <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden ">
       <div className=" flex flex-col xl:flex-row w-screen justify-start boxed">
-        <div className="skills pl-8 xl:pl-12 border-r-4 border-whiteBackground xl:py-24 xl:w-96">
+        <div className="skills pl-8 xl:pl-12 border-r-4 xl:pr-8 border-white xl:py-24 xl:w-96">
           <div className="contact pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
             <div className="relative inline-block">
               <Link
@@ -27,20 +27,28 @@ export default function Resume() {
               <MdLocationOn />
               Bengaluru, Karnataka
             </h5>
-            <Link
-              href="mailto:nazrul@nazrulislam.dev"
-              className="text-primary font-bold z-10 mb-2 text-xs w-fit link-primary hover:link relative flex items-center gap-1 "
-            >
-              <MdMailOutline />
-              nazrul@nazrulislam.dev
-            </Link>
-            <Link
-              href="mailto:nazrul@stacknothing.com"
-              className="text-primary font-bold z-10 text-xs w-fit link-primary relative flex items-center gap-1 "
-            >
-              <MdMailOutline />
-              nazrul@stacknothing.com
-            </Link>
+            <div className="flex items-start flex-col justify-start gap-4">
+              <p className="flex items-center gap-2 text-primary">
+                <MdMailOutline />
+                <Link
+                  href="mailto:nazrul@nazrulislam.dev"
+                  target="_blank"
+                  className="link-primary w-fit text-[10px] font-semibold text-primary"
+                >
+                  nazrul@nazrulislam.dev
+                </Link>
+              </p>
+              <p className="flex items-center gap-2 text-primary">
+                <MdMailOutline />
+                <Link
+                  href="mailto:nazrul@stacknothing.com"
+                  target="_blank"
+                  className="link-primary w-fit text-[10px] font-semibold text-primary"
+                >
+                  nazrul@stacknothing.com
+                </Link>
+              </p>
+            </div>
           </div>
           <div className="flex flex-row xl:flex-col xl:gap-0 gap-8">
             <div className="core">
@@ -193,7 +201,7 @@ export default function Resume() {
               <FaGithub className="text-third hover:text-primary text-2xl" />
             </Link>
           </div>
-          <div className="about-intro border-b-4 border-whiteBackground max-w-[1280px] ">
+          <div className="about-intro border-b-4 border-white max-w-[1280px] ">
             <h1
               className={`${archivo.className} text-primary font-semibold text-5xl xl:text-8xl pb-8 tracking-wide`}
             >
