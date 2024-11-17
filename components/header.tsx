@@ -1,4 +1,4 @@
-import Link from 'next/link';
+'use client';
 import Nav from './nav';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
