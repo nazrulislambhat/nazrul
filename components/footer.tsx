@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function FooterCpt() {
-  return <h1>Footer Component</h1>;
+export default function FooterComponent() {
+  return <h1>Footer Component ola</h1>;
 }
