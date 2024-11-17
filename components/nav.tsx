@@ -82,7 +82,7 @@ export default function Nav() {
           transition={{ duration: 1 }}
           className="flex say-salaam flex-col py-6 bg-third relative xl:h-auto xl:w-96 px-8"
         >
-          <span className="text-background uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-40 tracking-[2rem] hover:opacity-80">
+          <span className="text-secondary uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-40 tracking-[2rem] hover:opacity-80">
             Say Salaam
           </span>
           <ul className="flex flex-col text-4xl xl:text-base gap-1 xl:gap-2">
