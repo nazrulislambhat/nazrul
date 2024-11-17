@@ -10,7 +10,6 @@ import {
   FaGithub,
   FaLinkedin,
   FaYoutube,
-  FaStream,
 } from 'react-icons/fa';
 
 export default function Nav() {

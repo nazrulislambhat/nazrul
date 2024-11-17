@@ -1,21 +1,24 @@
 import Link from 'next/link';
 import { SiMinutemailer, SiGooglecalendar } from 'react-icons/si';
 import { BsRocketTakeoff } from 'react-icons/bs';
+import { BackgroundLines } from '@/components/ui/background-lines';
 
 function Hero() {
   return (
-    <div className="relative text-background px-8 xl:mb-16 pt-36 pb-16 bg-primary">
+    <BackgroundLines className="relative text-background px-8 pt-36 pb-24 xl:pt-48 bg-primary">
       <div className="relative boxed">
-        <h1 className="heading text-xl xl:text-5xl pb-8 xl:pb-10 selection:bg-secondary selection:text-primary relative">
-          Full Stack Engineer, dedicated to{' '}
-          <span className="bg-secondary text-primary rounded-sm xl:rounded-md selection:bg-red selection:text-background">
+        <h1 className="heading text-3xl font-bold md:text-4xl xl:text-6xl pb-4 xl:pb-6 selection:bg-secondary selection:text-primary relative">
+          Full Stack Engineer
+        </h1>
+        <p className="mb-8 xl:mb-10 text-[1rem] xl:text-[1.25rem] leading-[2rem] selection:bg-red selection:text-background xl:max-w-[90%]">
+          Dedicated to
+          <span className="bg-secondary text-primary rounded-sm px-2 py-1">
             empowering brands with impactful online experiences.
-          </span>{' '}
+          </span>
           My daily workflow? Crafting elegant code, solving complex challenges,
           and turning ideas into seamless digital journeys{' '}
           <BsRocketTakeoff className="inline" />.
-        </h1>
-
+        </p>
         <span className="text-sm">Living in Namma Bengaluru ( ಬೆಂಗಳೂರು )</span>
         <p className="subheading-one boxed selection:bg-secondary selection:text-primary mt-6 mb-12 uppercase tracking-wide text-xs">
           Your trusted partner for strategy, design, development.
@@ -53,7 +56,7 @@ function Hero() {
         approach allows Nazrul Islam to find harmony not only in software
         development but also in life's diverse experiences.
       </p> */}
-    </div>
+    </BackgroundLines>
   );
 }
 
