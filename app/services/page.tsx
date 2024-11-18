@@ -4,7 +4,7 @@ import Nav from '@/components/nav';
 import Header from '@/components/header';
 function Services() {
   return (
-    <div className="bg-primary">
+    <div className="bg-black">
       <Header />
       <Partner />
     </div>

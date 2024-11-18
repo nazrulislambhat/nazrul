@@ -54,6 +54,14 @@ export default function Nav() {
             </li>
             <li>
               <Link
+                href="/services"
+                className="hover:link-primary text-background hover:text-secondary hover:opacity-100 pb-1 font-bold  link  opacity-80"
+              >
+                services
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/resume"
                 target="_blank"
                 className="hover:link-primary text-background hover:text-secondary hover:opacity-100 pb-1 font-bold  link opacity-80"
@@ -148,9 +156,9 @@ export default function Nav() {
         className="focus:outline-none absolute right-0 top-0 cursor-pointer"
       >
         {isOpen ? (
-          <FaXing className="text-3xl close z-10 text-secondary xl:text-secondary" />
+          <FaXing className="text-2xl xl:text-3xl close z-10 mt-4 text-secondary xl:text-secondary" />
         ) : (
-          <FaGitter className="text-3xl open text-secondary   rotate-90" />
+          <FaGitter className="text-2xl xl:text-3xl open mt-4 text-secondary rotate-90" />
         )}
       </button>
     </div>
