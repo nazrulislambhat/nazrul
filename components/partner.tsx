@@ -9,22 +9,22 @@ function partner() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
-      <div className="boxed h-[60vh] px-8 py-12 xl:p-0  flex flex-col xl:flex-row items-center gap-8 xl:gap-0 xl:justify-between">
+      <div className="boxed h-screen px-8 xl:px-24 2xl:px-0 pt-36 pb-24 xl:pt-48 flex flex-col xl:flex-row items-center gap-8 xl:gap-0 xl:justify-between">
         <div className="left w-[100%] xl:min-w-[50%]">
-          <p className="bg-secondary inline-block mb-8 text-primary rounded-md px-4 py-2 font-bold uppercase text-base">
+          <p className="bg-secondary inline-block mb-8 text-black rounded-md px-4 py-2 font-bold uppercase text-xs">
             Services
           </p>
-          <p className="text-4xl text-white font-bold">
+          <p className="text-3xl xl:text-4xl text-white font-bold">
             Your full web solutions partner
           </p>
         </div>
         <div className="right">
-          <p className="text-secondary uppercase mb-8 font-semibold">
+          <p className="text-secondary text-sm xl:text-base uppercase mb-8 font-semibold">
             Over a decade of experience in building products for clients across
             several countries
           </p>
           <div className="flex items-start justify-start gap-4">
-            <ul className="font-semibold text-white">
+            <ul className="font-semibold text-white text-sm">
               <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-secondary rotate-45"></span>
                 Web Development
@@ -42,7 +42,7 @@ function partner() {
                 Online Branding
               </li>
             </ul>
-            <ul className="font-semibold text-white ">
+            <ul className="font-semibold text-white text-sm">
               <li className="flex items-center gap-2">
                 <span className="min-w-[5px] min-h-[5px] inline-block bg-secondary rotate-45"></span>
                 E-Commerce Development
