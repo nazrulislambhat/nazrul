@@ -26,12 +26,7 @@ export default function Nav() {
           isOpen ? 'block' : 'hidden'
         }`}
       >
-        <motion.nav
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="flex menu px-8 xl:rounded-t-md items-center pt-32 xl:pt-12 pb-6 z-0 bg-third h-[100%] xl:h-auto xl:w-96"
-        >
+        <nav className="flex menu px-8 xl:rounded-t-md items-center pt-32 xl:pt-12 pb-6 z-0 bg-third h-[100%] xl:h-auto xl:w-96">
           <ul className="flex flex-col xl:flex-col text-base xl:text-base gap-8">
             <li>
               <Link
@@ -75,14 +70,9 @@ export default function Nav() {
               </Link>
             </li>
           </ul>
-        </motion.nav>
-        <motion.nav
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="flex say-salaam flex-col py-6 bg-third relative xl:h-auto xl:w-96 px-8"
-        >
-          <span className="text-secondary uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-40 tracking-[2rem] hover:opacity-80">
+        </nav>
+        <nav className="flex say-salaam flex-col py-6 bg-third relative xl:h-auto xl:w-96 px-8">
+          <span className="text-white uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-40 tracking-[2rem] hover:opacity-80">
             Say Salaam
           </span>
           <ul className="flex flex-col text-4xl xl:text-base gap-1 xl:gap-2">
@@ -96,96 +86,73 @@ export default function Nav() {
             </li>
 
             <li>
-              <motion.a
+              <Link
                 href="https://cal.com/nazrul"
                 target="_blank"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
                 rel="noopener noreferrer"
-                className="hover:link-primary hover:text-secondary pb-1 hover:opacity-100 text-xs text-background link hover:scale-105 flex items-center w-fit opacity-80"
+                className="hover:link-primary hover:text-secondary pb-1 hover:opacity-100 text-xs text-background link  flex items-center w-fit opacity-80"
               >
                 meeting
                 <FaExternalLinkAlt className="ml-1 text-background  hover:opacity-100 hover:text-secondary text-[10px] link flex items-center opacity-80 w-fit" />
-              </motion.a>
+              </Link>
             </li>
           </ul>
-        </motion.nav>
-        <motion.nav
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="flex social pt-6 pb-12 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md"
-        >
+        </nav>
+        <nav className="flex social pt-6 pb-12 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md">
           <ul className="flex justify-between w-[100%]">
             <li>
-              <motion.a
+              <Link
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
                 rel="noopener noreferrer"
                 className=""
               >
                 <FaGithub className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
-              </motion.a>
+              </Link>
             </li>
             <li>
-              <motion.a
+              <Link
                 href="https://linkedin.com/in/nazrulislambhat"
                 target="_blank"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
                 rel="noopener noreferrer"
                 className=""
               >
                 <FaLinkedin className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
-              </motion.a>
+              </Link>
             </li>
             <li>
-              <motion.a
+              <Link
                 href="https://instagram.com/nazrulislambhat"
                 target="_blank"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
                 rel="noopener noreferrer"
                 className=""
               >
                 <FaInstagram className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
-              </motion.a>
+              </Link>
             </li>
             <li>
-              <motion.a
+              <Link
                 href="https://youtube.com/@nazrulislambhat"
                 target="_blank"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
                 rel="noopener noreferrer"
                 className=""
               >
                 <FaYoutube className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
-              </motion.a>
+              </Link>
             </li>
           </ul>
-        </motion.nav>
+        </nav>
       </div>
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+      <button
         onClick={toggleMenu}
-        className="focus:outline-none absolute right-0 top-0"
+        className="focus:outline-none absolute right-0 top-0 cursor-pointer"
       >
         {isOpen ? (
           <FaXing className="text-3xl close z-10 text-secondary xl:text-secondary" />
         ) : (
           <FaGitter className="text-3xl open text-secondary   rotate-90" />
         )}
-      </motion.button>
+      </button>
     </div>
   );
 }
