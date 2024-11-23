@@ -10,14 +10,13 @@ import ComingSoon from './coming-soon/page';
 export default function Home() {
   return (
     <main>
-      {/* <Header />
-       <Hero />
+      <Header />
+      <Hero />
       <AboutComponent />
       <CareerComponent />
       <ProjectsComponent />
       <ContactComponent />
-      <FooterComponent /> */}
-      <ComingSoon />
+      <FooterComponent />
     </main>
   );
 }
