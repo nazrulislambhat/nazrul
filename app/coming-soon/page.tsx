@@ -20,7 +20,7 @@ function ComingSoon() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="">
+    <div className="bg-primary">
       <div className="flex flex-col items-start justify-center align-middle boxed h-screen rounded bg-primary">
         <motion.h1
           className="text-background text-4xl xl:text-8xl flex justify-center items-center align-middle mx-8 mb-4 selection:bg-secondary selection:text-primary "
