@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/header';
 
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import { MdMailOutline } from 'react-icons/md';
 
 function ComingSoon() {
   const [progress, setProgress] = useState(17.319);
@@ -20,10 +21,9 @@ function ComingSoon() {
   }, []);
   return (
     <div className="">
-      <Header />
       <div className="flex flex-col items-start justify-center align-middle boxed h-screen rounded bg-primary">
         <motion.h1
-          className="text-background text-2xl xl:text-8xl flex justify-center items-center align-middle mx-8 mb-4 selection:bg-secondary selection:text-primary "
+          className="text-background text-4xl xl:text-8xl flex justify-center items-center align-middle mx-8 mb-4 selection:bg-secondary selection:text-primary "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
@@ -42,27 +42,35 @@ function ComingSoon() {
         >
           {progress.toFixed(3)}%
         </motion.span>
-        <motion.a
-          className="text-secondary font-semibold text-xs mx-8 mb-4 link selection:bg-secondary selection:text-primary"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          href="mailto:nazrul@nazrulislam.dev"
-        >
-          nazrul@nazrulislam.dev
-        </motion.a>
-        <motion.a
-          href="https://cal.com/nazrul"
-          target="_blank"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          rel="noopener noreferrer"
-          className="hover:link-primary hover:text-secondary mx-8 mb-4 selection:bg-secondary selection:text-primary hover:opacity-100 text-xs text-secondary link hover:scale-105 flex text-semibold  items-center w-fit"
-        >
-          schedule a meeting
-          <FaExternalLinkAlt className="ml-1 text-secondary  hover:opacity-100 hover:text-secondary text-[10px] link flex items-center w-fit" />
-        </motion.a>
+        <p className="flex items-center justify-center gap-2 mx-8 mb-4">
+          <MdMailOutline className=" text-secondary text-xs" />
+          <motion.a
+            href="mailto:nazrul@nazrulislam.dev"
+            target="_blank"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            rel="noopener noreferrer"
+            className="hover:link-primary hover:text-secondary   selection:bg-secondary selection:text-primary  text-xs text-secondary link flex text-semibold  items-center w-fit"
+          >
+            nazrul@nazrulislam.dev
+          </motion.a>
+        </p>
+
+        <p className="flex items-center justify-center gap-2 mx-8 mb-4">
+          <FaExternalLinkAlt className=" text-secondary text-xs" />
+          <motion.a
+            href="https://cal.com/nazrul"
+            target="_blank"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            rel="noopener noreferrer"
+            className="hover:link-primary hover:text-secondary  link selection:bg-secondary selection:text-primary text-xs text-secondary linkflex text-semibold  items-center w-fit"
+          >
+            schedule a meeting
+          </motion.a>
+        </p>
       </div>
     </div>
   );
