@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ExternalLink,
   AlignJustify,
@@ -15,6 +15,16 @@ import {
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  
+  useEffect(() => {
+    // Disable scrolling when menu is open
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+
+    // Cleanup function to ensure scrolling is enabled when component unmounts
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,7 +33,7 @@ export default function Nav() {
   return (
     <div className="relative flex items-center">
       <div
-        className={`flex flex-col w-[100%] h-[100%] lg:right-0 lg:w-auto xl:h-auto fixed xl:absolute justify-between left-0 top-0 xl:right-0 xl:top-10 xl:left-auto ${
+        className={`flex flex-col w-[100%] h-[100%] lg:right-0 lg:w-auto  xl:h-auto fixed xl:absolute justify-between left-0 top-0 xl:right-0 xl:top-10 xl:left-auto ${
           isOpen ? 'block' : 'hidden'
         }`}
       >
