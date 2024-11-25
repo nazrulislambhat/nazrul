@@ -9,7 +9,7 @@ import ProjectsComponent from '@/components/projects';
 import ComingSoon from './coming-soon/page';
 export default function Home() {
   return (
-    <main>
+    <main className="bg-primary">
       <Header />
       <Hero />
       <AboutComponent />

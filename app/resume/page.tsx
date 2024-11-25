@@ -1,6 +1,13 @@
-import React from 'react';
-import { FaFileDownload, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { MdOutlineWebAsset, MdMailOutline, MdLocationOn } from 'react-icons/md';
+import {
+  FileDown,
+  Linkedin,
+  Github,
+  BadgeCheck,
+  PanelsTopLeft,
+  Mail,
+  MapPinCheckInside,
+} from 'lucide-react';
+
 import { Inter_Tight, Archivo } from 'next/font/google';
 import Experience from '../../components/experience';
 import Projects from '../../components/projects';
@@ -18,18 +25,19 @@ export default function Resume() {
                 href="https://nazrulislam.dev"
                 className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative"
               >
-                <MdOutlineWebAsset />
+                <PanelsTopLeft className="w-4 h-4" />
                 nazrulislam.dev
               </Link>
+
               <span className="absolute inset-x-0  bottom-1 h-2 w-[160px] bg-secondary z-0 opacity-80"></span>
             </div>
-            <h5 className="font-semibold text-xs flex mb-4 items-center gap-1 text-black">
-              <MdLocationOn />
+            <h5 className="font-semibold text-xs flex my-4 items-center gap-1 text-black">
+              <MapPinCheckInside className="w-4 h-4" />
               Bengaluru, Karnataka
             </h5>
-            <div className="flex items-start flex-col justify-start gap-4">
+            <div className="flex items-start flex-col justify-start gap-2">
               <p className="flex items-center gap-2 text-primary">
-                <MdMailOutline />
+                <Mail className="w-4 h-4" />
                 <Link
                   href="mailto:nazrul@nazrulislam.dev"
                   target="_blank"
@@ -39,7 +47,7 @@ export default function Resume() {
                 </Link>
               </p>
               <p className="flex items-center gap-2 text-primary">
-                <MdMailOutline />
+                <Mail className="w-4 h-4" />
                 <Link
                   href="mailto:nazrul@stacknothing.com"
                   target="_blank"
@@ -184,26 +192,43 @@ export default function Resume() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaFileDownload className="text-primary hover:text-third text-2xl" />
+              <div className="relative group inline-block">
+                <FileDown className="text-primary cursor-pointer" />
+                <div className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-max bg-primary text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  download my resume
+                </div>
+              </div>
             </Link>
             <Link
               href="https://linkedin.com/in/nazrulislambhat"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin className="text-[#0077B5] text-2xl" />
+              <div className="relative group inline-block">
+                {/* LinkedIn Icon */}
+                <Linkedin className="text-[#0077B5] cursor-pointer" />
+                {/* Tooltip */}
+                <span className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-max bg-[#0077B5] text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  go to my linkedin
+                </span>
+              </div>
             </Link>
             <Link
               href="https://github.com/nazrulislambhat"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub className="text-third hover:text-primary text-2xl" />
+              <div className="relative group inline-block">
+                <Github />
+                <span className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-max bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  go to my github
+                </span>
+              </div>
             </Link>
           </div>
           <div className="about-intro border-b-4 border-white max-w-[1280px] ">
             <h1
-              className={`${archivo.className} text-primary font-semibold text-5xl xl:text-8xl pb-8 tracking-wide`}
+              className={`${archivo.className} text-primary font-semibold text-5xl xl:text-8xl pb-8 tracking-wide flex items-center`}
             >
               Nazrul Islam
             </h1>

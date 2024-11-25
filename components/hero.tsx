@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { SiMinutemailer, SiGooglecalendar } from 'react-icons/si';
-import { BsRocketTakeoff } from 'react-icons/bs';
 import { BackgroundLines } from '@/components/ui/background-lines';
+import { Mail, Calendar1, Rocket } from 'lucide-react';
 
 function Hero() {
   return (
@@ -17,15 +16,15 @@ function Hero() {
           </span>
           My daily workflow? Crafting elegant code, solving complex challenges,
           and turning ideas into seamless digital journeys{' '}
-          <BsRocketTakeoff className="inline" />.
+          <Rocket className="inline" />.
         </p>
         <span className="text-sm">Living in Namma Bengaluru ( ಬೆಂಗಳೂರು )</span>
         <p className="subheading-one boxed selection:bg-secondary selection:text-primary mt-6 mb-12 uppercase tracking-wide text-xs">
-          Your trusted partner for strategy, design, development.
+          Your trusted partner for strategy, design, development
         </p>
         <div className="flex items-center gap-8">
           <p className="flex items-center gap-2 text-secondary">
-            <SiMinutemailer />
+            <Mail className="w-4 h-4" />
             <Link
               href="mailto:nazrul@nazrulislam.dev"
               target="_blank"
@@ -35,7 +34,7 @@ function Hero() {
             </Link>
           </p>
           <p className="flex items-center gap-2 text-secondary">
-            <SiGooglecalendar />
+            <Calendar1 className="w-4 h-4" />
             <Link
               href="https://cal.com/nazrul/"
               target="_blank"

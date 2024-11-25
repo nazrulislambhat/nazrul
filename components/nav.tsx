@@ -1,16 +1,17 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-
 import {
-  FaXing,
-  FaGitter,
-  FaExternalLinkAlt,
-  FaInstagram,
-  FaGithub,
-  FaLinkedin,
-  FaYoutube,
-} from 'react-icons/fa';
+  ExternalLink,
+  AlignJustify,
+  Grip,
+  Ellipsis,
+  Instagram,
+  Youtube,
+  Github,
+  X,
+  Linkedin,
+} from 'lucide-react';
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function Nav() {
   return (
     <div className="relative flex items-center">
       <div
-        className={`flex flex-col w-[100%] h-[100%] lg:right-0 lg:w-auto xl:h-auto fixed xl:absolute justify-between left-0 top-0 xl:right-0 xl:top-12 xl:left-auto ${
+        className={`flex flex-col w-[100%] h-[100%] lg:right-0 lg:w-auto xl:h-auto fixed xl:absolute justify-between left-0 top-0 xl:right-0 xl:top-10 xl:left-auto ${
           isOpen ? 'block' : 'hidden'
         }`}
       >
@@ -101,7 +102,7 @@ export default function Nav() {
                 className="hover:link-primary hover:text-secondary pb-1 hover:opacity-100 text-xs text-background link  flex items-center w-fit opacity-80"
               >
                 meeting
-                <FaExternalLinkAlt className="ml-1 text-background  hover:opacity-100 hover:text-secondary text-[10px] link flex items-center opacity-80 w-fit" />
+                <ExternalLink className="ml-1 w-4 h-4 " />
               </Link>
             </li>
           </ul>
@@ -115,7 +116,7 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 className=""
               >
-                <FaGithub className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
+                <Github className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
               </Link>
             </li>
             <li>
@@ -125,7 +126,7 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 className=""
               >
-                <FaLinkedin className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
+                <Linkedin className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
               </Link>
             </li>
             <li>
@@ -135,7 +136,7 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 className=""
               >
-                <FaInstagram className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
+                <Instagram className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
               </Link>
             </li>
             <li>
@@ -145,7 +146,7 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 className=""
               >
-                <FaYoutube className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
+                <Youtube className="hover:link-primary hover:text-secondary hover:opacity-100 text-background text-xl link  hover:scale-105 w-fit opacity-80" />
               </Link>
             </li>
           </ul>
@@ -153,12 +154,12 @@ export default function Nav() {
       </div>
       <button
         onClick={toggleMenu}
-        className="focus:outline-none absolute right-0 top-0 cursor-pointer"
+        className="focus:outline-none absolute right-0 cursor-pointer"
       >
         {isOpen ? (
-          <FaXing className="text-2xl xl:text-3xl close z-10 mt-4 text-secondary xl:text-secondary" />
+          <Ellipsis className="w-6 h-6 close z-10 text-secondary xl:text-secondary" />
         ) : (
-          <FaGitter className="text-2xl xl:text-3xl open mt-4 text-secondary rotate-90" />
+          <Grip className="w-6 h-6 open text-secondary" />
         )}
       </button>
     </div>

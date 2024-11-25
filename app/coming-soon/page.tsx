@@ -3,9 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Header from '@/components/header';
+import { ExternalLink, Mail } from 'lucide-react';
 
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import { MdMailOutline } from 'react-icons/md';
 
 function ComingSoon() {
   const [progress, setProgress] = useState(17.319);
@@ -43,7 +42,7 @@ function ComingSoon() {
           {progress.toFixed(3)}%
         </motion.span>
         <p className="flex items-center justify-center gap-2 mx-8 mb-4">
-          <MdMailOutline className=" text-secondary text-xs" />
+          <Mail className=" text-secondary text-xs" />
           <motion.a
             href="mailto:nazrul@nazrulislam.dev"
             target="_blank"
@@ -58,7 +57,7 @@ function ComingSoon() {
         </p>
 
         <p className="flex items-center justify-center gap-2 mx-8 mb-4">
-          <FaExternalLinkAlt className=" text-secondary text-xs" />
+          <ExternalLink className=" text-secondary text-xs" />
           <motion.a
             href="https://cal.com/nazrul"
             target="_blank"
