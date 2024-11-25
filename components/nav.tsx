@@ -15,7 +15,6 @@ import {
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
-  
   useEffect(() => {
     // Disable scrolling when menu is open
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
@@ -25,7 +24,6 @@ export default function Nav() {
       document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -37,7 +35,7 @@ export default function Nav() {
           isOpen ? 'block' : 'hidden'
         }`}
       >
-        <nav className="flex menu px-8 xl:rounded-t-md items-center pt-32 xl:pt-12 pb-6 z-0 bg-third h-[100%] xl:h-auto xl:w-96">
+        <nav className="flex menu px-8 xl:rounded-t-md items-center pt-16 xl:pt-12 pb-6 z-0 bg-third h-[100%] xl:h-auto xl:w-96">
           <ul className="flex flex-col xl:flex-col text-base xl:text-base gap-8">
             <li>
               <Link
@@ -117,7 +115,7 @@ export default function Nav() {
             </li>
           </ul>
         </nav>
-        <nav className="flex social pt-6 pb-12 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md">
+        <nav className="flex social pt-4 pb-4 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md">
           <ul className="flex justify-between w-[100%]">
             <li>
               <Link
