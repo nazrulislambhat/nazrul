@@ -4,9 +4,9 @@ import { Mail, Calendar1, Rocket } from 'lucide-react';
 
 function Hero() {
   return (
-    <BackgroundLines className="relative text-background px-8 xl:px-24 2xl:px-0 pt-36 pb-24 xl:pt-48 bg-primary">
+    <BackgroundLines className="relative text-background px-8 xl:px-24 2xl:px-0 pt-36 pb-24 xl:pt-48 bg-primary border-b-1 border-secondary">
       <div className="relative boxed">
-        <h1 className="heading text-3xl font-bold md:text-4xl xl:text-6xl pb-4 xl:pb-6 selection:bg-secondary selection:text-primary relative">
+        <h1 className="heading text-4xl font-bold md:text-4xl xl:text-6xl pb-4 xl:pb-6 selection:bg-secondary selection:text-primary relative">
           Full Stack Engineer
         </h1>
         <p className="mb-8 xl:mb-10 text-[1rem] xl:text-[1.25rem] leading-[2rem] selection:bg-red selection:text-background xl:max-w-[90%]">
