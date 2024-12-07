@@ -15,15 +15,6 @@ import {
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    // Disable scrolling when menu is open
-    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
-
-    // Cleanup function to ensure scrolling is enabled when component unmounts
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isOpen]);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };

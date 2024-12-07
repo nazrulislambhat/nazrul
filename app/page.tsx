@@ -13,10 +13,10 @@ export default function Home() {
       <Header />
       <Hero />
       <AboutComponent />
-      <CareerComponent />
+      {/* <CareerComponent />
       <ProjectsComponent />
       <ContactComponent />
-      <FooterComponent />
+      <FooterComponent /> */}
     </main>
   );
 }

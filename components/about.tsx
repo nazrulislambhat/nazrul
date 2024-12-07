@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function AboutComponent() {
   return (
-    <h1>
-      About Component with skills
-      <p>
-        Hi, I’m a passionate Software Engineer with over 3 years of experience
+    <div className="text-background px-8 xl:px-24 2xl:px-0 pt-12 pb-12 xl:pt-24 bg-primary boxed selection:bg-secondary selection:text-primary">
+      {/* ///skills to be added as well */}
+      <p className="text-[1.3rem] xl:text-[1.5rem] xl:leading-[2.2rem]">
+        Hi, I’m a passionate Software Engineer with over 3+ years of experience
         specializing in front-end technologies. My primary expertise lies in the
-        JavaScript (ES6+) ecosystem, particularly with React and Next.js. I'm
+        JavaScript (ES6+) ecosystem, particularly with React JS and Next JS. I'm
         dedicated to leveraging technology to solve complex problems and
         continuously learning to keep up with the latest industry trends. I
         thrive in environments where I can explore new tools, frameworks, and
@@ -17,6 +17,6 @@ export default function AboutComponent() {
         Beyond coding, I’m someone who values collaboration, creativity, and
         continuous improvement.
       </p>
-    </h1>
+    </div>
   );
 }
