@@ -106,7 +106,7 @@ export default function Nav() {
             </li>
           </ul>
         </nav>
-        <nav className="flex social pt-4 pb-4 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md">
+        <nav className="flex social pt-4 pb-8 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md">
           <ul className="flex justify-between w-[100%]">
             <li>
               <Link

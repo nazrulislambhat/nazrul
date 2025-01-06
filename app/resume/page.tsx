@@ -233,18 +233,18 @@ export default function Resume() {
               Nazrul Islam
             </h1>
             <div className="flex xl:gap-4 gap-2 xl:flex-row flex-col mb-4 xl:mb-12 w-fit ">
-              {/* <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
-                Frontend Software Engineer (L3) -
+              <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
+                Senior Software Engineer -
                 <Link
-                  href="https://axelerant.com"
+                  href="https://hcltech.com"
                   className="text-xs text-primary font-bold  w-fit link-primary"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Axelerant
+                  HCLTech
                 </Link>
               </p>
-              <span className="xl:block hidden text-black">|</span> */}
+              <span className="xl:block hidden text-black">|</span>
               <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
                 Founder & CEO -
                 <Link
@@ -253,7 +253,7 @@ export default function Resume() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  StackNothing Technologies
+                  StackNothing
                 </Link>
               </p>
             </div>
