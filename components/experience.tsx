@@ -7,7 +7,66 @@ export default function Experience() {
         </p>
         <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
       </div>
-      <div className="axelerant max-w-[1280px]">
+
+      <div className="hcltech max-w-[1280px]">
+        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between">
+          <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
+            <h3 className="company text-primary text-base font-bold whitespace-nowrap">
+              HCLTech
+            </h3>
+            <span className="hidden xl:block">|</span>
+            <h4 className="role font-semibold text-black text-xs">
+              Senior Software Engineer
+            </h4>
+            <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
+          </div>
+          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
+            Dec 2024 - Present
+          </p>
+        </div>
+        <div className="millboard">
+          <div className="relative mb-2 mt-6 font-bold inline-block">
+            <p className="text-third font-bold flex z-10 text-base w-fit relative">
+              Novartis
+            </p>
+            <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
+          </div>
+          <ul className="flex flex-col gap-1 opacity-80">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Spearheaded the development of scalable frontend architecture as a
+              Senior Software Engineer.
+            </li>
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Specialized in building robust, accessible, and responsive
+              components using React, Storybook.
+            </li>
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Streamlined performance optimization by implementing advanced
+              state management and reducing code redundancy.
+            </li>
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Collaborated with cross-functional teams, ensuring alignment with
+              client objectives and regulatory requirements.
+            </li>
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Conducted code reviews, mentored junior developers, and
+              established best practices for clean and efficient coding.
+            </li>
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Utilized a tech stack including JavaScript (ES6+), TypeScript,
+              SASS, and Git for efficient development cycles.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="axelerant max-w-[1280px] my-8">
         <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between">
           <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
             <h3 className="company text-primary text-base font-bold whitespace-nowrap">
@@ -124,11 +183,13 @@ export default function Experience() {
               StackNothing Technologies
             </h3>
             <span className="hidden xl:block">|</span>
-            <h4 className="role font-semibold text-black text-xs">Founder & CEO</h4>
+            <h4 className="role font-semibold text-black text-xs">
+              Founder & CEO
+            </h4>
             <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
           </div>
           <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
-            March 2019 - Present
+            Aug 2020 - Nov 2021
           </p>
         </div>
 
