@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function Experience() {
   return (
     <div className="experience">
@@ -14,6 +15,7 @@ export default function Experience() {
             <h3 className="company text-primary text-base font-bold whitespace-nowrap">
               HCLTech
             </h3>
+
             <span className="hidden xl:block">|</span>
             <h4 className="role font-semibold text-black text-xs">
               Senior Software Engineer
@@ -70,11 +72,12 @@ export default function Experience() {
         <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between">
           <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
             <h3 className="company text-primary text-base font-bold whitespace-nowrap">
-              Axelerant Technologies
+              Axelerant
             </h3>
+
             <span className="hidden xl:block">|</span>
             <h4 className="role font-semibold text-black text-xs">
-              Software / Frontend Engineer (L3)
+              Frontend Software Engineer (L3)
             </h4>
             <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
           </div>
@@ -180,7 +183,7 @@ export default function Experience() {
         <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-8">
           <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
             <h3 className="company text-primary text-base font-bold whitespace-nowrap">
-              StackNothing Technologies
+              StackNothing
             </h3>
             <span className="hidden xl:block">|</span>
             <h4 className="role font-semibold text-black text-xs">
@@ -235,6 +238,51 @@ export default function Experience() {
               effective leadership, I cultivated successful partnerships with
               esteemed brands such as ExpressVPN, NordVPN, IIT Roorkee,
               AtlasVPS, Surfshark, and others.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="Dell max-w-[1280px]  ">
+        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-8">
+          <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
+            <h3 className="company text-primary text-base font-bold whitespace-nowrap">
+              Dell
+            </h3>
+            <span className="hidden xl:block">|</span>
+            <h4 className="role font-semibold text-black text-xs">
+              Technical Support Engineer
+            </h4>
+            <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
+          </div>
+          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
+            Mar 2020 - Aug 2020
+          </p>
+        </div>
+
+        <div className="StackNothing">
+          <div className="relative mb-2 mt-6 font-bold inline-block">
+            <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
+              what i did:
+            </p>
+            <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
+          </div>
+          <ul className="flex flex-col gap-2 opacity-80">
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Provided end-to-end technical support to clients, troubleshooting
+              hardware, software, and network issues to ensure minimal downtime.
+            </li>
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Assisted customers with system diagnostics, installations, and
+              updates, enhancing their overall user experience and system
+              performance.
+            </li>
+            <li className="text-[12px] font-semibold flex items-center gap-2">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Documented solutions and escalated complex cases to senior
+              engineers, contributing to improved knowledge base and team
+              efficiency.
             </li>
           </ul>
         </div>

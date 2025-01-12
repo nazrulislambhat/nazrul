@@ -23,7 +23,7 @@ export default function Resume() {
             <div className="relative inline-block">
               <Link
                 href="https://nazrulislam.dev"
-                className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative"
+                className="text-primary font-bold  hover:scale-105 flex items-center gap-1 z-10 text-base w-fit relative"
               >
                 <PanelsTopLeft className="w-4 h-4" />
                 nazrulislam.dev
@@ -193,7 +193,7 @@ export default function Resume() {
               rel="noopener noreferrer"
             >
               <div className="relative group inline-block">
-                <FileDown className="text-primary cursor-pointer" />
+                <FileDown className="text-primary cursor-pointer  hover:scale-105" />
                 <div className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-max bg-primary text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   download my resume
                 </div>
@@ -205,12 +205,7 @@ export default function Resume() {
               rel="noopener noreferrer"
             >
               <div className="relative group inline-block">
-                {/* LinkedIn Icon */}
-                <Linkedin className="text-[#0077B5] cursor-pointer" />
-                {/* Tooltip */}
-                <span className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-max bg-[#0077B5] text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  go to my linkedin
-                </span>
+                <Linkedin className="text-[#0077B5] cursor-pointer hover:scale-105" />
               </div>
             </Link>
             <Link
@@ -219,10 +214,7 @@ export default function Resume() {
               rel="noopener noreferrer"
             >
               <div className="relative group inline-block">
-                <Github />
-                <span className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-max bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  go to my github
-                </span>
+                <Github className="hover:scale-105" />
               </div>
             </Link>
           </div>
