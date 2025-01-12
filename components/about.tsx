@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function AboutComponent() {
   return (
-    <div className="text-background px-8 xl:px-20 2xl:px-0 pt-12 pb-12 xl:pt-24 bg-primary boxed selection:bg-secondary selection:text-primary">
+    <div className="text-background px-8 boxed xl:px-20 2xl:px-0 pt-12 pb-12 xl:pt-24 bg-primary selection:bg-secondary selection:text-primary">
       {/* ///skills to be added as well */}
       <p className="text-[1.3rem] xl:leading-[2.2rem]">
-        Hi, I’m a passionate Software Engineer with over 3+ years of experience
+        Hi, I’m a passionate Software Engineer with over 4+ years of experience
         specializing in front-end technologies. My primary expertise lies in the
         JavaScript (ES6+) ecosystem, particularly with React JS and Next JS. I'm
         dedicated to leveraging technology to solve complex problems and
