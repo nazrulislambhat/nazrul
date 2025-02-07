@@ -4,15 +4,15 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Header from '@/components/header';
 import { ExternalLink, Mail } from 'lucide-react';
-
-
+import Image from 'next/image';
+import logo from '../../assets/logo.png';
 function ComingSoon() {
   const [progress, setProgress] = useState(17.319);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prevProgress) =>
-        prevProgress >= 100 ? 100 : prevProgress + 0.02
+        prevProgress >= 100 ? 100 : prevProgress + 1.7
       );
     }, 1000);
 
