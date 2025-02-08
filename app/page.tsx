@@ -10,14 +10,13 @@ import ComingSoon from './coming-soon/page';
 export default function Home() {
   return (
     <main className="bg-primary">
-      {/* <Header />
+      <Header />
       <Hero />
-      <AboutComponent /> */}
+      <AboutComponent />
       {/* <CareerComponent />
       <ProjectsComponent />
       <ContactComponent />
       <FooterComponent /> */}
-      <ComingSoon />
     </main>
   );
 }
