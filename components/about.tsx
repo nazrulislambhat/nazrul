@@ -4,7 +4,7 @@ export default function AboutComponent() {
   return (
     <div className="text-background boxed  pt-12 pb-12 xl:pt-24 bg-primary selection:bg-secondary selection:text-primary px-8 2xl:px-0">
       {/* ///skills to be added as well */}
-      <p className="text-[1.3rem] xl:leading-[2.2rem]">
+      <p className="text-[.9rem] xl:leading-[2.2rem] xl:text-[1.2rem]">
         Hi, I’m a passionate Software Engineer with over 4+ years of experience
         specializing in front-end technologies. My primary expertise lies in the
         JavaScript (ES6+) ecosystem, particularly with React JS and Next JS. I'm
