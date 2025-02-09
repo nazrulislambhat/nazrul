@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/127f3d08-2480-4cf9-82cf-ea6dc2057bc7/deploy-status)](https://app.netlify.com/sites/nazrulislambhat/deploys)
 
-![5113755](https://github.com/nazrulislambhat/nazrul/assets/24292032/dfe226d4-dd13-4871-b655-39de74ccd992)
+![Nazrul-Islam-Full-Stack-Engineer-Software-Developer-02-09-2025_09_41_AM](https://github.com/user-attachments/assets/19a96e9f-c1ca-4e0f-bbb9-3926707c947c)
 
 # Portfolio Website
 
