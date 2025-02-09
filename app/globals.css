@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.boxed {
+.boxed1440 {
   max-width: 1440px;
+  margin: 0 auto;
+}
+.boxed1920 {
+  max-width: 1920px;
   margin: 0 auto;
 }
 .link {

@@ -17,7 +17,7 @@ const archivo = Archivo({ subsets: ['latin'] });
 export default function Resume() {
   return (
     <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden ">
-      <div className=" flex flex-col xl:flex-row w-screen justify-start boxed">
+      <div className=" flex flex-col xl:flex-row w-screen justify-start boxed1920">
         <div className="skills pl-8 xl:pl-12 border-r-4 xl:pr-8 border-white xl:py-24 xl:w-96">
           <div className="contact pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
             <div className="relative inline-block">

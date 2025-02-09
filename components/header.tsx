@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 export default function Header() {
   return (
     <div className="bg-transparent">
-      <div className="header py-4 relative flex justify-between z-50 items-center boxed px-8 2xl:px-0">
+      <div className="header py-4 relative flex justify-between z-50 items-center boxed1920 px-6 md:px-12 xl:px-16 2xl:px-24">
         <Link href="/" className="logo">
           <Image
             src={logo}
