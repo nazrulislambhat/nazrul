@@ -10,6 +10,7 @@ import {
   Youtube,
   Github,
   X,
+  Mail,
   Linkedin,
 } from 'lucide-react';
 
@@ -27,7 +28,7 @@ export default function Nav() {
         }`}
       >
         <nav className="flex menu px-8 xl:rounded-t-md items-center pt-16 xl:pt-12 pb-6 z-0 bg-third h-[100%] xl:h-auto xl:w-96">
-          <ul className="flex flex-col xl:flex-col text-base xl:text-base gap-8">
+          <ul className="flex flex-col xl:flex-col text-sm xl:text-sm gap-8">
             <li>
               <Link
                 href="#about"
@@ -80,16 +81,17 @@ export default function Nav() {
           </ul>
         </nav>
         <nav className="flex say-salaam flex-col py-6 bg-third relative xl:h-auto xl:w-96 px-8">
-          <span className="text-white uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-40 tracking-[2rem] hover:opacity-80">
+          <span className="text-white uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-60 tracking-[2rem] hover:opacity-100 hover:text-secondary">
             Say Salaam
           </span>
-          <ul className="flex flex-col text-4xl xl:text-base gap-1 xl:gap-2">
+          <ul className="flex flex-col text-4xl xl:text-base gap-2">
             <li>
               <Link
                 href="mailto:nazrul@nazrulislam.dev"
-                className="hover:link-primary  hover:text-secondary pb-1  text-xs hover:opacity-100  text-background link hover:scale-105 w-fit opacity-80"
+                className="hover:link-primary hover:text-secondary pb-1 hover:opacity-100 text-xs text-background link  flex items-center w-fit opacity-80"
               >
                 nazrul@nazrulislam.dev
+                <Mail className="ml-1 w-3 h-3 " />
               </Link>
             </li>
 
@@ -101,13 +103,13 @@ export default function Nav() {
                 className="hover:link-primary hover:text-secondary pb-1 hover:opacity-100 text-xs text-background link  flex items-center w-fit opacity-80"
               >
                 meeting
-                <ExternalLink className="ml-1 w-4 h-4 " />
+                <ExternalLink className="ml-1 w-3 h-3 " />
               </Link>
             </li>
           </ul>
         </nav>
-        <nav className="flex social pt-4 pb-8 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md">
-          <ul className="flex justify-between w-[100%]">
+        <nav className="flex social py-8 bg-third relative xl:h-auto xl:w-96 px-8 xl:rounded-b-md">
+          <ul className="flex justify-start gap-8">
             <li>
               <Link
                 href="https://github.com/nazrulislambhat"
