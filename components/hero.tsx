@@ -6,7 +6,7 @@ function Hero() {
   return (
     <BackgroundLines className="relative boxed1920 text-background py-20 bg-primary px-6 md:px-12 xl:px-16 2xl:px-24">
       <div className="relative boxed">
-        <h1 className="heading text-4xl font-bold md:text-4xl xl:text-6xl pb-4 xl:pb-6 selection:bg-secondary selection:text-primary relative">
+        <h1 className="heading text-secondary text-3xl font-bold md:text-4xl xl:text-6xl mb-8 xl:mb-10 selection:bg-secondary selection:text-primary relative">
           Full Stack Engineer
         </h1>
         <p className="mb-8 xl:mb-10 text-[1rem] xl:text-[1.25rem] leading-[2rem] selection:bg-red selection:text-background xl:max-w-[90%]">
