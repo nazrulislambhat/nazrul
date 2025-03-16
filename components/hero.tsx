@@ -4,26 +4,27 @@ import { Mail, Calendar1, Rocket } from 'lucide-react';
 
 function Hero() {
   return (
-    <BackgroundLines className="relative boxed1920 text-background py-20 bg-primary px-6 md:px-12 xl:px-16 2xl:px-24">
+    <div className="relative boxed1920 text-background py-20 bg-primary px-6 md:px-12 xl:px-16 2xl:px-24">
       <div className="relative boxed">
         <h1 className="heading text-secondary text-3xl font-bold md:text-4xl xl:text-6xl mb-8 xl:mb-10 selection:bg-secondary selection:text-primary relative">
-          Full Stack Engineer
+          Senior Software Engineer
         </h1>
-        <p className="mb-8 xl:mb-10 text-[1rem] xl:text-[1.25rem] leading-[2rem] selection:bg-red selection:text-background xl:max-w-[90%]">
-          Dedicated to
-          <span className="bg-secondary text-primary rounded-sm mx-2 px-1 py-1">
-            empowering brands with impactful online experiences.
+        <p className="mb-8 xl:mb-10 text-[1rem] xl:text-[1.25rem] leading-[2rem] selection:bg-secondary selection:text-primary xl:max-w-[90%]">
+          Bridging design and functionality with modern front-end technologies —
+          crafting scalable, accessible, and high-performance web solutions with
+          JavaScript, React js and Next js.
+          <span className="text-secondary ">
+            {' '}
+            Always learning, always optimizing{' '}
           </span>
-          My daily workflow? Crafting elegant code, solving complex challenges,
-          and turning ideas into seamless digital journeys{' '}
           <Rocket className="inline" />.
         </p>
-        <span className="text-sm">Living in Namma Bengaluru ( ಬೆಂಗಳೂರು )</span>
-        <p className="subheading-one boxed selection:bg-secondary selection:text-primary mt-6 mb-12 uppercase tracking-wide text-xs">
-          Your trusted partner for strategy, design, development
+        <p className="text-sm mt-6 mb-6 selection:bg-secondary selection:text-primary">
+          Living in Namma Bengaluru ( ಬೆಂಗಳೂರು )
         </p>
+
         <div className="flex items-center gap-8">
-          <p className="flex items-center gap-2 text-secondary">
+          <p className="flex items-center gap-2 text-secondary selection:bg-secondary selection:text-primary">
             <Mail className="w-4 h-4" />
             <Link
               href="mailto:nazrul@nazrulislam.dev"
@@ -33,7 +34,7 @@ function Hero() {
               write an email
             </Link>
           </p>
-          <p className="flex items-center gap-2 text-secondary">
+          <p className="flex items-center gap-2 text-secondary selection:bg-secondary selection:text-primary">
             <Calendar1 className="w-4 h-4" />
             <Link
               href="https://cal.com/nazrul/"
@@ -55,7 +56,7 @@ function Hero() {
         approach allows Nazrul Islam to find harmony not only in software
         development but also in life's diverse experiences.
       </p> */}
-    </BackgroundLines>
+    </div>
   );
 }
 
