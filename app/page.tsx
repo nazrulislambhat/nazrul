@@ -6,7 +6,7 @@ import CareerComponent from '@/components/career';
 import ContactComponent from '@/components/contact';
 import FooterComponent from '@/components/footer';
 import ProjectsComponent from '@/components/projects';
-import ComingSoon from './coming-soon/page';
+
 import ComingSoonComponent from '@/components/something-cool';
 import Years from '@/components/years';
 export default function Home() {

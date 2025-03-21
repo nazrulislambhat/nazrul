@@ -16,10 +16,11 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
-        text: 'text 5s ease infinite',
+        text: 'text 5s ease-in-out infinite',
       },
       colors: {
         primary: '#4831D3',
+        primary2: '#3139fb',
         secondary: '#CCF380',
         third: '#3D155F',
         black: '#0D1821',

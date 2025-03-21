@@ -2,51 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Container utility classes */
 .boxed1440 {
   max-width: 1440px;
   margin: 0 auto;
 }
+
 .boxed1920 {
   max-width: 1920px;
   margin: 0 auto;
 }
-.link {
-  position: relative;
-  text-decoration: none;
-}
 
-.link::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  display: block;
-  height: 1.5px;
-  border-radius: 1px;
-  background-color: #ccf380;
-  bottom: -2px;
-  left: 0;
-  transform-origin: left;
-  transform: scaleX(0.4);
-  transition: transform 0.3s ease-in-out;
-}
-
-.link:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-  background: linear-gradient(to right, #ccf380, #ccf380);
-}
+/* Link styling with hover effects */
+.link,
 .link-primary {
   position: relative;
   text-decoration: none;
 }
 
+.link::before,
 .link-primary::before {
   content: '';
   position: absolute;
   width: 100%;
   display: block;
   height: 1.5px;
-  background-color: #4831d3;
   border-radius: 2px;
   bottom: -2px;
   left: 0;
@@ -55,9 +35,20 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.link-primary:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
+.link::before {
+  background-color: #ccf380;
+}
 
-  background: linear-gradient(to right, #4831d3, #4831d3);
+.link:hover::before {
+  transform: scaleX(1);
+  background: linear-gradient(to right, #ccf380, #ccf380);
+}
+
+.link-primary::before {
+  background-color: #3139fb;
+}
+
+.link-primary:hover::before {
+  transform: scaleX(1);
+  background: linear-gradient(to right, #3139fb, #3139fb);
 }
