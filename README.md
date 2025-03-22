@@ -32,9 +32,10 @@ This project is a personal portfolio website built using Next.js and React. It h
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
 - [HeroIcons](https://heroicons.com/)
+- [Lucide React](https://lucide.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
-- Email Integration (?)
+- [Resend](https://resend.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 
 ## Features
