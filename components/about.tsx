@@ -1,13 +1,24 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function AboutComponent() {
   return (
     <div className="bg-background">
-      <div className="boxed1920 py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
-        <p className="text-primary border-b-2 font-semibold border-primary w-fit mb-8">
+      <div className="boxed1440 py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-primary border-b-2 font-semibold border-primary w-fit mb-8"
+        >
           About Me
-        </p>
-        <p className="text-black md:text-medium xl:text-xl mt-4">
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-black md:text-medium xl:text-xl mt-4"
+        >
           Hi, I’m a{' '}
           <strong className="font-bold text-primary">
             results-driven Software Engineer
@@ -31,9 +42,14 @@ export default function AboutComponent() {
             React.js and Next.js
           </strong>
           .
-        </p>
+        </motion.p>
 
-        <p className="text-black md:text-medium xl:text-xl mt-4">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="text-black md:text-medium xl:text-xl mt-4"
+        >
           I’m passionate about crafting{' '}
           <strong className="font-bold text-primary">
             seamless, high-performance web applications
@@ -56,9 +72,14 @@ export default function AboutComponent() {
             leveraging modern frameworks
           </strong>
           , I’m always eager to explore and innovate.
-        </p>
+        </motion.p>
 
-        <p className="text-black md:text-medium xl:text-xl mt-4">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="text-black md:text-medium xl:text-xl mt-4"
+        >
           Beyond coding, I believe in{' '}
           <strong className="font-bold text-primary">
             collaboration, creativity, and continuous learning
@@ -68,7 +89,7 @@ export default function AboutComponent() {
             dynamic environments
           </strong>{' '}
           where I can contribute, grow, and make a real impact.
-        </p>
+        </motion.p>
       </div>
     </div>
   );
