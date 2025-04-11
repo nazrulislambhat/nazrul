@@ -62,7 +62,7 @@ export default function Resume() {
             <div className="core">
               <div className="relative mb-4 font-bold inline-block">
                 <p className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative">
-                  Core Technologies:
+                  Core:
                 </p>
                 <span className="absolute inset-x-0  bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
               </div>
