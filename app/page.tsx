@@ -9,6 +9,7 @@ import ProjectsComponent from '@/components/projects';
 
 import ComingSoonComponent from '@/components/something-cool';
 import Years from '@/components/years';
+import BatteryStatus from '@/components/BatteryStatus';
 export default function Home() {
   return (
     <main className="bg-primary">
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <Hero />
       <AboutComponent />
+
       {/* <Years /> */}
       {/* <CareerComponent />
       <ProjectsComponent />

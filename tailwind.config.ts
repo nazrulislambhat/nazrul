@@ -28,6 +28,8 @@ const config: Config = {
         background: '#F5F4FC',
         resume: '#D6EADF',
         orange: '#FF7A00',
+        yellow: '#FAFF81',
+        green: '#6DECAF',
         white: '#FFFFFF',
       },
 
