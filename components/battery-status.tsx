@@ -175,7 +175,7 @@ export default function BatteryStatus() {
   };
 
   return (
-    <div className="flex items-center gap-4 rounded-lg bg-card text-card-foreground shadow-sm touch-manipulation p-4">
+    <div className="flex absolute top-0 right-0 items-center gap-4 rounded-lg bg-card text-card-foreground shadow-sm touch-manipulation p-4">
       {/* Battery icon */}
       <div className="relative">
         <div
