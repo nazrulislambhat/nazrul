@@ -13,7 +13,6 @@ import {
   Mail,
   Linkedin,
 } from 'lucide-react';
-import BatteryStatus from './battery-status';
 
 const menuVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -72,7 +71,6 @@ export default function Nav() {
                 )}
               </motion.li>
             ))}
-            <BatteryStatus />
           </nav>
           <nav className="flex say-salaam flex-col py-6 bg-third relative xl:h-auto xl:w-96 px-8">
             <span className="text-white uppercase text-2xl xl:text-3xl pb-4 xl:pb-6 opacity-60 tracking-[2rem] hover:opacity-100 hover:text-secondary">
