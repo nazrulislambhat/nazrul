@@ -13,7 +13,7 @@ import {
   Mail,
   Linkedin,
 } from 'lucide-react';
-import BatteryStatus from './BatteryStatus';
+import BatteryStatus from './battery-status';
 
 const menuVariants = {
   hidden: { opacity: 0, y: 20 },
