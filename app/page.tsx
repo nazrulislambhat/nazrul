@@ -16,7 +16,7 @@ export default function Home() {
       <Header />
       <Hero />
       <AboutComponent />
-      <Years />
+      {/* <Years /> */}
       {/* <CareerComponent />
       <ProjectsComponent />
       <ContactComponent />
