@@ -35,13 +35,31 @@ export default function AboutComponent() {
           </strong>
           . My expertise revolves around the{' '}
           <strong className="font-bold text-primary">
-            JavaScript (ES6+) ecosystem
-          </strong>
-          , with a strong focus on{' '}
+            JavaScript (ES6+)
+          </strong>{' '}
+          ecosystem, with a strong focus on{' '}
+          <strong className="font-bold text-primary">React.js</strong> and{' '}
+          <strong className="font-bold text-primary">Next.js</strong>. I'm
+          proficient in{' '}
+          <strong className="font-bold text-primary">TypeScript</strong>,
+          ensuring type safety and scalability in large codebases. I have
+          hands-on experience with modern build tools like{' '}
+          <strong className="font-bold text-primary">Vite</strong> and bundlers
+          like <strong className="font-bold text-primary">Webpack</strong>. I
+          write clean, maintainable code following{' '}
           <strong className="font-bold text-primary">
-            React.js and Next.js
+            component-driven architecture
           </strong>
-          .
+          , and I’m well-versed in using{' '}
+          <strong className="font-bold text-primary">Tailwind CSS</strong>,{' '}
+          <strong className="font-bold text-primary">ShadCN UI</strong>, and{' '}
+          <strong className="font-bold text-primary">Framer Motion</strong> for
+          building polished UIs with delightful user experiences. I also
+          leverage{' '}
+          <strong className="font-bold text-primary">React Query</strong>,{' '}
+          <strong className="font-bold text-primary">Zustand</strong>, and{' '}
+          <strong className="font-bold text-primary">Firebase</strong> for state
+          management and backend integration.
         </motion.p>
 
         <motion.p

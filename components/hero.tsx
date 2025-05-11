@@ -22,12 +22,12 @@ function Hero() {
         >
           Bridging design and functionality with modern front-end technologies —
           crafting scalable, accessible, and high-performance web solutions with
-          JavaScript, React js and Next js.
-          <span className="text-secondary ">
+          JavaScript, React JS and Next JS.
+          <span className="text-secondary font-bold">
             {' '}
             Always learning, always optimizing{' '}
           </span>
-          <Rocket className="w-4 h-4 inline" />.
+          <Rocket className="w-4 h-4 inline" />
         </motion.p>
 
         <motion.p
@@ -36,8 +36,7 @@ function Hero() {
           transition={{ duration: 0.4, delay: 0.6 }}
           className="text-xs mb-8 text-background selection:bg-secondary selection:text-primary flex items-center gap-2 relative"
         >
-          <MapPinHouse className="w-4 h-4 inline" /> Namma Bengaluru - ನಮ್ಮ
-          ಬೆಂಗಳೂರು
+          <MapPinHouse className="w-4 h-4 inline" /> Namma Bengaluru - ಬೆಂಗಳೂರು
         </motion.p>
 
         <motion.div
