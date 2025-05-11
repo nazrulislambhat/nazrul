@@ -4,7 +4,10 @@ import { Inter_Tight, Comfortaa, Archivo, Nunito } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 
-const nunito = Nunito({ subsets: ['latin'] });
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'], // Add the weights you need
+});
 const comfortaa = Comfortaa({ subsets: ['latin'] });
 const inter = Inter_Tight({ subsets: ['latin'] });
 const archivo = Archivo({ subsets: ['latin'] });
