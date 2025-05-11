@@ -38,10 +38,8 @@ export default function AboutComponent() {
             JavaScript (ES6+) ecosystem
           </strong>
           , with a strong focus on{' '}
-          <strong className="font-bold text-primary">
-            React.js and Next.js
-          </strong>
-          .
+          <strong className="font-bold text-primary">React JS</strong> and{' '}
+          <strong className="font-bold text-primary">Next JS</strong>.
         </motion.p>
 
         <motion.p
