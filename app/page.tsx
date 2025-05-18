@@ -6,14 +6,14 @@ import FooterLower from '../components/footer-lower';
 import SomethingCoolSoon from '../components/something-cool-soon';
 import Years from '../components/years';
 import Services from '../components/services';
-import About from '../components/about';
+import AboutComponent from '../components/about';
 export default function Home() {
   return (
     <main className="boxed">
       <SomethingCoolSoon />
       <Header />
       <Hero />
-      <About />
+      <AboutComponent />
       <Services />
       <Years />
       <Contact />
