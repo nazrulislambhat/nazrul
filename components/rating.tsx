@@ -1,4 +1,4 @@
-import { Star, StarHalf } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 type StarRatingProps = {
   filled: number;
@@ -9,7 +9,7 @@ type StarRatingProps = {
   className?: string;
 };
 
-export const StarRating = ({
+export const Rating = ({
   filled,
   total = 5,
   className = '',
@@ -30,3 +30,4 @@ export const StarRating = ({
     </div>
   );
 };
+export default Rating;

@@ -11,7 +11,7 @@ import { Inter_Tight, Archivo, Nunito, Comfortaa } from 'next/font/google';
 import Projects from '@/components/projects';
 import Experience from '@/components/experience';
 import Link from 'next/link';
-import StarRating from '@/components/star-rating';
+import Rating from '@/components/rating';
 
 const archivo = Archivo({ subsets: ['latin'] });
 export default function Resume() {
@@ -69,7 +69,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   JavaScript
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -78,7 +78,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   React JS
-                  <StarRating
+                  <Rating
                     filled={4}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -87,7 +87,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   Next JS
-                  <StarRating
+                  <Rating
                     filled={3}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -96,7 +96,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   TypeScript
-                  <StarRating
+                  <Rating
                     filled={3}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -105,7 +105,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   GraphQL
-                  <StarRating
+                  <Rating
                     filled={3}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -114,7 +114,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   Redux
-                  <StarRating
+                  <Rating
                     filled={3}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -124,7 +124,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   React Testing Library
-                  <StarRating
+                  <Rating
                     filled={3}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -133,7 +133,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   Zustand
-                  <StarRating
+                  <Rating
                     filled={2}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -142,7 +142,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   Git
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -151,7 +151,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   CSS/SaSS
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -160,7 +160,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   TailwindCSS
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -169,7 +169,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   Styled Components
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-third fill-third"
                     unfilledColor="text-third fill-none"
@@ -188,7 +188,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Vite
-                  <StarRating
+                  <Rating
                     filled={4}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -198,7 +198,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Vercel
-                  <StarRating
+                  <Rating
                     filled={4}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -207,7 +207,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Docker
-                  <StarRating
+                  <Rating
                     filled={2}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -216,7 +216,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Heroku
-                  <StarRating
+                  <Rating
                     filled={2}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -225,7 +225,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Webpack
-                  <StarRating
+                  <Rating
                     filled={3}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -234,7 +234,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   LessCSS
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -243,7 +243,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Bootstrap
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -252,7 +252,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   NextUI
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -261,7 +261,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   MUI
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -270,7 +270,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Gulp
-                  <StarRating
+                  <Rating
                     filled={3}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -279,7 +279,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Babel
-                  <StarRating
+                  <Rating
                     filled={3}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -288,7 +288,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Drupal
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
@@ -297,7 +297,7 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   WordPress
-                  <StarRating
+                  <Rating
                     filled={5}
                     filledColor="text-primary fill-primary"
                     unfilledColor="text-primary fill-none"
