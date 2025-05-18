@@ -13,13 +13,12 @@ import Experience from '@/components/Experience';
 import Link from 'next/link';
 import { StarRating } from '@/components/StarRating';
 
-
 const archivo = Archivo({ subsets: ['latin'] });
 export default function Resume() {
   return (
-    <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden ">
-      <div className=" flex flex-col xl:flex-row w-screen justify-start boxed">
-        <div className="pl-8 xl:pl-12 border-r-4 xl:pr-8 border-white xl:py-24 xl:w-96">
+    <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden">
+      <div className=" flex flex-col xl:flex-row w-screen justify-start boxed ">
+        <div className="pl-8 xl:pl-12 xl:border-r-4 xl:pr-8 xl:border-e xl:py-24 xl:w-1/2 ">
           <div className="pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
             <div className="items-center gap-2 text-primary inline-flex relative">
               <PanelsTopLeft className="w-4 h-4" />
@@ -58,7 +57,7 @@ export default function Resume() {
               </p>
             </div>
           </div>
-          <div className="flex flex-row xl:flex-col xl:gap-0 gap-8">
+          <div className="flex flex-col gap-8 mr-8 xl:mr-0">
             <div className="core">
               <div className="relative mb-4 font-bold inline-block">
                 <p className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative">
@@ -179,7 +178,7 @@ export default function Resume() {
               </ul>
             </div>
             <div className="other">
-              <div className="relative mb-4 xl:mt-12 font-bold inline-block">
+              <div className="relative mb-4 font-bold inline-block">
                 <p className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative">
                   Other:
                 </p>
@@ -308,7 +307,7 @@ export default function Resume() {
             </div>
           </div>
         </div>
-        <div className="about relative pl-8 xl:pr-28 xl:py-24 max-w-[85%]  xl:w-screen overflow-hidden">
+        <div className="about relative pl-8 mr-8 xl:mr-24 xl:py-24 overflow-hidden">
           <div className="download py-8 xl:py-12 xl:absolute xl:top-6 xl:right-28 flex gap-2 items-center ">
             <Link
               href="https://drive.google.com/file/d/15-5JnG6SAuE--pMtUHeR5TQrsQSxIClF/view?usp=sharing"
