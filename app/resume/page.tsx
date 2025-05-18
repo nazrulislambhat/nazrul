@@ -5,6 +5,7 @@ import {
   PanelsTopLeft,
   Mail,
   MapPinCheckInside,
+  House,
 } from 'lucide-react';
 
 import { Inter_Tight, Archivo, Nunito, Comfortaa } from 'next/font/google';
@@ -21,9 +22,9 @@ export default function Resume() {
         <div className="pl-8 xl:pl-12 xl:border-r-4 xl:pr-8 xl:border-white xl:py-24 xl:w-1/2 ">
           <div className="pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
             <div className="items-center gap-2 text-primary inline-flex relative">
-              <PanelsTopLeft className="w-4 h-4" />
+              <House className="w-4 h-4" />
               <Link
-                href="nazrulislam.dev"
+                href="https://nazrulislam.dev"
                 className="text-primary font-semibold link-primary flex items-center gap-1 z-10 text-xl w-fit relative"
               >
                 nazrulislam.dev
