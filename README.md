@@ -26,6 +26,7 @@ This project is a personal portfolio website built using Next.js and React. It h
 
 - [Prod](https://nazrulislam.in/) - Production
 - [Prod](https://nazrulislam.dev/) - Production
+- [Dev](https://nazrulislam.vercel.app/) - Development
 
 ## Technologies Used
 

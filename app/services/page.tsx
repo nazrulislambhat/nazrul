@@ -1,12 +1,10 @@
 import React from 'react';
-import Partner from '@/components/partner';
-import Nav from '@/components/nav';
+import Nav from '@/components/Navbar';
 import Header from '@/components/header';
 function Services() {
   return (
     <div className="bg-black">
       <Header />
-      <Partner />
     </div>
   );
 }

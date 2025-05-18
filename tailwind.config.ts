@@ -31,6 +31,7 @@ const config: Config = {
         yellow: '#FAFF81',
         green: '#6DECAF',
         white: '#FFFFFF',
+        coolWhite: '#F5F8FD',
       },
 
       keyframes: {

@@ -3,12 +3,8 @@
 @tailwind utilities;
 
 /* Container utility classes */
-.boxed1440 {
-  max-width: 1440px;
-  margin: 0 auto;
-}
 
-.boxed1920 {
+.boxed {
   max-width: 1920px;
   margin: 0 auto;
 }

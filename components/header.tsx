@@ -1,9 +1,9 @@
 'use client';
-import Nav from './nav';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import logo from '../assets/logo.png';
+import Navbar from './Navbar';
 export default function Header() {
   return (
     <motion.div
@@ -12,7 +12,7 @@ export default function Header() {
       transition={{ duration: 0.2 }}
       className="bg-transparent"
     >
-      <div className="header py-4 relative flex justify-between z-50 items-center boxed1440 px-6 md:px-12 xl:px-16 2xl:px-24">
+      <div className="header py-4 relative flex justify-between z-50 items-center bg-primary px-6 md:px-12 xl:px-16 2xl:px-24">
         <Link href="/" className="logo">
           <Image
             src={logo}
@@ -22,7 +22,7 @@ export default function Header() {
             className="rounded-full border-secondary border-2 z-10 hover:bg-secondary bg-transparent "
           />
         </Link>
-        <Nav />
+        <Navbar />
       </div>
     </motion.div>
   );

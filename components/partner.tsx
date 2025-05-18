@@ -2,14 +2,14 @@
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
-function partner() {
+export default function Partner() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
-      <div className="boxed h-screen px-8 xl:px-24 2xl:px-0 pt-36 pb-24 xl:pt-48 flex flex-col xl:flex-row items-center gap-8 xl:gap-0 xl:justify-between">
+      <div className="h-screen px-8 xl:px-24 2xl:px-0 pt-36 pb-24 xl:pt-48 flex flex-col xl:flex-row items-center gap-8 xl:gap-0 xl:justify-between">
         <div className="left w-[100%] xl:min-w-[50%]">
           <p className="bg-secondary inline-block mb-8 text-black rounded-md px-4 py-2 font-bold uppercase text-xs">
             Services
@@ -64,5 +64,3 @@ function partner() {
     </motion.div>
   );
 }
-
-export default partner;

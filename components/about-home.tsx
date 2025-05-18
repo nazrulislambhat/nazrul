@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function AboutComponent() {
+export default function About() {
   return (
-    <div className="bg-background">
-      <div className="boxed1440 py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
+    <div className="bg-coolWhite">
+      <div className="py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,31 +35,11 @@ export default function AboutComponent() {
           </strong>
           . My expertise revolves around the{' '}
           <strong className="font-bold text-primary">
-            JavaScript (ES6+)
-          </strong>{' '}
-          ecosystem, with a strong focus on{' '}
-          <strong className="font-bold text-primary">React.js</strong> and{' '}
-          <strong className="font-bold text-primary">Next.js</strong>. I'm
-          proficient in{' '}
-          <strong className="font-bold text-primary">TypeScript</strong>,
-          ensuring type safety and scalability in large codebases. I have
-          hands-on experience with modern build tools like{' '}
-          <strong className="font-bold text-primary">Vite</strong> and bundlers
-          like <strong className="font-bold text-primary">Webpack</strong>. I
-          write clean, maintainable code following{' '}
-          <strong className="font-bold text-primary">
-            component-driven architecture
+            JavaScript (ES6+) ecosystem
           </strong>
-          , and I’m well-versed in using{' '}
-          <strong className="font-bold text-primary">Tailwind CSS</strong>,{' '}
-          <strong className="font-bold text-primary">ShadCN UI</strong>, and{' '}
-          <strong className="font-bold text-primary">Framer Motion</strong> for
-          building polished UIs with delightful user experiences. I also
-          leverage{' '}
-          <strong className="font-bold text-primary">React Query</strong>,{' '}
-          <strong className="font-bold text-primary">Zustand</strong>, and{' '}
-          <strong className="font-bold text-primary">Firebase</strong> for state
-          management and backend integration.
+          , with a strong focus on{' '}
+          <strong className="font-bold text-primary">React JS</strong> and{' '}
+          <strong className="font-bold text-primary">Next JS</strong>.
         </motion.p>
 
         <motion.p
