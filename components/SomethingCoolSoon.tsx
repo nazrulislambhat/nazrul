@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Mail, ExternalLink } from 'lucide-react';
 
-export default function ComingSoonComponent() {
+export default function SomethingCoolSoon() {
   return (
     <div className=" bg-third">
       <div className="px-6 md:px-12 xl:px-16 2xl:px-24 py-8">

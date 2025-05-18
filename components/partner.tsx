@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
-function partner() {
+export default function Partner() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -64,5 +64,3 @@ function partner() {
     </motion.div>
   );
 }
-
-export default partner;

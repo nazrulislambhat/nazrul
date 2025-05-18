@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, Calendar1, Rocket, MapPinHouse } from 'lucide-react';
 
-function Hero() {
+export default function Hero() {
   return (
     <motion.div className="relative text-background bg-primary py-20 px-6 md:px-12 xl:px-16 2xl:px-24">
       <div className="relative">
@@ -70,5 +70,3 @@ function Hero() {
     </motion.div>
   );
 }
-
-export default Hero;

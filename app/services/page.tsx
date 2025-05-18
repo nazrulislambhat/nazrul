@@ -1,7 +1,7 @@
 import React from 'react';
-import Partner from '@/components/partner';
-import Nav from '@/components/nav';
-import Header from '@/components/header';
+import Partner from '@/components/PartnerComponent';
+import Nav from '@/components/Navbar';
+import Header from '@/components/Header';
 function Services() {
   return (
     <div className="bg-black">

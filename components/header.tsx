@@ -1,5 +1,5 @@
 'use client';
-import Nav from './nav';
+import Nav from './Navbar';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';

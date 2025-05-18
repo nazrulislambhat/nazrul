@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-export default function FooterComponentLower() {
+export default function FooterLower() {
   return (
     <div className="relative bg-coolWhite py-20 px-6 md:px-12 xl:px-16 2xl:px-24">
       <ul className="flex justify-center items-center gap-4">

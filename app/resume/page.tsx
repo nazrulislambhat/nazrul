@@ -2,24 +2,18 @@ import {
   FileDown,
   Linkedin,
   Github,
-  BadgeCheck,
   PanelsTopLeft,
   Mail,
-  Star,
   MapPinCheckInside,
 } from 'lucide-react';
 
 import { Inter_Tight, Archivo, Nunito, Comfortaa } from 'next/font/google';
-import Experience from '../../components/experience';
-import Projects from '../../components/projects';
+import Projects from '@/components/Projects';
+import Experience from '@/components/Experience';
 import Link from 'next/link';
 import { StarRating } from '@/components/StarRating';
-const nunito = Nunito({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'], // Add the weights you need
-});
-const comfortaa = Comfortaa({ subsets: ['latin'] });
-const inter = Inter_Tight({ subsets: ['latin'] });
+
+
 const archivo = Archivo({ subsets: ['latin'] });
 export default function Resume() {
   return (
