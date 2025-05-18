@@ -1,7 +1,7 @@
 'use client';
 import Header from '../components/header';
 import Hero from '../components/hero';
-import About from '../components/about';
+import About from '@/components/about';
 import Contact from '../components/contact';
 import FooterLower from '../components/footer-lower';
 import SomethingCoolSoon from '../components/something-cool-soon';
