@@ -11,6 +11,8 @@ Welcome to my portfolio website, showcasing my skills and talents as a Full Stac
 - [Portfolio Website](#portfolio-website)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
+  - [Deployments & Branches](#deployments--branches)
+  - [Branching Strategy](#branching-strategy)
   - [Technologies Used](#technologies-used)
   - [Features](#features)
   - [Getting Started](#getting-started)
@@ -24,9 +26,32 @@ This project is a personal portfolio website built using Next.js and React. It h
 
 ## Deployments & Branches
 
-- [Prod](https://nazrulislam.in/) - Production
-- [Prod](https://nazrulislam.dev/) - Production
-- [Dev](https://nazrulislam.vercel.app/) - Development
+| Branch    | Description           | Deployment URL                                                              |
+|-----------|-----------------------|------------------------------------------------------------------------------|
+| `main`    | Production (stable)   | [nazrulislam.in](https://nazrulislam.in/), [nazrulislam.dev](https://nazrulislam.dev/) |
+| `release` | Pre-release/Staging   | [nazrulislam.vercel.app](https://nazrulislam.vercel.app/)                                   |
+| `develop` | Active development    | N/A – used for testing before production      |
+
+## Branching Strategy
+
+We follow a structured Git branching model for clean, predictable releases and smooth feature development.
+
+main → Production (live on nazrulislam.in and nazrulislam.dev)
+└── release → Staging/Pre-release testing
+└── develop → Active development
+
+### PR Flow
+
+1. All new features and bugfixes are created from and merged into `develop`.
+2. Once `develop` is stable and ready for release, a PR is made into `release`.
+   - The `release` branch is deployed to the **develop domain** for pre-release testing.
+3. If everything works as expected on `release`, a final PR is created from `release` into `main` to go live.
+
+### Summary
+
+- ✅ **`main`**: Stable production-ready code.
+- 🧪 **`release`**: Tested staging builds, awaiting promotion to production.
+- 🧪 **`develop`**: Active development branch.
 
 ## Technologies Used
 
@@ -51,23 +76,8 @@ This project is a personal portfolio website built using Next.js and React. It h
 
 To run this project locally, follow these steps:
 
-1. Clone this repository:
-2. git clone https://github.com/nazrulislambhat/nazrul.git
-3. Navigate to the project folder: cd nazrul
-4. Install dependencies: npm install
-5. Start the development server: npm run dev
-6. Open your browser and go to http://localhost:3000 to view the portfolio website.
-
-## Usage
-
-Customize the content and styles to make this portfolio website your own. Update the sections, projects, and personal information in the React components. You can also add new features or sections to showcase your skills and talents further.
-
-## Contributing
-
-Contributions are welcome! If you have suggestions, bug reports, or want to add new features, please open an issue or submit a pull request.
-
-## License
-
-This project is open-source and available under the MIT License. Feel free to use it as a template for your own portfolio website.
-
-- Make sure to replace placeholders like `nazrulislambhat`, `nazrul`, and specify the email integration library or service you plan to use in the README. Additionally, customize the content and styling according to your preferences and needs.
+```bash
+git clone https://github.com/nazrulislambhat/nazrul.git
+cd nazrul
+npm install
+npm run dev
