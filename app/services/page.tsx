@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from '@/components/navbar';
+import Nav from '@/components/Navbar';
 import Header from '@/components/header';
 function Services() {
   return (
