@@ -18,7 +18,7 @@ export default function Resume() {
   return (
     <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden">
       <div className=" flex flex-col xl:flex-row w-screen justify-start boxed ">
-        <div className="pl-8 xl:pl-12 xl:border-r-4 xl:pr-8 xl:border-e xl:py-24 xl:w-1/2 ">
+        <div className="pl-8 xl:pl-12 xl:border-r-4 xl:pr-8 xl:border-white xl:py-24 xl:w-1/2 ">
           <div className="pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
             <div className="items-center gap-2 text-primary inline-flex relative">
               <PanelsTopLeft className="w-4 h-4" />
