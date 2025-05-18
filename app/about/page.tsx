@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function About() {
+export default function AboutPage() {
   return (
     <div className="bg-background">
       <div className="py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
