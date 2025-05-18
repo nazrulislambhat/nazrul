@@ -5,31 +5,37 @@ import {
   BadgeCheck,
   PanelsTopLeft,
   Mail,
+  Star,
   MapPinCheckInside,
 } from 'lucide-react';
 
-import { Inter_Tight, Archivo } from 'next/font/google';
+import { Inter_Tight, Archivo, Nunito, Comfortaa } from 'next/font/google';
 import Experience from '../../components/experience';
 import Projects from '../../components/projects';
 import Link from 'next/link';
+import { StarRating } from '@/components/StarRating';
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'], // Add the weights you need
+});
+const comfortaa = Comfortaa({ subsets: ['latin'] });
 const inter = Inter_Tight({ subsets: ['latin'] });
 const archivo = Archivo({ subsets: ['latin'] });
 export default function Resume() {
   return (
     <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden ">
-      <div className=" flex flex-col xl:flex-row w-screen justify-start boxed1920">
-        <div className="skills pl-8 xl:pl-12 border-r-4 xl:pr-8 border-white xl:py-24 xl:w-96">
-          <div className="contact pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
-            <div className="relative inline-block">
+      <div className=" flex flex-col xl:flex-row w-screen justify-start boxed">
+        <div className="pl-8 xl:pl-12 border-r-4 xl:pr-8 border-white xl:py-24 xl:w-96">
+          <div className="pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
+            <div className="items-center gap-2 text-primary inline-flex relative">
+              <PanelsTopLeft className="w-4 h-4" />
               <Link
-                href="https://nazrulislam.dev"
-                className="text-primary font-bold  hover:scale-105 flex items-center gap-1 z-10 text-base w-fit relative"
+                href="nazrulislam.dev"
+                className="text-primary font-semibold link-primary flex items-center gap-1 z-10 text-xl w-fit relative"
               >
-                <PanelsTopLeft className="w-4 h-4" />
                 nazrulislam.dev
               </Link>
-
-              <span className="absolute inset-x-0  bottom-1 h-2 w-[160px] bg-secondary z-0 opacity-80"></span>
+              <span className="absolute inset-x-0  bottom-1 left-6 h-2 w-[110px] bg-secondary z-0 opacity-80"></span>
             </div>
             <h5 className="font-semibold text-xs flex my-4 items-center gap-1 text-black">
               <MapPinCheckInside className="w-4 h-4" />
@@ -70,50 +76,111 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   JavaScript
+                  <StarRating
+                    filled={5}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   React JS
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  CSS/SaSS
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  LessCSS
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  TailwindCSS
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  Bootstrap
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  Styled Components
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  TypeScript
+                  <StarRating
+                    filled={4}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   Next JS
+                  <StarRating
+                    filled={3}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  NextUI
+                  TypeScript
+                  <StarRating
+                    filled={3}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
                   GraphQL
+                  <StarRating
+                    filled={3}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  MUI
+                  Redux
+                  <StarRating
+                    filled={3}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
+                </li>
+
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
+                  React Testing Library
+                  <StarRating
+                    filled={3}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
+                  Zustand
+                  <StarRating
+                    filled={2}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
+                  Git
+                  <StarRating
+                    filled={5}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
+                  CSS/SaSS
+                  <StarRating
+                    filled={5}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
+                  TailwindCSS
+                  <StarRating
+                    filled={5}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
+                  Styled Components
+                  <StarRating
+                    filled={5}
+                    filledColor="text-third fill-third"
+                    unfilledColor="text-third fill-none"
+                  />
                 </li>
               </ul>
             </div>
@@ -128,58 +195,120 @@ export default function Resume() {
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Vite
+                  <StarRating
+                    filled={4}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Redux
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  GraphQL
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  React Testing Library
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Zustand
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Git
-                </li>
+
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Vercel
+                  <StarRating
+                    filled={4}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Docker
+                  <StarRating
+                    filled={2}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Heroku
+                  <StarRating
+                    filled={2}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Webpack
+                  <StarRating
+                    filled={3}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
+                  LessCSS
+                  <StarRating
+                    filled={5}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
+                  Bootstrap
+                  <StarRating
+                    filled={5}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
+                  NextUI
+                  <StarRating
+                    filled={5}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
+                  MUI
+                  <StarRating
+                    filled={5}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Gulp
+                  <StarRating
+                    filled={3}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Babel
+                  <StarRating
+                    filled={3}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   Drupal
+                  <StarRating
+                    filled={5}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
                   WordPress
+                  <StarRating
+                    filled={5}
+                    filledColor="text-primary fill-primary"
+                    unfilledColor="text-primary fill-none"
+                  />
                 </li>
               </ul>
             </div>
@@ -218,18 +347,18 @@ export default function Resume() {
               </div>
             </Link>
           </div>
-          <div className="about-intro border-b-4 border-white max-w-[1280px] ">
+          <div className="about-intro border-b-4 border-white ">
             <h1
               className={`${archivo.className} text-primary font-semibold text-5xl xl:text-8xl pb-8 tracking-wide flex items-center`}
             >
               Nazrul Islam
             </h1>
-            <div className="flex xl:gap-4 gap-2 xl:flex-row flex-col mb-4 xl:mb-12 w-fit ">
+            <div className="flex xl:gap-4 gap-2 xl:flex-row flex-col mb-6 xl:mb-12 w-fit ">
               <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
                 Senior Software Engineer -
                 <Link
                   href="https://hcltech.com"
-                  className="text-xs text-primary font-bold  w-fit link-primary"
+                  className="text-xs text-primary font-bold w-fit link-primary"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -249,9 +378,9 @@ export default function Resume() {
                 </Link>
               </p>
             </div>
-            <p className="text-black opacity-90 text-sm pb-8 leading-7 xl:leading-8 xl:w-auto">
+            <p className="text-black opacity-90 text-sm pb-8 leading-6 xl:leading-7 xl:w-auto">
               <span className="font-bold">Experienced Software Engineer</span>{' '}
-              with 4+ years of experience in front-end technologies,
+              with 5+ years of experience in front-end technologies,
               particularly within the{' '}
               <span className="font-bold">JS(ES6+)</span> ecosystem encompassing{' '}
               <span className="font-bold">React JS</span> and{' '}

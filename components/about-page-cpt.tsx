@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function AboutComponent() {
   return (
     <div className="bg-background">
-      <div className="boxed1440 py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
+      <div className="py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

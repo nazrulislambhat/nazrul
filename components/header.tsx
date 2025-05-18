@@ -12,7 +12,7 @@ export default function Header() {
       transition={{ duration: 0.2 }}
       className="bg-transparent"
     >
-      <div className="header py-4 relative flex justify-between z-50 items-center boxed1440 px-6 md:px-12 xl:px-16 2xl:px-24">
+      <div className="header py-4 relative flex justify-between z-50 items-center bg-primary px-6 md:px-12 xl:px-16 2xl:px-24">
         <Link href="/" className="logo">
           <Image
             src={logo}

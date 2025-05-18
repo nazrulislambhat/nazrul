@@ -5,7 +5,7 @@ import { Mail, ExternalLink } from 'lucide-react';
 export default function ComingSoonComponent() {
   return (
     <div className=" bg-third">
-      <div className="px-6 md:px-12 xl:px-16 boxed1440 2xl:px-24  py-8">
+      <div className="px-6 md:px-12 xl:px-16 2xl:px-24 py-8">
         <p className="text-secondary text-xs font-semibold w-fit">
           🚧 Pardon our dust –--- greatness is in progress! 🚀
         </p>

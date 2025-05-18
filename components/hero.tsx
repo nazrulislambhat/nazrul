@@ -4,7 +4,7 @@ import { Mail, Calendar1, Rocket, MapPinHouse } from 'lucide-react';
 
 function Hero() {
   return (
-    <motion.div className="relative boxed1440 text-background py-20 px-6 md:px-12 xl:px-16 2xl:px-24">
+    <motion.div className="relative text-background bg-primary py-20 px-6 md:px-12 xl:px-16 2xl:px-24">
       <div className="relative">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
