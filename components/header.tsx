@@ -1,9 +1,9 @@
 'use client';
-import Navbar from './navbar';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import logo from '../assets/logo.png';
+import Navbar from './navbar';
 export default function Header() {
   return (
     <motion.div
