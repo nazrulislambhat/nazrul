@@ -8,10 +8,10 @@ import {
 } from 'lucide-react';
 
 import { Inter_Tight, Archivo, Nunito, Comfortaa } from 'next/font/google';
-import Projects from '@/components/Projects';
-import Experience from '@/components/Experience';
+import Projects from '@/components/projects';
+import Experience from '@/components/experience';
 import Link from 'next/link';
-import { StarRating } from '@/components/StarRating';
+import { StarRating } from '@/components/starRating';
 
 const archivo = Archivo({ subsets: ['latin'] });
 export default function Resume() {

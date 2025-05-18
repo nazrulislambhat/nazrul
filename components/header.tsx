@@ -1,5 +1,5 @@
 'use client';
-import Nav from './Navbar';
+import Navbar from './navbar';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -22,7 +22,7 @@ export default function Header() {
             className="rounded-full border-secondary border-2 z-10 hover:bg-secondary bg-transparent "
           />
         </Link>
-        <Nav />
+        <Navbar />
       </div>
     </motion.div>
   );
