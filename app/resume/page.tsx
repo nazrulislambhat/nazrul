@@ -11,7 +11,7 @@ import { Inter_Tight, Archivo, Nunito, Comfortaa } from 'next/font/google';
 import Projects from '@/components/projects';
 import Experience from '@/components/experience';
 import Link from 'next/link';
-import StarRating from '@/components/StarRating';
+import StarRating from '@/components/star-rating';
 
 const archivo = Archivo({ subsets: ['latin'] });
 export default function Resume() {
