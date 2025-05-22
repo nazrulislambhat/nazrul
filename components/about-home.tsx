@@ -9,7 +9,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-primary border-b-2 font-semibold border-primary w-fit mb-8"
+          className="text-primary bg-secondary px-2 py-1 rounded font-semibold w-fit mb-8"
         >
           About Me
         </motion.p>
@@ -19,14 +19,12 @@ export default function About() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-black md:text-medium xl:text-xl mt-4"
         >
-          Hi, I’m a{' '}
-          <strong className="font-bold text-primary">
-            results-driven Software Engineer
-          </strong>{' '}
+          Hi, I’m a results-driven{' '}
+          <strong className="font-bold text-primary">Software Engineer</strong>{' '}
           with
           <strong className="font-bold text-primary">
             {' '}
-            4+ years of experience
+            5+ years of experience
           </strong>{' '}
           specializing in
           <strong className="font-bold text-primary">
@@ -34,10 +32,8 @@ export default function About() {
             front-end development
           </strong>
           . My expertise revolves around the{' '}
-          <strong className="font-bold text-primary">
-            JavaScript (ES6+) ecosystem
-          </strong>
-          , with a strong focus on{' '}
+          <strong className="font-bold text-primary">JavaScript (ES6+) </strong>
+          ecosystem, with a strong focus on{' '}
           <strong className="font-bold text-primary">React JS</strong> and{' '}
           <strong className="font-bold text-primary">Next JS</strong>.
         </motion.p>
