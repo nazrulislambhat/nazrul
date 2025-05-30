@@ -6,12 +6,7 @@ import logo from '../assets/logo.png';
 import Navbar from './Navbar';
 export default function Header() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
-      className="bg-transparent"
-    >
+    <div className="bg-transparent">
       <div className="header py-4 relative flex justify-between z-50 items-center bg-primary px-6 md:px-12 xl:px-16 2xl:px-24">
         <Link href="/" className="logo">
           <Image
@@ -24,6 +19,6 @@ export default function Header() {
         </Link>
         <Navbar />
       </div>
-    </motion.div>
+    </div>
   );
 }

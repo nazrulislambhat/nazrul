@@ -19,7 +19,7 @@ export default function Resume() {
   return (
     <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden">
       <div className=" flex flex-col xl:flex-row w-screen justify-start boxed ">
-        <div className="pl-8 xl:pl-12 xl:border-r-4 xl:pr-8 xl:border-white xl:py-24 xl:w-1/2 ">
+        <div className="pl-8 xl:pl-12 2xl:pl-0 xl:border-r-4 xl:pr-8 xl:border-white xl:py-24 xl:w-1/2 ">
           <div className="pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
             <div className="items-center gap-2 text-primary inline-flex relative">
               <House className="w-4 h-4" />
@@ -308,8 +308,8 @@ export default function Resume() {
             </div>
           </div>
         </div>
-        <div className="about relative pl-8 mr-8 xl:mr-24 xl:py-24 overflow-hidden">
-          <div className="download py-8 xl:py-12 xl:absolute xl:top-6 xl:right-28 flex gap-2 items-center ">
+        <div className="about relative pl-8 mr-8 xl:mr-24 xl:py-24 2xl:mr-0 overflow-hidden">
+          <div className="download py-8 xl:py-12 xl:absolute xl:top-6 xl:right-0 flex gap-2 items-center ">
             <Link
               href="https://drive.google.com/file/d/15-5JnG6SAuE--pMtUHeR5TQrsQSxIClF/view?usp=sharing"
               target="_blank"
