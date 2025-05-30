@@ -6,7 +6,7 @@ import { Providers } from './providers';
 
 const nunito = Nunito({
   subsets: ['latin'],
-  weight: ['400', '600', '700'], // Add the weights you need
+  weight: ['400', '600', '700'],
 });
 const comfortaa = Comfortaa({ subsets: ['latin'] });
 const inter = Inter_Tight({ subsets: ['latin'] });
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="bg-white">
+    <html lang="en" className="bg-coolWwhite">
       <meta name="theme-color" content="#3139fb" />
       <body className={`${nunito.className}`}>
         <Providers>{children}</Providers>
