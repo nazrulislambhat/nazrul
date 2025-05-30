@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import { Mail, MoveRight } from 'lucide-react';
 import AnimatedLink from './ui/animated-link';
 import TextReveal from './ui/text-reveal';
+import { useState } from 'react';
+import ContactForm from './contact-form';
+
 const menuVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
@@ -15,10 +18,19 @@ const itemVariants = {
 };
 
 function Footer() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const openForm = () => {
+    setIsFormOpen(true);
+  };
+
+  const closeForm = () => {
+    setIsFormOpen(false);
+  };
   return (
-    <div className="flex flex-col boxed md:flex-row justify-between items-center align-middle bg-white px-6 md:px-12 xl:px-16 2xl:px-24 py-6 ">
+    <div className="flex flex-col boxed py-8 md:flex-row justify-between items-center align-middle px-6 md:px-12 xl:px-16 2xl:px-24">
       <motion.div
-        className="left flex-1 py-8 flex flex-col items-start justify-center self-stretch "
+        className="left xl:pr-4 flex-1 py-8 flex flex-col items-start justify-center self-stretch "
         variants={itemVariants}
       >
         <TextReveal
@@ -44,30 +56,28 @@ function Footer() {
         <div className="buttons flex gap-4 justify-start w-full">
           <AnimatedLink
             href="mailto:nazrul@nazrulislam.dev"
-            className="py-2 text-primary"
-            icon={
-              <Mail className="w-4 h-4 text-primary group-hover:text-primary transition-colors duration-300" />
-            }
+            icon={Mail}
+            className="py-3 px-4 text-primary border-2 border-transparent"
           >
             connect via email
           </AnimatedLink>
           <AnimatedLink
-            href="/dhoom"
-            icon={
-              <MoveRight className="w-4 h-4 text-coolWhite group-hover:text-coolWhite transition-colors duration-300" />
-            }
-            className="bg-primary rounded-md text-coolWhite px-4 py-2"
+            href=""
+            icon={MoveRight}
+            onClick={openForm}
+            className="bg-primary rounded-md border-2 border-transparent text-background px-4 py-3 hover:bg-red hover:bg-transparent hover:border-2 hover:border-primary hover:text-primary"
           >
             connect via form
           </AnimatedLink>
+          <ContactForm isOpen={isFormOpen} onClose={closeForm} />
         </div>
       </motion.div>
       <motion.div
-        className="right flex-[0.3] xl:flex-[0.5] self-stretch items-center rounded-2xl py-8 xl:px-12 md:px-6"
+        className="right flex-[0.3] xl:flex-[0.5] flex self-stretch items-center xl:pl-4 py-8"
         variants={itemVariants}
       >
         <motion.nav
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-4 w-full"
           initial="hidden"
           animate="visible"
           variants={menuVariants}
@@ -93,7 +103,7 @@ function Footer() {
                 ) : (
                   <Link
                     href={`/${item.toLowerCase()}`}
-                    className="text-base xl:text-2xl text-black hover:text-primary font-semibold transition"
+                    className="text-base animated-border text-black hover:text-primary font-semibold transition"
                   >
                     {item}
                   </Link>

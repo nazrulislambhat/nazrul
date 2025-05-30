@@ -3,14 +3,15 @@
 import Link from 'next/link';
 import { MoveRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
+import type { ReactNode, ElementType } from 'react';
 
 interface AnimatedLinkProps {
   href: string;
   children: string;
   className?: string;
   showIcon?: boolean;
-  icon?: ReactNode;
+  icon?: ElementType;
+  onClick?: () => void;
 }
 
 export default function AnimatedLink({
@@ -18,18 +19,20 @@ export default function AnimatedLink({
   children,
   className = '',
   showIcon = true,
-  icon,
+  onClick,
+  icon: Icon = MoveRight,
 }: AnimatedLinkProps) {
-  // Use custom icon if provided, otherwise default to MoveRight
-  const IconComponent = icon || <MoveRight />;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <Link href={href} className="group relative overflow-hidden">
+      <Link
+        href={href}
+        onClick={onClick}
+        className="group relative inline-block overflow-hidden"
+      >
         <motion.div
           className={`text-xs font-semibold transition-all duration-300 flex items-center ${className}`}
           whileHover={{ scale: 1.01 }}
@@ -43,7 +46,7 @@ export default function AnimatedLink({
           >
             {children.split('').map((char, index) => (
               <motion.span
-                key={index}
+                key={`${char}-${index}-${href}`} // ✅ unique key per link
                 className="inline-block"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -64,7 +67,7 @@ export default function AnimatedLink({
 
           {showIcon && (
             <motion.div
-              className="ml-1 "
+              className="ml-1"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.4 }}
@@ -73,19 +76,17 @@ export default function AnimatedLink({
                 transition: { duration: 0.2 },
               }}
             >
-              {IconComponent}
+              <Icon className="w-4 h-4" />
             </motion.div>
           )}
-
-          {/* Hover overlay effect */}
-          <motion.div
-            className="absolute inset-0 -translate-x-full"
-            whileHover={{
-              translateX: '200%',
-              transition: { duration: 0.6, ease: 'easeInOut' },
-            }}
-          />
         </motion.div>
+
+        {/* Hover border underline animation scoped to this component only */}
+        <motion.div
+          className="absolute bottom-0 left-0 h-0.5 bg-current w-full translate-x-[-100%]"
+          whileHover={{ translateX: '100%' }}
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+        />
       </Link>
     </motion.div>
   );
