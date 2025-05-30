@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <div className="bg-coolWhite">
+    <div className="bg-background">
       <div className="py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
