@@ -5,7 +5,7 @@ import { Mail, MoveRight } from 'lucide-react';
 import AnimatedLink from './ui/animated-link';
 import TextReveal from './ui/text-reveal';
 import { useState } from 'react';
-import ContactForm from './contact-form';
+import ContactForm from './contact-via-form';
 
 const menuVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -65,7 +65,7 @@ function Footer() {
             href=""
             icon={MoveRight}
             onClick={openForm}
-            className="bg-primary rounded-md border-2 border-transparent text-background px-4 py-3 hover:bg-red hover:bg-transparent hover:border-2 hover:border-primary hover:text-primary"
+            className="bg-primary rounded-md border-1 border-transparent text-background px-4 py-3 hover:bg-red hover:bg-transparent hover:border-1 hover:border-primary hover:text-primary"
           >
             connect via form
           </AnimatedLink>

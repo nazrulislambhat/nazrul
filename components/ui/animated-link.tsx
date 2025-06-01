@@ -35,7 +35,7 @@ export default function AnimatedLink({
       >
         <motion.div
           className={`text-xs font-semibold transition-all duration-300 flex items-center ${className}`}
-          whileHover={{ scale: 1.01 }}
+          whileHover={{ scale: 1 }}
           whileTap={{ scale: 0.98 }}
         >
           <motion.span

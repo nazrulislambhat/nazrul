@@ -1,9 +1,9 @@
 'use client';
 
 import type React from 'react';
-
+import { Rocket } from 'lucide-react';
 import { useState } from 'react';
-import { MoveRight, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,45 +17,16 @@ import {
 } from '@/components/ui/select';
 import emailjs from '@emailjs/browser';
 
-// AnimatedLink component
-const AnimatedLink = ({
-  href,
-  icon,
-  className,
-  children,
-  onClick,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  className: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-}) => {
-  return (
-    <button
-      onClick={onClick}
-      className={`group inline-flex items-center gap-2 transition-all duration-300 hover:gap-3 {className}`}
-    >
-      {children}
-      {icon}
-    </button>
-  );
-};
+interface ContactFormProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
-export default function Component() {
-  const [isFormOpen, setIsFormOpen] = useState(false);
+export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
   >('idle');
-
-  const openForm = () => {
-    setIsFormOpen(true);
-  };
-
-  const closeForm = () => {
-    setIsFormOpen(false);
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,16 +42,6 @@ export default function Component() {
       budget: formData.get('budget'),
       project_info: formData.get('project-info'),
       timeline: formData.get('timeline'),
-      message: `
-Name: {formData.get('name')}
-Email: {formData.get('email')}
-Phone: {formData.get('phone')}
-Budget: {formData.get('budget')}
-Timeline: {formData.get('timeline')}
-
-Project Info:
-{formData.get('project-info')}
-    `,
     };
 
     try {
@@ -92,7 +53,7 @@ Project Info:
       );
       setSubmitStatus('success');
       // Close the form immediately and show success message
-      closeForm();
+      onClose();
       // Show success message for 3 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
@@ -105,25 +66,15 @@ Project Info:
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      {/* Trigger Button */}
-      <AnimatedLink
-        href=""
-        icon={
-          <MoveRight className="w-4 h-4 text-background group-hover:text-background transition-colors duration-300" />
-        }
-        className="bg-primary rounded-md text-background px-4 py-3"
-        onClick={openForm}
-      >
-        connect via form
-      </AnimatedLink>
+  if (!isOpen && submitStatus !== 'success') return null;
 
+  return (
+    <>
       {/* Animated Form Overlay */}
-      {isFormOpen && (
+      {isOpen && (
         <div
-          className="fixed inset-0 bg-black flex items-center justify-center p-4 z-50 animate-in fade-in duration-300"
-          onClick={closeForm}
+          className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 animate-in fade-in duration-300"
+          onClick={onClose}
         >
           <div
             className="bg-white rounded-lg shadow-xl w-full max-w-md p-6 animate-in slide-in-from-bottom-4 zoom-in-95 duration-300"
@@ -131,14 +82,14 @@ Project Info:
           >
             {/* Form Header */}
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">
-                {"Let's Connect"}
+              <h2 className="text-2xl font-bold text-primary flex items-center gap-2">
+                <Rocket className="h-6 w-6" />
+                {'Get in touch with us'}
               </h2>
               <Button
-                variant="ghost"
                 size="icon"
-                onClick={closeForm}
-                className="h-8 w-8 rounded-full"
+                onClick={onClose}
+                className="h-8 w-8 rounded-full hover:bg-red"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -148,11 +99,13 @@ Project Info:
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name Field */}
               <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
+                <Label htmlFor="name">
+                  Name <span className="text-red">*</span>
+                </Label>
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Enter your full name"
+                  placeholder="Your full name"
                   required
                   className="w-full"
                   name="name"
@@ -161,51 +114,93 @@ Project Info:
 
               {/* Email Field */}
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">
+                  Email <span className="text-red">*</span>
+                </Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder="Your email address"
                   required
                   className="w-full"
                   name="email"
+                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                  title="Please enter a valid email address"
                 />
               </div>
 
               {/* Phone Field */}
               <div className="space-y-2">
-                <Label htmlFor="phone">Phone</Label>
+                <Label htmlFor="phone">
+                  Phone <span className="text-red">*</span>
+                </Label>
                 <Input
                   id="phone"
                   type="tel"
-                  placeholder="Enter your phone number"
+                  placeholder="Your phone number"
                   required
                   className="w-full"
                   name="phone"
+                  pattern="^\+?\d{10,15}$"
+                  title="Please enter a valid phone number (10-15 digits, optional +)"
                 />
               </div>
 
               {/* Budget Field */}
               <div className="space-y-2">
-                <Label htmlFor="budget">Budget</Label>
+                <Label htmlFor="budget">
+                  Budget <span className="text-red">*</span>
+                </Label>
                 <Select required name="budget">
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select your budget range" />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="under-5k">Under 5,000</SelectItem>
-                    <SelectItem value="5k-10k">5,000 - 10,000</SelectItem>
-                    <SelectItem value="10k-25k">10,000 - 25,000</SelectItem>
-                    <SelectItem value="25k-50k">25,000 - 50,000</SelectItem>
-                    <SelectItem value="50k-100k">50,000 - 100,000</SelectItem>
-                    <SelectItem value="over-100k">Over 100,000</SelectItem>
+                  <SelectContent className="bg-white">
+                    <SelectItem
+                      value="under-5k"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      Under ₹5,000
+                    </SelectItem>
+                    <SelectItem
+                      value="5k-10k"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      ₹5,000 - ₹10,000
+                    </SelectItem>
+                    <SelectItem
+                      value="10k-25k"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      ₹10,000 - ₹25,000
+                    </SelectItem>
+                    <SelectItem
+                      value="25k-50k"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      ₹25,000 - ₹50,000
+                    </SelectItem>
+                    <SelectItem
+                      value="50k-100k"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      ₹50,000 - ₹100,000
+                    </SelectItem>
+                    <SelectItem
+                      value="over-100k"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      Over ₹100,000
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               {/* Project Info Field */}
               <div className="space-y-2">
-                <Label htmlFor="project-info">Project Info</Label>
+                <Label htmlFor="project-info">
+                  Project Info <span className="text-red">*</span>
+                </Label>
                 <Textarea
                   id="project-info"
                   name="project-info"
@@ -217,12 +212,14 @@ Project Info:
 
               {/* Timeline Field */}
               <div className="space-y-2">
-                <Label htmlFor="timeline">Timeline</Label>
+                <Label htmlFor="timeline">
+                  Timeline <span className="text-red">*</span>
+                </Label>
                 <Select required name="timeline">
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select your preferred timeline" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white">
                     <SelectItem value="asap">ASAP</SelectItem>
                     <SelectItem value="1-month">Within 1 month</SelectItem>
                     <SelectItem value="2-3-months">2-3 months</SelectItem>
@@ -237,44 +234,40 @@ Project Info:
               <div className="pt-4">
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full hover:bg-red"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Sending...' : 'Send'}
                 </Button>
               </div>
             </form>
           </div>
         </div>
       )}
+
       {/* Success Message Overlay */}
       {submitStatus === 'success' && (
-        <div className="fixed inset-0 bg-black flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
-          <div className="bg-white w-screen rounded-lg shadow-xl p-8 text-center animate-in slide-in-from-bottom-4 zoom-in-95 duration-300">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg
-                className="w-8 h-8 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
+          <div className="bg-white rounded-lg shadow-xl p-8 text-center animate-in slide-in-from-bottom-4 zoom-in-95 duration-300">
+            <div className="w-16 h-16 bg-green rounded-full flex items-center justify-center mx-auto mb-4">
+              <Rocket className="h-8 w-8 text-black" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Message Sent!
+            <h3 className="text-xl font-semibold text-black mb-2">
+              Message Launched!
             </h3>
-            <p className="text-gray-600">
-              Your query has been sent. We will get back to you shortly.
+            <p className="text-black mb-2">
+              Your message is on its way through the digital cosmos. 🌌
+            </p>
+            <p className="text-black/80 mb-2">
+              Sit tight, our team of code wizards will conjure a reply soon!
+              🧙‍♂️✨
+            </p>
+            <p className="text-black/40 text-sm">
+              (P.S. Check your inbox for a sprinkle of magic 🪄)
             </p>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
