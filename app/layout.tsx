@@ -6,19 +6,19 @@ import { Providers } from './providers';
 
 const nunito = Nunito({
   subsets: ['latin'],
-  weight: ['400', '600', '700'], // Add the weights you need
+  weight: ['400', '600', '700'],
 });
 const comfortaa = Comfortaa({ subsets: ['latin'] });
 const inter = Inter_Tight({ subsets: ['latin'] });
 const archivo = Archivo({ subsets: ['latin'] });
 export const metadata: Metadata = {
-  title: 'Nazrul Islam - Full Stack Engineer | Software Developer',
+  title: 'Nazrul Islam - Full Stack Engineer | Senior Software Developer',
   description: 'Software Engineer',
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="bg-white">
-      <meta name="theme-color" content="#4831D3" />
+    <html lang="en" className="bg-background">
+      <meta name="theme-color" content="#3139fb" />
       <body className={`${nunito.className}`}>
         <Providers>{children}</Providers>
         <SpeedInsights />

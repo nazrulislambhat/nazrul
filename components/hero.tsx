@@ -4,7 +4,7 @@ import { Mail, Calendar1, Rocket, MapPinHouse } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <motion.div className="relative text-background bg-primary py-20 px-6 md:px-12 xl:px-16 2xl:px-24">
+    <motion.div className="relative  text-background bg-primary py-20 px-6 md:px-12 xl:px-16 2xl:px-24">
       <div className="relative">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -18,16 +18,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="mb-8 xl:mb-10 text-[1rem] xl:text-[1.25rem] leading-[2rem] selection:bg-secondary selection:text-primary xl:max-w-[90%]"
+          className="mb-8 xl:mb-10 md:text-medium xl:text-xl leading-[2rem] selection:bg-secondary selection:text-primary xl:max-w-[90%]"
         >
           Bridging design and functionality with modern front-end technologies —
           crafting scalable, accessible, and high-performance web solutions with
           JavaScript, React JS and Next JS.
           <span className="text-secondary font-bold">
             {' '}
-            Always learning, always optimizing{' '}
+            Always learning, Always optimizing{' '}
+            <Rocket className="w-4 h-4 inline" />
           </span>
-          <Rocket className="w-4 h-4 inline" />
         </motion.p>
 
         <motion.p
