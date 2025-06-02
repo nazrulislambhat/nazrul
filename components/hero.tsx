@@ -25,9 +25,9 @@ export default function Hero() {
           JavaScript, React JS and Next JS.
           <span className="text-secondary font-bold">
             {' '}
-            Always learning, always optimizing{' '}
+            Always learning, Always optimizing{' '}
+            <Rocket className="w-4 h-4 inline" />
           </span>
-          <Rocket className="w-4 h-4 inline" />
         </motion.p>
 
         <motion.p

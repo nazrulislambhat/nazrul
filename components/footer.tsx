@@ -28,9 +28,9 @@ function Footer() {
     setIsFormOpen(false);
   };
   return (
-    <div className="flex flex-col boxed py-8 md:flex-row justify-between items-center align-middle px-6 md:px-12 xl:px-16 2xl:px-24">
+    <div className="flex flex-col border-t-1 border-white boxed py-12 xl:py-24 md:flex-row justify-between items-center align-middle px-6 md:px-12 xl:px-16 2xl:px-24">
       <motion.div
-        className="left xl:pr-4 flex-1 py-8 flex flex-col items-start justify-center self-stretch "
+        className="left md:pr-8 xl:pr-8 flex-1 py-8 flex flex-col items-start justify-center self-stretch "
         variants={itemVariants}
       >
         <TextReveal
@@ -73,11 +73,11 @@ function Footer() {
         </div>
       </motion.div>
       <motion.div
-        className="right flex-[0.3] xl:flex-[0.5] flex self-stretch items-center xl:pl-4 py-8"
+        className="right flex-[0.2] md:pl-8 xl:pl-8 xl:flex-1 flex self-stretch items-center py-8"
         variants={itemVariants}
       >
         <motion.nav
-          className="flex flex-col gap-4 w-full"
+          className="flex flex-col xl:flex-row gap-4 w-full justify-end"
           initial="hidden"
           animate="visible"
           variants={menuVariants}
@@ -103,7 +103,7 @@ function Footer() {
                 ) : (
                   <Link
                     href={`/${item.toLowerCase()}`}
-                    className="text-base animated-border text-black hover:text-primary font-semibold transition"
+                    className="text-xl xl:text-2xl animated-border text-black hover:text-primary font-semibold transition"
                   >
                     {item}
                   </Link>
