@@ -13,7 +13,7 @@ export default function SomethingCoolSoon() {
           This site is under construction & bugs are welcomed at{' '}
           <Link
             href="mailto:n@nazrulislam.dev"
-            className="hover:border-b-1 border-secondary font-bold text-secondary hover:text-background hover:border-background"
+            className="animated-border border-secondary font-bold text-secondary pb-1"
           >
             nazrul@nazrulislam.dev
           </Link>{' '}
@@ -25,7 +25,7 @@ export default function SomethingCoolSoon() {
             href="https://github.com/nazrulislambhat/nazrul"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-secondary hover:border-b-1 font-bold text-secondary hover:text-background hover:border-background"
+            className="animated-border pb-1 font-bold text-yellow "
           >
             GitHub
           </Link>

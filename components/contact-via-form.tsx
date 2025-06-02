@@ -220,12 +220,42 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                     <SelectValue placeholder="Select your preferred timeline" />
                   </SelectTrigger>
                   <SelectContent className="bg-white">
-                    <SelectItem value="asap">ASAP</SelectItem>
-                    <SelectItem value="1-month">Within 1 month</SelectItem>
-                    <SelectItem value="2-3-months">2-3 months</SelectItem>
-                    <SelectItem value="3-6-months">3-6 months</SelectItem>
-                    <SelectItem value="6-months-plus">6+ months</SelectItem>
-                    <SelectItem value="flexible">Flexible</SelectItem>
+                    <SelectItem
+                      value="asap"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      ASAP
+                    </SelectItem>
+                    <SelectItem
+                      value="1-month"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      Within 1 month
+                    </SelectItem>
+                    <SelectItem
+                      value="2-3-months"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      2-3 months
+                    </SelectItem>
+                    <SelectItem
+                      value="3-6-months"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      3-6 months
+                    </SelectItem>
+                    <SelectItem
+                      value="6-months-plus"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      6+ months
+                    </SelectItem>
+                    <SelectItem
+                      value="flexible"
+                      className="cursor-pointer hover:bg-background hover:text-primary hover:rounded-full hover:font-semibold"
+                    >
+                      Flexible
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
