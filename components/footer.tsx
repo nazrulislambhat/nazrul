@@ -5,8 +5,7 @@ import { Mail, MoveRight } from 'lucide-react';
 import AnimatedLink from './ui/animated-link';
 import TextReveal from './ui/text-reveal';
 import { useState } from 'react';
-import ContactForm from './contact-via-form';
-
+import ContactForm from './contact-pop-form';
 const menuVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
