@@ -81,7 +81,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
             {/* Form Header */}
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-primary flex items-center gap-2">
-                {'Get in touch'}
+                {'Let`s Get Started'}
               </h2>
               <Button
                 size="icon"

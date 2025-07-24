@@ -7,13 +7,13 @@ export default function SomethingCoolSoon() {
     <div className=" bg-third">
       <div className="px-6 md:px-12 xl:px-16 2xl:px-24 py-8">
         <p className="text-secondary text-xs font-semibold w-fit">
-          🚧 Pardon our dust –--- greatness is in progress! 🚀
+          🚧 Pardon our dust ---- greatness is in progress! 🚀
         </p>
         <p className="text-background text-xs my-4">
-          This site is under construction & bugs are welcomed at{' '}
+          This site is under construction & bugs are welcomed at:{' '}
           <Link
             href="mailto:n@nazrulislam.dev"
-            className="animated-border border-secondary font-bold text-secondary pb-1"
+            className="animated-border border-secondary font-bold text-yellow pb-1"
           >
             nazrul@nazrulislam.dev
           </Link>{' '}
