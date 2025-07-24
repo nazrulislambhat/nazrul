@@ -75,13 +75,13 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
           onClick={onClose}
         >
           <div
-            className="bg-white rounded-lg shadow-xl w-full max-w-md p-6 animate-in slide-in-from-bottom-4 zoom-in-95 duration-300"
+            className="bg-whitre rounded-lg shadow-xl w-full max-w-md p-6 animate-in slide-in-from-bottom-4 zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Form Header */}
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-primary flex items-center gap-2">
-                {'Get in touch'}
+                {'Let`s Get Started'}
               </h2>
               <Button
                 size="icon"
