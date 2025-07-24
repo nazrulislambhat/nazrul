@@ -75,7 +75,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
           onClick={onClose}
         >
           <div
-            className="bg-whitre rounded-lg shadow-xl w-full max-w-md p-6 animate-in slide-in-from-bottom-4 zoom-in-95 duration-300"
+            className="bg-white rounded-lg shadow-xl w-full max-w-md p-6 animate-in slide-in-from-bottom-4 zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Form Header */}
