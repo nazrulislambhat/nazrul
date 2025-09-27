@@ -38,10 +38,10 @@ function Footer() {
             tag="h2"
             className="text-4xl xl:text-6xl font-extrabold mb-4 text-primary selection:text-secondary selection:bg-primary"
             animationType="words"
-            delay={0.4}
+            delay={0.2}
             staggerDelay={0.1}
           >
-            Let's Work Together
+            Open to Opportunities
           </TextReveal>
 
           <TextReveal
@@ -50,9 +50,9 @@ function Footer() {
             animationType="fade-down"
             delay={0}
           >
-            That’s all from me—now it’s your turn! Whether you’ve got a wild
-            idea, a burning question, or just want to say hi, I’m all ears (and
-            keyboards). Let’s make something awesome together!
+            Thanks for stopping by. If my work feels like a good fit, I’d be
+            glad to connect and explore what’s next. Until then, I’ll be
+            learning, building, and probably drinking too much coffee
           </TextReveal>
           <div className="buttons flex gap-4 justify-start w-full mt-6">
             <AnimatedLink
@@ -84,12 +84,12 @@ function Footer() {
             variants={menuVariants}
           >
             {[
-              'Work',
-              'Clients',
-              'Projects',
-              'Services',
-              'Resume',
-              'Contact',
+              'about',
+              'experience',
+              'projects',
+              'skills',
+              'resume',
+              'contact',
             ].map((item, index) => (
               <motion.li
                 key={item}
@@ -109,7 +109,7 @@ function Footer() {
                   </Link>
                 ) : (
                   <Link
-                    href={`/${item.toLowerCase()}`}
+                    href={`/${item}`}
                     className="text-xl xl:text-2xl animated-border text-third hover:text-primary font-semibold transition selection:text-secondary selection:bg-primary"
                   >
                     {item}

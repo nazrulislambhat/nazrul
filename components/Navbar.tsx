@@ -41,9 +41,9 @@ export default function Navbar() {
           <nav className="flex flex-col justify-start text-sm gap-8 menu px-8 xl:rounded-t-md pt-16 xl:pt-12 pb-10 z-0 bg-third h-[100%] xl:h-auto xl:w-96">
             {[
               'about',
-              'skills',
+              'experience',
               'projects',
-              'services',
+              'skills',
               'resume',
               'contact',
             ].map((item, index) => (
@@ -63,7 +63,7 @@ export default function Navbar() {
                   </Link>
                 ) : (
                   <Link
-                    href={`${item}`}
+                    href={`/${item}`}
                     className="hover:link-primary text-background hover:text-secondary hover:opacity-100 font-bold link pb-1 opacity-80"
                   >
                     {item}

@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 /* Container utility classes */
-
+html {
+  scroll-behavior: smooth;
+}
 .boxed {
   max-width: 1920px;
   margin: 0 auto;
