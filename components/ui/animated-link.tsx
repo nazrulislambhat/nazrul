@@ -46,7 +46,7 @@ export default function AnimatedLink({
           >
             {children.split('').map((char, index) => (
               <motion.span
-                key={`${char}-${index}-${href}`} // ✅ unique key per link
+                key={`${char}-${index}-${href}`}
                 className="inline-block"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -81,7 +81,6 @@ export default function AnimatedLink({
           )}
         </motion.div>
 
-        {/* Hover border underline animation scoped to this component only */}
         <motion.div
           className="absolute bottom-0 left-0 h-0.5 bg-current w-full translate-x-[-100%]"
           whileHover={{ translateX: '100%' }}

@@ -2,10 +2,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Header from '@/components/header';
-import Head from 'next/head';
+import { Calendar1 } from 'lucide-react';
+import Link from 'next/link';
 export default function AboutPage() {
   return (
-    <>
+    <div>
       <Header />
       <div className="bg-background">
         <div className="py-12 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
@@ -13,15 +14,16 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-primary border-b-2 font-semibold border-primary w-fit mb-8"
+            className="relative text-red font-bold text-base before:content-[''] before:block before:w-[8px] before:h-[8px] before:rounded-full before:bg-red before:absolute before:-left-4 before:top-1/2 before:-translate-y-1/2 ml-3"
           >
-            About Me
+            ABOUT ME
           </motion.p>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-black md:text-medium xl:text-xl mt-4"
+            className="text-black md:text-medium xl:text-xl mt-6"
           >
             Hi, I’m a{' '}
             <strong className="font-bold text-primary">
@@ -116,6 +118,6 @@ export default function AboutPage() {
           </motion.p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
