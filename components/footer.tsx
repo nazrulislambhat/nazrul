@@ -104,6 +104,7 @@ function Footer() {
                     href="/resume"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="text-xl xl:text-2xl animated-border text-third hover:text-primary font-semibold transition selection:text-secondary selection:bg-primary"
                   >
                     {item}
                   </Link>
