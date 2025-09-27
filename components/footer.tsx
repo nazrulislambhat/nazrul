@@ -41,7 +41,7 @@ function Footer() {
             delay={0.2}
             staggerDelay={0.1}
           >
-            Open to Opportunities
+            Open to opportunities
           </TextReveal>
 
           <TextReveal
