@@ -148,7 +148,11 @@ export default function Navbar() {
         </motion.div>
       )}
 
-      <button onClick={toggleMenu} className="absolute right-0 cursor-pointer">
+      <button
+        onClick={toggleMenu}
+        className="absolute right-0 cursor-pointer"
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      >
         {isOpen ? (
           <Ellipsis className="w-6 h-6 text-secondary" />
         ) : (

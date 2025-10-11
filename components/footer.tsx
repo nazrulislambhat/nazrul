@@ -77,7 +77,7 @@ function Footer() {
           className="right xl:flex-1  flex self-stretch items-center pt-6 pb-12 xl:p-0 md:py-12"
           variants={itemVariants}
         >
-          <motion.nav
+          <motion.ul
             className="flex flex-col xl:flex-row gap-2 xl:gap-4 w-full justify-end "
             initial="hidden"
             animate="visible"
@@ -118,7 +118,7 @@ function Footer() {
                 )}
               </motion.li>
             ))}
-          </motion.nav>
+          </motion.ul>
         </motion.div>
       </div>
     </div>
