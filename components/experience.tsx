@@ -40,6 +40,26 @@ export default function Experience() {
             </li>
             <li className="text-xs font-semibold flex items-center gap-2 leading-5">
               <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Improved production build performance by optimizing bundler
+              configuration and reducing unnecessary dependencies — reducing
+              build times from ~5000ms to ~100ms in both production and local
+              development environments.
+            </li>
+            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Implemented YouTube embedded playback and playlist functionality
+              that had been blocked for months due to technical and
+              architectural challenges — delivering a clean, stable solution
+              adopted across the platform.
+            </li>
+            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+              Designed and shipped clean, intuitive, and bug-free user
+              experiences, including a dynamic video playlist system with
+              seamless navigation and accessibility support.
+            </li>
+            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
               Specialized in building robust, accessible, and responsive
               components using React, Storybook.
             </li>
@@ -84,99 +104,48 @@ export default function Experience() {
             Nov 2021 - Nov 2024
           </p>
         </div>
-        <div className="millboard">
-          <div className="relative mb-2 mt-6 font-bold inline-block">
-            <p className="text-third font-bold flex z-10 text-base w-fit relative">
-              Millboard
-            </p>
-            <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
-          </div>
-          <ul className="flex flex-col gap-2">
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Elevated codebase as Frontend Engineer by making significant
-              contributions.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Specialized in creating responsive components and resolving bugs.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Integrated JavaScript, GIT, SASS, and React JS technologies.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Collaborated closely with the team to deliver high-quality
-              solutions.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Reviewed and merged pull requests, mentored team members.
-            </li>
-          </ul>
-        </div>
-        <div className="cast-bbb-veolia">
-          <div className="relative mb-2 mt-6 font-bold inline-block">
-            <p className="text-third font-bold z-10 text-base w-fit relative">
-              CAST, British Business Bank, Veolia
-            </p>
-            <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
-          </div>
-          <ul className="flex flex-col gap-2">
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Crafted responsive components and resolved bugs as Frontend
-              Engineer.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Implemented HTML, CSS, JavaScript, GIT, SASS, and React JS
-              technologies.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Fostered collaboration within the team for delivering
-              user-friendly solutions.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Collaborated closely with the team to deliver high-quality
-              solutions.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Contributed to enhancement and maintenance of frontend codebase.
-            </li>
-          </ul>
-        </div>
-        <div className="NMDB">
-          <div className="relative mb-2 mt-6 font-bold inline-block">
-            <p className="text-third font-bold z-10 text-base w-fit relative">
-              NMDB
-            </p>
-            <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
-          </div>
-          <ul className="flex flex-col gap-2">
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Utilized Next.js and Tailwind CSS for a movie database project.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Created a sleek and responsive user interface with Next.js'
-              server-side rendering.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Integrated The Movie Database (TMDb) API for fetching movie data.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Designed intuitive user experience using Tailwind CSS.
-            </li>
-          </ul>
-        </div>
+        <ul className="flex flex-col gap-2 relative mb-2 mt-6 font-bold">
+          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+            Built and maintained scalable, modular UI components in React,
+            improving feature delivery speed and reducing rework.
+          </li>
+          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+            Reduced frontend defects and improved UI reliability by refactoring
+            legacy code and establishing consistent coding standards.
+          </li>
+          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+            Improved performance and load times by optimizing rendering patterns
+            and leveraging server-side rendering where appropriate.
+          </li>
+          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+            Implemented reusable styling systems (SASS/Tailwind) that enabled
+            faster iteration and visual consistency across the product.
+          </li>
+          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+            Integrated external APIs and streamlined data flows to support
+            dynamic, real-time content experiences.
+          </li>
+          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+            Collaborated with product, design, and backend teams to refine
+            requirements and ship user-centric features efficiently.
+          </li>
+          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+            Led code reviews and supported onboarding of new developers, raising
+            engineering quality across the team.
+          </li>
+          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
+            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
+            Maintained effective Git workflows and documentation to support
+            stable releases and predictable deployments.
+          </li>
+        </ul>
       </div>
       <div className="StackNothing max-w-[1440px]  ">
         <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-8">
