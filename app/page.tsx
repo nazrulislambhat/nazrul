@@ -9,10 +9,12 @@ import Services from '@/components/services';
 import About from '@/components/about-home';
 import Footer from '@/components/footer';
 import Projects from '@/components/projects';
+import BigScreenMessage from '@/components/big-screen-message';
 export default function Home() {
   return (
     <main className="boxed">
       <SomethingCoolSoon />
+      <BigScreenMessage />
       <Header />
       <Hero />
       <About />
