@@ -6,7 +6,7 @@ export default function BigScreenMessage() {
 
   useEffect(() => {
     const checkResolution = () => {
-      if (window.screen.width >= 2440) {
+      if (window.innerWidth >= 2440) {
         setIs4K(true);
       } else {
         setIs4K(false);
@@ -23,7 +23,7 @@ export default function BigScreenMessage() {
 
   return (
     <div
-      className="fixed top-1/2 right-0 -translate-y-1/2 bg-red text-white p-8 text-4xl tracking-widest h-screen flex items-center justify-center"
+      className="fixed top-1/2 right-0 -translate-y-1/2 bg-red text-white p-4 text-4xl tracking-widest h-screen flex items-center justify-center z-[9999]"
       style={{
         writingMode: 'vertical-rl',
       }}

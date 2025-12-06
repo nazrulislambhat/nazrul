@@ -41,18 +41,17 @@ function Footer() {
             delay={0.2}
             staggerDelay={0.1}
           >
-            Open to Opportunities
+            Let's build something together!
           </TextReveal>
 
           <TextReveal
             tag="p"
-            className="black text-lg text-third font-semibold my-6 selection:text-secondary selection:bg-primary"
+            className="black text-lg text-third my-6 selection:text-secondary selection:bg-primary"
             animationType="fade-down"
             delay={0}
           >
-            Thanks for stopping by. If my work feels like a good fit, I’d be
-            glad to connect and explore what’s next. Until then, I’ll be
-            learning, building, and probably drinking too much coffee
+            I’d be glad to connect and explore what’s next. Until then, I’ll be
+            learning, building, and probably drinking too much Kombucha.
           </TextReveal>
           <div className="buttons flex gap-4 justify-start w-full mt-6">
             <AnimatedLink
@@ -104,14 +103,14 @@ function Footer() {
                     href="/resume"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xl xl:text-2xl animated-border text-third hover:text-primary font-semibold transition selection:text-secondary selection:bg-primary"
+                    className="text-lg xl:text-2xl animated-border text-third hover:text-primary transition selection:text-secondary selection:bg-primary"
                   >
                     {item}
                   </Link>
                 ) : (
                   <Link
                     href={`/${item}`}
-                    className="text-xl xl:text-2xl animated-border text-third hover:text-primary font-semibold transition selection:text-secondary selection:bg-primary"
+                    className="text-xl xl:text-2xl animated-border text-third hover:text-primary transition selection:text-secondary selection:bg-primary"
                   >
                     {item}
                   </Link>
