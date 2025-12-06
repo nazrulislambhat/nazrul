@@ -6,10 +6,6 @@
 html {
   scroll-behavior: smooth;
 }
-.boxed {
-  max-width: 1920px;
-  margin: 0 auto;
-}
 .animated-border {
   position: relative;
   display: inline-block;
