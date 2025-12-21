@@ -29,7 +29,7 @@ function Footer() {
   };
   return (
     <div>
-      <div className="flex flex-col xl:h-screen bg-white boxed md:flex-row justify-between items-center align-middle px-6 md:px-12 xl:px-16 2xl:px-24">
+      <div className="flex flex-col xl:h-screen md:flex-row bg-white justify-between items-center align-middle px-6 md:px-12 xl:px-16 2xl:px-24">
         <motion.div
           className="left xl:flex-1 md:flex-[0.8] pt-12 pb-6 md:py-12 xl:p-0 flex flex-col items-start justify-center self-stretch "
           variants={itemVariants}
@@ -110,7 +110,7 @@ function Footer() {
                 ) : (
                   <Link
                     href={`/${item}`}
-                    className="text-xl xl:text-2xl animated-border text-third hover:text-primary transition selection:text-secondary selection:bg-primary"
+                    className="text-lg xl:text-2xl animated-border text-third hover:text-primary transition selection:text-secondary selection:bg-primary"
                   >
                     {item}
                   </Link>
