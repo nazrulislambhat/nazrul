@@ -40,7 +40,7 @@ function Years() {
           className="underline text-secondary"
         >
           StackNothing
-          <SquareArrowOutUpRight className="w-3 h-3 ml-1 inline text-secondary" />
+          <SquareArrowOutUpRight className="w-3 h-3 mx-1 inline text-secondary" />
         </Link>
         . While pursuing his master’s degree, I worked as a developer and
         partner with national and international organizations such as
@@ -54,7 +54,7 @@ function Years() {
           className="underline text-secondary"
         >
           StackNothing Technologies
-          <SquareArrowOutUpRight className="w-3 h-3 ml-1 inline text-secondary" />
+          <SquareArrowOutUpRight className="w-3 h-3 mx-1 inline text-secondary" />
         </Link>
         with a vision of digital integration and innovation, delivering
         solutions using <strong className="text-secondary">React</strong>,{' '}
