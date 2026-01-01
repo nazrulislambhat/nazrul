@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SquareArrowOutUpRight } from 'lucide-react';
-
+import years from '../assets/years.png';
 import Link from 'next/link';
+import Image from 'next/image';
 function Years() {
   return (
     <div className="bg-primary py-12 text-white selection:bg-primary h-full selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24 flex flex-col xl:flex-row justify-between items-center">
@@ -69,7 +70,9 @@ function Years() {
           Surfshark, and others.
         </motion.p>
       </div>
-      <h1 className='text-2xl xl:text-5xl pt-8 xl:pl-8 uppercase'>Over The Years</h1>
+      <div>
+        <Image src={years} alt="years" className=" mt-8 xl:ml-8 xl:mt-0" />
+      </div>
     </div>
   );
 }
