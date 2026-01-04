@@ -60,6 +60,7 @@ function Footer() {
             <AnimatedLink
               href="mailto:nazrul@nazrulislam.dev"
               icon={Mail}
+              target="_blank"
               className="py-3 px-4 border rounded-md border-primary text-primary hover:text-red hover:border-red"
             >
               Email
@@ -68,6 +69,7 @@ function Footer() {
             <AnimatedLink
               href="tel:+919469444007"
               icon={Phone}
+              target="_blank"
               className="py-3 px-4 border rounded-md border-primary text-primary hover:text-red hover:border-red"
             >
               Phone

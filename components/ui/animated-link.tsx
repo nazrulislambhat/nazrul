@@ -12,6 +12,8 @@ interface AnimatedLinkProps {
   showIcon?: boolean;
   icon?: ElementType;
   onClick?: () => void;
+  target?: '_blank' | '_self';
+  rel?: string;
 }
 
 export default function AnimatedLink({
