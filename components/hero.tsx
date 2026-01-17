@@ -34,7 +34,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="text-xs mb-8 text-background selection:bg-secondary selection:text-primary flex items-center gap-2 relative"
+          className="text-xs mb-8 text-background w-fit selection:bg-secondary selection:text-primary flex items-center gap-2 relative"
         >
           <MapPinHouse className="w-4 h-4 inline" /> Namma Bengaluru - ಬೆಂಗಳೂರು
         </motion.p>
