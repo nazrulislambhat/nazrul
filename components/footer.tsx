@@ -87,7 +87,6 @@ function Footer() {
           </div>
         </motion.div>
 
-        {/* RIGHT */}
         <motion.div
           className="right xl:flex-1 flex self-stretch items-center pt-6 pb-12 xl:p-0 md:py-12"
           variants={itemVariants}
