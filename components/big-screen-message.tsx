@@ -28,7 +28,7 @@ export default function BigScreenMessage() {
         writingMode: 'vertical-rl',
       }}
     >
-      WOW YOU HAVE A NICE & BIG MONITOR
+      WOW 😮 YOU HAVE A NICE & BIG MONITOR
     </div>
   );
 }

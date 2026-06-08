@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Mail, Calendar1, Rocket, MapPinHouse } from 'lucide-react';
+import {
+  Mail,
+  Calendar1,
+  Rocket,
+  MapPinHouse,
+  Proportions,
+} from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -45,25 +51,59 @@ export default function Hero() {
           transition={{ duration: 0.4, delay: 0.8 }}
           className="flex items-center gap-8"
         >
-          <p className="flex items-center gap-2 text-secondary selection:bg-secondary selection:text-primary">
+          <p className="relative group flex items-center gap-2 text-secondary selection:bg-secondary selection:text-primary">
             <Mail className="w-4 h-4" />
             <Link
               href="mailto:nazrul@nazrulislam.dev"
               target="_blank"
               className="link w-fit text-xs text-secondary"
+              aria-describedby="email-help"
             >
               write an email
             </Link>
+            <span
+              id="email-help"
+              role="tooltip"
+              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-primary text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
+            >
+              Get in touch via email
+            </span>
           </p>
-          <p className="flex items-center gap-2 text-secondary selection:bg-secondary selection:text-primary">
+          <p className="relative group flex items-center gap-2 text-secondary selection:bg-secondary selection:text-primary">
             <Calendar1 className="w-4 h-4" />
             <Link
               href="https://cal.com/nazrul/"
               target="_blank"
               className="link w-fit text-xs text-secondary"
+              aria-describedby="calendar-help"
             >
               schedule a call
             </Link>
+            <span
+              id="calendar-help"
+              role="tooltip"
+              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-primary text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
+            >
+              Book a call with me on cal.com
+            </span>
+          </p>
+          <p className="relative group flex items-center gap-2 text-secondary selection:bg-secondary selection:text-primary">
+            <Proportions className="w-4 h-4" />
+            <Link
+              href="https://dhikrly.com"
+              target="_blank"
+              className="link w-fit text-xs text-secondary"
+              aria-describedby="dhikrly-help"
+            >
+              dhikrly.com
+            </Link>
+            <span
+              id="dhikrly-help"
+              role="tooltip"
+              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-primary text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
+            >
+              Visit dhikrly.com — personal project
+            </span>
           </p>
         </motion.div>
       </div>
