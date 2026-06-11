@@ -1,13 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SquareArrowOutUpRight } from 'lucide-react';
-import years from '../assets/years.png';
 import Link from 'next/link';
-import Image from 'next/image';
 function Years() {
   return (
-    <div className="bg-primary selection:bg-secondary py-12 text-white selection:text-primary h-full px-6 md:px-12 xl:px-16 2xl:px-24 flex flex-col xl:flex-row justify-between items-center">
-      <div className="xl:max-w-[50%]">
+    <div className="bg-primary selection:bg-secondary py-20 text-white selection:text-primary h-full px-6 md:px-12 xl:px-16 flex flex-col xl:flex-row justify-between items-center">
+      <div>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +50,7 @@ function Years() {
             className="underline text-secondary"
           >
             StackNothing
-            <SquareArrowOutUpRight className="w-3 h-3 mx-1 inline text-secondary" />
+            <SquareArrowOutUpRight className="w-3 h-3 mx-1 mb-1 inline text-secondary" />
           </Link>
           . While pursuing my master’s degree, I worked as a developer and
           strategic partner with national and international organizations
@@ -68,8 +66,8 @@ function Years() {
             rel="noopener noreferrer"
             className="underline text-secondary"
           >
-            StackNothing Technologies
-            <SquareArrowOutUpRight className="w-3 h-3 mx-1 inline text-secondary" />
+            StackNothing
+            <SquareArrowOutUpRight className="w-3 h-3 mx-1 mb-1 inline text-secondary" />
           </Link>{' '}
           with a vision of digital integration and innovation, delivering
           scalable solutions using{' '}
@@ -81,9 +79,6 @@ function Years() {
           partnerships with global brands such as ExpressVPN, NordVPN, AtlasVPS,
           and Surfshark.
         </motion.p>
-      </div>
-      <div>
-        <Image src={years} alt="years" className=" mt-8 xl:ml-8 xl:mt-0" />
       </div>
     </div>
   );
