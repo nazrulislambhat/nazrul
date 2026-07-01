@@ -6,6 +6,11 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  box-sizing: border-box;
+  max-width: 1920px;
+  margin: 0 auto;
+}
 .animated-border {
   position: relative;
   display: inline-block;
