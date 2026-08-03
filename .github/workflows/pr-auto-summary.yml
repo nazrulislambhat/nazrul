@@ -1,0 +1,113 @@
+name: Auto-fill PR "What Changed"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  update-pr-body:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build changed-files summary
+        id: summary
+        run: |
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+
+          # Get changed files with status (A=added, M=modified, D=deleted, R=renamed)
+          git diff --name-status "$BASE_SHA" "$HEAD_SHA" > /tmp/changes.txt
+
+          {
+            echo "SUMMARY<<EOF"
+            echo "Auto-detected changes ($(wc -l < /tmp/changes.txt) files):"
+            echo ""
+
+            # Group by top-level folder
+            awk '{
+              status=$1; file=$2;
+              # handle renames which have an extra field
+              if (status ~ /^R/) { file=$3 }
+              split(file, parts, "/");
+              folder = (length(parts) > 1) ? parts[1] : "(root)";
+              print folder "\t" status "\t" file
+            }' /tmp/changes.txt | sort | awk -F'\t' '
+              {
+                if ($1 != prev) {
+                  print "";
+                  print "**" $1 "/**";
+                  prev = $1;
+                }
+                symbol = ($2 ~ /^A/) ? "🟢 added" : ($2 ~ /^D/) ? "🔴 removed" : ($2 ~ /^R/) ? "🔀 renamed" : "🟡 modified";
+                print "- " symbol ": `" $3 "`";
+              }
+            '
+
+            echo ""
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Update PR body
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const summary = `${{ steps.summary.outputs.SUMMARY }}`;
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+            });
+
+            const body = pr.body || "";
+            const startMarker = "## What Changed";
+            const endMarkerRegex = /\n##\s/;
+
+            const startIdx = body.indexOf(startMarker);
+            if (startIdx === -1) {
+              console.log('No "## What Changed" section found in PR body — skipping.');
+              return;
+            }
+
+            const afterStart = startIdx + startMarker.length;
+            const rest = body.slice(afterStart);
+            const nextHeadingMatch = rest.match(endMarkerRegex);
+            const sectionEnd = nextHeadingMatch
+              ? afterStart + nextHeadingMatch.index
+              : body.length;
+
+            const before = body.slice(0, afterStart);
+            const after = body.slice(sectionEnd);
+
+            // Preserve any existing manual checklist lines (lines starting with "- [")
+            const existingSection = body.slice(afterStart, sectionEnd);
+            const manualLines = existingSection
+              .split("\n")
+              .filter(line => line.trim().startsWith("- ["))
+              .join("\n");
+
+            const autoBlockRegex = /<!-- auto-summary-start -->[\s\S]*?<!-- auto-summary-end -->/;
+            const autoBlock = `<!-- auto-summary-start -->\n${summary}\n<!-- auto-summary-end -->`;
+
+            let newSection;
+            if (autoBlockRegex.test(existingSection)) {
+              newSection = existingSection.replace(autoBlockRegex, autoBlock);
+            } else {
+              newSection = `\n\n${autoBlock}\n\n${manualLines}\n`;
+            }
+
+            const newBody = before + newSection + after;
+
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              body: newBody,
+            });
