@@ -57,9 +57,11 @@ jobs:
 
       - name: Update PR body
         uses: actions/github-script@v7
+        env:
+          SUMMARY: ${{ steps.summary.outputs.SUMMARY }}
         with:
           script: |
-            const summary = `${{ steps.summary.outputs.SUMMARY }}`;
+            const summary = process.env.SUMMARY || "";
             const { data: pr } = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
