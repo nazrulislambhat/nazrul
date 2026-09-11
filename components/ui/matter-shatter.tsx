@@ -32,6 +32,7 @@ export default function MatterShatter({
 }) {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [isSwinging, setIsSwinging] = useState(false);
+  const [isOverInteractive, setIsOverInteractive] = useState(false);
   const [recycledCount, setRecycledCount] = useState(0);
   const [activeNote, setActiveNote] = useState<ActiveNote | null>(null);
   const [isIncinerating, setIsIncinerating] = useState(false);
@@ -40,16 +41,38 @@ export default function MatterShatter({
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
   const noteTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // 1. Desktop Hammer Cursor Tracking
+  // 1. Manage Global Native Cursor Hiding & Mouse Tracking
   useEffect(() => {
     if (!isActive) return;
 
+    // Force hide native cursor globally while shatter mode is active
+    document.documentElement.style.cursor = 'none';
+
     const handleMouseMove = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
+
+      const target = e.target as HTMLElement | null;
+      const isInteractive = Boolean(
+        target?.closest('#shatter-hud') ||
+        target?.closest('#shredder-dustbin') ||
+        target?.closest('#glass-controls-island') ||
+        target?.closest('.recycled-note-card') ||
+        target?.closest('button') ||
+        target?.closest('a'),
+      );
+
+      setIsOverInteractive(isInteractive);
+      // Restore native pointer when over interactive elements, hide completely otherwise
+      document.documentElement.style.cursor = isInteractive ? 'auto' : 'none';
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      // Clean up and restore default page cursor on unmount / deactivation
+      document.documentElement.style.cursor = 'auto';
+    };
   }, [isActive]);
 
   // 2. Shred & Vacuum Stream with Delayed Single Note Swap
@@ -84,7 +107,7 @@ export default function MatterShatter({
         id: Math.random().toString(),
         note: randomNote,
       });
-    }, 350); // 350ms delay for smooth cadence
+    }, 350);
 
     // Generate Direct Suction Particles (Ribbons pulled into the bin)
     const particleCount = 14;
@@ -229,6 +252,7 @@ export default function MatterShatter({
     timeoutsRef.current = [];
     if (noteTimerRef.current) clearTimeout(noteTimerRef.current);
 
+    document.documentElement.style.cursor = 'auto';
     document
       .querySelectorAll('.vacuum-stream-particle')
       .forEach((el) => el.remove());
@@ -251,7 +275,7 @@ export default function MatterShatter({
 
   return (
     <>
-      {/* Desktop Hammer Cursor */}
+      {/* Custom Desktop Hammer Cursor (Completely hidden when hovering over interactive UI elements) */}
       <div
         style={{
           transform: `translate3d(${cursorPos.x}px, ${cursorPos.y - 32}px, 0) rotate(${
@@ -259,7 +283,9 @@ export default function MatterShatter({
           })`,
           transformOrigin: 'bottom left',
         }}
-        className="hidden md:block pointer-events-none fixed top-0 left-0 z-[110] transition-transform duration-75 ease-out select-none"
+        className={`hidden md:block pointer-events-none fixed top-0 left-0 z-[110] transition-transform duration-75 ease-out select-none ${
+          isOverInteractive ? 'opacity-0 scale-75' : 'opacity-100 scale-100'
+        }`}
       >
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
           <rect
@@ -287,7 +313,7 @@ export default function MatterShatter({
         <aside
           id="shatter-hud"
           aria-label="Interactive Vacuum Shredder HUD"
-          className="flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-xl liquid-glass border border-signal-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-volt selection:text-black pointer-events-auto"
+          className="flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-md liquid-glass border border-signal-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-volt selection:text-black pointer-events-auto cursor-default"
         >
           <div className="flex items-center gap-2 text-signal font-bold uppercase">
             <span className="relative flex h-2 w-2">
@@ -306,7 +332,7 @@ export default function MatterShatter({
 
           <button
             onClick={shredEverything}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-red/40 bg-red/10 text-red font-bold hover:bg-red hover:text-white transition-all shadow-xs cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-red/40 bg-red/10 text-red font-bold hover:bg-red hover:text-white transition-all shadow-xs cursor-pointer"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Shred All</span>
@@ -314,7 +340,7 @@ export default function MatterShatter({
 
           <button
             onClick={restoreAll}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-black text-white dark:bg-white dark:text-black font-semibold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Empty &amp; Restore</span>
@@ -325,10 +351,10 @@ export default function MatterShatter({
         {activeNote && (
           <div
             key={activeNote.id}
-            className="recycled-note-card w-full p-4 flex flex-col items-center justify-center text-center rounded-2xl border border-signal-dim/40 bg-black/90 text-white shadow-2xl backdrop-blur-md pointer-events-auto transition-all animate-in fade-in zoom-in-95 duration-300"
+            className="recycled-note-card w-full p-4 flex flex-col items-center justify-center text-center rounded-md border border-signal-dim/40 bg-black/90 text-white shadow-2xl backdrop-blur-md pointer-events-auto transition-all animate-in fade-in zoom-in-95 duration-300 cursor-default"
           >
             <span className="font-mono text-xs text-signal font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-volt animate-ping" />
+              <span className="inline-block w-1.5 h-1.5 rounded-md bg-volt animate-ping" />
               [ DEPOSITED TO DUSTBIN ]
             </span>
             <p className="font-bold text-xs sm:text-sm mb-3 max-w-md text-white leading-relaxed">
@@ -336,7 +362,7 @@ export default function MatterShatter({
             </p>
             <a
               href="mailto:nazrulislambhat@gmail.com"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Hire Nazrul</span>
