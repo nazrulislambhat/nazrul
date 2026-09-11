@@ -4,17 +4,19 @@ import React, { useState } from 'react';
 import { Sun, Moon, Sliders, X, Hammer } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useThemeGlass } from '../context/theme-glass-context';
-import GlassShatterModal from './glass-shatter-modal';
-
+import MatterShatter from './matter-shatter';
 export default function GlassControls() {
   const { isDark, toggleTheme, glassIntensity, setGlassIntensity } =
     useThemeGlass();
   const [open, setOpen] = useState(false);
-  const [isShattered, setIsShattered] = useState(false);
+  const [gravityActive, setGravityActive] = useState(false);
 
   return (
     <>
-      <div className="fixed bottom-6 right-6 z-50 font-mono select-none">
+      <div
+        id="glass-controls-island"
+        className="fixed bottom-6 right-6 z-50 font-mono select-none"
+      >
         <AnimatePresence>
           {open && (
             <motion.div
@@ -36,7 +38,7 @@ export default function GlassControls() {
                 </button>
               </div>
 
-              {/* Light / Dark Mode */}
+              {/* Mode Toggle */}
               <div className="flex items-center justify-between">
                 <span className="text-textMuted">Mode</span>
                 <button
@@ -57,7 +59,7 @@ export default function GlassControls() {
                 </button>
               </div>
 
-              {/* Liquid Glass Intensity Slider */}
+              {/* Slider */}
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between text-textMuted">
                   <span>Liquid Glass Blur</span>
@@ -75,18 +77,18 @@ export default function GlassControls() {
                 />
               </div>
 
-              {/* Glass Shatter Easter Egg Button */}
+              {/* Google Gravity Hammer Button */}
               <div className="pt-2 border-t border-borderGlass flex items-center justify-between">
-                <span className="text-textMuted">Stress Test</span>
+                <span className="text-textMuted">Google Gravity</span>
                 <button
                   onClick={() => {
                     setOpen(false);
-                    setIsShattered(true);
+                    setGravityActive(true);
                   }}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-red bg-red/10 text-red hover:bg-red hover:text-white transition-all font-semibold"
                 >
                   <Hammer className="w-3.5 h-3.5" />
-                  <span>Shatter Glass</span>
+                  <span>Equip Hammer</span>
                 </button>
               </div>
             </motion.div>
@@ -97,17 +99,17 @@ export default function GlassControls() {
         <button
           onClick={() => setOpen(!open)}
           className="flex items-center gap-2 px-3.5 py-2.5 rounded-full liquid-glass shadow-xl text-textMain hover:scale-105 transition-all text-xs font-semibold"
-          aria-label="Adjust Glass & Theme Settings"
+          aria-label="Settings"
         >
           <Sliders className="w-4 h-4 text-primary" />
           <span className="hidden sm:inline">Settings</span>
         </button>
       </div>
 
-      {/* Shatter Modal Mount */}
-      <GlassShatterModal
-        isActive={isShattered}
-        onReset={() => setIsShattered(false)}
+      {/* Matter.js Google Gravity Simulation Mount */}
+      <MatterShatter
+        isActive={gravityActive}
+        onDeactivate={() => setGravityActive(false)}
       />
     </>
   );

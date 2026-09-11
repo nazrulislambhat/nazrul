@@ -61,7 +61,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <ThemeGlassProvider>
           <Providers>
             {children}
-            <CursorCat />
+
             <GlassControls />
           </Providers>
         </ThemeGlassProvider>

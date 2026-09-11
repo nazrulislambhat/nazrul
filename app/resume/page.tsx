@@ -1,415 +1,351 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
 import {
-  FileDown,
-  Linkedin,
-  Github,
-  PanelsTopLeft,
+  Download,
+  ArrowLeft,
   Mail,
-  MapPinCheckInside,
-  House,
+  Phone,
+  Globe,
+  Github,
+  Linkedin,
+  MapPin,
 } from 'lucide-react';
 
-import { Inter_Tight, Archivo, Nunito, Comfortaa } from 'next/font/google';
-import Projects from '@/components/projects';
-import Experience from '@/components/experience';
-import Link from 'next/link';
-import Rating from '@/components/rating';
+export default function ResumePage() {
+  const handlePrint = () => {
+    window.print();
+  };
 
-const archivo = Archivo({ subsets: ['latin'] });
-export default function Resume() {
   return (
-    <div className="bg-background xl:pb-0 pb-8 xl:m-8 overflow-x-hidden">
-      <div className=" flex flex-col xl:flex-row w-screen justify-start boxed ">
-        <div className="max-w-[300px] pl-8 xl:pl-12 2xl:pl-0 xl:border-r-4 xl:pr-8 xl:border-white xl:py-24 xl:w-1/2 ">
-          <div className="pt-8 pb-8 xl:pb-12 xl:pt-0 flex flex-col gap-1">
-            <div className="items-center gap-2 text-primary inline-flex relative">
-              <House className="w-4 h-4" />
-              <Link
-                href="https://nazrulislam.dev"
-                className="text-primary font-semibold link-primary flex items-center gap-1 z-10 text-xl w-fit relative"
-              >
-                nazrulislam.dev
-              </Link>
-              <span className="absolute inset-x-0  bottom-1 left-6 h-2 w-[110px] bg-secondary z-0 opacity-80"></span>
-            </div>
-            <h5 className="font-semibold text-xs flex my-4 items-center gap-1 text-black">
-              <MapPinCheckInside className="w-4 h-4" />
-              Bengaluru, Karnataka
-            </h5>
-            <div className="flex items-start flex-col justify-start gap-2">
-              <p className="flex items-center gap-2 text-primary">
-                <Mail className="w-4 h-4" />
-                <Link
-                  href="mailto:nazrul@nazrulislam.dev"
-                  target="_blank"
-                  className="link-primary w-fit text-[10px] font-semibold text-primary"
-                >
-                  nazrul@nazrulislam.dev
-                </Link>
-              </p>
-              <p className="flex items-center gap-2 text-primary">
-                <Mail className="w-4 h-4" />
-                <Link
-                  href="mailto:nazrul@stacknothing.com"
-                  target="_blank"
-                  className="link-primary w-fit text-[10px] font-semibold text-primary"
-                >
-                  nazrul@stacknothing.com
-                </Link>
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-8 mr-8 xl:mr-0">
-            <div className="core">
-              <div className="relative mb-4 font-bold inline-block">
-                <p className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative">
-                  Core:
-                </p>
-                <span className="absolute inset-x-0  bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
-              </div>
-              <ul className="text-xs font-semibold text-black opacity-80 flex flex-col gap-[4px]">
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  JavaScript
-                  <Rating
-                    filled={5}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  React JS
-                  <Rating
-                    filled={4}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  Next JS
-                  <Rating
-                    filled={3}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  TypeScript
-                  <Rating
-                    filled={3}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  GraphQL
-                  <Rating
-                    filled={3}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  Redux
-                  <Rating
-                    filled={3}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
+    <div
+      id="resume-outer-wrapper"
+      className="min-h-screen w-full bg-background text-textMain py-10 md:py-16 selection:bg-secondary selection:text-black"
+    >
+      <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
+        {/* Floating Screen Actions */}
+        <div
+          id="resume-actions"
+          className="flex items-center justify-between gap-4 mb-8 p-4 rounded-2xl liquid-glass no-print"
+        >
+          <Link
+            href="/"
+            className="flex items-center gap-2 font-mono text-xs text-textMuted hover:text-textMain transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Return to Portfolio</span>
+          </Link>
 
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  React Testing Library
-                  <Rating
-                    filled={3}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  Zustand
-                  <Rating
-                    filled={2}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  Git
-                  <Rating
-                    filled={5}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  CSS/SaSS
-                  <Rating
-                    filled={5}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  TailwindCSS
-                  <Rating
-                    filled={5}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-third rotate-45"></span>
-                  Styled Components
-                  <Rating
-                    filled={5}
-                    filledColor="text-third fill-third"
-                    unfilledColor="text-third fill-none"
-                  />
-                </li>
-              </ul>
-            </div>
-            <div className="other">
-              <div className="relative mb-4 font-bold inline-block">
-                <p className="text-primary font-bold flex items-center gap-1 z-10 text-base w-fit relative">
-                  Other:
-                </p>
-                <span className="absolute inset-x-0  bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
-              </div>
-              <ul className="text-xs font-semibold text-black opacity-80 flex flex-col gap-[4px]">
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Vite
-                  <Rating
-                    filled={4}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Vercel
-                  <Rating
-                    filled={4}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Docker
-                  <Rating
-                    filled={2}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Heroku
-                  <Rating
-                    filled={2}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Webpack
-                  <Rating
-                    filled={3}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  LessCSS
-                  <Rating
-                    filled={5}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Bootstrap
-                  <Rating
-                    filled={5}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  NextUI
-                  <Rating
-                    filled={5}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  MUI
-                  <Rating
-                    filled={5}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Gulp
-                  <Rating
-                    filled={3}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Babel
-                  <Rating
-                    filled={3}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  Drupal
-                  <Rating
-                    filled={5}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="min-w-[5px] min-h-[5px] inline-block bg-primary rotate-45"></span>
-                  WordPress
-                  <Rating
-                    filled={5}
-                    filledColor="text-primary fill-primary"
-                    unfilledColor="text-primary fill-none"
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
+          <button
+            onClick={handlePrint}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:opacity-90 transition-all shadow-xs"
+          >
+            <Download className="w-4 h-4" />
+            <span>Download PDF</span>
+          </button>
         </div>
-        <div className="about relative pl-8 mr-8 xl:mr-24 xl:py-24 2xl:mr-0 overflow-hidden">
-          <div className="download relative py-8 flex gap-2 items-center ">
-            <Link
-              href="https://drive.google.com/file/d/15-5JnG6SAuE--pMtUHeR5TQrsQSxIClF/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="relative inline-block">
-                <FileDown className="text-primary cursor-pointer  hover:scale-105" />
-                <div className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-max bg-primary text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  download my resume
-                </div>
-              </div>
-            </Link>
-            <Link
-              href="https://linkedin.com/in/nazrulislambhat"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="relative group inline-block">
-                <Linkedin className="text-[#0077B5] cursor-pointer hover:scale-105" />
-              </div>
-            </Link>
-            <Link
-              href="https://github.com/nazrulislambhat"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="relative group inline-block">
-                <Github className="hover:scale-105" />
-              </div>
-            </Link>
-          </div>
-          <div className="about-intro border-b-4 border-white ">
-            <h1
-              className={`${archivo.className} text-primary font-semibold text-5xl xl:text-8xl pb-8 tracking-wide flex items-center`}
-            >
-              Nazrul Islam
-            </h1>
-            <div className="flex xl:gap-4 gap-2 xl:flex-row flex-col mb-6 xl:mb-12 w-fit ">
-              <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
-                Senior Software Engineer -
-                <Link
-                  href="https://hcltech.com"
-                  className="text-xs text-primary font-bold w-fit link-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  HCLTech
-                </Link>
-              </p>
-              <span className="xl:block hidden text-black">|</span>
-              <p className="text-xs xl:text-xl text-black font-semibold tracking-wide flex flex-row xl:flex-row xl:items-center gap-2">
-                Founder & CEO -
-                <Link
-                  href="https://stacknothing.com"
-                  className="text-xs text-primary font-bold  w-fit link-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  StackNothing
-                </Link>
+
+        {/* Full A4 Printable Canvas */}
+        <div className="p-8 md:p-12 rounded-3xl liquid-glass bg-surface print:p-0 print:border-none print:shadow-none flex flex-col justify-between space-y-5 print:space-y-4">
+          {/* Header */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 pb-4 border-b-2 border-borderGlass print:border-neutral-800">
+            <div>
+              <h1 className="text-3xl font-extrabold tracking-tight text-textMain print:text-2xl">
+                Nazrul Islam
+              </h1>
+              <p className="text-sm font-semibold text-primary mt-1 print:text-black">
+                Senior Frontend Engineer • React.js | Next.js | TypeScript |
+                AI-Augmented Development
               </p>
             </div>
-            <p className="text-black opacity-90 text-sm pb-8 leading-6 xl:leading-7 xl:w-auto">
-              <span className="font-bold">Experienced Software Engineer</span>{' '}
-              with 5+ years of experience in front-end technologies,
-              particularly within the{' '}
-              <span className="font-bold">JS(ES6+)</span> ecosystem encompassing{' '}
-              <span className="font-bold">React JS</span> and{' '}
-              <span className="font-bold">Next JS</span>, I am committed to
-              harnessing technology for complex problem-solving. My track record
-              showcases a consistent ability to exceed expectations and deliver
-              exceptional outcomes. I have a proven ability to quickly grasp and
-              master new technologies, ensuring I stay ahead of the curve.
+
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-xs text-textMuted print:text-neutral-800">
+              <a
+                href="https://nazrulislam.dev"
+                className="flex items-center gap-1 hover:text-textMain"
+              >
+                <Globe className="w-3.5 h-3.5 text-primary print:hidden" />
+                <span>nazrulislam.dev</span>
+              </a>
+              <a
+                href="mailto:nazrulislambhat@gmail.com"
+                className="flex items-center gap-1 hover:text-textMain"
+              >
+                <Mail className="w-3.5 h-3.5 text-primary print:hidden" />
+                <span>nazrulislambhat@gmail.com</span>
+              </a>
+              <a
+                href="tel:+919469444007"
+                className="flex items-center gap-1 hover:text-textMain"
+              >
+                <Phone className="w-3.5 h-3.5 text-primary print:hidden" />
+                <span>+91 9469444007</span>
+              </a>
+              <a
+                href="https://github.com/nazrulislambhat"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1 hover:text-textMain"
+              >
+                <Github className="w-3.5 h-3.5 text-primary print:hidden" />
+                <span>github.com/nazrulislambhat</span>
+              </a>
+              <a
+                href="https://linkedin.com/in/nazrulislambhat"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1 hover:text-textMain"
+              >
+                <Linkedin className="w-3.5 h-3.5 text-primary print:hidden" />
+                <span>linkedin.com/in/nazrulislambhat</span>
+              </a>
+              <div className="flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5 text-primary print:hidden" />
+                <span>Bengaluru, India</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Summary */}
+          <div>
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-1.5 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+              Summary
+            </h2>
+            <p className="text-xs md:text-sm text-textMain leading-relaxed font-normal print:text-[11px] print:leading-normal">
+              Senior Frontend Engineer with 5+ years shipping production-grade
+              React.js and Next.js applications at scale. Proven,
+              measurable impact: 25% fewer post-merge defects, 20% UI engagement
+              lift, 40% faster bug resolution, and 98%+ on-time delivery across
+              6+ simultaneous client projects. Deep expertise in WCAG
+              2.1 AA accessibility, Core Web Vitals optimization, reusable
+              component architecture, and modern Next.js App Router (RSC,
+              streaming UI). Builds AI-augmented development workflows
+              using GitHub Copilot and Cursor for pair-programming, code review,
+              and rapid prototyping to ship faster without compromising code
+              quality or accessibility.
             </p>
           </div>
-          <Experience />
-          <div className="projects">
-            <div className="relative mt-6 mb-4 font-bold inline-block">
-              <p className="text-primary font-bold flex items-center gap-1 z-10 text-2xl w-fit relative">
-                Projects:
+
+          {/* Technical Skills */}
+          <div>
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-2 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+              Technical Skills
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 text-xs print:text-[11px] leading-snug">
+              <p>
+                <strong className="text-textMain">Frontend:</strong>{' '}
+                <span className="text-textMuted print:text-neutral-800">
+                  React.js, Next.js (App Router, RSC), JavaScript (ES6+),
+                  TypeScript, Redux, Zustand, React Hook Form, GraphQL, REST
+                  APIs
+                </span>
               </p>
-              <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
+              <p>
+                <strong className="text-textMain">
+                  Performance &amp; Accessibility:
+                </strong>{' '}
+                <span className="text-textMuted print:text-neutral-800">
+                  Core Web Vitals (LCP, CLS, FID), Code Splitting, WCAG 2.1 AA,
+                  ARIA, Lighthouse
+                </span>
+              </p>
+              <p>
+                <strong className="text-textMain">Styling &amp; UI:</strong>{' '}
+                <span className="text-textMuted print:text-neutral-800">
+                  Tailwind CSS, Styled Components, MUI, Bootstrap, SASS, LESS,
+                  Figma, Adobe XD
+                </span>
+              </p>
+              <p>
+                <strong className="text-textMain">AI &amp; Tooling:</strong>{' '}
+                <span className="text-textMuted print:text-neutral-800">
+                  GitHub Copilot, Cursor, Git, Bitbucket, CI/CD, Webpack,
+                  Docker, Firebase, OAuth, JWT, JIRA
+                </span>
+              </p>
             </div>
-            <div className="opacity-80">
-              <p className="text-xs font-semibold">
-                Over the years, I've engaged in numerous personal and
-                professional projects, with some documented on my{' '}
-                <Link
-                  href="https://github.com/nazrulislambhat"
-                  className="hover:link-primary font-bold pb-1 text-xs hover:opacity-100  text-primary link-primary hover:scale-105 w-fit opacity-100"
-                >
-                  Github
-                </Link>{' '}
-                profile and others showcased on my website at
-                <Link
-                  href="https://nazrulislam.dev/#projects"
-                  className="hover:link-primary font-bold pb-1 text-xs hover:opacity-100 mx-1 text-primary link-primary hover:scale-105 w-fit opacity-100"
-                >
-                  work
-                </Link>
+          </div>
+
+          {/* Professional Experience */}
+          <div className="space-y-3.5 print:space-y-3">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+              Experience
+            </h2>
+
+            {/* HCLTech */}
+            <div className="space-y-1">
+              <div className="flex justify-between items-baseline">
+                <h3 className="text-xs md:text-sm font-bold text-textMain print:text-xs">
+                  HCLTech{' '}
+                  <span className="font-normal text-textMuted print:text-neutral-700">
+                    — Senior Software Engineer
+                  </span>
+                  
+                </h3>
+                <span className="font-mono text-xs text-textMuted print:text-neutral-800 print:text-[11px]">
+                  Nov 2024 — Present | Bengaluru, India
+                </span>
+              </div>
+              <ul className="list-disc list-outside ml-4 space-y-1 text-xs text-textMuted print:text-neutral-800 print:text-[11px] print:leading-tight">
+                <li>
+                  Deliver 5+ consumer-facing features per quarter in close
+                  collaboration with UX Designers, Product Managers, and Backend
+                  Engineers, consistently meeting sprint goals.
+                </li>
+                <li>
+                  Established code-review standards and PR templates, reducing
+                  post-merge defects by 25% and increasing overall code quality
+                  across the team.
+                </li>
+                <li>
+                  Engineered reusable React component libraries improving
+                  scalability and eliminating duplicate UI code; optimized
+                  bundles with lazy loading,{' '}
+                  <code className="text-[10.5px]">useMemo</code>,{' '}
+                  <code className="text-[10.5px]">useCallback</code>, and{' '}
+                  <code className="text-[10.5px]">React.memo</code>.
+                </li>
+                <li>
+                  Embedded AI pair-programming tools (GitHub Copilot, Cursor)
+                  into the team’s daily workflow, accelerating feature delivery
+                  and standardizing prompt-driven code review practices.[cite:
+                  1]
+                </li>
+                <li>
+                  Mentored junior engineers through thorough code reviews and
+                  pair programming, reinforcing best practices and accelerating
+                  team onboarding.
+                </li>
+              </ul>
+            </div>
+
+            {/* Axelerant */}
+            <div className="space-y-1">
+              <div className="flex justify-between items-baseline">
+                <h3 className="text-xs md:text-sm font-bold text-textMain print:text-xs">
+                  Axelerant{' '}
+                  <span className="font-normal text-textMuted print:text-neutral-700">
+                    — Frontend Software Engineer 3
+                  </span>
+                  
+                </h3>
+                <span className="font-mono text-xs text-textMuted print:text-neutral-800 print:text-[11px]">
+                  Nov 2021 — Nov 2024 | Remote, India
+                </span>
+              </div>
+              <ul className="list-disc list-outside ml-4 space-y-1 text-xs text-textMuted print:text-neutral-800 print:text-[11px] print:leading-tight">
+                <li>
+                  Led end-to-end frontend development for NMDB (Next.js +
+                  Tailwind CSS movie database); drove a 20% UI engagement lift
+                  for Millboard by refactoring legacy components into
+                  responsive, reusable modules.
+                </li>
+                <li>
+                  Delivered WCAG 2.1 AA-compliant, zero-regression,
+                  cross-browser applications for CAST, British Business Bank,
+                  AMA, and Veolia with zero critical accessibility regressions
+                  post-launch.
+                </li>
+                <li>
+                  Cut average bug turnaround by 40% through systematic
+                  root-cause analysis and proactive refactoring; maintained 98%+
+                  on-time delivery across 6+ simultaneous client projects.[cite:
+                  1]
+                </li>
+                <li>
+                  Collaborated directly with international clients and
+                  cross-functional teams across design, backend, and QA to ship
+                  features end-to-end on aggressive timelines.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Selected Projects */}
+          <div>
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-2 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+              Projects
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs print:text-[11px]">
+              <div className="p-2.5 rounded-xl bg-surface border border-borderGlass print:border-neutral-300 print:p-1.5">
+                <div className="flex items-center justify-between">
+                  <strong className="text-textMain">StackNothing</strong>[cite:
+                  1]
+                  <a
+                    href="https://stacknothing.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary hover:underline font-mono text-[10px]"
+                  >
+                    stacknothing.com
+                  </a>
+                </div>
+                <p className="text-textMuted print:text-neutral-800 mt-1 leading-snug">
+                  Freelance frontend consultancy platform built with Next.js and
+                  Tailwind CSS — SEO-optimized, Core Web Vitals-compliant, for
+                  enterprise and individual clients.
+                </p>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-surface border border-borderGlass print:border-neutral-300 print:p-1.5">
+                <div className="flex items-center justify-between">
+                  <strong className="text-textMain">Dhikrly</strong>
+                  <a
+                    href="https://dhikrly.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary hover:underline font-mono text-[10px]"
+                  >
+                    dhikrly.com
+                  </a>
+                </div>
+                <p className="text-textMuted print:text-neutral-800 mt-1 leading-snug">
+                  Prayer and practice tracking app (React.js + Firebase) built
+                  end-to-end, featuring Qibla finder, Tasbeeh counter, offline
+                  PWA, and cross-device sync.
+                </p>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-surface border border-borderGlass print:border-neutral-300 print:p-1.5">
+                <strong className="text-textMain">
+                  Hostinger Cache Watchdog
+                </strong>
+                
+                <p className="text-textMuted print:text-neutral-800 mt-1 leading-snug">
+                  WordPress plugin automating hPanel cache management via
+                  Puppeteer automation, with WooCommerce detection and
+                  Slack/Telegram alerts.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Education */}
+          <div>
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-1.5 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+              Education
+            </h2>
+            <div className="flex flex-wrap justify-between gap-2 text-xs print:text-[11px] text-textMuted print:text-neutral-800">
+              <p>
+                <strong className="text-textMain">
+                  MCA, Master of Computer Applications
+                </strong>{' '}
+                — University of Kashmir
+                <span className="font-mono ml-2 font-medium">
+                  (2015 — 2019)
+                </span>
+                
+              </p>
+              <p>
+                <strong className="text-textMain">
+                  BCA, Bachelor of Computer Applications
+                </strong>{' '}
+                — University of Kashmir
+                <span className="font-mono ml-2 font-medium">
+                  (2012 — 2015)
+                </span>
+                
               </p>
             </div>
           </div>
