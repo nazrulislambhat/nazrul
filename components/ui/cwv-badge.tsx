@@ -51,7 +51,6 @@ export default function CwvBadge() {
 
       const clsObserver = new PerformanceObserver((entryList) => {
         for (const entry of entryList.getEntries()) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const layoutShift = entry as any;
 
           // Ignore layout shifts that occur within 500ms of user input
