@@ -160,17 +160,9 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
-          {/* Bottom Row: Colophon */}
+                
           <div className="pt-6 mt-8 border-t-2 border-borderGlass flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-[11px] text-textMuted">
-            <p>
-              © {currentYear} Nazrul Islam. Crafted with Next.js &amp; Liquid
-              Glass.
-            </p>
-            <p className="flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-signal shadow-[0_0_6px_#05DF72]" />
-              <span>Next.js App Router • Matter.js Physics</span>
-            </p>
+            <p>© {currentYear} Nazrul Islam</p>
           </div>
         </div>
       </div>

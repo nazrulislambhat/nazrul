@@ -289,7 +289,7 @@ export default function MatterShatter({
       <aside
         id="shatter-hud"
         aria-label="Interactive Vacuum Shredder HUD"
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-[105] flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-full liquid-glass border border-signal-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-volt selection:text-black pointer-events-auto"
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-[105] flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-xl liquid-glass border border-signal-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-volt selection:text-black pointer-events-auto"
       >
         <div className="flex items-center gap-2 text-signal font-bold uppercase">
           <span className="relative flex h-2 w-2">

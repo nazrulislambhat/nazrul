@@ -70,7 +70,7 @@ export default function CityTelemetry() {
     <div
       onClick={toggleCity}
       title="Click to toggle engineering hub"
-      className="group inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full liquid-glass border border-borderGlass shadow-sm font-mono text-xs select-none cursor-pointer transition-all"
+      className="group inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full liquid-glass border border-borderGlass font-mono text-xs select-none cursor-pointer transition-all mx-auto md:mx-0"
     >
       {/* Dynamic Working State Beacon */}
       <span className="relative flex h-2 w-2">

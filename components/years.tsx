@@ -33,6 +33,7 @@ const experiences: ExperienceItem[] = [
       'React',
       'TypeScript',
       'Next.js',
+
       'Design Systems',
       'Core Web Vitals',
       'GitHub Copilot',
@@ -53,6 +54,7 @@ const experiences: ExperienceItem[] = [
     skills: [
       'React',
       'TypeScript',
+      'Drupal',
       'Tailwind CSS',
       'WCAG 2.1 AA',
       'CI/CD',
@@ -62,7 +64,7 @@ const experiences: ExperienceItem[] = [
   {
     period: 'Founder & Principal',
     role: 'Technical Founder & Engineering Lead',
-    company: 'StackNothing',
+    company: 'StackNothing LLC',
     companyUrl: 'https://stacknothing.com',
     description:
       'Founded a technical digital studio focusing on frontend performance, headless integrations, and high-traffic tech media platforms (FossNoobs, HackingSaga).',
