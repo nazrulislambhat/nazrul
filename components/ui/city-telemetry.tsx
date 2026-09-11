@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Clock, ArrowLeftRight } from 'lucide-react';
 
 interface CityConfig {
@@ -68,10 +69,10 @@ export default function CityTelemetry() {
   return (
     <div
       onClick={toggleCity}
-      title="Click to toggle primary engineering base"
-      className="group inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full liquid-glass border border-borderGlass shadow-sm font-mono text-xs select-none cursor-pointer hover:border-signal-dim/50 transition-all"
+      title="Click to toggle engineering hub"
+      className="group inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full liquid-glass border border-borderGlass shadow-sm font-mono text-xs select-none cursor-pointer transition-all"
     >
-      {/* Dynamic Status Beacon */}
+      {/* Dynamic Working State Beacon */}
       <span className="relative flex h-2 w-2">
         <span
           className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
@@ -80,18 +81,34 @@ export default function CityTelemetry() {
         />
         <span
           className={`relative inline-flex rounded-full h-2 w-2 ${
-            isWorkingHours ? 'bg-volt' : 'bg-signal'
+            isWorkingHours
+              ? 'bg-volt shadow-voltGlow'
+              : 'bg-signal shadow-signalGlow'
           }`}
         />
       </span>
 
-      {/* City & Node */}
-      <div className="flex items-center gap-1.5 text-textMain font-semibold">
-        <MapPin className="w-3.5 h-3.5 text-signal" />
-        <span>{activeCity.name}</span>
-        <span className="text-[10px] text-textMuted/70 border border-borderGlass px-1 py-0.2 rounded bg-surface/50">
-          {activeCity.code}
-        </span>
+      {/* Animated City Switcher */}
+      <div className="flex items-center gap-1.5 text-textMain font-semibold overflow-hidden">
+        <MapPin className="w-3.5 h-3.5 text-signal shrink-0" />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCity.code}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15 }}
+            className="flex items-center gap-1.5"
+          >
+            <span>{activeCity.name}</span>
+            <span className="text-[10px] text-textMuted/70 border border-borderGlass px-1 py-0.5 rounded bg-surface/80">
+              {activeCity.code}
+            </span>
+            <span className="hidden sm:inline-block text-[9.5px] text-textMuted/60 font-normal">
+              ({activeCity.tag})
+            </span>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       <span className="text-borderGlass">|</span>
@@ -99,11 +116,13 @@ export default function CityTelemetry() {
       {/* Real-time IST Clock */}
       <div className="flex items-center gap-1.5 text-textMuted font-normal">
         <Clock className="w-3 h-3 text-signal" />
-        <span>{timeStr || '--:--:--'}</span>
+        <span className="text-textMain font-medium">
+          {timeStr || '--:--:--'}
+        </span>
         <span className="text-[10px] text-textMuted/80">IST</span>
       </div>
 
-      {/* Interactive Switch Hint */}
+      {/* Interactive Switch Icon */}
       <ArrowLeftRight className="w-3 h-3 text-textMuted/40 group-hover:text-signal group-hover:rotate-180 transition-all ml-0.5" />
     </div>
   );

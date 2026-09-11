@@ -10,6 +10,7 @@ import {
   MapPin,
   Terminal,
 } from 'lucide-react';
+import CopyPill from '@/components/ui/copy-pill';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -66,27 +67,28 @@ export default function Contact() {
                 senior engineering roles—my inbox is open.
               </p>
 
-              <div className="space-y-3.5 font-mono text-xs md:text-sm">
-                <div className="flex items-center gap-3 text-textMain">
-                  <Mail className="w-4 h-4 text-signal shrink-0" />
-                  <a
-                    href="mailto:nazrulislambhat@gmail.com"
-                    className="hover:text-signal hover:underline transition-colors"
-                  >
-                    nazrulislambhat@gmail.com
-                  </a>
+              {/* Channels with 1-Click Clipboard Feedback */}
+              <div className="space-y-3 font-mono text-xs md:text-sm">
+                <div>
+                  <CopyPill
+                    value="nazrulislambhat@gmail.com"
+                    label="email address"
+                    icon={Mail}
+                  />
                 </div>
-                <div className="flex items-center gap-3 text-textMain">
-                  <Phone className="w-4 h-4 text-signal shrink-0" />
-                  <a
-                    href="tel:+919469444007"
-                    className="hover:text-signal hover:underline transition-colors"
-                  >
-                    +91 9469444007
-                  </a>
+
+                <div>
+                  <CopyPill
+                    value="+91 9469444007"
+                    label="phone number"
+                    icon={Phone}
+                  />
                 </div>
-                <div className="flex items-center gap-3 text-textMuted">
-                  <MapPin className="w-4 h-4 text-signal shrink-0" />
+
+                <div className="flex items-center gap-3 text-textMuted pt-1">
+                  <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-signal">
+                    <MapPin className="w-4 h-4 text-signal shrink-0" />
+                  </div>
                   <span>Bengaluru / Srinagar, IN</span>
                 </div>
               </div>

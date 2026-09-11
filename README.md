@@ -1,88 +1,104 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/127f3d08-2480-4cf9-82cf-ea6dc2057bc7/deploy-status)](https://app.netlify.com/sites/nazrulislambhat/deploys)
 
-![Nazrul-Islam-Full-Stack-Engineer-Software-Developer-02-09-2025_09_41_AM](https://github.com/user-attachments/assets/19a96e9f-c1ca-4e0f-bbb9-3926707c947c)
+# ⚡ Nazrul Islam — Architecture & Systems Portfolio
 
-# 🚀 Nazrul Islam — Portfolio
-
-Welcome to my digital playground! Here, I blend code, creativity, and curiosity to craft robust full stack solutions and engaging user experiences.
+A high-performance personal platform and architectural showcase built with Next.js App Router, TypeScript, and a custom **Liquid-Glass** design system. Focused on strict Core Web Vitals (CWV) discipline, WCAG 2.1 AA accessibility, and zero-compromise UX.
 
 ---
 
 ## 📚 Table of Contents
 
-- [Portfolio Website](#-nazrul-islam--portfolio)
-  - [Table of Contents](#-table-of-contents)
-  - [Overview](#-overview)
-  - [Deployments & Branches](#-deployments--branches)
-  - [Branching Strategy](#-branching-strategy)
-  - [Technologies Used](#-technologies-used)
-  - [Features](#-features)
-  - [Getting Started](#-getting-started)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Overview](#-overview)
+- [Architecture & Design System](#-architecture--design-system)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [Deployments & Environments](#-deployments--environments)
+- [Branching & Promotion Strategy](#-branching--promotion-strategy)
+- [Local Development](#-local-development)
+- [License](#-license)
+
+---
 
 ## 🌟 Overview
 
-This portfolio is more than a website—it's a showcase of my journey as a Full Stack Engineer. Built with Next.js and React, it highlights my projects, skills, and achievements. Expect a modern UI powered by Tailwind CSS, type safety with TypeScript, seamless contact via email integration, and lively animations courtesy of Framer Motion.
+This portfolio serves as both an interactive resume and an engineering testbed. It demonstrates scalable UI patterns, predictable component lifecycles, and sub-second delivery.
 
-## 🚦 Deployments & Branches
+* **Design Ethos:** Cyber-industrial liquid glass featuring high-contrast specular borders, deep obsidian backdrop blurs, and electric telemetry tokens (`#00F58C` signal, `#D9FF54` volt).
+* **Performance Budget:** Sub-second LCP, zero runtime layout shift (`CLS < 0.01`), and automatic degradation for constrained network environments.
 
-| Branch    | Purpose                | Live Demo(s)                                                                 |
+---
+
+## 🎨 Architecture & Design System
+
+The layout is built around a unified vertical rhythm and strict container boundary standards:
+
+* **Vertical Spacing:** Cohesive section offsets (`py-8 md:py-12`) with calibrated container gutters (`px-4 sm:px-8 md:px-12 xl:px-16`).
+* **Shell Layering:** Clean separation between server-side metadata/font bootstrapping (`layout.tsx`) and client-side providers (`AppClientShell`).
+* **Tokens & Surfaces:**
+  * `liquid-glass`: 20px blur saturation with multi-layer obsidian shadows and interior highlights.
+  * `liquid-glass-subtle`: Lightweight glass substrate for nested cards and itemized specifications.
+
+---
+
+## ✨ Key Features
+
+* **Dual-City Telemetry Capsule:** Zero-runtime client hook computing Indian Standard Time (`Asia/Kolkata`) with live office-hours status indicators and an interactive toggle between engineering bases (**Bengaluru [BLR]** & **Srinagar [SXR]**).
+* **Real-time Core Web Vitals Observer:** In-viewport HUD tracking active **FCP**, **LCP**, and session-windowed **CLS** accumulation via the browser `PerformanceObserver` API.
+* **Network-Adaptive Throttling:** Detects `saveData: true` or 2G/3G connections using the `NetworkInformation` API, automatically disabling heavy backdrop filters and physics shaders to sustain 60 FPS.
+* **Print-Optimized Resume:** Dedicated `/resume` route with dual-target CSS: interactive liquid-glass UI on screen and clean 1-page monochrome output for print/PDF export.
+* **Accessible Component Architecture:** Keyboard-navigable components, WCAG 2.1 AA contrast ratios, and semantic HTML throughout.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Core:** [Next.js (App Router)](https://nextjs.org/) + [React 19](https://react.dev/)
+* **Language:** [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/) + CSS Custom Variable Glass System
+* **Motion:** [Framer Motion](https://www.framer.com/motion/)
+* **Icons:** [Lucide React](https://lucide.dev/)
+* **Typography:** `Nunito`, `Pathway Extreme`, `Comfortaa`, `Inter Tight`, `Archivo` via `next/font`
+* **Telemetry & Insights:** `@vercel/speed-insights` + Custom `PerformanceObserver` HUD
+
+---
+
+## 🚦 Deployments & Environments
+
+| Branch    | Stage                  | Domain(s)                                                                    |
 |-----------|------------------------|------------------------------------------------------------------------------|
-| `main`    | 🚀 Production          | [nazrulislam.in](https://nazrulislam.in/), [nazrulislam.dev](https://nazrulislam.dev/) |
+| `main`    | 🚀 Production          | [nazrulislam.dev](https://nazrulislam.dev/), [nazrulislam.in](https://nazrulislam.in/) |
 | `release` | 🧪 Pre-release/Staging | [nazrulislam.vercel.app](https://nazrulislam.vercel.app/)                    |
-| `develop` | 🛠️ Development         | N/A – experimental features and testing                                      |
+| `develop` | 🛠️ Active Dev          | Feature sandboxing & experimental branches                                   |
 
-## 🌳 Branching Strategy
+---
 
-A streamlined Git workflow ensures smooth sailing from idea to production:
+## 🌳 Branching & Promotion Strategy
 
-```
-main (production/live)
-│
-├── release (staging/pre-release)
-│
-└── develop (active development)
-```
+1. **Feature/Fix:** Branch off `develop`, complete changes, and open a PR into `develop`.
+2. **Staging:** Merge `develop` into `release` for smoke testing and CWV audits.
+3. **Production Deployment:** Fast-forward or PR `release` into `main`.
 
-### 🔄 PR Flow
+---
 
-1. **Feature & Bugfix:** Branch off and merge into `develop`.
-2. **Ready for Release:** Merge `develop` into `release` for staging and QA.
-3. **Go Live:** Once tested, merge `release` into `main` for production.
+## 🚀 Local Development
 
-**Branches at a glance:**
-- **`main`**: 🚀 Stable, production-ready.
-- **`release`**: 🧪 Staging, pre-release testing.
-- **`develop`**: 🛠️ Active development.
+### Prerequisites
 
-## 🛠️ Technologies Used
+* Node.js `18.18+` or `20+`
+* npm / pnpm / yarn
 
-- [Next.js](https://nextjs.org/) & [React](https://reactjs.org/)
-- [HeroIcons](https://heroicons.com/) & [Lucide React](https://lucide.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Resend](https://resend.com/) (email integration)
-- [Framer Motion](https://www.framer.com/motion/) (animations)
-
-## ✨ Features
-
-- **Responsive Design:** Looks great on any device.
-- **Smooth Animations:** Framer Motion brings the UI to life.
-- **Contact Form:** Reach out with ease.
-- **Organized Content:** Projects, skills, and achievements—clearly presented.
-- **Easy Updates:** Modular React components for quick changes.
-
-## 🚀 Getting Started
-
-Curious to explore or contribute? Spin up the project locally:
+### Getting Started
 
 ```bash
-git clone https://github.com/nazrulislambhat/nazrul.git
+# Clone the repository
+git clone [https://github.com/nazrulislambhat/nazrul.git](https://github.com/nazrulislambhat/nazrul.git)
 cd nazrul
-npm install
-npm run dev
-```
 
-Unleash your creativity and see the magic unfold!
+# Install dependencies
+npm install
+
+# Start the local development server
+npm run dev
+
+📄 License
+MIT © Nazrul Islam

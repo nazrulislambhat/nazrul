@@ -76,7 +76,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="#experience"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-signal-dim hover:text-signal transition-all"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-signal-dim hover:text-signal-dim transition-all"
               >
                 <Terminal className="w-4 h-4 text-signal" />
                 <span>Experience</span>

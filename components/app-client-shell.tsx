@@ -8,7 +8,7 @@ import BigScreenMessage from '@/components/big-screen-message';
 import CwvBadge from '@/components/ui/cwv-badge';
 import ConsoleGreeting from '@/components/ui/console-greeting';
 import NetworkAdaptiveBanner from '@/components/ui/network-adaptive-banner';
-
+import QuickJumpModal from './ui/quick-jump-modal';
 export default function AppClientShell({
   children,
 }: {
@@ -20,6 +20,7 @@ export default function AppClientShell({
         <NetworkAdaptiveBanner />
         {children}
         <GlassControls />
+        <QuickJumpModal />
         <ConsoleGreeting />
         <BigScreenMessage />
         <CwvBadge />
