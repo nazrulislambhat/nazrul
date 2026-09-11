@@ -28,7 +28,8 @@ export default function BigScreenMessage() {
         writingMode: 'vertical-rl',
       }}
     >
-      WOW 😮 YOU HAVE A NICE & BIG MONITOR
+      WOW <span className="rotate-90 py-2">😲</span> YOU HAVE A BIG MONITOR
+      <span className="rotate-90 py-2">🖥️</span>
     </div>
   );
 }

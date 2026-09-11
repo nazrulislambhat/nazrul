@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, Linkedin } from 'lucide-react';
 import AnimatedLink from './ui/animated-link';
 import TextReveal from './ui/text-reveal';
-import FooterLower from './footer-lower';
 
 const menuVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -27,7 +26,7 @@ const itemVariants = {
 function Footer() {
   return (
     <div>
-      <div className="flex flex-col xl:h-screen md:flex-row bg-white justify-between items-center px-6 md:px-12 xl:px-16 2xl:px-24">
+      <div className="flex flex-col xl:h-screen md:flex-row border-2 border-white justify-between items-center px-6 md:px-12 xl:px-16 2xl:px-24">
         {/* LEFT */}
         <motion.div
           className="left xl:flex-1 md:flex-[0.8] pt-12 pb-6 md:py-12 xl:p-0 flex flex-col items-start justify-center self-stretch"
@@ -98,12 +97,12 @@ function Footer() {
             variants={menuVariants}
           >
             {[
-              'about',
-              'experience',
-              'projects',
-              'skills',
+              '#about',
+              '#experience',
+              '#projects',
+              '#skills',
+              '#contact',
               'resume',
-              'contact',
             ].map((item, index) => (
               <motion.li
                 key={item}
@@ -134,8 +133,6 @@ function Footer() {
           </motion.ul>
         </motion.div>
       </div>
-
-      <FooterLower />
     </div>
   );
 }

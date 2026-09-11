@@ -19,9 +19,9 @@ const config: Config = {
         text: 'text 5s ease-in-out infinite',
       },
       colors: {
-        primary: '#3139fb',
+        primary: '#0D1821',
         primaryLight: '#4831D3',
-        secondary: '#CCF380',
+        secondary: '#F5F8FD',
         third: '#3D155F',
         black: '#0D1821',
         red: '#F43C00',

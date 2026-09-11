@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <div className="bg-background">
-      <div className="py-20 text-black selection:bg-primary selection:text-secondary px-6 md:px-12 xl:px-16 2xl:px-24">
+    <div>
+      <div className="py-20 mb-2 border-2 border-white px-6 md:px-12 xl:px-16 2xl:px-24">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-primary bg-secondary px-2 py-1 rounded font-semibold w-fit mb-8"
+          className="text-primary bg-white px-2 py-1 rounded font-semibold w-fit mb-8"
         >
           About Me
         </motion.p>
