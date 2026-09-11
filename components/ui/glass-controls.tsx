@@ -33,7 +33,7 @@ export default function GlassControls() {
                 </span>
                 <button
                   onClick={() => setOpen(false)}
-                  className="p-1 text-textMuted hover:text-signal transition-colors"
+                  className="p-1 text-textMuted hover:text-red transition-colors"
                   aria-label="Close Settings"
                 >
                   <X className="w-4 h-4" />
@@ -65,7 +65,7 @@ export default function GlassControls() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between text-textMuted">
                   <span>Liquid Glass Blur</span>
-                  <span className="text-signal font-semibold">
+                  <span className="text-signal font-semibold pl-1">
                     {glassIntensity}%
                   </span>
                 </div>
@@ -81,7 +81,6 @@ export default function GlassControls() {
 
               {/* Google Gravity Hammer Button */}
               <div className="pt-2 border-t border-borderGlass flex items-center justify-between">
-                <span className="text-textMuted">Google Gravity</span>
                 <button
                   onClick={() => {
                     setOpen(false);
@@ -103,7 +102,7 @@ export default function GlassControls() {
           className="flex items-center gap-2 px-3.5 py-2.5 rounded-full liquid-glass border border-borderGlass shadow-xl text-textMain hover:border-signal-dim/50 hover:scale-105 transition-all text-xs font-semibold"
           aria-label="Settings"
         >
-          <Sliders className="w-4 h-4 text-signal" />
+          <Sliders className="w-4 h-4 text-textMain" />
           <span className="hidden sm:inline">Settings</span>
         </button>
       </div>

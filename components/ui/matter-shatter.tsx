@@ -1,7 +1,15 @@
 'use client';
 
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { RotateCcw, Trash2, Sparkles, Flame, CheckCircle2 } from 'lucide-react';
+import {
+  RotateCcw,
+  Trash2,
+  Sparkles,
+  Flame,
+  CheckCircle2,
+  Mail,
+  ExternalLink,
+} from 'lucide-react';
 
 const hireNotes = [
   '⚡ Destructured down to raw AST. Clean architecture for your next project.',
@@ -9,6 +17,11 @@ const hireNotes = [
   '🧪 Component unmounted cleanly. Zero layout thrashing in production.',
   '🧹 Garbage-collected. Let’s talk senior engineering roles.',
 ];
+
+interface RecycledNote {
+  id: string;
+  note: string;
+}
 
 export default function MatterShatter({
   isActive,
@@ -19,7 +32,7 @@ export default function MatterShatter({
 }) {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [isSwinging, setIsSwinging] = useState(false);
-  const [binCount, setBinCount] = useState(0);
+  const [recycledNotes, setRecycledNotes] = useState<RecycledNote[]>([]);
   const [isIncinerating, setIsIncinerating] = useState(false);
 
   const binRef = useRef<HTMLDivElement | null>(null);
@@ -37,7 +50,7 @@ export default function MatterShatter({
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isActive]);
 
-  // 2. Shred & Vacuum Direct into Dustbin
+  // 2. Shred & Vacuum Stream into Dustbin & HUD
   const vacuumElement = useCallback((el: HTMLElement) => {
     if (el.getAttribute('data-shredded') === 'true') return;
 
@@ -54,43 +67,13 @@ export default function MatterShatter({
     el.style.opacity = '0';
     el.style.pointerEvents = 'none';
 
-    // REMOVE ANY EXISTING "Hire Nazrul" placeholder so ONLY ONE ever exists
-    document
-      .querySelectorAll('.vacuum-placeholder')
-      .forEach((node) => node.remove());
+    // Push a new hire note to render right next to <aside id="shatter-hud">
+    const randomNote = hireNotes[Math.floor(Math.random() * hireNotes.length)];
+    setRecycledNotes((prev) => [
+      { id: Math.random().toString(), note: randomNote },
+    ]);
 
-    // 1. Mount Single In-Situ "Clean Recycled" Placeholder (Scroll-aware with absolute positioning)
-    const placeholder = document.createElement('div');
-    placeholder.className = 'vacuum-placeholder';
-    placeholder.style.position = 'absolute';
-    placeholder.style.top = `${rect.top + window.scrollY}px`;
-    placeholder.style.left = `${rect.left + window.scrollX}px`;
-    placeholder.style.width = `${rect.width}px`;
-    placeholder.style.height = `${rect.height}px`;
-    placeholder.style.zIndex = '30';
-    // pointer-events: none ensures underlying elements and scrolling are NOT blocked
-    placeholder.style.pointerEvents = 'none';
-
-    placeholder.innerHTML = `
-      <div class="w-full h-full p-6 flex flex-col items-center justify-center text-center rounded-2xl border border-signal-dim/40 bg-black/90 text-white shadow-2xl backdrop-blur-md pointer-events-none">
-        <span class="font-mono text-xs text-signal font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-volt animate-ping"></span>
-          [ DEPOSITED TO DUSTBIN ]
-        </span>
-        <p class="font-bold text-sm mb-4 max-w-xs text-coolWhite leading-relaxed">
-          ${hireNotes[Math.floor(Math.random() * hireNotes.length)]}
-        </p>
-        <a 
-          href="mailto:nazrulislambhat@gmail.com" 
-          class="pointer-events-auto px-4 py-2 rounded-xl bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
-        >
-          Hire Nazrul
-        </a>
-      </div>
-    `;
-    document.body.appendChild(placeholder);
-
-    // 2. Generate Direct Suction Particles (Ribbons pulled into the bin)
+    // Generate Direct Suction Particles (Ribbons pulled into the bin)
     const particleCount = 14;
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
@@ -132,7 +115,6 @@ export default function MatterShatter({
     // Trigger dustbin absorption reaction
     setTimeout(() => {
       setIsIncinerating(true);
-      setBinCount((c) => c + 1);
       setTimeout(() => setIsIncinerating(false), 250);
     }, 450);
   }, []);
@@ -146,7 +128,7 @@ export default function MatterShatter({
         target.closest('#shatter-hud') ||
         target.closest('#shredder-dustbin') ||
         target.closest('#glass-controls-island') ||
-        target.closest('.vacuum-placeholder a')
+        target.closest('.recycled-note-card a')
       ) {
         return;
       }
@@ -232,12 +214,11 @@ export default function MatterShatter({
     timeoutsRef.current.forEach(clearTimeout);
     timeoutsRef.current = [];
 
-    // Remove all streams and placeholders
     document
-      .querySelectorAll('.vacuum-placeholder, .vacuum-stream-particle')
+      .querySelectorAll('.vacuum-stream-particle')
       .forEach((el) => el.remove());
+    setRecycledNotes([]);
 
-    // Restore cards
     document
       .querySelectorAll<HTMLElement>('[data-shredded="true"]')
       .forEach((el) => {
@@ -247,7 +228,6 @@ export default function MatterShatter({
         el.style.visibility = '';
       });
 
-    setBinCount(0);
     onDeactivate();
   };
 
@@ -285,42 +265,75 @@ export default function MatterShatter({
         </svg>
       </div>
 
-      {/* Top Floating Action HUD */}
-      <aside
-        id="shatter-hud"
-        aria-label="Interactive Vacuum Shredder HUD"
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-[105] flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-xl liquid-glass border border-signal-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-volt selection:text-black pointer-events-auto"
-      >
-        <div className="flex items-center gap-2 text-signal font-bold uppercase">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-80" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-signal shadow-[0_0_8px_#CCF380]" />
+      {/* Top Floating Action HUD & Deposited Recycled Placeholders Side-by-Side */}
+      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[105] flex flex-col items-center gap-3 w-full max-w-lg px-4 pointer-events-none">
+        {/* The Action HUD */}
+        <aside
+          id="shatter-hud"
+          aria-label="Interactive Vacuum Shredder HUD"
+          className="flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-xl liquid-glass border border-signal-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-volt selection:text-black pointer-events-auto"
+        >
+          <div className="flex items-center gap-2 text-signal font-bold uppercase">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-80" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-signal shadow-[0_0_8px_#CCF380]" />
+            </span>
+            <Sparkles className="w-3.5 h-3.5 text-volt" />
+            <span>Clean Recycler</span>
+          </div>
+
+          <span className="text-textMuted/60">•</span>
+          <span>
+            Recycled:{' '}
+            <strong className="text-signal">{recycledNotes.length}</strong>{' '}
+            cards
           </span>
-          <Sparkles className="w-3.5 h-3.5 text-volt" />
-          <span>Clean Recycler</span>
-        </div>
 
-        <span className="text-textMuted/60">•</span>
-        <span>
-          Recycled: <strong className="text-signal">{binCount}</strong> cards
-        </span>
+          <button
+            onClick={shredEverything}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-red/40 bg-red/10 text-red font-bold hover:bg-red hover:text-white transition-all shadow-xs cursor-pointer"
+          >
+            <Trash2 className="w-3.5 h-3.5" />
+            <span>Shred All</span>
+          </button>
 
-        <button
-          onClick={shredEverything}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-red/40 bg-red/10 text-red font-bold hover:bg-red hover:text-white transition-all shadow-xs cursor-pointer"
-        >
-          <Trash2 className="w-3.5 h-3.5" />
-          <span>Shred All</span>
-        </button>
+          <button
+            onClick={restoreAll}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Empty &amp; Restore</span>
+          </button>
+        </aside>
 
-        <button
-          onClick={restoreAll}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
-        >
-          <RotateCcw className="w-3.5 h-3.5" />
-          <span>Empty &amp; Restore</span>
-        </button>
-      </aside>
+        {/* Placeholder HTML Card rendered right next to / under the Shatter HUD */}
+        {recycledNotes.length > 0 && (
+          <div className="w-full pointer-events-auto transition-all animate-in fade-in slide-in-from-top-2 duration-300">
+            {recycledNotes.map((item) => (
+              <div
+                key={item.id}
+                className="recycled-note-card w-full p-5 flex flex-col items-center justify-center text-center rounded-2xl border border-signal-dim/40 bg-black/90 text-white shadow-2xl backdrop-blur-md"
+              >
+                <span className="font-mono text-xs text-signal font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-volt animate-ping" />
+                  [ DEPOSITED TO DUSTBIN ]
+                </span>
+                <p className="font-bold text-sm mb-4 max-w-md text-white leading-relaxed">
+                  {item.note}
+                </p>
+                <a
+                  href="mailto:nazrulislambhat@gmail.com"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
+                >
+                  <Mail className="w-3.5 h-3.5" />
+                  <span>Hire Nazrul</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Industrial Liquid Glass Dustbin */}
       <div
@@ -339,7 +352,9 @@ export default function MatterShatter({
             />
             Recycler
           </span>
-          <span className="text-signal font-bold">{binCount} IN BIN</span>
+          <span className="text-signal font-bold">
+            {recycledNotes.length} IN BIN
+          </span>
         </div>
 
         {/* Dustbin Vacuum Slot */}
