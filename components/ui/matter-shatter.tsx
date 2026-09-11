@@ -70,6 +70,7 @@ export default function MatterShatter({
     // Push a new hire note to render right next to <aside id="shatter-hud">
     const randomNote = hireNotes[Math.floor(Math.random() * hireNotes.length)];
     setRecycledNotes((prev) => [
+      ...prev,
       { id: Math.random().toString(), note: randomNote },
     ]);
 
