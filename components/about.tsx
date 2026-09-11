@@ -31,7 +31,7 @@ export default function About() {
       <div className="max-w-site mx-auto px-6 md:px-12 xl:px-16">
         <div className="p-8 md:p-14 xl:p-16 rounded-3xl liquid-glass">
           <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-6">
-            <Terminal className="w-4 h-4" />
+            <Terminal className="w-4 h-4 text-green" />
             <span>Background &amp; Focus</span>
           </div>
 
@@ -70,7 +70,7 @@ export default function About() {
                   className="p-6 rounded-2xl liquid-glass-subtle flex flex-col justify-start"
                 >
                   <div className="w-9 h-9 rounded-xl border-2 border-borderGlass bg-surface flex items-center justify-center mb-4 text-textMain">
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4 text-green" />
                   </div>
                   <h3 className="font-mono text-sm font-bold text-textMain mb-2">
                     {pillar.title}

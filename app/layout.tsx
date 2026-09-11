@@ -12,6 +12,7 @@ import { Providers } from './providers';
 import { ThemeGlassProvider } from '../components/context/theme-glass-context';
 import GlassControls from '../components/ui/glass-controls';
 import CursorCat from '../components/ui/cursor-cat';
+import CwvBadge from '@/components/ui/cwv-badge';
 import ConsoleGreeting from '@/components/ui/console-greeting';
 const nunito = Nunito({
   subsets: ['latin'],
@@ -62,7 +63,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <ThemeGlassProvider>
           <Providers>
             {children}
-            <GlassControls /> <ConsoleGreeting />
+            <GlassControls />
+            <ConsoleGreeting />
+            <CwvBadge />
           </Providers>
         </ThemeGlassProvider>
         <SpeedInsights />

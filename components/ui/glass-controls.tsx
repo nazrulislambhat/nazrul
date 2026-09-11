@@ -85,9 +85,9 @@ export default function GlassControls() {
                     setOpen(false);
                     setGravityActive(true);
                   }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-red bg-red/10 text-red hover:bg-red hover:text-white transition-all font-semibold"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-red bg-red/10 text-red hover:bg-red mx-2 hover:text-white transition-all font-semibold"
                 >
-                  <Hammer className="w-3.5 h-3.5" />
+                  <Hammer className="w-3 h-3" />
                   <span>Equip Hammer</span>
                 </button>
               </div>

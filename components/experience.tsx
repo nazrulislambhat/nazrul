@@ -1,260 +1,229 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Calendar, Terminal, Building2 } from 'lucide-react';
+
+interface SubProject {
+  name: string;
+  points: string[];
+}
+
+interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  companyUrl?: string;
+  subProject?: SubProject;
+  points: string[];
+  skills: string[];
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    period: 'Dec 2024 — Present',
+    role: 'Senior Software Engineer',
+    company: 'HCLTech',
+    companyUrl: 'https://www.hcltech.com',
+    subProject: {
+      name: 'Novartis Global Digital Ecosystem',
+      points: [
+        'Spearheaded production frontend architecture for multi-brand healthcare applications, ensuring strict regulatory compliance and WCAG 2.1 AA accessibility.',
+        'Optimized build toolchains and stripped redundant dependencies, drastically reducing production bundler build times from ~5000ms to ~100ms across development environments.',
+        'Engineered an architectural solution for YouTube embedded playback and dynamic playlist handling that had been blocked for months, establishing a resilient video standard used across platforms.',
+        'Architected reusable, accessible UI component primitives using React, TypeScript, and Storybook to eliminate cross-team duplication.',
+        'Standardized PR reviews and established automated linting checks, mentoring junior developers on performance-first engineering.',
+      ],
+    },
+    points: [
+      'Deliver 5+ enterprise features per quarter aligned with global pharmaceutical regulatory standards[cite: 1].',
+      'Embedded AI-accelerated workflows (Cursor, Copilot) to improve delivery velocity without sacrificing test coverage[cite: 1].',
+    ],
+    skills: [
+      'React',
+      'TypeScript',
+      'Storybook',
+      'Performance Optimization',
+      'WCAG 2.1 AA',
+      'SASS',
+    ],
+  },
+  {
+    period: 'Nov 2021 — Nov 2024',
+    role: 'Frontend Software Engineer (L3)',
+    company: 'Axelerant',
+    companyUrl: 'https://axelerant.com',
+    points: [
+      'Engineered scalable, modular UI components in React and modern Next.js patterns, slashing feature rework and boosting UI consistency across client platforms.',
+      'Cut average bug turnaround time by 40% through systematic root-cause analysis, legacy component refactoring, and strict linting/testing pipelines[cite: 1].',
+      'Delivered zero-critical-regression web applications for enterprise clients including CAST, British Business Bank, AMA, and Veolia[cite: 1].',
+      'Implemented reusable styling systems with Tailwind CSS and SASS, optimizing critical rendering paths and eliminating layout thrashing.',
+      'Mentored emerging engineers and refined Git workflows to maintain 98%+ on-time sprint completions across simultaneous client accounts[cite: 1].',
+    ],
+    skills: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'WCAG 2.1 AA',
+      'CI/CD Pipelines',
+    ],
+  },
+  {
+    period: 'Aug 2020 — Nov 2021',
+    role: 'Founder & Principal Engineer',
+    company: 'StackNothing',
+    companyUrl: 'https://stacknothing.com',
+    points: [
+      'Founded a technical agency delivering custom web architectures, headless CMS integrations, and high-traffic publishing platforms.',
+      'Partnered directly with international clients including BaylinMedia (USA), Phandroid (USA), and IIT Roorkee to build full-stack interfaces with sub-second page loads.',
+      'Launched and scaled tech publications including FossNoobs and HackingSaga Media, securing strategic monetization partnerships with global VPN brands (NordVPN, ExpressVPN, Surfshark).',
+      'Maintained hands-on oversight across production DNS, edge caching, Linux VPS infrastructure, and database migrations.',
+    ],
+    skills: [
+      'Next.js',
+      'WordPress / Headless',
+      'Edge Caching',
+      'Linux Administration',
+      'SEO & Core Web Vitals',
+    ],
+  },
+  {
+    period: 'Mar 2020 — Aug 2020',
+    role: 'Technical Support Engineer',
+    company: 'Dell',
+    points: [
+      'Delivered end-to-end technical support diagnosing hardware, operating system, and network infrastructure faults under strict resolution SLAs.',
+      'Conducted live remote diagnostics and firmware calibrations, optimizing machine stability and client workstation uptime.',
+      'Authored standardized troubleshooting playbooks and escalated multi-tier system defects directly to hardware engineering teams.',
+    ],
+    skills: [
+      'Hardware Diagnostics',
+      'Network Troubleshooting',
+      'OS Calibrations',
+      'SLA Management',
+    ],
+  },
+];
+
 export default function Experience() {
   return (
-    <div className="experience">
-      <div className="relative my-6 font-bold inline-block">
-        <p className="text-primary font-bold flex items-center gap-1 z-10 text-2xl w-fit relative">
-          Experience:
-        </p>
-        <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-secondary z-0 opacity-80"></span>
-      </div>
-
-      <div className="hcltech max-w-[1440px]">
-        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between">
-          <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
-            <h3 className="company text-primary text-xl font-bold whitespace-nowrap">
-              HCLTech
-            </h3>
-
-            <span className="hidden xl:block">|</span>
-            <h4 className="role font-semibold text-third text-base">
-              Senior Software Engineer
-            </h4>
-            <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
-          </div>
-          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
-            Dec 2024 - Present
-          </p>
-        </div>
-        <div className="millboard">
-          <div className="relative mb-2 mt-6 font-bold inline-block">
-            <p className="text-third font-bold flex z-10 text-base w-fit relative">
-              Novartis
+    <section
+      id="experience"
+      className="relative w-full overflow-hidden bg-background text-textMain py-16 md:py-24 selection:bg-volt selection:text-black"
+    >
+      <div className="max-w-site mx-auto px-6 md:px-12 xl:px-16">
+        <div className="p-8 md:p-14 xl:p-16 rounded-3xl liquid-glass">
+          {/* Header Row */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-12 pb-6 border-b-2 border-borderGlass">
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-3">
+                <Terminal className="w-4 h-4 text-signal" />
+                <span>Career History</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain">
+                Experience &amp; Leadership
+              </h2>
+            </div>
+            <p className="font-mono text-xs md:text-sm text-textMuted">
+              5+ Years • Enterprise Frontend Systems &amp; Architecture[cite: 1]
             </p>
-            <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
           </div>
-          <ul className="flex flex-col gap-2">
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Spearheaded the development of scalable frontend architecture as a
-              Senior Software Engineer.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Improved production build performance by optimizing bundler
-              configuration and reducing unnecessary dependencies — reducing
-              build times from ~5000ms to ~100ms in both production and local
-              development environments.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Implemented YouTube embedded playback and playlist functionality
-              that had been blocked for months due to technical and
-              architectural challenges — delivering a clean, stable solution
-              adopted across the platform.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Designed and shipped clean, intuitive, and bug-free user
-              experiences, including a dynamic video playlist system with
-              seamless navigation and accessibility support.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Specialized in building robust, accessible, and responsive
-              components using React, Storybook.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Streamlined performance optimization by implementing advanced
-              state management and reducing code redundancy.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Collaborated with cross-functional teams, ensuring alignment with
-              client objectives and regulatory requirements.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Conducted code reviews, mentored junior developers, and
-              established best practices for clean and efficient coding.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Utilized a tech stack including JavaScript (ES6+), TypeScript,
-              SASS, and Git for efficient development cycles.
-            </li>
-          </ul>
+
+          {/* Timeline Cards */}
+          <div className="space-y-8">
+            {experiences.map((exp, idx) => (
+              <motion.div
+                key={exp.company}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: idx * 0.08 }}
+                className="p-7 md:p-9 rounded-2xl liquid-glass-subtle border border-borderGlass transition-colors hover:border-signal-dim/40"
+              >
+                {/* Meta Row */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                  <div className="flex items-center gap-2 font-mono text-xs text-textMuted">
+                    <Calendar className="w-3.5 h-3.5 text-signal" />
+                    <span>{exp.period}</span>
+                  </div>
+
+                  {exp.companyUrl ? (
+                    <Link
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1 font-mono text-xs text-signal hover:underline font-medium"
+                    >
+                      <span>{exp.company}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                  ) : (
+                    <span className="font-mono text-xs text-textMuted font-medium">
+                      {exp.company}
+                    </span>
+                  )}
+                </div>
+
+                {/* Role Title */}
+                <h3 className="text-xl md:text-2xl font-bold text-textMain mb-4">
+                  {exp.role}{' '}
+                  <span className="text-textMuted font-normal">
+                    at {exp.company}
+                  </span>
+                </h3>
+
+                {/* Embedded Client Initiative (Novartis) */}
+                {exp.subProject && (
+                  <div className="mb-5 p-4 rounded-xl border border-signal-dim/30 bg-surface/50">
+                    <div className="flex items-center gap-2 font-mono text-xs text-signal font-semibold mb-3 uppercase tracking-wider">
+                      <Building2 className="w-3.5 h-3.5" />
+                      <span>{exp.subProject.name}</span>
+                    </div>
+                    <ul className="space-y-2 text-xs md:text-sm text-textMuted">
+                      {exp.subProject.points.map((pt, pIdx) => (
+                        <li
+                          key={pIdx}
+                          className="flex items-start gap-2.5 leading-relaxed"
+                        >
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-signal shrink-0 shadow-[0_0_6px_#05DF72]" />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Primary Bullet Points */}
+                <ul className="space-y-2.5 mb-6 text-xs md:text-sm text-textMuted">
+                  {exp.points.map((point, pIdx) => (
+                    <li
+                      key={pIdx}
+                      className="flex items-start gap-2.5 leading-relaxed"
+                    >
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-signal shrink-0 shadow-[0_0_6px_#05DF72]" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Skill Badges */}
+                <div className="pt-5 border-t border-borderGlass flex flex-wrap gap-2">
+                  {exp.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs font-mono px-2.5 py-1 rounded-md border border-borderGlass bg-surface text-textMain"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-
-      <div className="axelerant max-w-[1440px] my-8">
-        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between">
-          <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
-            <h3 className="company text-primary text-xl font-bold whitespace-nowrap">
-              Axelerant
-            </h3>
-
-            <span className="hidden xl:block">|</span>
-            <h4 className="role font-semibold text-third text-base">
-              Frontend Software Engineer (L3)
-            </h4>
-            <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
-          </div>
-          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
-            Nov 2021 - Nov 2024
-          </p>
-        </div>
-        <ul className="flex flex-col gap-2 relative mb-2 mt-6 font-bold">
-          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-            Built and maintained scalable, modular UI components in React,
-            improving feature delivery speed and reducing rework.
-          </li>
-          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-            Reduced frontend defects and improved UI reliability by refactoring
-            legacy code and establishing consistent coding standards.
-          </li>
-          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-            Improved performance and load times by optimizing rendering patterns
-            and leveraging server-side rendering where appropriate.
-          </li>
-          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-            Implemented reusable styling systems (SASS/Tailwind) that enabled
-            faster iteration and visual consistency across the product.
-          </li>
-          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-            Integrated external APIs and streamlined data flows to support
-            dynamic, real-time content experiences.
-          </li>
-          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-            Collaborated with product, design, and backend teams to refine
-            requirements and ship user-centric features efficiently.
-          </li>
-          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-            Led code reviews and supported onboarding of new developers, raising
-            engineering quality across the team.
-          </li>
-          <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-            <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-            Maintained effective Git workflows and documentation to support
-            stable releases and predictable deployments.
-          </li>
-        </ul>
-      </div>
-      <div className="StackNothing max-w-[1440px]  ">
-        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-8">
-          <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
-            <h3 className="company text-primary text-xl font-bold whitespace-nowrap">
-              StackNothing
-            </h3>
-            <span className="hidden xl:block">|</span>
-            <h4 className="role font-semibold text-third text-base">
-              Founder & CEO
-            </h4>
-            <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
-          </div>
-          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
-            Aug 2020 - Nov 2021
-          </p>
-        </div>
-
-        <div className="StackNothing">
-          <div className="relative mb-2 mt-6 font-bold inline-block">
-            <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
-              what i did:
-            </p>
-            <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
-          </div>
-          <ul className="flex flex-col gap-2">
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              While pursuing my master's degree, I gained valuable experience
-              working as a developer and partner with esteemed companies such as
-              BaylinMedia USA, Phandroid USA, and IIT Roorkee, among others,
-              both nationally and internationally.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5 ">
-              <span className="min-w-[5px] min-h-[5px]  inline-block bg-red rotate-45"></span>
-              I am actively managing ongoing freelance projects, overseeing
-              various client requirements and tasks. This hands-on involvement
-              has equipped me with comprehensive skills in managing both the
-              backend and frontend aspects of websites, with notable projects
-              including fossnoobs.com, ifedtrust.com, mehandibysana.com,
-              thekunafah.com, and more.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              My journey led me to establish StackNothing Technologies, a
-              pioneering agency renowned for its expertise in digital
-              integration and innovation. At StackNothing, we specialize in
-              creating digital synergy by seamlessly integrating technologies.
-              Our proficiency spans across React, JavaScript, Next.js, Drupal,
-              and WordPress, enabling us to deliver exceptional solutions
-              tailored to our clients' needs.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              During my tenure at StackNothing Technologies, I took charge of
-              launching and overseeing various blogs, websites, and projects,
-              most notably FossNoobs Media and HackingSaga Media. Through
-              effective leadership, I cultivated successful partnerships with
-              esteemed brands such as ExpressVPN, NordVPN, IIT Roorkee,
-              AtlasVPS, Surfshark, and others.
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="Dell max-w-[1440px]  ">
-        <div className="flex xl:flex-row flex-col xl:items-center xl:justify-between mt-6 xl:mt-8">
-          <div className="flex flex-col justify-between xl:flex-row w-full xl:items-center xl:justify-start gap-2">
-            <h3 className="company text-primary text-xl font-bold whitespace-nowrap">
-              Dell
-            </h3>
-            <span className="hidden xl:block">|</span>
-            <h4 className="role font-semibold text-third text-base">
-              Technical Support Engineer
-            </h4>
-            <span className="h-[2px] xl:block hidden rounded-full bg-third flex-grow"></span>
-          </div>
-          <p className="duration text-xs mt-2 xl:mt-0 xl:ml-2 text-third font-semibold whitespace-nowrap">
-            Mar 2020 - Aug 2020
-          </p>
-        </div>
-
-        <div className="StackNothing">
-          <div className="relative mb-2 mt-6 font-bold inline-block">
-            <p className="text-third font-bold flex items-center gap-1 z-10 text-base w-fit relative">
-              what i did:
-            </p>
-            <span className="absolute inset-x-0 bottom-1 h-2 w-full bg-red z-0 opacity-30"></span>
-          </div>
-          <ul className="flex flex-col gap-2">
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Provided end-to-end technical support to clients, troubleshooting
-              hardware, software, and network issues to ensure minimal downtime.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Assisted customers with system diagnostics, installations, and
-              updates, enhancing their overall user experience and system
-              performance.
-            </li>
-            <li className="text-xs font-semibold flex items-center gap-2 leading-5">
-              <span className="min-w-[5px] min-h-[5px] inline-block bg-red rotate-45"></span>
-              Documented solutions and escalated complex cases to senior
-              engineers, contributing to improved knowledge base and team
-              efficiency.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }

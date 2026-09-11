@@ -44,12 +44,12 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-background text-textMain py-16 md:py-24"
+      className="relative w-full overflow-hidden bg-background text-textMain py-16 md:py-24 selection:bg-volt selection:text-black"
     >
       <div className="max-w-site mx-auto px-6 md:px-12 xl:px-16">
         <div className="p-8 md:p-14 xl:p-16 rounded-3xl liquid-glass">
           <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-6">
-            <Terminal className="w-4 h-4" />
+            <Terminal className="w-4 h-4 text-signal" />
             <span>Direct Channels</span>
           </div>
 
@@ -67,36 +67,39 @@ export default function Contact() {
 
               <div className="space-y-4 font-mono text-xs md:text-sm">
                 <div className="flex items-center gap-3 text-textMain">
-                  <Mail className="w-4 h-4 text-textMuted" />
+                  <Mail className="w-4 h-4 text-signal" />
                   <a
-                    href="mailto:nazrul@nazrulislam.dev"
-                    className="hover:underline"
+                    href="mailto:nazrulislambhat@gmail.com"
+                    className="hover:text-signal transition-colors"
                   >
-                    nazrul@nazrulislam.dev
+                    nazrulislambhat@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-textMain">
-                  <Phone className="w-4 h-4 text-textMuted" />
-                  <a href="tel:+919469444007" className="hover:underline">
-                    +91 9469444007
+                  <Phone className="w-4 h-4 text-signal" />
+                  <a
+                    href="tel:+919469444007"
+                    className="hover:text-signal transition-colors"
+                  >
+                    +91 9469444007[cite: 1]
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-textMuted">
-                  <MapPin className="w-4 h-4 text-textMuted" />
-                  <span>Bengaluru, India</span>
+                  <MapPin className="w-4 h-4 text-signal" />
+                  <span>Bengaluru, India[cite: 1]</span>
                 </div>
               </div>
             </div>
 
             {/* Right Interactive Form */}
-            <div className="p-6 md:p-8 rounded-2xl liquid-glass-subtle">
+            <div className="p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-10 flex flex-col items-center gap-3"
                 >
-                  <CheckCircle2 className="w-10 h-10 text-primary" />
+                  <CheckCircle2 className="w-10 h-10 text-signal" />
                   <h3 className="font-bold text-lg text-textMain">
                     Message Received
                   </h3>
@@ -115,10 +118,11 @@ export default function Contact() {
                       Name
                     </label>
                     <input
+                      name="name"
                       required
                       type="text"
                       placeholder="Jane Doe"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-textMain transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-signal-dim transition-colors"
                     />
                   </div>
                   <div>
@@ -126,10 +130,11 @@ export default function Contact() {
                       Email
                     </label>
                     <input
+                      name="email"
                       required
                       type="email"
                       placeholder="jane@company.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-textMain transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-signal-dim transition-colors"
                     />
                   </div>
                   <div>
@@ -137,17 +142,18 @@ export default function Contact() {
                       Message
                     </label>
                     <textarea
+                      name="message"
                       required
                       rows={4}
                       placeholder="Let's discuss frontend architecture, open source, or an engineering role..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-textMain transition-colors resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-signal-dim transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
+                    className="w-full py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs disabled:opacity-50"
                   >
                     {loading ? (
                       <span>Transmitting...</span>

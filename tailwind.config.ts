@@ -16,6 +16,13 @@ const config: Config = {
         secondary: '#CCF380',
         third: '#3D155F',
         red: '#F43C00',
+        green: '#22E58B',
+        volt: '#CCF380',
+        signal: {
+          DEFAULT: '#05DF72', // High-contrast readable green for dark mode text & icons
+          dim: '#10B981', // Borders and secondary SVG strokes
+          deep: '#047857', // High-contrast text on light surfaces
+        },
         background: 'var(--color-bg)',
         surface: 'var(--color-surface)',
         textMain: 'var(--color-text)',

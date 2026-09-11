@@ -86,7 +86,7 @@ export default function Projects() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 pb-6 border-b-2 border-borderGlass">
           <div>
             <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-3">
-              <Terminal className="w-4 h-4" />
+              <Terminal className="w-4 h-4 text-signal" />
               <span>Selected Work &amp; Systems</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain">
@@ -99,7 +99,7 @@ export default function Projects() {
               href="https://github.com/nazrulislambhat"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold underline text-textMain hover:text-primary transition-colors"
+              className="font-bold underline text-textMain"
             >
               GitHub
             </Link>
@@ -115,20 +115,22 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.05 }}
-              className="group relative flex flex-col justify-between p-7 md:p-8 rounded-2xl liquid-glass hover:scale-[1.01] transition-transform"
+              className="relative flex flex-col justify-between p-7 md:p-8 rounded-2xl liquid-glass"
             >
               <div>
                 <div className="flex items-center justify-between gap-4 mb-4 font-mono text-xs text-textMuted">
-                  <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-borderGlass bg-surface">
-                    <Layers className="w-3.5 h-3.5" />
+                  <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-borderGlass bg-surface text-textMain">
+                    <Layers className="w-3.5 h-3.5 text-signal" />
                     {project.category}
                   </span>
                   {project.role && (
-                    <span className="text-textMuted/70">{project.role}</span>
+                    <span className="text-textMuted/80 font-mono text-[11px]">
+                      {project.role}
+                    </span>
                   )}
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold text-textMain mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-textMain mb-3">
                   {project.title}
                 </h3>
                 <p className="text-sm md:text-base text-textMuted leading-relaxed mb-6 font-normal">
@@ -152,7 +154,7 @@ export default function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-textMain hover:text-primary transition-colors shrink-0"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-signal shrink-0"
                 >
                   {project.type === 'github' ? (
                     <>
