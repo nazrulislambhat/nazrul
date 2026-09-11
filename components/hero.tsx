@@ -16,7 +16,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="heading text-primary text-3xl font-bold md:text-4xl xl:text-6xl mb-8 xl:mb-10 selection:bg-secondary selection:text-primary relative"
+          className="heading text-black  text-3xl font-bold md:text-4xl xl:text-6xl mb-8 xl:mb-10 selection:bg-secondary selection:text-black  relative"
         >
           Senior Software Engineer
         </motion.h1>
@@ -24,12 +24,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="mb-8 xl:mb-10 md:text-medium xl:text-xl leading-[2rem] selection:bg-secondary selection:text-primary xl:max-w-[90%]"
+          className="mb-8 xl:mb-10 md:text-medium xl:text-xl leading-[2rem] selection:bg-secondary selection:text-black  xl:max-w-[90%]"
         >
           Bridging design and functionality with modern front-end technologies —
           crafting scalable, accessible, and high-performance web solutions with
           JavaScript, React JS and Next JS.
-          <span className="text-primary font-bold">
+          <span className="text-black  font-bold">
             {' '}
             Always learning, Always optimizing{' '}
             <Rocket className="w-4 h-4 inline" />
@@ -40,7 +40,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="text-xs mb-8 text-primary w-fit selection:bg-secondary selection:text-primary flex items-center gap-2 relative"
+          className="text-xs mb-8 text-black  w-fit selection:bg-secondary selection:text-black  flex items-center gap-2 relative"
         >
           <MapPinHouse className="w-4 h-4 inline" /> Namma Bengaluru - ಬೆಂಗಳೂರು
         </motion.p>
@@ -51,12 +51,12 @@ export default function Hero() {
           transition={{ duration: 0.4, delay: 0.8 }}
           className="flex items-center gap-8"
         >
-          <p className="relative group flex items-center gap-2 text-primary selection:bg-secondary selection:text-primary">
+          <p className="relative group flex items-center gap-2 text-black  selection:bg-secondary selection:text-black ">
             <Mail className="w-4 h-4" />
             <Link
               href="mailto:nazrul@nazrulislam.dev"
               target="_blank"
-              className="link w-fit text-xs text-primary "
+              className="link w-fit text-xs text-black  "
               aria-describedby="email-help"
             >
               write an email
@@ -64,17 +64,17 @@ export default function Hero() {
             <span
               id="email-help"
               role="tooltip"
-              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-primary text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
+              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-black  text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
             >
               Get in touch via email
             </span>
           </p>
-          <p className="relative group flex items-center gap-2 text-primary selection:bg-secondary selection:text-primary">
+          <p className="relative group flex items-center gap-2 text-black  selection:bg-secondary selection:text-black ">
             <Calendar1 className="w-4 h-4" />
             <Link
               href="https://cal.com/nazrul/"
               target="_blank"
-              className="link w-fit text-xs text-primary "
+              className="link w-fit text-xs text-black  "
               aria-describedby="calendar-help"
             >
               schedule a call
@@ -82,17 +82,17 @@ export default function Hero() {
             <span
               id="calendar-help"
               role="tooltip"
-              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-primary text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
+              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-black  text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
             >
               Book a call with me on cal.com
             </span>
           </p>
-          <p className="relative group flex items-center gap-2 text-primary selection:bg-secondary selection:text-primary">
+          <p className="relative group flex items-center gap-2 text-black  selection:bg-secondary selection:text-black ">
             <Proportions className="w-4 h-4" />
             <Link
               href="https://dhikrly.com"
               target="_blank"
-              className="link w-fit text-xs text-primary "
+              className="link w-fit text-xs text-black  "
               aria-describedby="dhikrly-help"
             >
               dhikrly.com
@@ -100,7 +100,7 @@ export default function Hero() {
             <span
               id="dhikrly-help"
               role="tooltip"
-              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-primary text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
+              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-black  text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
             >
               Visit dhikrly.com — personal project
             </span>

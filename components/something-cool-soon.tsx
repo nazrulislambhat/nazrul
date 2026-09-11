@@ -5,10 +5,10 @@ import { Mail, ExternalLink } from 'lucide-react';
 export default function SomethingCoolSoon() {
   return (
     <div className="px-6 md:px-12 xl:px-16 2xl:px-24 py-8 border-2 border-white mb-2">
-      <p className="text-primary text-xs font-semibold w-fit">
+      <p className="text-black  text-xs font-semibold w-fit">
         🚧 Pardon our dust ---- greatness is in progress! 🚀
       </p>
-      <p className="text-primary text-xs my-4">
+      <p className="text-black  text-xs my-4">
         This site is under construction & bugs are welcomed at:{' '}
         <Link
           href="mailto:n@nazrulislam.dev"
@@ -18,7 +18,7 @@ export default function SomethingCoolSoon() {
         </Link>{' '}
         🐞
       </p>
-      <p className="text-primary text-xs">
+      <p className="text-black  text-xs">
         Progress is here:{' '}
         <Link
           href="https://github.com/nazrulislambhat/nazrul"

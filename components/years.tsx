@@ -4,13 +4,13 @@ import { SquareArrowOutUpRight } from 'lucide-react';
 import Link from 'next/link';
 function Years() {
   return (
-    <div className="mb-2 border-2 border-white py-20 text-primary  h-full px-6 md:px-12 xl:px-16 flex flex-col xl:flex-row justify-between items-center">
+    <div className="mb-2 border-2 border-white py-20 text-black   h-full px-6 md:px-12 xl:px-16 flex flex-col xl:flex-row justify-between items-center">
       <div>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-primary bg-white px-2 py-1 rounded font-semibold w-fit mb-8"
+          className="text-black  bg-white px-2 py-1 rounded font-semibold w-fit mb-8"
         >
           Over The Years
         </motion.p>
@@ -18,7 +18,7 @@ function Years() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-primary text-base"
+          className="text-black  text-base"
         >
           Since December 2024, I have been working as a Senior Software Engineer
           at HCLTech. In this role, I lead the development of scalable and
