@@ -37,8 +37,8 @@ const experiences: ExperienceItem[] = [
       ],
     },
     points: [
-      'Deliver 5+ enterprise features per quarter aligned with global pharmaceutical regulatory standards[cite: 1].',
-      'Embedded AI-accelerated workflows (Cursor, Copilot) to improve delivery velocity without sacrificing test coverage[cite: 1].',
+      'Deliver 5+ enterprise features per quarter aligned with global pharmaceutical regulatory standards.',
+      'Embedded AI-accelerated workflows (Cursor, Copilot) to improve delivery velocity without sacrificing test coverage.',
     ],
     skills: [
       'React',
@@ -56,10 +56,10 @@ const experiences: ExperienceItem[] = [
     companyUrl: 'https://axelerant.com',
     points: [
       'Engineered scalable, modular UI components in React and modern Next.js patterns, slashing feature rework and boosting UI consistency across client platforms.',
-      'Cut average bug turnaround time by 40% through systematic root-cause analysis, legacy component refactoring, and strict linting/testing pipelines[cite: 1].',
-      'Delivered zero-critical-regression web applications for enterprise clients including CAST, British Business Bank, AMA, and Veolia[cite: 1].',
+      'Cut average bug turnaround time by 40% through systematic root-cause analysis, legacy component refactoring, and strict linting/testing pipelines.',
+      'Delivered zero-critical-regression web applications for enterprise clients including CAST, British Business Bank, AMA, and Veolia.',
       'Implemented reusable styling systems with Tailwind CSS and SASS, optimizing critical rendering paths and eliminating layout thrashing.',
-      'Mentored emerging engineers and refined Git workflows to maintain 98%+ on-time sprint completions across simultaneous client accounts[cite: 1].',
+      'Mentored emerging engineers and refined Git workflows to maintain 98%+ on-time sprint completions across simultaneous client accounts.',
     ],
     skills: [
       'React',
@@ -127,7 +127,7 @@ export default function Experience() {
               </h2>
             </div>
             <p className="font-mono text-xs md:text-sm text-textMuted">
-              5+ Years • Enterprise Frontend Systems &amp; Architecture[cite: 1]
+              5+ Years • Enterprise Frontend Systems &amp; Architecture
             </p>
           </div>
 

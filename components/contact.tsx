@@ -81,12 +81,12 @@ export default function Contact() {
                     href="tel:+919469444007"
                     className="hover:text-signal transition-colors"
                   >
-                    +91 9469444007[cite: 1]
+                    +91 9469444007
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-textMuted">
                   <MapPin className="w-4 h-4 text-signal" />
-                  <span>Bengaluru, India[cite: 1]</span>
+                  <span>Bengaluru, India</span>
                 </div>
               </div>
             </div>
