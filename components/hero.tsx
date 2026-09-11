@@ -8,10 +8,9 @@ import TextReveal from './ui/text-reveal';
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-background text-textMain py-32 md:pt-44 md:pb-28">
+    <section className="relative w-full overflow-hidden py-32 md:pt-44 md:pb-0 pb-0">
       <div className="max-w-site mx-auto px-6 md:px-12 xl:px-16">
         <div className="relative p-8 md:p-14 xl:p-18 rounded-3xl liquid-glass flex flex-col justify-between transition-all duration-300">
-          {/* Status Badge with Volt Ping + Readable Signal Text */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}

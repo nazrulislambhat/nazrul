@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import {
   Inter_Tight,
@@ -8,13 +8,8 @@ import {
   Pathway_Extreme,
 } from 'next/font/google';
 import './globals.css';
-import { Providers } from './providers';
-import { ThemeGlassProvider } from '../components/context/theme-glass-context';
-import GlassControls from '../components/ui/glass-controls';
-import CursorCat from '../components/ui/cursor-cat';
-import BigScreenMessage from '@/components/big-screen-message';
-import CwvBadge from '@/components/ui/cwv-badge';
-import ConsoleGreeting from '@/components/ui/console-greeting';
+import AppClientShell from '@/components/app-client-shell';
+
 const nunito = Nunito({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -48,6 +43,10 @@ export const metadata: Metadata = {
     'Software Engineer specializing in frontend architecture, React, Next.js, and TypeScript.',
 };
 
+export const viewport: Viewport = {
+  themeColor: '#3139fb',
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -55,21 +54,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       suppressHydrationWarning
       className={`${nunito.variable} ${pathway.variable} ${comfortaa.variable} ${inter.variable} ${archivo.variable}`}
     >
-      <head>
-        <meta name="theme-color" content="#3139fb" />
-      </head>
       <body
-        className={`${nunito.className} bg-background text-textMain antialiased`}
+        className={`${nunito.className} bg-background text-textMain antialiased selection:bg-volt selection:text-black`}
       >
-        <ThemeGlassProvider>
-          <Providers>
-            {children}
-            <GlassControls />
-            <ConsoleGreeting />
-            <BigScreenMessage />
-            <CwvBadge />
-          </Providers>
-        </ThemeGlassProvider>
+        <AppClientShell>{children}</AppClientShell>
         <SpeedInsights />
       </body>
     </html>
