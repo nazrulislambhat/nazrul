@@ -17,9 +17,9 @@ const marqueeItems = [
   'TYPESCRIPT',
   'NEXT.JS',
   'DESIGN SYSTEMS',
-  'PERFORMANCE',
-  'WEBGL / 3D',
-  'MICRO-FRONTENDS',
+  'PERFORMANCE OPTIMIZATION',
+  'WEBGL / THREE.JS',
+  'CORE WEB VITALS',
 ];
 
 const marqueeVariants = {
@@ -38,55 +38,52 @@ const marqueeVariants = {
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-background border-2 border-white select-none">
-      {/* 3D Wave Canvas Layer */}
+    <footer className="relative w-full overflow-hidden bg-background text-textMain border-t-2 border-borderGlass select-none">
       <ThreeBackground />
 
-      {/* Infinite Scrolling Marquee */}
-      <div className="relative z-10 w-full border-b-2 border-white py-3.5 overflow-hidden bg-white backdrop-blur-xs">
+      {/* Infinite Marquee Ticker */}
+      <div className="relative z-10 w-full border-b-2 border-borderGlass py-3.5 overflow-hidden bg-surface backdrop-blur-xs">
         <motion.div
-          className="flex whitespace-nowrap text-xs font-mono tracking-widest text-black/60 font-semibold"
+          className="flex whitespace-nowrap text-xs font-mono tracking-widest text-textMuted font-semibold"
           variants={marqueeVariants}
           animate="animate"
         >
           {[...marqueeItems, ...marqueeItems].map((item, idx) => (
             <span key={idx} className="flex items-center mx-6">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-black/40 mr-3" />
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-textMuted mr-3" />
               {item}
             </span>
           ))}
         </motion.div>
       </div>
 
-      {/* Constrained Main Section Content (1440px) */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 xl:px-16 py-16 md:py-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-        {/* Left Column */}
+      {/* Main Footer Body */}
+      <div className="relative z-10 max-w-site mx-auto px-6 md:px-12 xl:px-16 py-16 md:py-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
         <div className="flex-1 max-w-xl">
           <TextReveal
             tag="h2"
-            className="text-3xl md:text-5xl font-extrabold tracking-tight text-black mb-4 selection:bg-secondary selection:text-black"
+            className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain mb-4"
             animationType="words"
             delay={0.1}
           >
-            Let’s talk craft, code, and systems.
+            Solving hard problems, one commit at a time.
           </TextReveal>
 
           <TextReveal
             tag="p"
-            className="text-base md:text-lg text-black/70 mb-8 leading-relaxed selection:bg-secondary selection:text-black"
+            className="text-base md:text-lg text-textMuted mb-8 leading-relaxed font-normal"
             animationType="fade-down"
             delay={0}
           >
-            Open for engineering roles, technical chats, or geeking out over
-            component design and frontend internals.
+            Always up for talking web performance, large-scale frontend
+            architecture, or exploring interesting open-source ideas.
           </TextReveal>
 
-          {/* Social / Contact Links */}
           <div className="flex flex-wrap gap-3">
             <AnimatedLink
               href="mailto:nazrul@nazrulislam.dev"
               icon={Mail}
-              className="py-2.5 px-4 border-2 border-white bg-white/80 rounded-md text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all duration-200"
+              className="py-2.5 px-4 rounded-xl border-2 border-borderGlass bg-white/60 dark:bg-black/40 text-textMain hover:border-textMain"
             >
               Email
             </AnimatedLink>
@@ -95,7 +92,7 @@ export default function Footer() {
               icon={Github}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-4 border-2 border-white bg-white/80 rounded-md text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all duration-200"
+              className="py-2.5 px-4 rounded-xl border-2 border-borderGlass bg-white/60 dark:bg-black/40 text-textMain hover:border-textMain"
             >
               GitHub
             </AnimatedLink>
@@ -104,43 +101,48 @@ export default function Footer() {
               icon={Linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-4 border-2 border-white bg-white/80 rounded-md text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all duration-200"
+              className="py-2.5 px-4 rounded-xl border-2 border-borderGlass bg-white/60 dark:bg-black/40 text-textMain hover:border-textMain"
             >
               LinkedIn
             </AnimatedLink>
             <AnimatedLink
               href="tel:+919469444007"
               icon={Phone}
-              className="py-2.5 px-4 border-2 border-white bg-white/80 rounded-md text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all duration-200"
+              className="py-2.5 px-4 rounded-xl border-2 border-borderGlass bg-white/60 dark:bg-black/40 text-textMain hover:border-textMain"
             >
               Phone
             </AnimatedLink>
           </div>
         </div>
 
-        {/* Right Section Navigation */}
-        <nav className="flex flex-col items-start md:items-end gap-3 text-black/70 font-mono text-sm">
-          {['#about', '#experience', '#projects', '#skills', 'resume'].map(
-            (item) => (
-              <Link
-                key={item}
-                href={item === 'resume' ? '/resume' : `/${item}`}
-                target={item === 'resume' ? '_blank' : undefined}
-                className="hover:text-black transition-colors duration-150"
-              >
-                {item}
-              </Link>
-            ),
-          )}
+        {/* Right Nav */}
+        <nav className="flex flex-col items-start md:items-end gap-3 text-textMuted font-mono text-sm">
+          {[
+            '#about',
+            '#experience',
+            '#projects',
+            '#skills',
+            '#contact',
+            'resume',
+          ].map((item) => (
+            <Link
+              key={item}
+              href={item === 'resume' ? '/resume' : `/${item}`}
+              target={item === 'resume' ? '_blank' : undefined}
+              className="hover:text-textMain transition-colors duration-150"
+            >
+              {item}
+            </Link>
+          ))}
         </nav>
       </div>
 
-      {/* Colophon Bar (1440px) */}
-      <div className="relative z-10 border-t-2 border-white">
-        <div className="max-w-[1440px] mx-auto py-6 px-6 md:px-12 xl:px-16 text-center md:flex md:justify-between text-xs text-black/60 font-mono">
+      {/* Colophon */}
+      <div className="relative z-10 border-t-2 border-borderGlass">
+        <div className="max-w-site mx-auto py-6 px-6 md:px-12 xl:px-16 text-center md:flex md:justify-between text-xs text-textMuted font-mono">
           <p>© {new Date().getFullYear()} Nazrul Islam. All rights reserved.</p>
           <p className="mt-2 md:mt-0">
-            Built with Next.js, Three.js & Tailwind
+            Built with Next.js, Three.js &amp; Tailwind
           </p>
         </div>
       </div>

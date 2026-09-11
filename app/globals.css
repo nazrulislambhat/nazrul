@@ -4,56 +4,73 @@
 
 @layer base {
   :root {
-    --background: 247 43% 97%; /* #F5F4FC */
-    --foreground: 206 43% 9%;   /* #0D1821 */
-    --card: 216 50% 98%;       /* #F5F8FD (coolWhite) */
-    --card-foreground: 206 43% 9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 206 43% 9%;
-    --primary: 238 96% 59%;    /* #3139fb */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 78 84% 73%;   /* #CCF380 */
-    --secondary-foreground: 206 43% 9%;
-    --muted: 240 10% 92%;
-    --muted-foreground: 206 20% 40%;
-    --accent: 78 84% 73%;
-    --accent-foreground: 206 43% 9%;
-    --destructive: 15 100% 48%; /* #F43C00 */
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 100%;       /* Pure White borders */
-    --input: 0 0% 100%;
-    --ring: 238 96% 59%;
-    --radius: 0.75rem;
+    --color-bg: #F5F4FC;
+    --color-surface: rgba(245, 248, 253, 0.45);
+    --color-text: #0D1821;
+    --color-text-muted: rgba(13, 24, 33, 0.65);
+    --color-border: rgba(255, 255, 255, 0.95);
+    --three-particle: #0D1821;
+    --glass-blur: 16px;
+    --glass-opacity: 0.45;
+    --glass-specular: 0.9;
+  }
+
+  .dark {
+    --color-bg: #090e13;
+    --color-surface: rgba(13, 24, 33, 0.55);
+    --color-text: #F5F8FD;
+    --color-text-muted: rgba(245, 248, 253, 0.65);
+    --color-border: rgba(255, 255, 255, 0.15);
+    --three-particle: #818cf8;
+    --glass-blur: 18px;
+    --glass-opacity: 0.35;
+    --glass-specular: 0.25;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #F5F4FC;
-    color: #0D1821;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Don't restrict body max-width so fixed headers, canvas backgrounds, 
-     and full-width dividers span edge-to-edge naturally */
   body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #F5F4FC;
-    color: #0D1821;
     overflow-x: hidden;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Universal high-contrast selection */
   ::selection {
     background-color: #CCF380;
     color: #0D1821;
   }
 }
 
-/* Subtle, high-contrast link underlines */
+/* Liquid Glass Surface Effect */
+.liquid-glass {
+  background: var(--color-surface);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 2px solid var(--color-border);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px 0 rgba(255, 255, 255, var(--glass-specular));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-subtle {
+  background: var(--color-surface);
+  backdrop-filter: blur(calc(var(--glass-blur) * 0.6)) saturate(140%);
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.6)) saturate(140%);
+  border: 2px solid var(--color-border);
+}
+
+/* Underlines & Animations */
 .animated-border {
   position: relative;
   display: inline-block;
@@ -62,7 +79,7 @@
 .animated-border::after {
   content: '';
   position: absolute;
-  bottom: -1px;
+  bottom: -2px;
   left: 0;
   height: 1.5px;
   width: 100%;
@@ -78,60 +95,17 @@
   transform-origin: left;
 }
 
-/* Accent link hover states */
-.link-primary,
-.link-accent {
-  position: relative;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.link-primary::after,
-.link-accent::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 1.5px;
-  bottom: -1.5px;
-  left: 0;
-  transform-origin: left;
-  transform: scaleX(0.35);
-  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
-  opacity: 0.6;
-}
-
-.link-primary::after {
-  background-color: #0D1821;
-}
-
-.link-primary:hover::after {
-  transform: scaleX(1);
-  opacity: 1;
-}
-
-.link-accent::after {
-  background-color: #3139FB;
-}
-
-.link-accent:hover::after {
-  transform: scaleX(1);
-  opacity: 1;
-}
-
-/* Custom minimal scrollbar */
+/* Custom Minimal Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #F5F4FC;
+  background: var(--color-bg);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #D9D7E8;
+  background: rgba(120, 120, 140, 0.3);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #B5B2CD;
+  background: rgba(120, 120, 140, 0.5);
 }

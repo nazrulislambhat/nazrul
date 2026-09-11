@@ -17,7 +17,7 @@ export default function ThreeBackground() {
       0.1,
       1000,
     );
-    camera.position.z = 40;
+    camera.position.z = 42;
     camera.position.y = 12;
     camera.lookAt(0, 0, 0);
 
@@ -44,12 +44,12 @@ export default function ThreeBackground() {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-    // Dark particle points for high-contrast on #F5F4FC
+    const isDarkMode = document.documentElement.classList.contains('dark');
     const material = new THREE.PointsMaterial({
-      color: 0x0d1821,
+      color: isDarkMode ? 0x818cf8 : 0x0d1821,
       size: 0.65,
       transparent: true,
-      opacity: 0.28,
+      opacity: isDarkMode ? 0.45 : 0.25,
     });
 
     const particles = new THREE.Points(geometry, material);
@@ -68,7 +68,7 @@ export default function ThreeBackground() {
     let step = 0;
 
     const animate = () => {
-      step += 0.010; // wave speed
+      step += 0.035; // particle speed
       const pos = geometry.attributes.position.array as Float32Array;
 
       let idx = 0;

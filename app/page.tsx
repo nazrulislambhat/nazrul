@@ -1,22 +1,23 @@
-'use client';
-import Header from '@/components/header';
-import Hero from '@/components/hero';
+// app/page.tsx
+import Header from '../components/header';
+import Hero from '../components/hero';
+import About from '../components/about';
+import Years from '../components/years';
+import Projects from '../components/projects';
+import Skills from '../components/skills';
+import Contact from '../components/contact';
+import Footer from '../components/footer';
 
-import SomethingCoolSoon from '@/components/something-cool-soon';
-import Years from '@/components/years';
-import About from '@/components/about';
-import Projects from '@/components/projects';
-import Footer from '@/components/footer';
-import BigScreenMessage from '@/components/big-screen-message';
 export default function Home() {
   return (
-    <main className="boxed">
-      <BigScreenMessage />
+    <main className="min-h-screen w-full bg-background flex flex-col">
       <Header />
       <Hero />
       <About />
       <Years />
       <Projects />
+      <Skills />
+      <Contact />
       <Footer />
     </main>
   );
