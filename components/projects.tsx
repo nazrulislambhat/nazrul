@@ -80,14 +80,15 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full overflow-hidden bg-background text-textMain py-16 md:py-24 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-volt selection:text-black"
     >
-      <div className="max-w-site mx-auto px-6 md:px-12 xl:px-16">
+      <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         {/* Outer glass boundary enclosing both title and project cards */}
-        <div className="p-8 md:p-14 xl:p-16 rounded-3xl liquid-glass">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 pb-6 border-b-2 border-borderGlass">
+        <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-5 mb-10 pb-6 border-b-2 border-borderGlass">
             <div>
-              <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-3">
+              <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
                 <Terminal className="w-4 h-4 text-signal" />
                 <span>Selected Work &amp; Systems</span>
               </div>
@@ -95,7 +96,7 @@ export default function Projects() {
                 Production Architecture &amp; Tools
               </h2>
             </div>
-            <p className="max-w-md text-sm text-textMuted font-mono">
+            <p className="max-w-md text-xs md:text-sm text-textMuted font-mono">
               Inspect all repositories on{' '}
               <Link
                 href="https://github.com/nazrulislambhat"
@@ -109,19 +110,21 @@ export default function Projects() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {projects.map((project, idx) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.05 }}
-                className="relative flex flex-col justify-between p-7 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass"
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                className="relative flex flex-col justify-between p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass/60"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-4 mb-4 font-mono text-xs text-textMuted">
-                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-borderGlass bg-surface text-textMain">
+                  {/* Category & Role Header */}
+                  <div className="flex items-center justify-between gap-3 mb-3.5 font-mono text-xs text-textMuted">
+                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-borderGlass bg-surface/80 text-textMain">
                       <Layers className="w-3.5 h-3.5 text-signal" />
                       {project.category}
                     </span>
@@ -132,20 +135,22 @@ export default function Projects() {
                     )}
                   </div>
 
-                  <h3 className="text-xl md:text-2xl font-bold text-textMain mb-3">
+                  {/* Title & Description */}
+                  <h3 className="text-xl md:text-2xl font-bold text-textMain mb-2.5">
                     {project.title}
                   </h3>
-                  <p className="text-sm md:text-base text-textMuted leading-relaxed mb-6 font-normal">
+                  <p className="text-sm md:text-base text-textMuted leading-relaxed mb-5 font-normal">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-borderGlass flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div className="flex flex-wrap gap-2">
+                {/* Footer: Tags & Link */}
+                <div className="pt-4 border-t-2 border-borderGlass flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs font-mono px-2 py-1 rounded-md bg-surface border border-borderGlass text-textMain"
+                        className="text-xs font-mono px-2 py-0.5 rounded-md bg-surface/80 border border-borderGlass text-textMain"
                       >
                         {tag}
                       </span>
@@ -156,7 +161,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-signal shrink-0 hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-signal hover:underline shrink-0"
                   >
                     {project.type === 'github' ? (
                       <>

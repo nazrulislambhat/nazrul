@@ -44,19 +44,20 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-background text-textMain py-16 md:py-24 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-volt selection:text-black"
     >
-      <div className="max-w-site mx-auto px-6 md:px-12 xl:px-16">
-        <div className="p-8 md:p-14 xl:p-16 rounded-3xl liquid-glass">
-          <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-6">
+      <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
+        <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
+          {/* Section Eyebrow */}
+          <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2.5">
             <Terminal className="w-4 h-4 text-signal" />
             <span>Direct Channels</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left Details */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left Column: Details */}
             <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-5 leading-tight">
                 Let’s talk architecture, craft, or opportunities.
               </h2>
               <p className="text-base md:text-lg text-textMuted mb-8 leading-relaxed font-normal">
@@ -65,39 +66,39 @@ export default function Contact() {
                 senior engineering roles—my inbox is open.
               </p>
 
-              <div className="space-y-4 font-mono text-xs md:text-sm">
+              <div className="space-y-3.5 font-mono text-xs md:text-sm">
                 <div className="flex items-center gap-3 text-textMain">
-                  <Mail className="w-4 h-4 text-signal" />
+                  <Mail className="w-4 h-4 text-signal shrink-0" />
                   <a
                     href="mailto:nazrulislambhat@gmail.com"
-                    className="hover:text-signal transition-colors"
+                    className="hover:text-signal hover:underline transition-colors"
                   >
                     nazrulislambhat@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-textMain">
-                  <Phone className="w-4 h-4 text-signal" />
+                  <Phone className="w-4 h-4 text-signal shrink-0" />
                   <a
                     href="tel:+919469444007"
-                    className="hover:text-signal transition-colors"
+                    className="hover:text-signal hover:underline transition-colors"
                   >
                     +91 9469444007
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-textMuted">
-                  <MapPin className="w-4 h-4 text-signal" />
-                  <span>Bengaluru, India</span>
+                  <MapPin className="w-4 h-4 text-signal shrink-0" />
+                  <span>Bengaluru / Srinagar, IN</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Interactive Form */}
-            <div className="p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass">
+            {/* Right Column: Interactive Form */}
+            <div className="p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass/60">
               {submitted ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-10 flex flex-col items-center gap-3"
+                  className="text-center py-8 flex flex-col items-center gap-3"
                 >
                   <CheckCircle2 className="w-10 h-10 text-signal" />
                   <h3 className="font-bold text-lg text-textMain">
@@ -114,7 +115,7 @@ export default function Contact() {
                   className="space-y-4 text-xs font-mono"
                 >
                   <div>
-                    <label className="block text-textMuted mb-1.5 uppercase tracking-wider">
+                    <label className="block text-textMuted mb-1.5 uppercase tracking-wider text-[11px]">
                       Name
                     </label>
                     <input
@@ -122,11 +123,11 @@ export default function Contact() {
                       required
                       type="text"
                       placeholder="Jane Doe"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-signal-dim transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-none focus:border-signal-dim transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-textMuted mb-1.5 uppercase tracking-wider">
+                    <label className="block text-textMuted mb-1.5 uppercase tracking-wider text-[11px]">
                       Email
                     </label>
                     <input
@@ -134,11 +135,11 @@ export default function Contact() {
                       required
                       type="email"
                       placeholder="jane@company.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-signal-dim transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-none focus:border-signal-dim transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-textMuted mb-1.5 uppercase tracking-wider">
+                    <label className="block text-textMuted mb-1.5 uppercase tracking-wider text-[11px]">
                       Message
                     </label>
                     <textarea
@@ -146,14 +147,14 @@ export default function Contact() {
                       required
                       rows={4}
                       placeholder="Let's discuss frontend architecture, open source, or an engineering role..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface text-textMain focus:outline-none focus:border-signal-dim transition-colors resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-none focus:border-signal-dim transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs disabled:opacity-50"
+                    className="w-full py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? (
                       <span>Transmitting...</span>

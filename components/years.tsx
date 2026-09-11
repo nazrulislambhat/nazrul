@@ -84,13 +84,14 @@ export default function Years() {
   return (
     <section
       id="experience"
-      className="relative w-full overflow-hidden bg-background text-textMain py-16 md:py-24 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-volt selection:text-black"
     >
-      <div className="max-w-site mx-auto px-6 md:px-12 xl:px-16">
-        <div className="p-8 md:p-14 xl:p-16 rounded-3xl liquid-glass">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-12 pb-6 border-b-2 border-borderGlass">
+      <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
+        <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-10 pb-6 border-b-2 border-borderGlass">
             <div>
-              <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-3">
+              <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
                 <Terminal className="w-4 h-4 text-signal" />
                 <span>Career History</span>
               </div>
@@ -103,17 +104,19 @@ export default function Years() {
             </p>
           </div>
 
-          <div className="space-y-8">
+          {/* Experience Cards Stack */}
+          <div className="space-y-6">
             {experiences.map((exp, idx) => (
               <motion.div
                 key={exp.company}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: idx * 0.08 }}
-                className="p-7 md:p-9 rounded-2xl liquid-glass-subtle"
+                transition={{ duration: 0.3, delay: idx * 0.06 }}
+                className="p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass/60"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                {/* Meta Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
                   <div className="flex items-center gap-2 font-mono text-xs text-textMuted">
                     <Calendar className="w-3.5 h-3.5 text-signal" />
                     <span>{exp.period}</span>
@@ -123,7 +126,7 @@ export default function Years() {
                       href={exp.companyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 font-mono text-xs text-signal font-medium"
+                      className="inline-flex items-center gap-1 font-mono text-xs text-signal hover:underline font-medium"
                     >
                       <span>{exp.company}</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -135,14 +138,18 @@ export default function Years() {
                   )}
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold text-textMain mb-3">
+                {/* Role Title */}
+                <h3 className="text-xl md:text-2xl font-bold text-textMain mb-2.5">
                   {exp.role}
                 </h3>
-                <p className="text-sm md:text-base text-textMuted leading-relaxed mb-6 font-normal">
+
+                {/* Narrative Summary */}
+                <p className="text-sm md:text-base text-textMuted leading-relaxed mb-5 font-normal">
                   {exp.description}
                 </p>
 
-                <ul className="space-y-2 mb-6 text-xs md:text-sm text-textMuted">
+                {/* Key Deliverables & Achievements */}
+                <ul className="space-y-2 mb-5 text-xs md:text-sm text-textMuted">
                   {exp.highlights.map((point, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2.5">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-signal shrink-0 shadow-[0_0_6px_#05DF72]" />
@@ -151,11 +158,12 @@ export default function Years() {
                   ))}
                 </ul>
 
-                <div className="pt-5 border-t-2 border-borderGlass flex flex-wrap gap-2">
+                {/* Tech Badges */}
+                <div className="pt-4 border-t-2 border-borderGlass flex flex-wrap gap-2">
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs font-mono px-2.5 py-1 rounded-md border border-borderGlass bg-surface text-textMain"
+                      className="text-xs font-mono px-2.5 py-1 rounded-md border border-borderGlass bg-surface/80 text-textMain"
                     >
                       {skill}
                     </span>
