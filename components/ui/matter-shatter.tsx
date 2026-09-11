@@ -18,25 +18,27 @@ const hireNotes = [
   '🧹 Garbage-collected. Let’s talk senior engineering roles.',
 ];
 
-interface RecycledNote {
+interface ActiveNote {
   id: string;
   note: string;
 }
 
 export default function MatterShatter({
-  isActive,
-  onDeactivate,
+  isActive = true,
+  onDeactivate = () => {},
 }: {
-  isActive: boolean;
-  onDeactivate: () => void;
+  isActive?: boolean;
+  onDeactivate?: () => void;
 }) {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [isSwinging, setIsSwinging] = useState(false);
-  const [recycledNotes, setRecycledNotes] = useState<RecycledNote[]>([]);
+  const [recycledCount, setRecycledCount] = useState(0);
+  const [activeNote, setActiveNote] = useState<ActiveNote | null>(null);
   const [isIncinerating, setIsIncinerating] = useState(false);
 
   const binRef = useRef<HTMLDivElement | null>(null);
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
+  const noteTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // 1. Desktop Hammer Cursor Tracking
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function MatterShatter({
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isActive]);
 
-  // 2. Shred & Vacuum Stream into Dustbin & HUD
+  // 2. Shred & Vacuum Stream with Delayed Single Note Swap
   const vacuumElement = useCallback((el: HTMLElement) => {
     if (el.getAttribute('data-shredded') === 'true') return;
 
@@ -67,12 +69,22 @@ export default function MatterShatter({
     el.style.opacity = '0';
     el.style.pointerEvents = 'none';
 
-    // Push a new hire note to render right next to <aside id="shatter-hud">
-    const randomNote = hireNotes[Math.floor(Math.random() * hireNotes.length)];
-    setRecycledNotes((prev) => [
-      ...prev,
-      { id: Math.random().toString(), note: randomNote },
-    ]);
+    // Increment bin counter
+    setRecycledCount((prev) => prev + 1);
+
+    // If a note is currently showing, hide it immediately to prepare for the delay transition
+    setActiveNote(null);
+    if (noteTimerRef.current) clearTimeout(noteTimerRef.current);
+
+    // Set a delay before displaying the new single note card
+    noteTimerRef.current = setTimeout(() => {
+      const randomNote =
+        hireNotes[Math.floor(Math.random() * hireNotes.length)];
+      setActiveNote({
+        id: Math.random().toString(),
+        note: randomNote,
+      });
+    }, 350); // 350ms delay for smooth cadence
 
     // Generate Direct Suction Particles (Ribbons pulled into the bin)
     const particleCount = 14;
@@ -186,6 +198,7 @@ export default function MatterShatter({
   const shredEverything = () => {
     timeoutsRef.current.forEach(clearTimeout);
     timeoutsRef.current = [];
+    if (noteTimerRef.current) clearTimeout(noteTimerRef.current);
 
     const cards = Array.from(
       document.querySelectorAll<HTMLElement>(
@@ -205,7 +218,7 @@ export default function MatterShatter({
     cards.forEach((card, idx) => {
       const timeout = setTimeout(() => {
         vacuumElement(card);
-      }, idx * 90);
+      }, idx * 120);
       timeoutsRef.current.push(timeout);
     });
   };
@@ -214,11 +227,13 @@ export default function MatterShatter({
   const restoreAll = () => {
     timeoutsRef.current.forEach(clearTimeout);
     timeoutsRef.current = [];
+    if (noteTimerRef.current) clearTimeout(noteTimerRef.current);
 
     document
       .querySelectorAll('.vacuum-stream-particle')
       .forEach((el) => el.remove());
-    setRecycledNotes([]);
+    setActiveNote(null);
+    setRecycledCount(0);
 
     document
       .querySelectorAll<HTMLElement>('[data-shredded="true"]')
@@ -266,7 +281,7 @@ export default function MatterShatter({
         </svg>
       </div>
 
-      {/* Top Floating Action HUD & Deposited Recycled Placeholders Side-by-Side */}
+      {/* Top Floating Action HUD & Single Active Note Card Side-by-Side */}
       <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[105] flex flex-col items-center gap-3 w-full max-w-lg px-4 pointer-events-none">
         {/* The Action HUD */}
         <aside
@@ -285,8 +300,7 @@ export default function MatterShatter({
 
           <span className="text-textMuted/60">•</span>
           <span>
-            Recycled:{' '}
-            <strong className="text-signal">{recycledNotes.length}</strong>{' '}
+            Recycled: <strong className="text-signal">{recycledCount}</strong>{' '}
             cards
           </span>
 
@@ -307,31 +321,27 @@ export default function MatterShatter({
           </button>
         </aside>
 
-        {/* Placeholder HTML Card rendered right next to / under the Shatter HUD */}
-        {recycledNotes.length > 0 && (
-          <div className="w-full pointer-events-auto transition-all animate-in fade-in slide-in-from-top-2 duration-300">
-            {recycledNotes.map((item) => (
-              <div
-                key={item.id}
-                className="recycled-note-card w-full p-5 flex flex-col items-center justify-center text-center rounded-2xl border border-signal-dim/40 bg-black/90 text-white shadow-2xl backdrop-blur-md"
-              >
-                <span className="font-mono text-xs text-signal font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-volt animate-ping" />
-                  [ DEPOSITED TO DUSTBIN ]
-                </span>
-                <p className="font-bold text-sm mb-4 max-w-md text-white leading-relaxed">
-                  {item.note}
-                </p>
-                <a
-                  href="mailto:nazrulislambhat@gmail.com"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
-                >
-                  <Mail className="w-3.5 h-3.5" />
-                  <span>Hire Nazrul</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-            ))}
+        {/* Exactly ONE "Hire Nazrul" Note Card with Delayed Swap Animation */}
+        {activeNote && (
+          <div
+            key={activeNote.id}
+            className="recycled-note-card w-full p-4 flex flex-col items-center justify-center text-center rounded-2xl border border-signal-dim/40 bg-black/90 text-white shadow-2xl backdrop-blur-md pointer-events-auto transition-all animate-in fade-in zoom-in-95 duration-300"
+          >
+            <span className="font-mono text-xs text-signal font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-volt animate-ping" />
+              [ DEPOSITED TO DUSTBIN ]
+            </span>
+            <p className="font-bold text-xs sm:text-sm mb-3 max-w-md text-white leading-relaxed">
+              {activeNote.note}
+            </p>
+            <a
+              href="mailto:nazrulislambhat@gmail.com"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              <span>Hire Nazrul</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
         )}
       </div>
@@ -353,9 +363,7 @@ export default function MatterShatter({
             />
             Recycler
           </span>
-          <span className="text-signal font-bold">
-            {recycledNotes.length} IN BIN
-          </span>
+          <span className="text-signal font-bold">{recycledCount} IN BIN</span>
         </div>
 
         {/* Dustbin Vacuum Slot */}
