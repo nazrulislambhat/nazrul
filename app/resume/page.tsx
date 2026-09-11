@@ -22,13 +22,13 @@ export default function ResumePage() {
   return (
     <div
       id="resume-outer-wrapper"
-      className="min-h-screen w-full bg-background text-textMain py-10 md:py-16 selection:bg-volt selection:text-black"
+      className="min-h-screen w-full bg-background text-textMain py-8 md:py-12 selection:bg-volt selection:text-black"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         {/* Screen Floating Action Bar (Hidden in Print) */}
         <div
           id="resume-actions"
-          className="flex items-center justify-between gap-4 mb-8 p-4 rounded-2xl liquid-glass no-print"
+          className="flex items-center justify-between gap-4 mb-6 p-4 rounded-2xl liquid-glass border border-borderGlass no-print"
         >
           <Link
             href="/"
@@ -40,34 +40,34 @@ export default function ResumePage() {
 
           <button
             onClick={handlePrint}
-            className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs"
+            className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
           >
             <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-            <span>Download 1-Page PDF</span>
+            <span>Download PDF</span>
           </button>
         </div>
 
         {/* Printable Canvas */}
-        <div className="p-8 md:p-12 rounded-3xl liquid-glass bg-surface print:p-0 print:border-none print:shadow-none flex flex-col justify-between space-y-5 print:space-y-4">
+        <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass bg-surface print:p-0 print:border-none print:shadow-none flex flex-col justify-between space-y-6 md:space-y-7 print:space-y-3.5">
           {/* Header */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 pb-4 border-b-2 border-borderGlass print:border-neutral-800">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-5 border-b-2 border-borderGlass print:border-neutral-800 print:pb-3">
             <div>
               <h1 className="text-3xl font-extrabold tracking-tight text-textMain print:text-2xl">
                 Nazrul Islam
               </h1>
-              <p className="text-sm font-semibold text-signal dark:text-signal mt-1 print:text-black">
+              <p className="text-sm font-semibold text-signal mt-1 print:text-black">
                 Senior Frontend Engineer • React.js | Next.js | TypeScript |
                 AI-Augmented Development
               </p>
             </div>
 
             {/* Direct Contact Links */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-xs text-textMuted print:text-neutral-800">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-textMuted print:text-neutral-800 print:gap-y-1">
               <a
                 href="https://nazrulislam.dev"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-signal transition-colors"
+                className="group flex items-center gap-1 hover:text-signal hover:underline transition-colors"
               >
                 <Globe className="w-3.5 h-3.5 text-signal print:hidden" />
                 <span>nazrulislam.dev</span>
@@ -75,14 +75,14 @@ export default function ResumePage() {
               </a>
               <a
                 href="mailto:nazrulislambhat@gmail.com"
-                className="flex items-center gap-1 hover:text-signal transition-colors"
+                className="flex items-center gap-1 hover:text-signal hover:underline transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-signal print:hidden" />
                 <span>nazrulislambhat@gmail.com</span>
               </a>
               <a
                 href="tel:+919469444007"
-                className="flex items-center gap-1 hover:text-signal transition-colors"
+                className="flex items-center gap-1 hover:text-signal hover:underline transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-signal print:hidden" />
                 <span>+91 9469444007</span>
@@ -91,7 +91,7 @@ export default function ResumePage() {
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-signal transition-colors"
+                className="group flex items-center gap-1 hover:text-signal hover:underline transition-colors"
               >
                 <Github className="w-3.5 h-3.5 text-signal print:hidden" />
                 <span>github.com/nazrulislambhat</span>
@@ -101,7 +101,7 @@ export default function ResumePage() {
                 href="https://linkedin.com/in/nazrulislambhat"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-signal transition-colors"
+                className="group flex items-center gap-1 hover:text-signal hover:underline transition-colors"
               >
                 <Linkedin className="w-3.5 h-3.5 text-signal print:hidden" />
                 <span>linkedin.com/in/nazrulislambhat</span>
@@ -109,14 +109,14 @@ export default function ResumePage() {
               </a>
               <div className="flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-signal print:hidden" />
-                <span>Bengaluru, India</span>
+                <span>Bengaluru / Srinagar, IN</span>
               </div>
             </div>
           </div>
 
           {/* Executive Summary */}
           <div>
-            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-1.5 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-2 pb-1 border-b-2 border-borderGlass print:border-neutral-300">
               Summary
             </h2>
             <p className="text-xs md:text-sm text-textMain leading-relaxed font-normal print:text-[11px] print:leading-normal">
@@ -135,12 +135,14 @@ export default function ResumePage() {
 
           {/* Technical Skills */}
           <div>
-            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-2 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-2.5 pb-1 border-b-2 border-borderGlass print:border-neutral-300">
               Technical Skills
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 text-xs print:text-[11px] leading-snug">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 text-xs print:text-[11px] leading-snug">
               <p>
-                <strong className="text-textMain">Frontend:</strong>{' '}
+                <strong className="text-textMain font-semibold">
+                  Frontend:
+                </strong>{' '}
                 <span className="text-textMuted print:text-neutral-800">
                   React.js, Next.js (App Router, RSC), JavaScript (ES6+),
                   TypeScript, Redux, Zustand, React Hook Form, GraphQL, REST
@@ -148,7 +150,7 @@ export default function ResumePage() {
                 </span>
               </p>
               <p>
-                <strong className="text-textMain">
+                <strong className="text-textMain font-semibold">
                   Performance &amp; Accessibility:
                 </strong>{' '}
                 <span className="text-textMuted print:text-neutral-800">
@@ -157,14 +159,18 @@ export default function ResumePage() {
                 </span>
               </p>
               <p>
-                <strong className="text-textMain">Styling &amp; UI:</strong>{' '}
+                <strong className="text-textMain font-semibold">
+                  Styling &amp; UI:
+                </strong>{' '}
                 <span className="text-textMuted print:text-neutral-800">
                   Tailwind CSS, Styled Components, MUI, Bootstrap, SASS, LESS,
                   Figma, Adobe XD
                 </span>
               </p>
               <p>
-                <strong className="text-textMain">AI &amp; Tooling:</strong>{' '}
+                <strong className="text-textMain font-semibold">
+                  AI &amp; Tooling:
+                </strong>{' '}
                 <span className="text-textMuted print:text-neutral-800">
                   GitHub Copilot, Cursor, Git, Bitbucket, CI/CD, Webpack,
                   Docker, Firebase, OAuth, JWT, JIRA
@@ -174,14 +180,14 @@ export default function ResumePage() {
           </div>
 
           {/* Experience */}
-          <div className="space-y-3.5 print:space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+          <div className="space-y-4 print:space-y-3">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 pb-1 border-b-2 border-borderGlass print:border-neutral-300">
               Experience
             </h2>
 
             {/* HCLTech */}
-            <div className="space-y-1">
-              <div className="flex justify-between items-baseline">
+            <div className="space-y-1.5">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
                 <h3 className="text-xs md:text-sm font-bold text-textMain print:text-xs">
                   HCLTech{' '}
                   <span className="font-normal text-textMuted print:text-neutral-700">
@@ -207,9 +213,18 @@ export default function ResumePage() {
                   Engineered reusable React component libraries improving
                   scalability and eliminating duplicate UI code; optimized
                   bundles with lazy loading,{' '}
-                  <code className="text-[10.5px]">useMemo</code>,{' '}
-                  <code className="text-[10.5px]">useCallback</code>, and{' '}
-                  <code className="text-[10.5px]">React.memo</code>.
+                  <code className="text-[10.5px] font-mono px-1 py-0.2 rounded bg-surface border border-borderGlass/60">
+                    useMemo
+                  </code>
+                  ,{' '}
+                  <code className="text-[10.5px] font-mono px-1 py-0.2 rounded bg-surface border border-borderGlass/60">
+                    useCallback
+                  </code>
+                  , and{' '}
+                  <code className="text-[10.5px] font-mono px-1 py-0.2 rounded bg-surface border border-borderGlass/60">
+                    React.memo
+                  </code>
+                  .
                 </li>
                 <li>
                   Embedded AI pair-programming tools (GitHub Copilot, Cursor)
@@ -225,8 +240,8 @@ export default function ResumePage() {
             </div>
 
             {/* Axelerant */}
-            <div className="space-y-1">
-              <div className="flex justify-between items-baseline">
+            <div className="space-y-1.5">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
                 <h3 className="text-xs md:text-sm font-bold text-textMain print:text-xs">
                   Axelerant{' '}
                   <span className="font-normal text-textMuted print:text-neutral-700">
@@ -266,15 +281,17 @@ export default function ResumePage() {
 
           {/* Projects */}
           <div>
-            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-2 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-2.5 pb-1 border-b-2 border-borderGlass print:border-neutral-300">
               Projects
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs print:text-[11px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-xs print:text-[11px]">
               {/* StackNothing */}
-              <div className="p-2.5 rounded-xl bg-surface border border-borderGlass print:border-neutral-300 print:p-1.5 flex flex-col justify-between">
+              <div className="p-3.5 rounded-2xl liquid-glass-subtle border border-borderGlass/60 print:border-neutral-300 print:p-1.5 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between">
-                    <strong className="text-textMain">StackNothing</strong>
+                    <strong className="text-textMain font-semibold">
+                      StackNothing
+                    </strong>
                     <a
                       href="https://stacknothing.com"
                       target="_blank"
@@ -285,7 +302,7 @@ export default function ResumePage() {
                       <ArrowUpRight className="w-2.5 h-2.5 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                   </div>
-                  <p className="text-textMuted print:text-neutral-800 mt-1 leading-snug">
+                  <p className="text-textMuted print:text-neutral-800 mt-1.5 leading-snug">
                     Freelance frontend consultancy platform built with Next.js
                     and Tailwind CSS — SEO-optimized, Core Web Vitals-compliant,
                     for enterprise and individual clients.
@@ -294,10 +311,12 @@ export default function ResumePage() {
               </div>
 
               {/* Dhikrly */}
-              <div className="p-2.5 rounded-xl bg-surface border border-borderGlass print:border-neutral-300 print:p-1.5 flex flex-col justify-between">
+              <div className="p-3.5 rounded-2xl liquid-glass-subtle border border-borderGlass/60 print:border-neutral-300 print:p-1.5 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between">
-                    <strong className="text-textMain">Dhikrly</strong>
+                    <strong className="text-textMain font-semibold">
+                      Dhikrly
+                    </strong>
                     <a
                       href="https://dhikrly.com"
                       target="_blank"
@@ -308,7 +327,7 @@ export default function ResumePage() {
                       <ArrowUpRight className="w-2.5 h-2.5 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                   </div>
-                  <p className="text-textMuted print:text-neutral-800 mt-1 leading-snug">
+                  <p className="text-textMuted print:text-neutral-800 mt-1.5 leading-snug">
                     Prayer and practice tracking app (React.js + Firebase) built
                     end-to-end, featuring Qibla finder, Tasbeeh counter, offline
                     PWA, and cross-device sync.
@@ -317,12 +336,12 @@ export default function ResumePage() {
               </div>
 
               {/* Hostinger Cache Watchdog */}
-              <div className="p-2.5 rounded-xl bg-surface border border-borderGlass print:border-neutral-300 print:p-1.5 flex flex-col justify-between">
+              <div className="p-3.5 rounded-2xl liquid-glass-subtle border border-borderGlass/60 print:border-neutral-300 print:p-1.5 flex flex-col justify-between">
                 <div>
-                  <strong className="text-textMain">
+                  <strong className="text-textMain font-semibold">
                     Hostinger Cache Watchdog
                   </strong>
-                  <p className="text-textMuted print:text-neutral-800 mt-1 leading-snug">
+                  <p className="text-textMuted print:text-neutral-800 mt-1.5 leading-snug">
                     WordPress plugin automating hPanel cache management via
                     Puppeteer automation, with WooCommerce detection and
                     Slack/Telegram alerts.
@@ -334,25 +353,25 @@ export default function ResumePage() {
 
           {/* Education */}
           <div>
-            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-1.5 pb-0.5 border-b border-borderGlass print:border-neutral-300">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-textMuted font-bold print:text-neutral-900 mb-2 pb-1 border-b-2 border-borderGlass print:border-neutral-300">
               Education
             </h2>
-            <div className="flex flex-wrap justify-between gap-2 text-xs print:text-[11px] text-textMuted print:text-neutral-800">
+            <div className="flex flex-wrap justify-between gap-2.5 text-xs print:text-[11px] text-textMuted print:text-neutral-800">
               <p>
-                <strong className="text-textMain">
+                <strong className="text-textMain font-semibold">
                   MCA, Master of Computer Applications
                 </strong>{' '}
                 — University of Kashmir
-                <span className="font-mono ml-2 font-medium">
+                <span className="font-mono ml-2 text-textMuted/80 font-medium">
                   (2015 — 2019)
                 </span>
               </p>
               <p>
-                <strong className="text-textMain">
+                <strong className="text-textMain font-semibold">
                   BCA, Bachelor of Computer Applications
                 </strong>{' '}
                 — University of Kashmir
-                <span className="font-mono ml-2 font-medium">
+                <span className="font-mono ml-2 text-textMuted/80 font-medium">
                   (2012 — 2015)
                 </span>
               </p>
