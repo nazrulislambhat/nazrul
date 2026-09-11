@@ -10,7 +10,6 @@ export default function ThreeBackground() {
     const container = containerRef.current;
     if (!container) return;
 
-    // 1. Scene & Camera setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -19,27 +18,25 @@ export default function ThreeBackground() {
       1000,
     );
     camera.position.z = 40;
-    camera.position.y = 10;
+    camera.position.y = 12;
     camera.lookAt(0, 0, 0);
 
-    // 2. Renderer setup
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // 3. Particle Grid Geometry
-    const countX = 45;
-    const countY = 45;
+    const countX = 42;
+    const countY = 42;
     const numParticles = countX * countY;
     const positions = new Float32Array(numParticles * 3);
 
     let i = 0;
     for (let ix = 0; ix < countX; ix++) {
       for (let iy = 0; iy < countY; iy++) {
-        positions[i] = ix * 2.2 - (countX * 2.2) / 2; // x
-        positions[i + 1] = 0; // y (animated in loop)
-        positions[i + 2] = iy * 2.2 - (countY * 2.2) / 2; // z
+        positions[i] = ix * 2.2 - (countX * 2.2) / 2;
+        positions[i + 1] = 0;
+        positions[i + 2] = iy * 2.2 - (countY * 2.2) / 2;
         i += 3;
       }
     }
@@ -47,19 +44,17 @@ export default function ThreeBackground() {
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-    // 4. Shader/Points Material
+    // Dark particle points for high-contrast on #F5F4FC
     const material = new THREE.PointsMaterial({
-      color: 0xf5f8fd, // Indigo / primary accent
-      size: 0.5,
+      color: 0x0d1821,
+      size: 0.65,
       transparent: true,
-      opacity: 0.4,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.28,
     });
 
     const particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    // 5. Mouse Parallax
     let mouseX = 0;
     let mouseY = 0;
     const handleMouseMove = (e: MouseEvent) => {
@@ -69,29 +64,26 @@ export default function ThreeBackground() {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // 6. Animation Loop
     let animationFrameId: number;
     let step = 0;
 
     const animate = () => {
-      step += 0.02;
+      step += 0.010; // wave speed
       const pos = geometry.attributes.position.array as Float32Array;
 
       let idx = 0;
       for (let ix = 0; ix < countX; ix++) {
         for (let iy = 0; iy < countY; iy++) {
-          // Dynamic dual sine-wave height calculation
           pos[idx + 1] =
-            Math.sin(ix * 0.3 + step) * 2.5 +
-            Math.sin(iy * 0.5 + step * 0.8) * 2.5;
+            Math.sin(ix * 0.3 + step) * 2.2 +
+            Math.sin(iy * 0.5 + step * 0.8) * 2.2;
           idx += 3;
         }
       }
       geometry.attributes.position.needsUpdate = true;
 
-      // Subtle camera tilt toward cursor
-      camera.position.x += (mouseX * 8 - camera.position.x) * 0.05;
-      camera.position.y += (10 + mouseY * 5 - camera.position.y) * 0.05;
+      camera.position.x += (mouseX * 6 - camera.position.x) * 0.05;
+      camera.position.y += (12 + mouseY * 4 - camera.position.y) * 0.05;
       camera.lookAt(0, 0, 0);
 
       renderer.render(scene, camera);
@@ -99,7 +91,6 @@ export default function ThreeBackground() {
     };
     animate();
 
-    // 7. Resize Observer
     const handleResize = () => {
       if (!container) return;
       camera.aspect = container.clientWidth / container.clientHeight;
@@ -108,7 +99,6 @@ export default function ThreeBackground() {
     };
     window.addEventListener('resize', handleResize);
 
-    // Cleanup
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);

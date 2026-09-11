@@ -1,112 +1,103 @@
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import {
-  Mail,
-  Calendar1,
-  Rocket,
-  MapPinHouse,
-  Proportions,
-} from 'lucide-react';
+import { ArrowDownRight, Terminal, Sparkles } from 'lucide-react';
+import TextReveal from './ui/text-reveal';
 
 export default function Hero() {
   return (
-    <motion.div className="relative mb-2 border-2 border-white py-20 px-6 md:px-12 xl:px-16 2xl:px-24">
-      <div className="relative">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="heading text-black  text-3xl font-bold md:text-4xl xl:text-6xl mb-8 xl:mb-10 selection:bg-secondary selection:text-black  relative"
-        >
-          Senior Software Engineer
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="mb-8 xl:mb-10 md:text-medium xl:text-xl leading-[2rem] selection:bg-secondary selection:text-black  xl:max-w-[90%]"
-        >
-          Bridging design and functionality with modern front-end technologies —
-          crafting scalable, accessible, and high-performance web solutions with
-          JavaScript, React JS and Next JS.
-          <span className="text-black  font-bold">
-            {' '}
-            Always learning, Always optimizing{' '}
-            <Rocket className="w-4 h-4 inline" />
-          </span>
-        </motion.p>
+    <section className="relative w-full overflow-hidden bg-background text-black selection:bg-secondary selection:text-black">
+      {/* Container constrained to max 1440px */}
+      <div className="mx-auto px-6 md:px-12 xl:px-16 pt-32 pb-16 md:pt-32 md:pb-24">
+        {/* Main Hero Card with crisp border-2 border-white */}
+        <div className="relative p-8 md:p-14 xl:p-18 border-2 border-white rounded-2xl bg-coolWhite/40 backdrop-blur-xs flex flex-col justify-between">
+          {/* Top Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex items-center gap-2.5 w-fit px-3 py-1.5 rounded-full border-2 border-white bg-white/80 text-xs font-mono text-black/70 mb-8"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
+            </span>
+            <span>Available for technical discussions & engineering roles</span>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.6 }}
-          className="text-xs mb-8 text-black  w-fit selection:bg-secondary selection:text-black  flex items-center gap-2 relative"
-        >
-          <MapPinHouse className="w-4 h-4 inline" /> Namma Bengaluru - ಬೆಂಗಳೂರು
-        </motion.p>
+          {/* Core Intro Headings */}
+          <div className="max-w-4xl">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="text-sm md:text-base font-mono uppercase tracking-widest text-black/60 mb-3"
+            >
+              Senior Frontend Engineer &amp; Architect
+            </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.8 }}
-          className="flex items-center gap-8"
-        >
-          <p className="relative group flex items-center gap-2 text-black  selection:bg-secondary selection:text-black ">
-            <Mail className="w-4 h-4" />
-            <Link
-              href="mailto:nazrul@nazrulislam.dev"
-              target="_blank"
-              className="link w-fit text-xs text-black  "
-              aria-describedby="email-help"
+            <TextReveal
+              tag="h1"
+              className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-black leading-[1.08] mb-6"
+              animationType="words"
+              delay={0.15}
             >
-              write an email
-            </Link>
-            <span
-              id="email-help"
-              role="tooltip"
-              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-black  text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
+              Crafting resilient systems, fast web apps, and clean UI.
+            </TextReveal>
+
+            <TextReveal
+              tag="p"
+              className="text-lg md:text-xl text-black/70 max-w-2xl leading-relaxed mb-10 font-normal"
+              animationType="fade-down"
+              delay={0.25}
             >
-              Get in touch via email
-            </span>
-          </p>
-          <p className="relative group flex items-center gap-2 text-black  selection:bg-secondary selection:text-black ">
-            <Calendar1 className="w-4 h-4" />
-            <Link
-              href="https://cal.com/nazrul/"
-              target="_blank"
-              className="link w-fit text-xs text-black  "
-              aria-describedby="calendar-help"
-            >
-              schedule a call
-            </Link>
-            <span
-              id="calendar-help"
-              role="tooltip"
-              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-black  text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
-            >
-              Book a call with me on cal.com
-            </span>
-          </p>
-          <p className="relative group flex items-center gap-2 text-black  selection:bg-secondary selection:text-black ">
-            <Proportions className="w-4 h-4" />
-            <Link
-              href="https://dhikrly.com"
-              target="_blank"
-              className="link w-fit text-xs text-black  "
-              aria-describedby="dhikrly-help"
-            >
-              dhikrly.com
-            </Link>
-            <span
-              id="dhikrly-help"
-              role="tooltip"
-              className="pointer-events-none absolute -top-8 left-0 hidden group-hover:block bg-secondary text-black  text-xs px-2 py-1 rounded shadow-md whitespace-nowrap"
-            >
-              Visit dhikrly.com — personal project
-            </span>
-          </p>
-        </motion.div>
+              Specializing in React, Next.js, and TypeScript architectures.
+              Obsessed with web performance, zero-jank animations, and developer
+              tooling.
+            </TextReveal>
+          </div>
+
+          {/* Quick Action CTAs & Highlights */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-8 border-t-2 border-white"
+          >
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="#projects"
+                className="flex items-center gap-2 px-5 py-3 rounded-md bg-black text-white font-mono text-sm hover:bg-black/80 transition-colors shadow-xs"
+              >
+                <span>View Architecture &amp; Code</span>
+                <ArrowDownRight className="w-4 h-4" />
+              </Link>
+
+              <Link
+                href="#experience"
+                className="flex items-center gap-2 px-5 py-3 rounded-md border-2 border-white bg-white/80 font-mono text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all"
+              >
+                <Terminal className="w-4 h-4" />
+                <span>Experience</span>
+              </Link>
+            </div>
+
+            {/* Quick Metrics / Philosophy Indicator */}
+            <div className="flex items-center gap-6 font-mono text-xs text-black/60">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-black/80" />
+                <span>Accessibility &amp; CWV Focused</span>
+              </div>
+              <div className="hidden md:block">
+                <span>Next.js • TypeScript • Design Systems</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </section>
   );
 }

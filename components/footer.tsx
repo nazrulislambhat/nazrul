@@ -8,7 +8,6 @@ import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 import AnimatedLink from './ui/animated-link';
 import TextReveal from './ui/text-reveal';
 
-// Disable SSR for WebGL context
 const ThreeBackground = dynamic(() => import('./ui/three-background'), {
   ssr: false,
 });
@@ -30,7 +29,7 @@ const marqueeVariants = {
       x: {
         repeat: Infinity,
         repeatType: 'loop',
-        duration: 20,
+        duration: 22,
         ease: 'linear',
       },
     },
@@ -39,57 +38,55 @@ const marqueeVariants = {
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-black border-t border-white/10 select-none">
-      {/* 3D WebGL Canvas Layer */}
+    <footer className="relative w-full overflow-hidden bg-background border-2 border-white select-none">
+      {/* 3D Wave Canvas Layer */}
       <ThreeBackground />
 
-      {/* Subtle Vignette Gradient to blend Three.js into the edges */}
-      <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-transparent to-neutral-950 pointer-events-none" />
-
-      {/* Infinite Scrolling Ticker */}
-      <div className="relative z-10 w-full border-b border-white/10 py-3.5 overflow-hidden backdrop-blur-xs">
+      {/* Infinite Scrolling Marquee */}
+      <div className="relative z-10 w-full border-b-2 border-white py-3.5 overflow-hidden bg-white backdrop-blur-xs">
         <motion.div
-          className="flex whitespace-nowrap text-[8px] font-mono tracking-widest text-neutral-400"
+          className="flex whitespace-nowrap text-xs font-mono tracking-widest text-black/60 font-semibold"
           variants={marqueeVariants}
           animate="animate"
         >
           {[...marqueeItems, ...marqueeItems].map((item, idx) => (
             <span key={idx} className="flex items-center mx-6">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-green mr-3" />
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-black/40 mr-3" />
               {item}
             </span>
           ))}
         </motion.div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+      {/* Constrained Main Section Content (1440px) */}
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 xl:px-16 py-16 md:py-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+        {/* Left Column */}
         <div className="flex-1 max-w-xl">
           <TextReveal
             tag="h2"
-            className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4"
+            className="text-3xl md:text-5xl font-extrabold tracking-tight text-black mb-4 selection:bg-secondary selection:text-black"
             animationType="words"
             delay={0.1}
           >
-            Let’s talk architecture, systems, or frontend craft.
+            Let’s talk craft, code, and systems.
           </TextReveal>
 
           <TextReveal
             tag="p"
-            className="text-base md:text-lg text-neutral-400 mb-8 leading-relaxed"
+            className="text-base md:text-lg text-black/70 mb-8 leading-relaxed selection:bg-secondary selection:text-black"
             animationType="fade-down"
             delay={0}
           >
-            Always down to discuss component architecture, web performance, or
-            distributed systems
+            Open for engineering roles, technical chats, or geeking out over
+            component design and frontend internals.
           </TextReveal>
 
-          {/* Action Links */}
+          {/* Social / Contact Links */}
           <div className="flex flex-wrap gap-3">
             <AnimatedLink
               href="mailto:nazrul@nazrulislam.dev"
               icon={Mail}
-              className="py-2.5 px-4 border border-white rounded-sm text-[8px] text-white hover:border-secondary hover:text-secondary transition"
+              className="py-2.5 px-4 border-2 border-white bg-white/80 rounded-md text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all duration-200"
             >
               Email
             </AnimatedLink>
@@ -98,7 +95,7 @@ export default function Footer() {
               icon={Github}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-4 border border-white rounded-sm text-[8px] text-white hover:border-secondary hover:text-secondary  transition"
+              className="py-2.5 px-4 border-2 border-white bg-white/80 rounded-md text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all duration-200"
             >
               GitHub
             </AnimatedLink>
@@ -107,29 +104,29 @@ export default function Footer() {
               icon={Linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-2.5 px-4 border border-white rounded-sm text-[8px] text-white hover:border-secondary hover:text-secondary transition"
+              className="py-2.5 px-4 border-2 border-white bg-white/80 rounded-md text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all duration-200"
             >
               LinkedIn
             </AnimatedLink>
             <AnimatedLink
               href="tel:+919469444007"
               icon={Phone}
-              className="py-2.5 px-4 border border-white rounded-sm text-[8px] text-white hover:border-secondary hover:text-secondary transition"
+              className="py-2.5 px-4 border-2 border-white bg-white/80 rounded-md text-sm text-black hover:bg-black hover:text-white hover:border-black transition-all duration-200"
             >
               Phone
             </AnimatedLink>
           </div>
         </div>
 
-        {/* Quick Links */}
-        <nav className="flex flex-col items-start md:items-end gap-3 text-neutral-400 font-mono text-sm">
+        {/* Right Section Navigation */}
+        <nav className="flex flex-col items-start md:items-end gap-3 text-black/70 font-mono text-sm">
           {['#about', '#experience', '#projects', '#skills', 'resume'].map(
             (item) => (
               <Link
                 key={item}
                 href={item === 'resume' ? '/resume' : `/${item}`}
                 target={item === 'resume' ? '_blank' : undefined}
-                className="hover:text-white transition-colors duration-200"
+                className="hover:text-black transition-colors duration-150"
               >
                 {item}
               </Link>
@@ -138,10 +135,14 @@ export default function Footer() {
         </nav>
       </div>
 
-      {/* Colophon */}
-      <div className="relative z-10 border-t border-white/5 py-6 px-6 md:px-12 text-center md:flex md:justify-between text-[8px] text-neutral-400 font-mono max-w-7xl mx-auto">
-        <p>© {new Date().getFullYear()} Nazrul Islam. All rights reserved.</p>
-        <p className="mt-2 md:mt-0">Built with Next.js, Three.js & Tailwind</p>
+      {/* Colophon Bar (1440px) */}
+      <div className="relative z-10 border-t-2 border-white">
+        <div className="max-w-[1440px] mx-auto py-6 px-6 md:px-12 xl:px-16 text-center md:flex md:justify-between text-xs text-black/60 font-mono">
+          <p>© {new Date().getFullYear()} Nazrul Islam. All rights reserved.</p>
+          <p className="mt-2 md:mt-0">
+            Built with Next.js, Three.js & Tailwind
+          </p>
+        </div>
       </div>
     </footer>
   );
