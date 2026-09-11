@@ -5,6 +5,7 @@ import { Sun, Moon, Sliders, X, Hammer } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useThemeGlass } from '../context/theme-glass-context';
 import MatterShatter from './matter-shatter';
+
 export default function GlassControls() {
   const { isDark, toggleTheme, glassIntensity, setGlassIntensity } =
     useThemeGlass();
@@ -24,7 +25,7 @@ export default function GlassControls() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 15, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="mb-3 p-5 w-76 rounded-2xl liquid-glass shadow-2xl flex flex-col gap-4 text-xs"
+              className="mb-3 p-5 w-76 rounded-2xl liquid-glass border border-borderGlass shadow-2xl flex flex-col gap-4 text-xs"
             >
               <div className="flex items-center justify-between border-b border-borderGlass pb-2.5">
                 <span className="font-bold tracking-wider uppercase text-textMain">
@@ -32,7 +33,8 @@ export default function GlassControls() {
                 </span>
                 <button
                   onClick={() => setOpen(false)}
-                  className="p-1 text-textMuted hover:text-textMain"
+                  className="p-1 text-textMuted hover:text-signal transition-colors"
+                  aria-label="Close Settings"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -43,16 +45,16 @@ export default function GlassControls() {
                 <span className="text-textMuted">Mode</span>
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-borderGlass bg-surface text-textMain hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:border-signal-dim hover:text-signal transition-all"
                 >
                   {isDark ? (
                     <>
-                      <Moon className="w-3.5 h-3.5" />
+                      <Moon className="w-3.5 h-3.5 text-signal" />
                       <span>Dark</span>
                     </>
                   ) : (
                     <>
-                      <Sun className="w-3.5 h-3.5" />
+                      <Sun className="w-3.5 h-3.5 text-signal" />
                       <span>Light</span>
                     </>
                   )}
@@ -63,7 +65,7 @@ export default function GlassControls() {
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between text-textMuted">
                   <span>Liquid Glass Blur</span>
-                  <span className="text-textMain font-semibold">
+                  <span className="text-signal font-semibold">
                     {glassIntensity}%
                   </span>
                 </div>
@@ -73,7 +75,7 @@ export default function GlassControls() {
                   max="100"
                   value={glassIntensity}
                   onChange={(e) => setGlassIntensity(Number(e.target.value))}
-                  className="w-full h-1.5 bg-black/10 dark:bg-white/20 rounded-lg appearance-none cursor-pointer accent-primary"
+                  className="w-full h-1.5 bg-black/10 dark:bg-white/20 rounded-lg appearance-none cursor-pointer accent-signal"
                 />
               </div>
 
@@ -85,9 +87,9 @@ export default function GlassControls() {
                     setOpen(false);
                     setGravityActive(true);
                   }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-red bg-red/10 text-red hover:bg-red mx-2 hover:text-white transition-all font-semibold"
+                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-red/40 bg-red/10 text-red mx-2 hover:bg-red hover:text-white transition-all font-semibold"
                 >
-                  <Hammer className="w-3 h-3" />
+                  <Hammer className="w-3 h-3 group-hover:rotate-12 transition-transform" />
                   <span>Equip Hammer</span>
                 </button>
               </div>
@@ -98,10 +100,10 @@ export default function GlassControls() {
         {/* Floating Trigger Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="flex items-center gap-2 px-3.5 py-2.5 rounded-full liquid-glass shadow-xl text-textMain hover:scale-105 transition-all text-xs font-semibold"
+          className="flex items-center gap-2 px-3.5 py-2.5 rounded-full liquid-glass border border-borderGlass shadow-xl text-textMain hover:border-signal-dim/50 hover:scale-105 transition-all text-xs font-semibold"
           aria-label="Settings"
         >
-          <Sliders className="w-4 h-4 text-primary" />
+          <Sliders className="w-4 h-4 text-signal" />
           <span className="hidden sm:inline">Settings</span>
         </button>
       </div>

@@ -12,6 +12,7 @@ import { Providers } from './providers';
 import { ThemeGlassProvider } from '../components/context/theme-glass-context';
 import GlassControls from '../components/ui/glass-controls';
 import CursorCat from '../components/ui/cursor-cat';
+import BigScreenMessage from '@/components/big-screen-message';
 import CwvBadge from '@/components/ui/cwv-badge';
 import ConsoleGreeting from '@/components/ui/console-greeting';
 const nunito = Nunito({
@@ -65,6 +66,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {children}
             <GlassControls />
             <ConsoleGreeting />
+            <BigScreenMessage />
             <CwvBadge />
           </Providers>
         </ThemeGlassProvider>

@@ -1,38 +1,59 @@
-// components/ui/animated-link.tsx
+// components/ui/text-reveal.tsx
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import { LucideIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-interface AnimatedLinkProps {
-  href: string;
-  children: React.ReactNode;
-  icon?: LucideIcon;
+interface TextRevealProps {
+  children: string;
+  tag?: 'h1' | 'h2' | 'h3' | 'p' | 'span';
   className?: string;
-  target?: string;
-  rel?: string;
+  animationType?: 'words' | 'fade-down';
+  delay?: number;
 }
 
-export default function AnimatedLink({
-  href,
+export default function TextReveal({
   children,
-  icon: Icon,
+  tag = 'h2',
   className = '',
-  target,
-  rel,
-}: AnimatedLinkProps) {
+  animationType = 'words',
+  delay = 0,
+}: TextRevealProps) {
+  const Tag = motion[tag];
+
+  if (animationType === 'fade-down') {
+    return (
+      <Tag
+        initial={{ opacity: 0, y: -12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45, delay }}
+        className={className}
+      >
+        {children}
+      </Tag>
+    );
+  }
+
+  const words = children.split(' ');
+
   return (
-    <Link
-      href={href}
-      target={target}
-      rel={rel}
-      className={`group inline-flex items-center gap-2 font-mono text-xs font-semibold transition-all duration-200 ${className}`}
-    >
-      {Icon && (
-        <Icon className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
-      )}
-      <span>{children}</span>
-    </Link>
+    <Tag className={className} aria-label={children}>
+      <span className="sr-only">{children}</span>
+      <span aria-hidden="true">
+        {words.map((word, i) => (
+          <motion.span
+            key={`${word}-${i}`}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.35, delay: delay + i * 0.035 }}
+            className={`inline-block ${i < words.length - 1 ? 'mr-[0.28em]' : ''}`}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </span>
+    </Tag>
   );
 }

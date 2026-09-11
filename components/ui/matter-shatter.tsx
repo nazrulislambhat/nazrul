@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Matter from 'matter-js';
-import { RotateCcw, AlertTriangle, Hammer, Mail } from 'lucide-react';
+import { RotateCcw, Hammer, Sparkles } from 'lucide-react';
 
 const hireNotes = [
   '💥 Component shredded to pieces! Ready to architect your next system.',
@@ -11,7 +11,6 @@ const hireNotes = [
   '🧪 Fault injected. Zero regressions in production.',
 ];
 
-// Pre-calculated geometric triangular Delaunay shards (percentages: 0.0 - 1.0)
 const shardDefinitions = [
   // Top row shards
   [
@@ -123,13 +122,10 @@ export default function MatterShatter({
 
   const engineRef = useRef<Matter.Engine | null>(null);
   const runnerRef = useRef<Matter.Runner | null>(null);
-
-  // Track hidden original elements to restore later
-  const hiddenElementsRef = useRef<Set<HTMLElement>>(new Set());
-  // Map physics bodies to their corresponding DOM shard nodes
   const shardNodesRef = useRef<Map<Matter.Body, HTMLElement>>(new Map());
+  const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
 
-  // 1. Track Hammer Cursor
+  // 1. Hammer Cursor Position
   useEffect(() => {
     if (!isActive) return;
 
@@ -141,7 +137,7 @@ export default function MatterShatter({
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isActive]);
 
-  // 2. Initialize Physics Simulation World
+  // 2. Matter.js Physics World
   useEffect(() => {
     if (!isActive) return;
 
@@ -153,7 +149,6 @@ export default function MatterShatter({
     engineRef.current = engine;
     runnerRef.current = runner;
 
-    // Viewport bounds: floor and side boundaries
     const width = window.innerWidth;
     const height = window.innerHeight;
 
@@ -176,13 +171,11 @@ export default function MatterShatter({
     World.add(engine.world, [floor, leftWall, rightWall]);
     Runner.run(runner, engine);
 
-    // Sync loop: move DOM shards to Matter.js coordinates
     let animId: number;
     const updatePhysics = () => {
       shardNodesRef.current.forEach((domNode, body) => {
         const { x, y } = body.position;
         const angle = body.angle;
-        // The DOM shard center is shifted by half its width/height
         domNode.style.transform = `translate3d(${x - domNode.offsetWidth / 2}px, ${
           y - domNode.offsetHeight / 2
         }px, 0) rotate(${angle}rad)`;
@@ -198,118 +191,132 @@ export default function MatterShatter({
     };
   }, [isActive]);
 
-  // 3. Shred an element into physical polygonal pieces
-  // 3. Optimized 60 FPS Shard Generator
-  const shredElement = (el: HTMLElement, strikeX: number, strikeY: number) => {
-    if (hiddenElementsRef.current.has(el)) return;
-    if (!engineRef.current) return;
+  // 3. Shred an element
+  const shredElement = useCallback(
+    (el: HTMLElement, strikeX: number, strikeY: number) => {
+      if (el.getAttribute('data-shredded') === 'true') return;
+      if (!engineRef.current) return;
 
-    const rect = el.getBoundingClientRect();
-    const { Bodies, World, Body } = Matter;
+      const rect = el.getBoundingClientRect();
+      const { Bodies, World, Body } = Matter;
 
-    // 1. Hide original DOM node
-    el.style.visibility = 'hidden';
-    hiddenElementsRef.current.add(el);
+      // Mark element as shredded and visually hide its contents safely
+      el.setAttribute('data-shredded', 'true');
+      el.style.opacity = '0';
+      el.style.pointerEvents = 'none';
 
-    // 2. Spawn Hire Me replacement badge in place
-    const placeholder = document.createElement('div');
-    placeholder.className =
-      'absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center rounded-2xl border-2 border-red bg-black/80 text-white shadow-xl pointer-events-auto';
-    placeholder.innerHTML = `
-    <span class="font-mono text-xs text-red font-bold uppercase tracking-wider mb-1">[ COMPONENT SHREDDED ]</span>
-    <p class="font-bold text-sm mb-3 max-w-xs text-white">${
-      hireNotes[Math.floor(Math.random() * hireNotes.length)]
-    }</p>
-    <a href="mailto:nazrulislambhat@gmail.com" class="px-4 py-1.5 rounded-lg bg-primary hover:bg-primaryLight text-white font-mono text-xs font-bold transition-all shadow-sm">
-      Hire This Engineer
-    </a>
-  `;
-    if (window.getComputedStyle(el).position === 'static') {
-      el.style.position = 'relative';
-    }
-    el.appendChild(placeholder);
-    placeholder.style.visibility = 'visible';
+      // Create replacement badge as a fixed sibling positioned directly over the card
+      // (Avoids mutating inside the React tree!)
+      const badge = document.createElement('div');
+      badge.className = 'matter-shatter-badge';
+      badge.style.position = 'fixed';
+      badge.style.top = `${rect.top}px`;
+      badge.style.left = `${rect.left}px`;
+      badge.style.width = `${rect.width}px`;
+      badge.style.height = `${rect.height}px`;
+      badge.style.zIndex = '90';
+      badge.style.pointerEvents = 'auto';
 
-    // 3. Extract card title text to display on a couple of shards
-    const cardTitle = el.querySelector('h1, h2, h3')?.textContent || 'CRACK';
+      badge.innerHTML = `
+        <div class="w-full h-full p-6 flex flex-col items-center justify-center text-center rounded-2xl border border-signal-dim/40 bg-black/90 text-white shadow-2xl backdrop-blur-md">
+          <span class="font-mono text-xs text-signal font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-volt animate-ping"></span>
+            [ COMPONENT SHREDDED ]
+          </span>
+          <p class="font-bold text-sm mb-4 max-w-xs text-coolWhite leading-relaxed">
+            ${hireNotes[Math.floor(Math.random() * hireNotes.length)]}
+          </p>
+          <a 
+            href="mailto:nazrulislambhat@gmail.com" 
+            class="px-4 py-2 rounded-xl bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)]"
+          >
+            Hire This Engineer
+          </a>
+        </div>
+      `;
 
-    // 4. Generate lightweight glass shards (NO deep clone, NO backdrop-blur)
-    shardDefinitions.forEach((poly, index) => {
-      const centroidX = ((poly[0].x + poly[1].x + poly[2].x) / 3) * rect.width;
-      const centroidY = ((poly[0].y + poly[1].y + poly[2].y) / 3) * rect.height;
+      document.body.appendChild(badge);
 
-      const spawnX = rect.left + centroidX;
-      const spawnY = rect.top + centroidY;
+      const cardTitle = el.querySelector('h1, h2, h3')?.textContent || 'CRACK';
 
-      // Create a lean div
-      const shard = document.createElement('div');
-      shard.style.visibility = 'visible';
-      shard.style.position = 'fixed';
-      shard.style.top = '0px';
-      shard.style.left = '0px';
-      shard.style.width = `${rect.width}px`;
-      shard.style.height = `${rect.height}px`;
-      shard.style.zIndex = '100';
-      shard.style.pointerEvents = 'none';
-      shard.style.willChange = 'transform';
+      // Generate Delaunay Shards
+      shardDefinitions.forEach((poly, index) => {
+        const centroidX =
+          ((poly[0].x + poly[1].x + poly[2].x) / 3) * rect.width;
+        const centroidY =
+          ((poly[0].y + poly[1].y + poly[2].y) / 3) * rect.height;
 
-      // Frosted glass styling without expensive backdrop-filter
-      const isDark = document.documentElement.classList.contains('dark');
-      shard.style.backgroundColor = isDark
-        ? 'rgba(255, 255, 255, 0.12)'
-        : 'rgba(255, 255, 255, 0.75)';
-      shard.style.border = '1.5px solid rgba(255, 255, 255, 0.85)';
+        const spawnX = rect.left + centroidX;
+        const spawnY = rect.top + centroidY;
 
-      const clipPathValue = `polygon(${poly[0].x * 100}% ${poly[0].y * 100}%, ${
-        poly[1].x * 100
-      }% ${poly[1].y * 100}%, ${poly[2].x * 100}% ${poly[2].y * 100}%)`;
-      shard.style.clipPath = clipPathValue;
+        const shard = document.createElement('div');
+        shard.className = 'matter-shatter-shard';
+        shard.style.position = 'fixed';
+        shard.style.top = '0px';
+        shard.style.left = '0px';
+        shard.style.width = `${rect.width}px`;
+        shard.style.height = `${rect.height}px`;
+        shard.style.zIndex = '100';
+        shard.style.pointerEvents = 'none';
+        shard.style.willChange = 'transform';
 
-      // Stamp text on just 1 or 2 shards for realism
-      if (index === 3 || index === 7) {
-        const textLabel = document.createElement('span');
-        textLabel.className =
-          'font-mono text-[11px] font-bold text-black dark:text-white opacity-60 absolute';
-        textLabel.style.left = `${centroidX - 20}px`;
-        textLabel.style.top = `${centroidY - 10}px`;
-        textLabel.textContent = cardTitle.slice(0, 12);
-        shard.appendChild(textLabel);
-      }
+        const isDark = document.documentElement.classList.contains('dark');
+        shard.style.backgroundColor = isDark
+          ? 'rgba(255, 255, 255, 0.14)'
+          : 'rgba(255, 255, 255, 0.75)';
+        shard.style.border = '1px solid rgba(255, 255, 255, 0.8)';
 
-      document.body.appendChild(shard);
+        shard.style.clipPath = `polygon(${poly[0].x * 100}% ${poly[0].y * 100}%, ${
+          poly[1].x * 100
+        }% ${poly[1].y * 100}%, ${poly[2].x * 100}% ${poly[2].y * 100}%)`;
 
-      // Physics body
-      const approxRadius = Math.max(rect.width, rect.height) * 0.1;
-      const matterShard = Bodies.circle(spawnX, spawnY, approxRadius, {
-        restitution: 0.35,
-        friction: 0.4,
-        density: 0.002,
+        if (index === 3 || index === 7) {
+          const textLabel = document.createElement('span');
+          textLabel.className =
+            'font-mono text-[11px] font-bold text-signal opacity-80 absolute';
+          textLabel.style.left = `${centroidX - 20}px`;
+          textLabel.style.top = `${centroidY - 10}px`;
+          textLabel.textContent = cardTitle.slice(0, 14);
+          shard.appendChild(textLabel);
+        }
+
+        document.body.appendChild(shard);
+
+        const approxRadius = Math.max(rect.width, rect.height) * 0.1;
+        const matterShard = Bodies.circle(spawnX, spawnY, approxRadius, {
+          restitution: 0.35,
+          friction: 0.4,
+          density: 0.002,
+        });
+
+        const angle = Math.atan2(spawnY - strikeY, spawnX - strikeX);
+        const force = (0.035 + Math.random() * 0.03) * matterShard.mass;
+
+        Body.applyForce(matterShard, matterShard.position, {
+          x: Math.cos(angle) * force + (Math.random() - 0.5) * 0.015,
+          y: Math.sin(angle) * force - 0.025,
+        });
+
+        Body.setAngularVelocity(matterShard, (Math.random() - 0.5) * 0.25);
+
+        World.add(engineRef.current!.world, matterShard);
+        shardNodesRef.current.set(matterShard, shard);
       });
 
-      // Vector impulse away from hammer strike
-      const angle = Math.atan2(spawnY - strikeY, spawnX - strikeX);
-      const force = (0.035 + Math.random() * 0.03) * matterShard.mass;
+      setShreddedCount((c) => c + 1);
+    },
+    [],
+  );
 
-      Body.applyForce(matterShard, matterShard.position, {
-        x: Math.cos(angle) * force + (Math.random() - 0.5) * 0.015,
-        y: Math.sin(angle) * force - 0.025,
-      });
-
-      Body.setAngularVelocity(matterShard, (Math.random() - 0.5) * 0.25);
-
-      World.add(engineRef.current!.world, matterShard);
-      shardNodesRef.current.set(matterShard, shard);
-    });
-
-    setShreddedCount((c) => c + 1);
-  };
-
-  // 4. Hammer Click Handler
+  // 4. Click and Touch Handler
   useEffect(() => {
     if (!isActive) return;
 
-    const handleGlobalClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
+    const handlePointerAction = (
+      clientX: number,
+      clientY: number,
+      target: HTMLElement,
+    ) => {
       if (
         target.closest('#shatter-hud') ||
         target.closest('#glass-controls-island')
@@ -317,51 +324,85 @@ export default function MatterShatter({
         return;
       }
 
-      // Play hammer swing
       setIsSwinging(true);
       setTimeout(() => setIsSwinging(false), 120);
 
-      // Identify closest breakable card
-      const targetCard = target.closest(
-        '.liquid-glass, .liquid-glass-subtle, article, .project-card, section > div > div',
-      ) as HTMLElement;
+      // Find the card to shatter: choose the innermost card if available, otherwise the outer card
+      const candidateCards = Array.from(
+        document.querySelectorAll<HTMLElement>(
+          '.liquid-glass-subtle, .liquid-glass',
+        ),
+      ).filter(
+        (card) =>
+          card.id !== 'shatter-hud' &&
+          !card.closest('#shatter-hud') &&
+          card.id !== 'glass-controls-island' &&
+          !card.closest('#glass-controls-island'),
+      );
 
-      if (targetCard && !hiddenElementsRef.current.has(targetCard)) {
-        shredElement(targetCard, e.clientX, e.clientY);
+      // Target the closest clicked card
+      const targetCard = candidateCards.find((card) => card.contains(target));
+
+      if (targetCard && targetCard.getAttribute('data-shredded') !== 'true') {
+        shredElement(targetCard, clientX, clientY);
       }
     };
 
-    window.addEventListener('click', handleGlobalClick, true);
-    return () => window.removeEventListener('click', handleGlobalClick, true);
-  }, [isActive]);
+    const handleClick = (e: MouseEvent) => {
+      handlePointerAction(e.clientX, e.clientY, e.target as HTMLElement);
+    };
 
-  // 5. Total Shred (Break every card simultaneously)
-  const shredEverything = () => {
-    const allCards = document.querySelectorAll<HTMLElement>(
-      '.liquid-glass, .liquid-glass-subtle',
-    );
-    allCards.forEach((card, idx) => {
-      setTimeout(() => {
-        const r = card.getBoundingClientRect();
-        shredElement(card, r.left + r.width / 2, r.top + r.height / 2);
-      }, idx * 60);
-    });
-  };
+    const handleTouch = (e: TouchEvent) => {
+      if (e.changedTouches.length > 0) {
+        const touch = e.changedTouches[0];
+        const target = document.elementFromPoint(
+          touch.clientX,
+          touch.clientY,
+        ) as HTMLElement;
+        if (target) {
+          handlePointerAction(touch.clientX, touch.clientY, target);
+        }
+      }
+    };
 
-  // 6. Restore page
+    window.addEventListener('click', handleClick, true);
+    window.addEventListener('touchend', handleTouch, true);
+
+    return () => {
+      window.removeEventListener('click', handleClick, true);
+      window.removeEventListener('touchend', handleTouch, true);
+    };
+  }, [isActive, shredElement]);
+
+  // 6. Complete Unconditional Restore (Zero artifacts)
   const restoreAll = () => {
-    // Remove all physics shard clones
-    shardNodesRef.current.forEach((clone) => clone.remove());
+    // 1. Cancel any pending shred operations
+    timeoutsRef.current.forEach(clearTimeout);
+    timeoutsRef.current = [];
+
+    // 2. Remove all physics shards from Matter.js world & DOM
+    shardNodesRef.current.forEach((shardElement, body) => {
+      if (engineRef.current) Matter.World.remove(engineRef.current.world, body);
+      shardElement.remove();
+    });
     shardNodesRef.current.clear();
 
-    // Unhide original components & remove hire me badges
-    hiddenElementsRef.current.forEach((el) => {
-      el.style.visibility = '';
-      const badge = el.querySelector('.border-red');
-      if (badge) badge.remove();
-    });
-    hiddenElementsRef.current.clear();
+    // 3. Remove all badges and loose shards from body
+    document
+      .querySelectorAll('.matter-shatter-badge, .matter-shatter-shard')
+      .forEach((el) => el.remove());
 
+    // 4. Restore EVERY element with data-shredded
+    document
+      .querySelectorAll<HTMLElement>('[data-shredded="true"]')
+      .forEach((el) => {
+        el.removeAttribute('data-shredded');
+        el.style.opacity = '';
+        el.style.pointerEvents = '';
+        el.style.visibility = '';
+      });
+
+    // 5. Reset states
     setShreddedCount(0);
     onDeactivate();
   };
@@ -370,7 +411,7 @@ export default function MatterShatter({
 
   return (
     <>
-      {/* 1. Sledgehammer Cursor */}
+      {/* 1. Sledgehammer Cursor (Desktop only; touch devices use direct tap) */}
       <div
         style={{
           transform: `translate3d(${cursorPos.x}px, ${cursorPos.y - 32}px, 0) rotate(${
@@ -378,7 +419,7 @@ export default function MatterShatter({
           })`,
           transformOrigin: 'bottom left',
         }}
-        className="pointer-events-none fixed top-0 left-0 z-[110] transition-transform duration-75 ease-out select-none"
+        className="hidden md:block pointer-events-none fixed top-0 left-0 z-[110] transition-transform duration-75 ease-out select-none"
       >
         <svg width="52" height="52" viewBox="0 0 48 48" fill="none">
           <rect
@@ -387,7 +428,7 @@ export default function MatterShatter({
             width="5"
             height="28"
             rx="2"
-            className="fill-amber-800 stroke-black stroke-1"
+            className="fill-amber-900 stroke-black stroke-1"
           />
           <rect
             x="11"
@@ -401,35 +442,32 @@ export default function MatterShatter({
         </svg>
       </div>
 
-      {/* 2. Top Floating Demolition HUD */}
-      <div
+      {/* 2. Demolition HUD */}
+      <aside
         id="shatter-hud"
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-[105] flex flex-wrap items-center gap-3 px-5 py-2.5 rounded-full liquid-glass border-2 border-red shadow-2xl font-mono text-xs text-textMain"
+        aria-label="Interactive Physics Demolition HUD"
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-[105] flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-full liquid-glass border border-signal-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-volt selection:text-black pointer-events-auto"
       >
-        <div className="flex items-center gap-2 text-red font-bold uppercase">
-          <AlertTriangle className="w-4 h-4 animate-pulse" />
-          <span>Shredder Mode</span>
+        <div className="flex items-center gap-2 text-signal font-bold uppercase">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-80" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-signal shadow-[0_0_8px_#CCF380]" />
+          </span>
+          <Sparkles className="w-3.5 h-3.5 text-volt" />
+          <span className="hidden sm:inline">Demolition Sandbox</span>
         </div>
 
-        <span className="text-textMuted">|</span>
-        <span>Tap any card to shred into pieces ({shreddedCount})</span>
-
-        <button
-          onClick={shredEverything}
-          className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-red text-white font-bold hover:bg-red/90 transition-colors shadow-xs"
-        >
-          <Hammer className="w-3.5 h-3.5" />
-          <span>Shred All</span>
-        </button>
+        <span className="text-textMuted/60">•</span>
+        <span>Shattered: {shreddedCount}</span>
 
         <button
           onClick={restoreAll}
-          className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black text-white dark:bg-white dark:text-black font-semibold hover:opacity-85 transition-opacity"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>Restore Page</span>
         </button>
-      </div>
+      </aside>
     </>
   );
 }
