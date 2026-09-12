@@ -131,7 +131,6 @@ const READING_LIST: BookItem[] = [
     tiltDeg: -0.8,
     renderSpine: () => (
       <div className="w-full h-full bg-[#111827] text-slate-200 flex flex-col justify-between py-2.5 items-center border-l border-r border-slate-800">
-        {' '}
         <div className="w-full h-1 bg-slate-800/50" />
         <div className="flex-1 flex items-center justify-center my-2">
           <span className="font-serif font-bold text-[10px] tracking-tight -rotate-90 whitespace-nowrap text-slate-100">
@@ -204,7 +203,6 @@ const READING_LIST: BookItem[] = [
     tiltDeg: 1.4,
     renderSpine: () => (
       <div className="w-full h-full bg-[#121212] text-stone-300 flex flex-col justify-between py-2.5 items-center border-l border-r border-zinc-800">
-        {' '}
         <div className="w-full h-1 bg-zinc-800" />
         <div className="flex-1 flex items-center justify-center my-2">
           <span className="font-mono font-bold text-[10px] tracking-tight -rotate-90 whitespace-nowrap text-zinc-100">
@@ -244,9 +242,16 @@ export default function Books() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const audioCtxRef = useRef<AudioContext | null>(null);
 
-  // Automatically unlock audio context on any first user click/touch on the page
+  // Unlock audio context on initial user page click
   useEffect(() => {
     const unlockAudio = () => {
+      if (!audioCtxRef.current && typeof window !== 'undefined') {
+        const AudioCtx =
+          window.AudioContext ||
+          (window as unknown as { webkitAudioContext: typeof AudioContext })
+            .webkitAudioContext;
+        audioCtxRef.current = new AudioCtx();
+      }
       if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
         audioCtxRef.current.resume();
       }
@@ -261,56 +266,40 @@ export default function Books() {
     };
   }, []);
 
-  const getAudioContext = () => {
-    if (typeof window === 'undefined') return null;
-    const AudioCtx =
-      window.AudioContext ||
-      (window as unknown as { webkitAudioContext: typeof AudioContext })
-        .webkitAudioContext;
-    if (!audioCtxRef.current) {
-      audioCtxRef.current = new AudioCtx();
-    }
-    if (audioCtxRef.current.state === 'suspended') {
-      audioCtxRef.current.resume();
-    }
-    return audioCtxRef.current;
-  };
-
   const playHoverSound = () => {
     if (!soundEnabled) return;
     try {
-      const ctx = getAudioContext();
+      if (!audioCtxRef.current && typeof window !== 'undefined') {
+        const AudioCtx =
+          window.AudioContext ||
+          (window as unknown as { webkitAudioContext: typeof AudioContext })
+            .webkitAudioContext;
+        audioCtxRef.current = new AudioCtx();
+      }
+
+      const ctx = audioCtxRef.current;
       if (!ctx) return;
 
       if (ctx.state === 'suspended') {
         ctx.resume();
       }
 
-      const now = ctx.currentTime;
-      const duration = 0.04;
-      const bufferSize = Math.floor(ctx.sampleRate * duration);
-      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-      const data = buffer.getChannelData(0);
-      for (let i = 0; i < bufferSize; i++) {
-        data[i] = Math.random() * 2 - 1;
-      }
-
-      const noise = ctx.createBufferSource();
-      noise.buffer = buffer;
-
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'bandpass';
-      filter.frequency.setValueAtTime(1600, now);
-      filter.Q.setValueAtTime(4.0, now);
-
+      // Create a short crisp woody tick/thud sound
+      const osc = ctx.createOscillator();
       const gain = ctx.createGain();
-      gain.gain.setValueAtTime(0.015, now);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
 
-      noise.connect(filter);
-      filter.connect(gain);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(140, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.05);
+
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.05);
+
+      osc.connect(gain);
       gain.connect(ctx.destination);
-      noise.start(now);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.05);
     } catch (e) {
       console.error('Audio play error:', e);
     }
@@ -355,9 +344,21 @@ export default function Books() {
                 type="button"
                 onClick={() => {
                   setSoundEnabled(!soundEnabled);
-                  const ctx = getAudioContext();
-                  if (ctx && ctx.state === 'suspended') {
-                    ctx.resume();
+                  if (!audioCtxRef.current && typeof window !== 'undefined') {
+                    const AudioCtx =
+                      window.AudioContext ||
+                      (
+                        window as unknown as {
+                          webkitAudioContext: typeof AudioContext;
+                        }
+                      ).webkitAudioContext;
+                    audioCtxRef.current = new AudioCtx();
+                  }
+                  if (
+                    audioCtxRef.current &&
+                    audioCtxRef.current.state === 'suspended'
+                  ) {
+                    audioCtxRef.current.resume();
                   }
                 }}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-borderGlass bg-surface text-textMuted hover:border-signal-dim hover:text-signal transition-all font-mono text-xs cursor-pointer"
@@ -379,7 +380,7 @@ export default function Books() {
 
           {/* Cyber-Industrial Matte Dark Metal Alcove Shelf */}
           <div className="relative pt-2 pb-2 select-none overflow-x-auto overflow-y-visible">
-            <div className="relative min-w-[780px] mx-auto bg-gradient-to-b from-surface via-background to-black rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.9),0_12px_35px_rgba(0,0,0,0.6)] border border-borderGlass overflow-hidden">
+            <div className="relative min-w-[780px] mx-auto bg-gradient-to-b from-surface via-background  rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.5),0_12px_35px_rgba(0,0,0,0.5)] border border-borderGlass overflow-hidden">
               {/* Books Array */}
               <div className="relative z-20 flex items-end justify-center gap-1.5 sm:gap-2 px-14 pt-12 pb-0 [perspective:1200px]">
                 {READING_LIST.map((book) => (
@@ -424,17 +425,7 @@ export default function Books() {
                   </div>
                 ))}
               </div>
-
-              {/* Cyber-Industrial Titanium Shelf Base Plank */}
-              <div className="relative w-full z-20 mt-1">
-                <div className="h-2.5 w-full bg-surface border-t border-borderGlass shadow-inner" />
-                <div className="h-5 w-full bg-gradient-to-b from-[#181a20] to-[#0a0c10] border-t border-borderGlass shadow-[0_10px_25px_rgba(0,0,0,0.9)]" />
-              </div>
             </div>
-
-            <p className="text-center font-mono text-xs text-textMuted/60 mt-4">
-              Real wood shelf • Quiet corner reflections
-            </p>
           </div>
         </div>
       </div>
