@@ -28,7 +28,7 @@ const projects: Project[] = [
   },
   {
     title: 'Doctors Without Borders (MSF)',
-    role: 'Frontend Architect / Tech Lead',
+    role: 'Frontend Engineering',
     category: 'Enterprise Engineering',
     description:
       'Led UI architecture for mission-critical humanitarian content platforms. Optimized internationalization (i18n), zero-compromise Core Web Vitals, and resilient caching under low bandwidth.',
@@ -58,6 +58,7 @@ const projects: Project[] = [
   },
   {
     title: 'Hostinger Cache Watchdog',
+    role: 'Architect',
     category: 'Open Source & Tools',
     description:
       'An automated diagnostic tool designed to monitor edge/server-side caching health, detect edge-cache purge anomalies, and prevent stale payload desyncs on critical e-commerce routes.',
@@ -67,6 +68,7 @@ const projects: Project[] = [
   },
   {
     title: 'Dhikrly',
+    role: 'Founder & Architect',
     category: 'Open Source & Tools',
     description:
       'A minimalist, privacy-first digital mindfulness and remembrance web app. Built with clean state management, instant offline PWA support, and lightweight reactive UI.',
@@ -97,7 +99,7 @@ export default function Projects() {
               </h2>
             </div>
             <p className="max-w-md text-xs md:text-sm text-textMuted font-mono">
-              Inspect all repositories on{' '}
+              Inspect "all" repositories on{' '}
               <Link
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
@@ -106,7 +108,6 @@ export default function Projects() {
               >
                 GitHub
               </Link>
-              .
             </p>
           </div>
 

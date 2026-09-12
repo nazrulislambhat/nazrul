@@ -102,7 +102,7 @@ export default function GlassShatterModal({
         transition={{ delay: 0.35, duration: 0.45, ease: 'easeOut' }}
         className="relative max-w-lg mx-6 p-8 md:p-10 rounded-3xl liquid-glass border-2 border-white text-textMain shadow-2xl z-10"
       >
-        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-4">
+        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-third font-bold mb-4">
           <Terminal className="w-4 h-4" />
           <span>{currentMessage.tag}</span>
         </div>

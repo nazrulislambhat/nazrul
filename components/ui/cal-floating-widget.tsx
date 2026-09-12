@@ -18,21 +18,21 @@ export default function CalFloatingWidget() {
         rel="noreferrer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group relative flex items-center gap-3 px-4 py-3 rounded-2xl liquid-glass border border-signal-dim/40 hover:border-primary text-textMain shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+        className="group relative flex items-center gap-3 px-4 py-3 rounded-2xl liquid-glass border border-signal-dim/40 hover:border-black text-textMain shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-[1.02] cursor-pointer"
       >
         <div className="flex items-center gap-2">
-          <Calendar className="w-4 h-4 text-signal group-hover:text-primary transition-colors" />
+          <Calendar className="w-4 h-4 text-signal group-hover:text-black transition-colors" />
           <div className="flex flex-col text-left">
             <span className="text-[10px] uppercase tracking-wider text-textMuted font-semibold">
               Available for hire
             </span>
-            <span className="text-xs font-bold text-textMain group-hover:text-primary transition-colors">
+            <span className="text-xs font-bold text-textMain group-hover:text-black transition-colors">
               Schedule a Sync
             </span>
           </div>
         </div>
 
-        <ArrowUpRight className="w-3.5 h-3.5 text-textMuted group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-1" />
+        <ArrowUpRight className="w-3.5 h-3.5 text-textMuted group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-1" />
       </a>
 
       {/* Dismiss Button */}
