@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/127f3d08-2480-4cf9-82cf-ea6dc2057bc7/deploy-status)](https://app.netlify.com/sites/nazrulislambhat/deploys)
-
 # ⚡ Nazrul Islam — Architecture & Systems Portfolio
 
 A high-performance personal platform and architectural showcase built with Next.js App Router, TypeScript, and a custom **Liquid-Glass** design system. Focused on strict Core Web Vitals (CWV) discipline, WCAG 2.1 AA accessibility, and zero-compromise UX.
