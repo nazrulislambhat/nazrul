@@ -8,6 +8,7 @@ import BigScreenMessage from '@/components/big-screen-message';
 import CwvBadge from '@/components/ui/cwv-badge';
 import ConsoleGreeting from '@/components/ui/console-greeting';
 import QuickJumpModal from './ui/quick-jump-modal';
+import CalFloatingWidget from '@/components/ui/cal-floating-widget';
 export default function AppClientShell({
   children,
 }: {
@@ -22,6 +23,7 @@ export default function AppClientShell({
         <ConsoleGreeting />
         <BigScreenMessage />
         <CwvBadge />
+        <CalFloatingWidget />
       </Providers>
     </ThemeGlassProvider>
   );

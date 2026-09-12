@@ -232,7 +232,7 @@ const READING_LIST: BookItem[] = [
         <div className="text-[8.5px] font-mono text-volt font-bold">189</div>
         <div className="flex-1 flex items-center justify-center my-2">
           <span className="font-sans font-black text-[10px] uppercase tracking-tight -rotate-90 whitespace-nowrap text-white">
-            CRACKING CODING INTERVIEW
+            CRACKING THE CODING INTERVIEW
           </span>
         </div>
       </div>

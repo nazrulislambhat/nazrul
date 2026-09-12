@@ -97,10 +97,6 @@ export default function CwvBadge() {
       className="fixed bottom-6 left-6 z-40 hidden sm:flex items-center gap-3 px-3.5 py-1.5 rounded-full liquid-glass border border-borderGlass shadow-lg font-mono text-[10.5px] select-none text-textMuted transition-all duration-300 hover:border-signal-dim/50"
     >
       <div className="flex items-center gap-1.5 font-semibold text-textMain">
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-80" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-signal shadow-[0_0_6px_#00F58C]" />
-        </span>
         <Activity className="w-3 h-3 text-signal" />
         <span className="tracking-wider">CWV</span>
       </div>

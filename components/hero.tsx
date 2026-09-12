@@ -19,8 +19,8 @@ export default function Hero() {
             className="flex items-center gap-2.5 w-fit px-3.5 py-1.5 rounded-full border border-signal-dim/30 bg-surface/80 text-xs font-mono text-signal shadow-xs mb-6"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-signal shadow-[0_0_8px_#CCF380]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red shadow-[0_0_8px_#CCF380]" />
             </span>
             <span className="font-semibold text-textMain">
               Available for technical discussions &amp; roles

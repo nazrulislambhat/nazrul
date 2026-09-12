@@ -76,13 +76,13 @@ export default function CityTelemetry() {
       <span className="relative flex h-2 w-2">
         <span
           className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-            isWorkingHours ? 'bg-volt' : 'bg-signal'
+            isWorkingHours ? 'bg-red' : 'bg-signal'
           }`}
         />
         <span
           className={`relative inline-flex rounded-full h-2 w-2 ${
             isWorkingHours
-              ? 'bg-volt shadow-voltGlow'
+              ? 'bg-red shadow-red'
               : 'bg-signal shadow-signalGlow'
           }`}
         />
