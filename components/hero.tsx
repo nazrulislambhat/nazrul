@@ -5,22 +5,23 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowDownRight, Terminal, Sparkles } from 'lucide-react';
 import TextReveal from './ui/text-reveal';
-
+import TiltCard from '@/components/ui/3d-tilt-card';
 export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden pt-40 md:pt-36 pb-12 md:pb-16">
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
-        <div className="relative p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass flex flex-col justify-between transition-all duration-300">
-          {/* Availability Status Badge */}
+        <TiltCard className="relative p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass flex flex-col justify-between transition-all duration-300">
+          {/* Availability Status Badge with Micro Pulse */}
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="flex items-center gap-2.5 w-fit px-3.5 py-1.5 rounded-full border border-signal-dim/30 bg-surface/80 text-xs font-mono text-signal shadow-xs mb-6"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-2.5 w-fit px-3.5 py-1.5 rounded-full border border-signal-dim/30 bg-surface/80 text-xs font-mono text-signal shadow-xs mb-6 cursor-default"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-red shadow-[0_0_8px_#CCF380]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-signal shadow-[0_0_8px_#00F58C]" />
             </span>
             <span className="font-semibold text-textMain">
               Available for technical discussions &amp; roles
@@ -32,9 +33,10 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.05 }}
-              className="text-xs md:text-sm font-mono uppercase tracking-widest text-textMuted mb-2"
+              transition={{ duration: 0.3, delay: 0.15 }}
+              className="text-xs md:text-sm font-mono uppercase tracking-widest text-textMuted mb-2 flex items-center gap-2"
             >
+              <span className="w-1.5 h-1.5 rounded-full bg-volt animate-pulse" />
               Senior Frontend Engineer &amp; Architect
             </motion.p>
 
@@ -42,7 +44,7 @@ export default function Hero() {
               tag="h1"
               className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-textMain leading-[1.08] mb-6"
               animationType="words"
-              delay={0.1}
+              delay={0.2}
             >
               Crafting resilient systems, fast web apps, and clean UI.
             </TextReveal>
@@ -51,7 +53,7 @@ export default function Hero() {
               tag="p"
               className="text-base md:text-lg text-textMuted max-w-2xl leading-relaxed mb-8 font-normal"
               animationType="fade-down"
-              delay={0.18}
+              delay={0.28}
             >
               Specializing in React, Next.js, and TypeScript architectures.
               Obsessed with web performance, zero-jank animations, and developer
@@ -59,38 +61,52 @@ export default function Hero() {
             </TextReveal>
           </div>
 
-          {/* Bottom Action Footer */}
+          {/* Bottom Action Footer with Micro Interactions */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.25 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
             className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 pt-6 border-t-2 border-borderGlass"
           >
             <div className="flex flex-wrap items-center gap-3.5">
-              <Link
-                href="#projects"
-                className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs"
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <span>View Architecture &amp; Code</span>
-                <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
-              </Link>
-              <Link
-                href="#experience"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-signal-dim hover:text-signal-dim transition-all"
+                <Link
+                  href="#projects"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
+                >
+                  <span>View Architecture &amp; Code</span>
+                  <ArrowDownRight className="w-4 h-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-200" />
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Terminal className="w-4 h-4 text-signal" />
-                <span>Experience</span>
-              </Link>
+                <Link
+                  href="#experience"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-xl border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-signal-dim hover:text-signal transition-all cursor-pointer"
+                >
+                  <Terminal className="w-4 h-4 text-signal group-hover:rotate-12 transition-transform duration-200" />
+                  <span>Experience</span>
+                </Link>
+              </motion.div>
             </div>
 
-            <div className="flex items-center gap-2 font-mono text-xs text-textMuted">
-              <Sparkles className="w-4 h-4 text-signal shrink-0" />
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-2 font-mono text-xs text-textMuted cursor-default"
+            >
+              <Sparkles className="w-4 h-4 text-signal shrink-0 animate-spin-slow" />
               <span className="font-medium text-textMain">
                 Accessibility &amp; CWV Focused
               </span>
-            </div>
+            </motion.div>
           </motion.div>
-        </div>
+        </TiltCard>
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, Globe, Layers, Terminal } from 'lucide-react';
-
+import TiltCard from './ui/3d-tilt-card';
 interface Project {
   title: string;
   role?: string;

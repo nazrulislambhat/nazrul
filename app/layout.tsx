@@ -9,7 +9,7 @@ import {
 } from 'next/font/google';
 import './globals.css';
 import AppClientShell from '@/components/app-client-shell';
-
+import ParticleBackground from '@/components/ui/particle-background';
 const nunito = Nunito({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -57,6 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body
         className={`${nunito.className} bg-background text-textMain antialiased selection:bg-volt selection:text-black`}
       >
+        <ParticleBackground />
         <AppClientShell>{children}</AppClientShell>
         <SpeedInsights />
       </body>
