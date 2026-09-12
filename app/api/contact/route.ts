@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     const data = await resend.emails.send({
       from: 'Portfolio Contact <web@nazrulislam.dev>', // or your verified domain
-      to: ['nazrulislambhat@gmail.com'],
+      to: ['nazrul@nazrulislam.dev'],
       replyTo: email,
       subject: `Portfolio Contact from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
