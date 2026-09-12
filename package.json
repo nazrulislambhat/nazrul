@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
@@ -31,9 +31,9 @@
     "jspdf": "^2.5.1",
     "lucide-react": "^0.460.0",
     "matter-js": "^0.20.0",
-    "next": "14.2.35",
-    "react": "^18.3.1",
-    "react-dom": "^18",
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "react-intersection-observer": "^9.13.1",
     "react-responsive": "^9.0.2",
     "resend": "^6.27.0",
@@ -47,15 +47,19 @@
   "devDependencies": {
     "@types/matter-js": "^0.20.2",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "@types/three": "^0.185.4",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint": "10.10.0",
+    "eslint-config-next": "16.3.5",
     "eslint-config-prettier": "^9.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0"
   }
 }
