@@ -10,7 +10,7 @@ export default function CalFloatingWidget() {
   if (dismissed) return null;
 
   return (
-    <div className="fixed bottom-6 xl:bottom-24 left-4 md:left-8 z-[90] flex items-center gap-2 font-mono">
+    <div className="fixed bottom-6 xl:bottom-24 left-4 md:left-8 z-90 flex items-center gap-2 font-mono">
       {/* Main Floating Cal Trigger */}
       <a
         href="https://cal.com/nazrul"

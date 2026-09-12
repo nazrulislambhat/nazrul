@@ -8,6 +8,7 @@ import Skills from '../components/skills';
 import Contact from '../components/contact';
 import Footer from '../components/footer';
 import Books from '@/components/ui/books';
+
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-background flex flex-col">

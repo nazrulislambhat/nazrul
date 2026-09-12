@@ -231,7 +231,7 @@ export default function MatterGravity({
           })`,
           transformOrigin: 'bottom left',
         }}
-        className="pointer-events-none fixed top-0 left-0 z-[100] transition-transform duration-75 ease-out select-none"
+        className="pointer-events-none fixed top-0 left-0 z-100 transition-transform duration-75 ease-out select-none"
       >
         <svg width="52" height="52" viewBox="0 0 48 48" fill="none">
           <rect
@@ -257,7 +257,7 @@ export default function MatterGravity({
       {/* 2. Floating Demolition HUD */}
       <div
         id="gravity-hud"
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-[95] flex flex-wrap items-center gap-3 px-5 py-2.5 rounded-full liquid-glass border-2 border-red shadow-2xl font-mono text-xs text-textMain"
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-95 flex flex-wrap items-center gap-3 px-5 py-2.5 rounded-full liquid-glass border-2 border-red shadow-2xl font-mono text-xs text-textMain"
       >
         <div className="flex items-center gap-2 text-red font-bold uppercase">
           <AlertTriangle className="w-4 h-4 animate-pulse" />
