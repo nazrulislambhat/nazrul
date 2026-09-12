@@ -1,143 +1,176 @@
-import Link from 'next/link';
+'use client';
+
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, Linkedin } from 'lucide-react';
-import AnimatedLink from './ui/animated-link';
-import TextReveal from './ui/text-reveal';
-import FooterLower from './footer-lower';
+import Link from 'next/link';
+import { ArrowUpRight, Github, Linkedin, Mail, Terminal } from 'lucide-react';
 
-const menuVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3 },
-  },
-};
-
-function Footer() {
+/* Inline official X glyph */
+function XIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
-    <div>
-      <div className="flex flex-col xl:h-screen md:flex-row bg-white justify-between items-center px-6 md:px-12 xl:px-16 2xl:px-24">
-        {/* LEFT */}
-        <motion.div
-          className="left xl:flex-1 md:flex-[0.8] pt-12 pb-6 md:py-12 xl:p-0 flex flex-col items-start justify-center self-stretch"
-          variants={itemVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <TextReveal
-            tag="h2"
-            className="text-4xl xl:text-6xl font-extrabold mb-4 text-primary selection:text-secondary selection:bg-primary"
-            animationType="words"
-            delay={0.2}
-            staggerDelay={0.1}
-          >
-            Let’s build something together!
-          </TextReveal>
-
-          <TextReveal
-            tag="p"
-            className="text-lg text-third my-6 selection:text-secondary selection:bg-primary"
-            animationType="fade-down"
-            delay={0}
-          >
-            I’d love to connect and explore what’s next. Until then, I’ll be
-            learning, building, and probably drinking too much Kombucha.
-          </TextReveal>
-
-          {/* CONNECT OPTIONS */}
-          <div className="flex flex-wrap gap-4 mt-6">
-            <AnimatedLink
-              href="mailto:nazrul@nazrulislam.dev"
-              icon={Mail}
-              target="_blank"
-              className="py-3 px-4 border rounded-md border-primary text-primary hover:text-red hover:border-red"
-            >
-              Email
-            </AnimatedLink>
-
-            <AnimatedLink
-              href="tel:+919469444007"
-              icon={Phone}
-              target="_blank"
-              className="py-3 px-4 border rounded-md border-primary text-primary hover:text-red hover:border-red"
-            >
-              Phone
-            </AnimatedLink>
-
-            <AnimatedLink
-              href="https://www.linkedin.com/in/nazrulislambhat"
-              icon={Linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 px-4 border rounded-md border-primary text-primary hover:text-red hover:border-red"
-            >
-              LinkedIn
-            </AnimatedLink>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="right xl:flex-1 flex self-stretch items-center pt-6 pb-12 xl:p-0 md:py-12"
-          variants={itemVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.ul
-            className="flex flex-col xl:flex-row gap-2 xl:gap-4 w-full justify-end"
-            variants={menuVariants}
-          >
-            {[
-              'about',
-              'experience',
-              'projects',
-              'skills',
-              'resume',
-              'contact',
-            ].map((item, index) => (
-              <motion.li
-                key={item}
-                className="list-none"
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-              >
-                {item === 'resume' ? (
-                  <Link
-                    href="/resume"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg xl:text-2xl animated-border text-third hover:text-primary transition"
-                  >
-                    {item}
-                  </Link>
-                ) : (
-                  <Link
-                    href={`/${item}`}
-                    className="text-lg xl:text-2xl animated-border text-third hover:text-primary transition"
-                  >
-                    {item}
-                  </Link>
-                )}
-              </motion.li>
-            ))}
-          </motion.ul>
-        </motion.div>
-      </div>
-
-      <FooterLower />
-    </div>
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
   );
 }
 
-export default Footer;
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="w-full bg-transparent pt-4 pb-20 md:pb-24 text-textMain selection:bg-volt selection:text-black">
+      <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
+        <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass flex flex-col">
+          {/* Top Row: Brand Statement & Availability Status */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 pb-6 mb-8 border-b-2 border-borderGlass">
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-textMuted">
+                <Terminal className="w-3.5 h-3.5 text-signal" />
+                <span>Architecture &amp; Interface Engineering</span>
+              </div>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-textMain">
+                Let’s build resilient, high-speed web platforms.
+              </h2>
+            </div>
+
+            {/* Availability Pill */}
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-signal-dim/30 bg-surface/80 font-mono text-xs text-signal shrink-0">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red opacity-80" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red shadow-[0_0_8px_#CCF380]" />
+              </span>
+              <span className="font-semibold text-textMain">
+                Open to New Contracts &amp; Roles
+              </span>
+            </div>
+          </div>
+
+          {/* Middle Row: Navigation Columns & Social Outlets */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 font-mono text-xs">
+            {/* Quick Sections */}
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+                Index
+              </span>
+              <ul className="space-y-2">
+                {[
+                  'About',
+                  'Experience',
+                  'Projects',
+                  'Skills',
+                  'Reading',
+                  'Contact',
+                ].map((item) => (
+                  <li key={item}>
+                    <Link
+                      href={`#${item.toLowerCase()}`}
+                      className="text-textMuted hover:text-signal hover:underline transition-colors"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Artifacts & Tools */}
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+                Artifacts
+              </span>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/resume"
+                    className="group inline-flex items-center gap-1 text-textMuted hover:text-signal transition-colors"
+                  >
+                    <span>Printable Resume</span>
+                    <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/nazrulislambhat"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-1 text-textMuted hover:text-signal transition-colors"
+                  >
+                    <span>Design System Kit</span>
+                    <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Direct Connect */}
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+                Dispatch
+              </span>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="mailto:nazrulislambhat@gmail.com"
+                    className="inline-flex items-center gap-1.5 text-textMuted hover:text-signal hover:underline transition-colors"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-signal" />
+                    <span>nazrulislambhat@gmail.com</span>
+                  </a>
+                </li>
+                <li>
+                  <span className="text-textMuted/70">
+                    Bengaluru / Srinagar, IN
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Socials */}
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+                Network
+              </span>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href="https://github.com/nazrulislambhat"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub Profile"
+                  className="p-2 rounded-xl border border-borderGlass bg-surface/80 text-textMuted hover:border-signal-dim hover:text-signal transition-all"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/nazrulislambhat"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="p-2 rounded-xl border border-borderGlass bg-surface/80 text-textMuted hover:border-signal-dim hover:text-signal transition-all"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://x.com/nazrulislambhat"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="X Profile"
+                  className="p-2 rounded-xl border border-borderGlass bg-surface/80 text-textMuted hover:border-signal-dim hover:text-signal transition-all"
+                >
+                  <XIcon className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-6 mt-8 border-t-2 border-borderGlass flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-[11px] text-textMuted">
+            <p>© {currentYear} Nazrul Islam</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
