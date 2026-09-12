@@ -264,8 +264,13 @@ export default function Books() {
     try {
       const ctx = getAudioContext();
       if (!ctx) return;
-      const now = ctx.currentTime;
 
+      // Force resume if suspended by browser autoplay policy
+      if (ctx.state === 'suspended') {
+        ctx.resume();
+      }
+
+      const now = ctx.currentTime;
       const duration = 0.04;
       const bufferSize = Math.floor(ctx.sampleRate * duration);
       const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
@@ -290,7 +295,9 @@ export default function Books() {
       filter.connect(gain);
       gain.connect(ctx.destination);
       noise.start(now);
-    } catch {}
+    } catch (e) {
+      console.error('Audio play error:', e);
+    }
   };
 
   return (
@@ -330,7 +337,14 @@ export default function Books() {
 
               <button
                 type="button"
-                onClick={() => setSoundEnabled(!soundEnabled)}
+                onClick={() => {
+                  setSoundEnabled(!soundEnabled);
+                  // Initialize or resume context when clicking the button to satisfy browser gesture policies
+                  const ctx = getAudioContext();
+                  if (ctx && ctx.state === 'suspended') {
+                    ctx.resume();
+                  }
+                }}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-borderGlass bg-surface text-textMuted hover:border-signal-dim hover:text-signal transition-all font-mono text-xs cursor-pointer"
               >
                 {soundEnabled ? (
@@ -348,136 +362,9 @@ export default function Books() {
             </div>
           </div>
 
-          {/* Cyber-Industrial Matte Dark Metal Alcove Shelf with Photorealistic Procedural Plants */}
+          {/* Cyber-Industrial Matte Dark Metal Alcove Shelf */}
           <div className="relative pt-2 pb-2 select-none overflow-x-auto overflow-y-visible">
-            <div className="relative min-w-[780px] mx-auto bg-gradient-to-b from-[#111318] via-[#090b0e] to-[#040507] rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.9),0_12px_35px_rgba(0,0,0,0.6)] border border-borderGlass overflow-hidden">
-              {/* Subtle Tech Grid Background Pattern */}
-              <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#00F58C_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-
-              {/* Ambient Internal Shadows */}
-              <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none z-10" />
-              <div className="absolute top-0 bottom-0 left-0 w-12 bg-gradient-to-r from-black/60 to-transparent pointer-events-none z-10" />
-              <div className="absolute top-0 bottom-0 right-0 w-12 bg-gradient-to-l from-black/60 to-transparent pointer-events-none z-10" />
-
-              {/* Real Procedural Potted Plant (Left - Trailing Ivy / Pothos Node) */}
-              <div className="absolute bottom-[28px] left-3 z-30 flex flex-col items-center pointer-events-none select-none">
-                <svg
-                  className="w-12 h-16 filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
-                  viewBox="0 0 48 64"
-                  fill="none"
-                >
-                  {/* Stem network */}
-                  <path
-                    d="M24 50V30C24 20 12 15 8 8"
-                    stroke="#15803d"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M24 35C24 25 34 18 40 10"
-                    stroke="#16a34a"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M24 40C24 32 18 24 14 18"
-                    stroke="#22c55e"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-
-                  {/* Lush realistic overlapping leaves with botanical green gradients */}
-                  <path
-                    d="M8 8C4 4 12 2 15 6C18 10 12 12 8 8Z"
-                    fill="url(#leafGrad1)"
-                  />
-                  <path
-                    d="M40 10C44 7 42 16 37 15C32 14 36 13 40 10Z"
-                    fill="url(#leafGrad2)"
-                  />
-                  <path
-                    d="M14 18C9 14 19 12 20 19C21 26 19 22 14 18Z"
-                    fill="url(#leafGrad1)"
-                  />
-                  <path
-                    d="M28 22C33 18 31 28 25 26C19 24 23 26 28 22Z"
-                    fill="url(#leafGrad2)"
-                  />
-                  <path
-                    d="M18 32C12 28 15 38 21 36C27 34 24 36 18 32Z"
-                    fill="url(#leafGrad1)"
-                  />
-
-                  <defs>
-                    <linearGradient id="leafGrad1" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#4ade80" />
-                      <stop offset="100%" stopColor="#166534" />
-                    </linearGradient>
-                    <linearGradient id="leafGrad2" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#86efac" />
-                      <stop offset="100%" stopColor="#14532d" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                {/* Minimalist matte ceramic pot */}
-                <div className="w-7 h-5 bg-gradient-to-r from-surface via-[#27272a] to-surface border border-borderGlass rounded-b-md shadow-lg" />
-              </div>
-
-              {/* Real Procedural Potted Plant (Right - Succulent / Upright Foliage Node) */}
-              <div className="absolute bottom-[28px] right-3 z-30 flex flex-col items-center pointer-events-none select-none">
-                <svg
-                  className="w-12 h-16 filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
-                  viewBox="0 0 48 64"
-                  fill="none"
-                >
-                  {/* Central rosette / upward succulent fronds */}
-                  <path
-                    d="M24 50V22"
-                    stroke="#166534"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-
-                  <path
-                    d="M24 32C18 28 14 20 18 14C22 8 26 22 24 32Z"
-                    fill="url(#succGrad1)"
-                  />
-                  <path
-                    d="M24 32C30 28 34 20 30 14C26 8 22 22 24 32Z"
-                    fill="url(#succGrad2)"
-                  />
-                  <path
-                    d="M24 38C15 36 10 28 14 22C18 16 22 30 24 38Z"
-                    fill="url(#succGrad2)"
-                  />
-                  <path
-                    d="M24 38C33 36 38 28 34 22C30 16 26 30 24 38Z"
-                    fill="url(#succGrad1)"
-                  />
-                  <path
-                    d="M20 42C12 42 8 36 12 30C16 24 20 36 20 42Z"
-                    fill="url(#succGrad1)"
-                  />
-                  <path
-                    d="M28 42C36 42 40 36 36 30C32 24 28 36 28 42Z"
-                    fill="url(#succGrad2)"
-                  />
-
-                  <defs>
-                    <linearGradient id="succGrad1" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#22c55e" />
-                      <stop offset="100%" stopColor="#065f46" />
-                    </linearGradient>
-                    <linearGradient id="succGrad2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#34d399" />
-                      <stop offset="100%" stopColor="#047857" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                {/* Minimalist matte ceramic pot */}
-                <div className="w-7 h-5 bg-gradient-to-r from-surface via-[#27272a] to-surface border border-borderGlass rounded-b-md shadow-lg" />
-              </div>
-
+            <div className="relative min-w-[780px] mx-auto bg-gradient-to-b from-surface via-background to-black rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.9),0_12px_35px_rgba(0,0,0,0.6)] border border-borderGlass overflow-hidden">
               {/* Books Array */}
               <div className="relative z-20 flex items-end justify-center gap-1.5 sm:gap-2 px-14 pt-12 pb-0 [perspective:1200px]">
                 {READING_LIST.map((book) => (
@@ -503,7 +390,7 @@ export default function Books() {
                         height: `${book.height}px`,
                         transformStyle: 'preserve-3d',
                       }}
-                      className="relative rounded-t-xs cursor-default flex flex-col justify-between shadow-[4px_0_12px_rgba(0,0,0,0.85)]"
+                      className="relative rounded-t-xs cursor-pointer flex flex-col justify-between shadow-[4px_0_12px_rgba(0,0,0,0.85)]"
                     >
                       <div className="relative w-full h-full rounded-t-xs overflow-hidden shadow-inner">
                         {book.renderSpine()}
@@ -535,8 +422,6 @@ export default function Books() {
               framing
             </p>
           </div>
-
-          {/* Reading Notes Grid */}
         </div>
       </div>
     </section>
