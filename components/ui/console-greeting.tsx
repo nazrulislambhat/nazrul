@@ -25,7 +25,7 @@ export default function ConsoleGreeting() {
     );
 
     console.log(
-      '%cSenior Frontend Engineer • React / Next.js / TypeScript\nAvailable for high-impact roles & technical consulting.\n\n📫 Direct Dispatch: nazrul@nazrulislam.dev\n🐙 GitHub: https://github.com/nazrulislambhat\n💼 LinkedIn: https://linkedin.com/in/nazrulislambhat',
+      '%cSenior Frontend Engineer • React / Next.js / TypeScript\nAvailable for high-impact roles & technical consulting.\n\n📫 Direct Dispatch: nazrulislambhat@gmail.com\n🐙 GitHub: https://github.com/nazrulislambhat\n💼 LinkedIn: https://linkedin.com/in/nazrulislambhat',
       'font-family: monospace; font-size: 11px; color: #94A3B8; line-height: 1.6;',
     );
   }, []);
