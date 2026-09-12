@@ -114,11 +114,11 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="mailto:nazrulislambhat@gmail.com"
+                    href="mailto:nazrul@nazrulislam.dev"
                     className="inline-flex items-center gap-1.5 text-textMuted hover:text-signal hover:underline transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5 text-signal" />
-                    <span>nazrulislambhat@gmail.com</span>
+                    <span>nazrul@nazrulislam.dev</span>
                   </a>
                 </li>
                 <li>

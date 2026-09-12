@@ -361,7 +361,7 @@ export default function MatterShatter({
               {activeNote.note}
             </p>
             <a
-              href="mailto:nazrulislambhat@gmail.com"
+              href="mailto:nazrul@nazrulislam.dev"
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
             >
               <Mail className="w-3.5 h-3.5" />

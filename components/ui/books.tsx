@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Bookmark, Volume2, VolumeX } from 'lucide-react';
+import { BookOpen, Volume2, VolumeX } from 'lucide-react';
 
 export interface BookItem {
   id: string;
@@ -34,109 +34,41 @@ const READING_LIST: BookItem[] = [
     height: 254,
     tiltDeg: -2.2,
     renderSpine: () => (
-      <div className="w-full h-full bg-[#082a1d] text-[#00F58C] flex flex-col justify-between py-2.5 items-center border-l border-r border-emerald-900/50">
-        <div className="w-4/5 h-1 bg-signal/30 rounded-xs" />
-        <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-serif font-black text-[11px] uppercase tracking-widest -rotate-90 whitespace-nowrap text-emerald-100 drop-shadow-sm">
+      <div className="w-full h-full bg-[#f8fafc] text-slate-900 flex flex-col justify-between py-3 items-center border-l border-r border-slate-300">
+        <div className="w-6 h-6 rounded-full border border-blue-600 flex items-center justify-center text-[10px] font-bold text-blue-600">
+          AR
+        </div>
+        <div className="w-full bg-[#1e3a8a] py-4 px-1 flex-1 flex items-center justify-center my-2">
+          <span className="font-sans font-bold text-[10px] uppercase tracking-widest -rotate-90 whitespace-nowrap text-white drop-shadow-sm">
             ENJOY YOUR LIFE
           </span>
         </div>
+        <div className="w-3 h-3 rounded-full bg-blue-600 shadow-xs" />
       </div>
     ),
   },
   {
-    id: 'subtle-art',
-    title: 'The Subtle Art of Not Giving a F*ck',
-    author: 'Mark Manson',
-    category: 'Practical Philosophy',
+    id: 'story-of-prophets',
+    title: 'Stories of the Prophets',
+    author: 'Ibn Kathir',
+    category: 'History & Guidance',
     status: 'almost-done',
     statusLabel: 'Almost Done',
     coreIdea:
-      'A counterintuitive approach to living a good life: choose what struggles and values are genuinely worth your finite attention.',
-    statusColor: '#38bdf8',
-    width: 38,
-    height: 236,
-    tiltDeg: 1.8,
-    renderSpine: () => (
-      <div className="w-full h-full bg-[#1e110b] text-orange-400 flex flex-col justify-between py-2.5 items-center border-l border-r border-orange-950/40">
-        <div className="w-full h-1 bg-orange-500/50" />
-        <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-sans font-black text-[10.5px] uppercase tracking-tight -rotate-90 whitespace-nowrap text-orange-200">
-            SUBTLE ART OF NOT GIVING
-          </span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'atomic-habits',
-    title: 'Atomic Habits',
-    author: 'James Clear',
-    category: 'Systemic Improvement',
-    status: 'almost-done',
-    statusLabel: 'Almost Done',
-    coreIdea:
-      'You do not rise to the level of your goals, you fall to the level of your systems. 1% compounding daily.',
+      'Chronicles of perseverance, moral convictions, leadership under pressure, and enduring faith.',
     statusColor: '#38bdf8',
     width: 42,
-    height: 242,
-    tiltDeg: -1.5,
+    height: 246,
+    tiltDeg: 1.8,
     renderSpine: () => (
-      <div className="w-full h-full bg-[#181512] text-amber-200 flex flex-col justify-between py-2.5 items-center border-l border-r border-stone-800">
-        <div className="w-full h-1 bg-stone-800/50" />
+      <div className="w-full h-full bg-[#3e2723] text-amber-200 flex flex-col justify-between py-3 items-center border-l border-r border-stone-900">
+        <div className="w-2 h-2 rounded-full border border-amber-500/60" />
         <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-sans font-black text-[11px] uppercase tracking-wider text-amber-100 -rotate-90 whitespace-nowrap">
-            ATOMIC HABITS
+          <span className="font-serif font-bold text-[10px] uppercase tracking-widest -rotate-90 whitespace-nowrap text-amber-100">
+            STORIES OF THE PROPHETS
           </span>
         </div>
-      </div>
-    ),
-  },
-  {
-    id: 'deep-work',
-    title: 'Deep Work',
-    author: 'Cal Newport',
-    category: 'Cognitive Output',
-    status: 'almost-done',
-    statusLabel: 'Almost Done',
-    coreIdea:
-      'Rules for focused success in a distracted world: deep, uninterrupted flow produces disproportionate leverage.',
-    statusColor: '#38bdf8',
-    width: 36,
-    height: 230,
-    tiltDeg: 2.5,
-    renderSpine: () => (
-      <div className="w-full h-full bg-[#0a0f1d] text-sky-300 flex flex-col justify-between py-2.5 items-center border-l border-r border-sky-950/60">
-        <div className="w-full h-1 bg-sky-950/60" />
-        <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-mono font-bold text-[10.5px] uppercase tracking-wider -rotate-90 whitespace-nowrap text-sky-100">
-            DEEP WORK
-          </span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'psychology-of-money',
-    title: 'The Psychology of Money',
-    author: 'Morgan Housel',
-    category: 'Behavioral Finance',
-    status: 'almost-done',
-    statusLabel: 'Almost Done',
-    coreIdea:
-      'Doing well with money has a little to do with how smart you are and a lot to do with how you behave.',
-    statusColor: '#38bdf8',
-    width: 36,
-    height: 232,
-    tiltDeg: -0.8,
-    renderSpine: () => (
-      <div className="w-full h-full bg-[#111827] text-slate-200 flex flex-col justify-between py-2.5 items-center border-l border-r border-slate-800">
-        <div className="w-full h-1 bg-slate-800/50" />
-        <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-serif font-bold text-[10px] tracking-tight -rotate-90 whitespace-nowrap text-slate-100">
-            PSYCHOLOGY OF MONEY
-          </span>
-        </div>
+        <div className="w-3 h-3 border border-amber-500/40 rotate-45" />
       </div>
     ),
   },
@@ -152,39 +84,122 @@ const READING_LIST: BookItem[] = [
     statusColor: '#38bdf8',
     width: 32,
     height: 220,
-    tiltDeg: 3.2,
+    tiltDeg: -1.5,
     renderSpine: () => (
-      <div className="w-full h-full bg-[#1c1406] text-yellow-200 flex flex-col justify-between py-2.5 items-center border-l border-r border-amber-950/60">
-        <div className="w-full h-1 bg-amber-950/50" />
+      <div className="w-full h-full bg-[#1a0f0a] text-yellow-500 flex flex-col justify-between py-3 items-center border-l border-r border-amber-950">
+        <span className="font-serif text-[9px] text-yellow-600">PC</span>
         <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-serif font-bold text-[10.5px] uppercase tracking-widest -rotate-90 whitespace-nowrap text-yellow-100">
+          <span className="font-serif font-bold text-[10px] uppercase tracking-wider -rotate-90 whitespace-nowrap text-yellow-300">
             THE ALCHEMIST
           </span>
         </div>
+        <div className="w-2 h-2 rounded-full bg-yellow-500 shadow-[0_0_6px_#f59e0b]" />
       </div>
     ),
   },
   {
-    id: 'story-of-prophets',
-    title: 'Stories of the Prophets',
-    author: 'Ibn Kathir',
-    category: 'History & Guidance',
+    id: 'subtle-art',
+    title: 'The Subtle Art of Not Giving a F*ck',
+    author: 'Mark Manson',
+    category: 'Practical Philosophy',
     status: 'almost-done',
     statusLabel: 'Almost Done',
     coreIdea:
-      'Chronicles of perseverance, moral convictions, leadership under pressure, and enduring faith.',
+      'A counterintuitive approach to living a good life: choose what struggles and values are genuinely worth your finite attention.',
     statusColor: '#38bdf8',
-    width: 50,
-    height: 256,
-    tiltDeg: -2.8,
+    width: 36,
+    height: 232,
+    tiltDeg: 2.5,
     renderSpine: () => (
-      <div className="w-full h-full bg-[#051f18] text-teal-200 flex flex-col justify-between py-2.5 items-center border-l border-r border-teal-950">
-        <div className="w-full h-1 bg-teal-950" />
+      <div className="w-full h-full bg-[#c2410c] text-white flex flex-col justify-between py-3 items-center border-l border-r border-orange-950">
+        <span className="font-sans font-black text-[9px]">MM</span>
         <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-serif font-bold text-[10px] uppercase tracking-widest -rotate-90 whitespace-nowrap text-teal-100">
-            STORIES OF PROPHETS
+          <span className="font-sans font-extrabold text-[9.5px] uppercase tracking-tight -rotate-90 whitespace-nowrap text-orange-100">
+            THE SUBTLE ART
           </span>
         </div>
+        <div className="w-2 h-2 rounded-full bg-white/80" />
+      </div>
+    ),
+  },
+  {
+    id: 'deep-work',
+    title: 'Deep Work',
+    author: 'Cal Newport',
+    category: 'Cognitive Output',
+    status: 'almost-done',
+    statusLabel: 'Almost Done',
+    coreIdea:
+      'Rules for focused success in a distracted world: deep, uninterrupted flow produces disproportionate leverage.',
+    statusColor: '#38bdf8',
+    width: 38,
+    height: 236,
+    tiltDeg: -0.8,
+    renderSpine: () => (
+      <div className="w-full h-full bg-[#eab308] text-black flex flex-col justify-between py-3 items-center border-l border-r border-yellow-600">
+        <span className="font-mono font-bold text-[9px]">CN</span>
+        <div className="flex-1 flex items-center justify-center my-2">
+          <span className="font-sans font-black text-[11px] uppercase tracking-widest -rotate-90 whitespace-nowrap text-black">
+            DEEP WORK
+          </span>
+        </div>
+        <div className="w-2 h-2 rounded-full bg-black" />
+      </div>
+    ),
+  },
+  {
+    id: 'psychology-of-money',
+    title: 'The Psychology of Money',
+    author: 'Morgan Housel',
+    category: 'Behavioral Finance',
+    status: 'almost-done',
+    statusLabel: 'Almost Done',
+    coreIdea:
+      'Doing well with money has a little to do with how smart you are and a lot to do with how you behave.',
+    statusColor: '#38bdf8',
+    width: 40,
+    height: 240,
+    tiltDeg: 3.2,
+    renderSpine: () => (
+      <div className="w-full h-full bg-[#fdfbf7] text-slate-900 flex flex-col justify-between py-3 items-center border-l border-r border-slate-300">
+        <span className="font-serif font-black text-[10px] text-slate-800">
+          $
+        </span>
+        <div className="flex-1 flex items-center justify-center my-2">
+          <span className="font-serif font-bold text-[10px] tracking-tight -rotate-90 whitespace-nowrap text-slate-900">
+            PSYCHOLOGY OF MONEY
+          </span>
+        </div>
+        <span className="font-mono text-[8px] text-slate-600">MH</span>
+      </div>
+    ),
+  },
+  {
+    id: 'atomic-habits',
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    category: 'Systemic Improvement',
+    status: 'almost-done',
+    statusLabel: 'Almost Done',
+    coreIdea:
+      'You do not rise to the level of your goals, you fall to the level of your systems. 1% compounding daily.',
+    statusColor: '#38bdf8',
+    width: 42,
+    height: 246,
+    tiltDeg: -2.8,
+    renderSpine: () => (
+      <div className="w-full h-full bg-[#fafaf9] text-stone-900 flex flex-col justify-between py-3 items-center border-l border-r border-stone-300">
+        <div className="w-2.5 h-2.5 rounded-full border border-stone-400 flex items-center justify-center">
+          <div className="w-1 h-1 bg-stone-900 rounded-full" />
+        </div>
+        <div className="flex-1 flex items-center justify-center my-2">
+          <span className="font-sans font-black text-[11px] uppercase tracking-wider text-stone-900 -rotate-90 whitespace-nowrap">
+            ATOMIC HABITS
+          </span>
+        </div>
+        <span className="font-sans font-bold text-[8.5px] text-stone-600">
+          JC
+        </span>
       </div>
     ),
   },
@@ -198,17 +213,18 @@ const READING_LIST: BookItem[] = [
     coreIdea:
       'Care about your craft. Software development is continuous refactoring, proactive testing, and eliminating entropy.',
     statusColor: '#64748b',
-    width: 44,
-    height: 248,
+    width: 36,
+    height: 234,
     tiltDeg: 1.4,
     renderSpine: () => (
-      <div className="w-full h-full bg-[#121212] text-stone-300 flex flex-col justify-between py-2.5 items-center border-l border-r border-zinc-800">
-        <div className="w-full h-1 bg-zinc-800" />
+      <div className="w-full h-full bg-[#451a03] text-amber-200 flex flex-col justify-between py-3 items-center border-l border-r border-stone-900">
+        <span className="font-mono text-[8.5px] text-amber-400">20th</span>
         <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-mono font-bold text-[10px] tracking-tight -rotate-90 whitespace-nowrap text-zinc-100">
+          <span className="font-mono font-bold text-[9.5px] tracking-tight -rotate-90 whitespace-nowrap text-amber-100">
             PRAGMATIC PROGRAMMER
           </span>
         </div>
+        <span className="font-mono text-[8px] text-amber-400">P</span>
       </div>
     ),
   },
@@ -222,16 +238,19 @@ const READING_LIST: BookItem[] = [
     coreIdea:
       'Foundational algorithmic problem solving, time-space complexity tradeoffs, and edge-case dissection.',
     statusColor: '#64748b',
-    width: 54,
-    height: 260,
+    width: 56,
+    height: 262,
     tiltDeg: -3.0,
     renderSpine: () => (
-      <div className="w-full h-full bg-[#051c14] text-emerald-300 flex flex-col justify-between py-2.5 items-center border-l border-r border-emerald-950">
-        <div className="w-full h-1 bg-emerald-950" />
+      <div className="w-full h-full bg-[#84cc16] text-black flex flex-col justify-between py-3 items-center border-l border-r border-lime-700">
+        <div className="text-[9px] font-mono font-black text-black">6TH</div>
         <div className="flex-1 flex items-center justify-center my-2">
-          <span className="font-sans font-black text-[10px] uppercase tracking-tight -rotate-90 whitespace-nowrap text-white">
+          <span className="font-sans font-black text-[10.5px] uppercase tracking-tight -rotate-90 whitespace-nowrap text-black">
             CRACKING THE CODING INTERVIEW
           </span>
+        </div>
+        <div className="w-4 h-4 rounded-full bg-black text-[#84cc16] flex items-center justify-center text-[8px] font-bold">
+          GL
         </div>
       </div>
     ),
@@ -242,7 +261,6 @@ export default function Books() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const audioCtxRef = useRef<AudioContext | null>(null);
 
-  // Unlock audio context on initial user page click
   useEffect(() => {
     const unlockAudio = () => {
       if (!audioCtxRef.current && typeof window !== 'undefined') {
@@ -266,7 +284,7 @@ export default function Books() {
     };
   }, []);
 
-  const playHoverSound = () => {
+  const playInteractionSound = () => {
     if (!soundEnabled) return;
     try {
       if (!audioCtxRef.current && typeof window !== 'undefined') {
@@ -284,7 +302,6 @@ export default function Books() {
         ctx.resume();
       }
 
-      // Create a short crisp woody tick/thud sound
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
 
@@ -378,9 +395,9 @@ export default function Books() {
             </div>
           </div>
 
-          {/* Cyber-Industrial Matte Dark Metal Alcove Shelf */}
-          <div className="relative pt-2 pb-2 rounded-md select-none overflow-x-auto overflow-y-visible">
-            <div className="relative min-w-[780px] mx-auto bg-gradient-to-b from-surface via-background  rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.5),0_12px_35px_rgba(0,0,0,0.5)] border border-borderGlass overflow-hidden">
+          {/* Bookshelf Alcove */}
+          <div className="relative pt-2 pb-2 select-none rounded-md overflow-x-auto overflow-y-visible">
+            <div className="relative min-w-[780px] mx-auto bg-gradient-to-b from-surface via-background rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.5),0_12px_35px_rgba(0,0,0,0.5)] border border-borderGlass overflow-hidden">
               {/* Books Array */}
               <div className="relative z-20 flex items-end justify-center gap-1.5 sm:gap-2 px-14 pt-12 pb-0 [perspective:1200px]">
                 {READING_LIST.map((book) => (
@@ -390,25 +407,33 @@ export default function Books() {
                     style={{
                       width: `${book.width}px`,
                       height: `${book.height}px`,
-                      transform: `rotate(${book.tiltDeg || 0}deg)`,
+                      transform: `rotate(${book.tiltDeg || 0}deg) translateZ(0)`,
+                      backfaceVisibility: 'hidden',
                     }}
                   >
                     <motion.div
-                      onMouseEnter={playHoverSound}
+                      onMouseEnter={playInteractionSound}
+                      onClick={playInteractionSound}
+                      onTouchStart={playInteractionSound}
                       whileHover={{
                         y: -16,
                         z: 36,
                         rotateZ: 0,
                         transition: { duration: 0.16, ease: 'easeOut' },
                       }}
+                      whileTap={{
+                        y: -12,
+                        transition: { duration: 0.12, ease: 'easeOut' },
+                      }}
                       style={{
                         width: `${book.width}px`,
                         height: `${book.height}px`,
                         transformStyle: 'preserve-3d',
+                        backfaceVisibility: 'hidden',
                       }}
-                      className="relative rounded-t-xs cursor-pointer flex flex-col justify-between shadow-[4px_0_12px_rgba(0,0,0,0.85)]"
+                      className="relative rounded-t-sm cursor-pointer flex flex-col justify-between shadow-[4px_0_12px_rgba(0,0,0,0.85)] [transform:translateZ(0)]"
                     >
-                      <div className="relative w-full h-full rounded-t-xs overflow-hidden shadow-inner">
+                      <div className="relative w-full h-full rounded-t-sm overflow-hidden shadow-inner [backface-visibility:hidden]">
                         {book.renderSpine()}
                         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-white/10 to-black/40 pointer-events-none" />
                       </div>
@@ -426,6 +451,10 @@ export default function Books() {
                 ))}
               </div>
             </div>
+
+            <p className="text-center font-mono text-xs text-textMuted/60 mt-4">
+              Real wood shelf • Quiet corner reflections
+            </p>
           </div>
         </div>
       </div>

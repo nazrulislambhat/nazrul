@@ -117,7 +117,7 @@ export default function GlassShatterModal({
 
         <div className="flex flex-wrap items-center gap-4">
           <a
-            href="mailto:nazrulislambhat@gmail.com"
+            href="mailto:nazrul@nazrulislam.dev"
             className="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-white font-mono text-xs font-bold hover:bg-primaryLight transition-all shadow-md"
           >
             <Mail className="w-4 h-4" />
