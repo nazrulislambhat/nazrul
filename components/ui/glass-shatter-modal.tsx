@@ -62,7 +62,7 @@ export default function GlassShatterModal({
   if (!isActive) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-black/85 backdrop-blur-md">
+    <div className="fixed inset-0 z-100 flex items-center justify-center overflow-hidden bg-black/85 backdrop-blur-md">
       {/* 1. Exploding Shard Layers */}
       <div className="absolute inset-0 pointer-events-none">
         {shardPolygons.map((poly, idx) => {

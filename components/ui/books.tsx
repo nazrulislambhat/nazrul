@@ -397,9 +397,9 @@ export default function Books() {
 
           {/* Bookshelf Alcove */}
           <div className="relative pt-2 pb-2 select-none rounded-md overflow-x-auto overflow-y-visible">
-            <div className="relative min-w-[780px] mx-auto bg-gradient-to-b from-surface via-background rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.5),0_12px_35px_rgba(0,0,0,0.5)] border border-borderGlass overflow-hidden">
+            <div className="relative min-w-[780px] mx-auto bg-linear-to-b from-surface via-background rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.5),0_12px_35px_rgba(0,0,0,0.5)] border border-borderGlass overflow-hidden">
               {/* Books Array */}
-              <div className="relative z-20 flex items-end justify-center gap-1.5 sm:gap-2 px-14 pt-12 pb-0 [perspective:1200px]">
+              <div className="relative z-20 flex items-end justify-center gap-1.5 sm:gap-2 px-14 pt-12 pb-0 perspective-distant">
                 {READING_LIST.map((book) => (
                   <div
                     key={book.id}
@@ -431,11 +431,11 @@ export default function Books() {
                         transformStyle: 'preserve-3d',
                         backfaceVisibility: 'hidden',
                       }}
-                      className="relative rounded-t-sm cursor-pointer flex flex-col justify-between shadow-[4px_0_12px_rgba(0,0,0,0.85)] [transform:translateZ(0)]"
+                      className="relative rounded-t-sm cursor-pointer flex flex-col justify-between shadow-[4px_0_12px_rgba(0,0,0,0.85)] transform-[translateZ(0)]"
                     >
-                      <div className="relative w-full h-full rounded-t-sm overflow-hidden shadow-inner [backface-visibility:hidden]">
+                      <div className="relative w-full h-full rounded-t-sm overflow-hidden shadow-inner backface-hidden">
                         {book.renderSpine()}
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-white/10 to-black/40 pointer-events-none" />
+                        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-white/10 to-black/40 pointer-events-none" />
                       </div>
 
                       <div className="absolute -top-1 left-0 right-0 h-1 bg-borderGlass opacity-80" />
