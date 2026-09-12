@@ -57,18 +57,23 @@ export default function Footer() {
                 Index
               </span>
               <ul className="space-y-2">
-                {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map(
-                  (item) => (
-                    <li key={item}>
-                      <Link
-                        href={`#${item.toLowerCase()}`}
-                        className="text-textMuted hover:text-signal hover:underline transition-colors"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ),
-                )}
+                {[
+                  'About',
+                  'Experience',
+                  'Projects',
+                  'Skills',
+                  'Reading',
+                  'Contact',
+                ].map((item) => (
+                  <li key={item}>
+                    <Link
+                      href={`#${item.toLowerCase()}`}
+                      className="text-textMuted hover:text-signal hover:underline transition-colors"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
