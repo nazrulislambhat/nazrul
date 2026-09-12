@@ -395,8 +395,8 @@ export default function Books() {
             </div>
           </div>
 
-          {/* Cleaned Real Bookshelf Alcove */}
-          <div className="relative pt-2 pb-2 select-none overflow-x-auto overflow-y-visible">
+          {/* Bookshelf Alcove */}
+          <div className="relative pt-2 pb-2 select-none rounded-md overflow-x-auto overflow-y-visible">
             <div className="relative min-w-[780px] mx-auto bg-gradient-to-b from-surface via-background rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.5),0_12px_35px_rgba(0,0,0,0.5)] border border-borderGlass overflow-hidden">
               {/* Books Array */}
               <div className="relative z-20 flex items-end justify-center gap-1.5 sm:gap-2 px-14 pt-12 pb-0 [perspective:1200px]">
@@ -414,6 +414,7 @@ export default function Books() {
                     <motion.div
                       onMouseEnter={playInteractionSound}
                       onClick={playInteractionSound}
+                      onTouchStart={playInteractionSound}
                       whileHover={{
                         y: -16,
                         z: 36,
