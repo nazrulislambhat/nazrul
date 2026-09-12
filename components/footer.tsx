@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
 
           {/* Middle Row: Navigation Columns & Social Outlets */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 font-mono text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 font-mono text-xs">
             {/* Quick Sections */}
             <div className="space-y-3">
               <div className="pb-1">
