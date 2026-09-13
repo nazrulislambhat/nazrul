@@ -13,8 +13,8 @@
   --color-green: #22e58b;
   --color-volt: #ccf380;
 
-  --color-signal: #05df72;
-  --color-signal-dim: #10b981;
+  --color-signal: var(--accent-signal, #05df72);
+  --color-signal-dim: var(--accent-signal-dim, #10b981);
   --color-signal-deep: #047857;
 
   /* Direct CSS variable mappings for Tailwind v4 */
@@ -38,9 +38,6 @@
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
   looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
 */
 @layer base {
   *,
@@ -63,6 +60,10 @@
     --glass-blur: 16px;
     --glass-opacity: 0.45;
     --glass-specular: 0.9;
+
+    /* Default Accent (Signal Green) */
+    --accent-signal: #05df72;
+    --accent-signal-dim: #10b981;
   }
 
   .dark {
@@ -75,6 +76,28 @@
     --glass-blur: 18px;
     --glass-opacity: 0.35;
     --glass-specular: 0.25;
+  }
+
+  /* Dynamic Accent Theme Maps */
+  [data-accent='signal'] {
+    --accent-signal: #05df72;
+    --accent-signal-dim: #10b981;
+  }
+  [data-accent='red'] {
+    --accent-signal: #ef4444;
+    --accent-signal-dim: #b91c1c;
+  }
+  [data-accent='volt'] {
+    --accent-signal: #ccf380;
+    --accent-signal-dim: #a3d942;
+  }
+  [data-accent='cyan'] {
+    --accent-signal: #22d3ee;
+    --accent-signal-dim: #0891b2;
+  }
+  [data-accent='violet'] {
+    --accent-signal: #a855f7;
+    --accent-signal-dim: #7e22ce;
   }
 
   html {
@@ -98,7 +121,7 @@
   }
 
   ::selection {
-    background-color: #ccf380;
+    background-color: var(--accent-signal);
     color: #0d1821;
   }
 }
@@ -107,7 +130,6 @@
 .liquid-glass {
   background: var(--color-surface);
   backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-
   border: 2px solid var(--color-border);
   box-shadow:
     0 10px 30px -10px rgba(0, 0, 0, 0.05),
@@ -159,7 +181,9 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(120, 120, 140, 0.5);
-} /* Print optimization for PDF export */
+}
+
+/* Print optimization for PDF export */
 @media print {
   @page {
     margin: 12mm 14mm;
@@ -171,7 +195,6 @@
     color: #000000 !important;
   }
 
-  /* Hide interactive widgets from printed PDF */
   header,
   footer,
   #glass-controls-island,
@@ -180,7 +203,6 @@
     display: none !important;
   }
 
-  /* Flatten glass effects for crisp vector ink */
   .liquid-glass,
   .liquid-glass-subtle {
     background: transparent !important;
@@ -196,4 +218,8 @@
     page-break-inside: avoid;
     break-inside: avoid;
   }
+}
+
+.liquid-glass-subtle.hover-red-border:hover {
+  border-color: #ef4444 !important;
 }

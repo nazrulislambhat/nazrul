@@ -39,7 +39,7 @@ export default function CalFloatingWidget() {
       <button
         onClick={() => setDismissed(true)}
         title="Dismiss widget"
-        className="p-2 rounded-xl liquid-glass-subtle border border-borderGlass text-textMuted hover:text-red hover:border-red/40 transition-all cursor-pointer opacity-60 hover:opacity-100"
+        className="p-2 rounded-xl liquid-glass-subtle hover-red-border border border-borderGlass text-textMuted hover:text-red !hover:border-red transition-all cursor-pointer opacity-60 hover:opacity-100"
       >
         <X className="w-3.5 h-3.5" />
       </button>
