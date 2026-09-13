@@ -71,7 +71,7 @@ export default function Contact() {
               <div className="space-y-3 font-mono text-xs md:text-sm">
                 <div>
                   <CopyPill
-                    value="nazrul@nazrulislam.dev"
+                    value="nazrulislambhat@gmail.com"
                     label="email address"
                     icon={Mail}
                   />

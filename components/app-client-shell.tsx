@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Providers } from '@/app/providers';
 import { ThemeGlassProvider } from '@/components/context/theme-glass-context';
 import GlassControls from '@/components/ui/glass-controls';
 import BigScreenMessage from '@/components/big-screen-message';
@@ -16,15 +15,13 @@ export default function AppClientShell({
 }) {
   return (
     <ThemeGlassProvider>
-      <Providers>
-        {children}
-        <GlassControls />
-        <QuickJumpModal />
-        <ConsoleGreeting />
-        <BigScreenMessage />
-        <CwvBadge />
-        <CalFloatingWidget />
-      </Providers>
+      {children}
+      <GlassControls />
+      <QuickJumpModal />
+      <ConsoleGreeting />
+      <BigScreenMessage />
+      <CwvBadge />
+      <CalFloatingWidget />
     </ThemeGlassProvider>
   );
 }
