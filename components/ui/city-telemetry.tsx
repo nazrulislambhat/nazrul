@@ -81,9 +81,7 @@ export default function CityTelemetry() {
         />
         <span
           className={`relative inline-flex rounded-full h-2 w-2 ${
-            isWorkingHours
-              ? 'bg-red shadow-red'
-              : 'bg-signal shadow-signalGlow'
+            isWorkingHours ? 'bg-red shadow-red' : 'bg-signal shadow-signalGlow'
           }`}
         />
       </span>
@@ -111,7 +109,7 @@ export default function CityTelemetry() {
         </AnimatePresence>
       </div>
 
-      <span className="text-borderGlass">|</span>
+      <span className="text-textMain">|</span>
 
       {/* Real-time IST Clock */}
       <div className="flex items-center gap-1.5 text-textMuted font-normal">

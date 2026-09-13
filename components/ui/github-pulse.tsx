@@ -103,7 +103,7 @@ export default function GithubPulse() {
         {activity.type === 'push' ? (
           <GitCommit className="w-3 h-3 text-signal shrink-0" />
         ) : (
-          <GitPullRequest className="w-3 h-3 text-volt shrink-0" />
+          <GitPullRequest className="w-3 h-3 text-red shrink-0" />
         )}
         <span className="text-[10px] text-textMuted/70">
           {activity.type === 'push' ? 'PUSHED TO' : 'PR ON'}
