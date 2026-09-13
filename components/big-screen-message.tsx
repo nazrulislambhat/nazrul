@@ -25,7 +25,7 @@ export default function BigScreenMessage() {
   return (
     <aside
       aria-label="Ultra-wide screen detector"
-      className="fixed bottom-6 right-6 z-9999 flex items-center gap-3.5 px-4 py-2.5 rounded-2xl liquid-glass border border-signal-dim/40 shadow-[0_0_30px_-5px_rgba(5,223,114,0.25)] font-mono text-xs text-textMain selection:bg-volt selection:text-black animate-in fade-in slide-in-from-bottom-4 duration-300"
+      className="fixed bottom-6 right-6 z-[9999] flex items-center gap-3.5 px-4 py-2.5 rounded-2xl liquid-glass border border-signal-dim/40 shadow-[0_0_30px_-5px_rgba(5,223,114,0.25)] font-mono text-xs text-textMain selection:bg-volt selection:text-black animate-in fade-in slide-in-from-bottom-4 duration-300"
     >
       <div className="flex items-center gap-2">
         <span className="relative flex h-2 w-2">

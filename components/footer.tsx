@@ -50,14 +50,12 @@ export default function Footer() {
           </div>
 
           {/* Middle Row: Navigation Columns & Social Outlets */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 font-mono text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 font-mono text-xs">
             {/* Quick Sections */}
-            <div className="space-y-3">
-              <div className="pb-1">
-                <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider block">
-                  Index
-                </span>
-              </div>
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+                Index
+              </span>
               <ul className="space-y-2">
                 {[
                   'About',
@@ -70,7 +68,7 @@ export default function Footer() {
                   <li key={item}>
                     <Link
                       href={`#${item.toLowerCase()}`}
-                      className="text-textMuted hover:text-signal hover:underline transition-colors block py-0.5"
+                      className="text-textMuted hover:text-signal hover:underline transition-colors"
                     >
                       {item}
                     </Link>
@@ -80,17 +78,15 @@ export default function Footer() {
             </div>
 
             {/* Artifacts & Tools */}
-            <div className="space-y-3">
-              <div className="pb-1">
-                <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider block">
-                  Artifacts
-                </span>
-              </div>
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+                Artifacts
+              </span>
               <ul className="space-y-2">
                 <li>
                   <Link
                     href="/resume"
-                    className="group inline-flex items-center gap-1 text-textMuted hover:text-signal transition-colors py-0.5"
+                    className="group inline-flex items-center gap-1 text-textMuted hover:text-signal transition-colors"
                   >
                     <span>Printable Resume</span>
                     <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -101,7 +97,7 @@ export default function Footer() {
                     href="https://github.com/nazrulislambhat"
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center gap-1 text-textMuted hover:text-signal transition-colors py-0.5"
+                    className="group inline-flex items-center gap-1 text-textMuted hover:text-signal transition-colors"
                   >
                     <span>Design System Kit</span>
                     <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -111,24 +107,22 @@ export default function Footer() {
             </div>
 
             {/* Direct Connect */}
-            <div className="space-y-3">
-              <div className="pb-1">
-                <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider block">
-                  Dispatch
-                </span>
-              </div>
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+                Dispatch
+              </span>
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="mailto:nazrulislambhat@gmail.com"
-                    className="inline-flex items-center gap-1.5 text-textMuted hover:text-signal hover:underline transition-colors py-0.5"
+                    href="mailto:nazrul@nazrulislam.dev"
+                    className="inline-flex items-center gap-1.5 text-textMuted hover:text-signal hover:underline transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5 text-signal" />
-                    <span>nazrulislambhat@gmail.com</span>
+                    <span>nazrul@nazrulislam.dev</span>
                   </a>
                 </li>
                 <li>
-                  <span className="text-textMuted/70 block py-0.5">
+                  <span className="text-textMuted/70">
                     Bengaluru / Srinagar, IN
                   </span>
                 </li>
@@ -136,13 +130,11 @@ export default function Footer() {
             </div>
 
             {/* Socials */}
-            <div className="space-y-3">
-              <div className="pb-1">
-                <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider block">
-                  Network
-                </span>
-              </div>
-              <div className="flex items-center gap-2.5 pt-1">
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+                Network
+              </span>
+              <div className="flex items-center gap-2.5">
                 <a
                   href="https://github.com/nazrulislambhat"
                   target="_blank"
