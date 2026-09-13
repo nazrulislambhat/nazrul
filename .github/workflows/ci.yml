@@ -10,6 +10,11 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: read
+
 jobs:
   quality:
     name: Lint, Type-check, Test, Build
@@ -53,14 +58,22 @@ jobs:
       # push/PR. This action polls the GitHub deployment status API and
       # returns the live Preview URL once Vercel finishes building it, so we
       # test the actual deployed site instead of a local build.
+      #
+      # This step ONLY works if the Vercel GitHub App is installed on this
+      # repo and set to post deployment statuses. If you deploy via CLI or
+      # a different pipeline, this will time out at max_timeout and fail
+      # the whole job — hence continue-on-error below so it doesn't block
+      # the "quality" job's green check.
       - name: Wait for Vercel preview deployment
         uses: patrickedqvist/wait-for-vercel-preview@v1.3.1
         id: waitForVercelPreview
+        continue-on-error: true
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 300
 
       - name: Run Lighthouse CI
+        if: steps.waitForVercelPreview.outcome == 'success'
         uses: treosh/lighthouse-ci-action@v11
         with:
           urls: |
