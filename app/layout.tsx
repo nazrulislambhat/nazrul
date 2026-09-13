@@ -10,7 +10,6 @@ import {
 import './globals.css';
 import AppClientShell from '@/components/app-client-shell';
 import ParticleBackground from '@/components/ui/particle-background';
-
 const nunito = Nunito({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
