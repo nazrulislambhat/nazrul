@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Clock, ArrowLeftRight } from 'lucide-react';
+import { MapPin, Clock } from 'lucide-react';
 
 interface CityConfig {
   code: 'BLR' | 'SXR';
@@ -119,9 +119,6 @@ export default function CityTelemetry() {
         </span>
         <span className="text-[10px] text-textMuted/80">IST</span>
       </div>
-
-      {/* Interactive Switch Icon */}
-      <ArrowLeftRight className="w-3 h-3 text-textMuted/40 group-hover:text-signal group-hover:rotate-180 transition-all ml-0.5" />
     </div>
   );
 }
