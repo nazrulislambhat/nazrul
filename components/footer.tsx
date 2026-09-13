@@ -2,8 +2,29 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Github, Linkedin, Mail, Terminal } from 'lucide-react';
-
+import {
+  ArrowUpRight,
+  Github,
+  Linkedin,
+  Mail,
+  Terminal,
+  User,
+  Briefcase,
+  FolderGit2,
+  Sparkles,
+  BookOpen,
+  Send,
+  FileText,
+  Package,
+} from 'lucide-react';
+const indexLinks = [
+  { label: 'About', icon: User },
+  { label: 'Experience', icon: Briefcase },
+  { label: 'Projects', icon: FolderGit2 },
+  { label: 'Skills', icon: Sparkles },
+  { label: 'Reading', icon: BookOpen },
+  { label: 'Contact', icon: Send },
+];
 /* Inline official X glyph */
 function XIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
@@ -57,20 +78,14 @@ export default function Footer() {
                 Index
               </span>
               <ul className="space-y-2">
-                {[
-                  'About',
-                  'Experience',
-                  'Projects',
-                  'Skills',
-                  'Reading',
-                  'Contact',
-                ].map((item) => (
-                  <li key={item}>
+                {indexLinks.map(({ label, icon: Icon }) => (
+                  <li key={label}>
                     <Link
-                      href={`#${item.toLowerCase()}`}
-                      className="text-textMuted hover:text-signal hover:underline transition-colors"
+                      href={`#${label.toLowerCase()}`}
+                      className="group inline-flex items-center gap-2 text-textMuted hover:text-signal transition-colors"
                     >
-                      {item}
+                      <Icon className="w-3.5 h-3.5 text-signal/60 group-hover:text-signal group-hover:scale-110 group-hover:-rotate-6 transition-all duration-200" />
+                      <span className="group-hover:underline">{label}</span>
                     </Link>
                   </li>
                 ))}
@@ -86,22 +101,26 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/resume"
-                    className="group inline-flex items-center gap-1 text-textMuted hover:text-signal transition-colors"
+                    className="group inline-flex items-center gap-1.5 text-textMuted hover:text-signal transition-colors"
                   >
-                    <span>Printable Resume</span>
+                    <span className="group-hover:underline">
+                      Printable Resume
+                    </span>
                     <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="https://github.com/nazrulislambhat"
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center gap-1 text-textMuted hover:text-signal transition-colors"
+                    className="group inline-flex items-center gap-1.5 text-textMuted hover:text-signal transition-colors"
                   >
-                    <span>Design System Kit</span>
+                    <span className="group-hover:underline">
+                      Design System Kit
+                    </span>
                     <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
