@@ -154,7 +154,7 @@ export default function Years() {
                 <ul className="space-y-2 mb-5 text-xs md:text-sm text-textMuted">
                   {exp.highlights.map((point, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-signal shrink-0 shadow-[0_0_6px_#05DF72]" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-signal shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}

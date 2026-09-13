@@ -41,7 +41,7 @@ export default function BigScreenMessage() {
       </div>
 
       <div className="flex items-center gap-1.5">
-        <span className="font-semibold text-textMain">
+        <span className="font-semibold text-textMain selection:text-primary">
           Even Cooper's ship couldn't handle a horizon this wide
         </span>
         <span className="text-textMuted/60">•</span>
@@ -51,7 +51,7 @@ export default function BigScreenMessage() {
 
       <button
         onClick={() => setDismissed(true)}
-        className="p-1 -mr-1 rounded-lg  text-textMuted hover:text-red hover:bg-surface transition-colors cursor-pointer"
+        className="p-1 -mr-1 rounded-lg text-textMuted hover:text-red hover:bg-surface transition-colors cursor-pointer"
         aria-label="Dismiss banner"
       >
         <X className="w-3.5 h-3.5" />
