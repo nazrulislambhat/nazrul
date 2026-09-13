@@ -36,7 +36,6 @@ export default function Hero() {
               transition={{ duration: 0.3, delay: 0.15 }}
               className="text-xs md:text-sm font-mono uppercase tracking-widest text-textMuted mb-2 flex items-center gap-2"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-volt animate-pulse" />
               Senior Frontend Engineer &amp; Architect
             </motion.p>
 
