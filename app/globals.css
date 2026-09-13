@@ -107,7 +107,7 @@
 .liquid-glass {
   background: var(--color-surface);
   backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-
+  
   border: 2px solid var(--color-border);
   box-shadow:
     0 10px 30px -10px rgba(0, 0, 0, 0.05),
@@ -196,4 +196,7 @@
     page-break-inside: avoid;
     break-inside: avoid;
   }
+}
+.liquid-glass-subtle.hover-red-border:hover {
+  border-color: #ef4444 !important;
 }
