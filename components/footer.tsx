@@ -74,7 +74,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 font-mono text-xs">
             {/* Quick Sections */}
             <div className="space-y-2.5">
-              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+              <span className="block text-[11px] font-bold text-textMuted uppercase tracking-wider">
                 Index
               </span>
               <ul className="space-y-2">
@@ -94,7 +94,7 @@ export default function Footer() {
 
             {/* Artifacts & Tools */}
             <div className="space-y-2.5">
-              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+              <span className="block text-[11px] font-bold text-textMuted uppercase tracking-wider">
                 Artifacts
               </span>
               <ul className="space-y-2">
@@ -127,7 +127,7 @@ export default function Footer() {
 
             {/* Direct Connect */}
             <div className="space-y-2.5">
-              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+              <span className="block text-[11px] font-bold text-textMuted uppercase tracking-wider">
                 Dispatch
               </span>
               <ul className="space-y-2">
@@ -145,7 +145,7 @@ export default function Footer() {
 
             {/* Socials */}
             <div className="space-y-2.5">
-              <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
+              <span className="block text-[11px] font-bold text-textMuted uppercase tracking-wider">
                 Network
               </span>
               <div className="flex items-center gap-2.5">
