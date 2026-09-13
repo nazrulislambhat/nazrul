@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Clock } from 'lucide-react';
 
 interface CityConfig {
@@ -115,7 +115,7 @@ export default function CityTelemetry() {
             className="flex items-center gap-1.5"
           >
             <span>{activeCity.name}</span>
-            <span className="text-[10px] text-textMuted/70 border border-borderGlass px-1 py-0.5 rounded bg-surface/80">
+            <span className="text-[10px] text-textMuted/70 border border-borderGlass px-1 py-0.5 rounded-sm bg-surface/80">
               {activeCity.code}
             </span>
             <span className="hidden sm:inline-block text-[9.5px] text-textMuted/60 font-normal">

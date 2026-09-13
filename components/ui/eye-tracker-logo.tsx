@@ -52,7 +52,7 @@ export default function EyeTrackerLogo({ size = 44 }: { size?: number }) {
   return (
     <div
       style={{ width: size, height: size }}
-      className="relative flex items-center justify-center rounded-full border-2 border-borderGlass bg-surface shadow-xs transition-transform duration-200 hover:scale-105"
+      className="relative flex items-center justify-center rounded-full border-2 border-borderGlass bg-surface shadow-2xs transition-transform duration-200 hover:scale-105"
     >
       <svg
         viewBox="0 0 48 48"

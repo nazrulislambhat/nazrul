@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Wrench, Mail, RotateCcw, AlertTriangle } from 'lucide-react';
+import { RotateCcw, AlertTriangle } from 'lucide-react';
 
 const secretNotes = [
   '💥 Component shattered! Let’s build something unbreakable together.',
@@ -129,7 +128,7 @@ export default function HammerManager({
           })`,
           transformOrigin: 'bottom left',
         }}
-        className="pointer-events-none fixed top-0 left-0 z-[100] transition-transform duration-100 ease-out select-none"
+        className="pointer-events-none fixed top-0 left-0 z-100 transition-transform duration-100 ease-out select-none"
       >
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
           {/* Wood Handle */}
@@ -157,7 +156,7 @@ export default function HammerManager({
       {/* Floating HUD Controller */}
       <div
         id="hammer-hud"
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-[90] flex items-center gap-4 px-5 py-2.5 rounded-full liquid-glass border-2 border-red shadow-2xl font-mono text-xs text-textMain animate-bounce"
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-90 flex items-center gap-4 px-5 py-2.5 rounded-full liquid-glass border-2 border-red shadow-2xl font-mono text-xs text-textMain animate-bounce"
       >
         <div className="flex items-center gap-2 text-red font-bold uppercase">
           <AlertTriangle className="w-4 h-4" />
