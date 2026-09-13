@@ -5,24 +5,40 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Clock } from 'lucide-react';
 
 interface CityConfig {
-  code: 'BLR' | 'SXR';
+  code: 'BLR' | 'SXR' | 'SYD';
   name: string;
   tag: string;
   coords: string;
+  timezone: string;
+  tzLabel: string;
+  future?: boolean;
 }
 
 const CITIES: CityConfig[] = [
   {
     code: 'BLR',
     name: 'Bengaluru',
-    tag: 'Tech Hub',
+    tag: 'Tech',
     coords: '12.9716° N, 77.5946° E',
+    timezone: 'Asia/Kolkata',
+    tzLabel: 'IST',
   },
   {
     code: 'SXR',
     name: 'Srinagar',
-    tag: 'Home Base',
+    tag: 'Home',
     coords: '34.0837° N, 74.7973° E',
+    timezone: 'Asia/Kolkata',
+    tzLabel: 'IST',
+  },
+  {
+    code: 'SYD',
+    name: 'Sydney',
+    tag: 'Future',
+    coords: '33.8688° S, 151.2093° E',
+    timezone: 'Australia/Sydney',
+    tzLabel: 'AEST',
+    future: true,
   },
 ];
 
@@ -37,7 +53,7 @@ export default function CityTelemetry() {
     const updateTime = () => {
       const now = new Date();
       const timeFormatter = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Asia/Kolkata',
+        timeZone: activeCity.timezone,
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
@@ -47,20 +63,20 @@ export default function CityTelemetry() {
 
       const hour = parseInt(
         new Intl.DateTimeFormat('en-GB', {
-          timeZone: 'Asia/Kolkata',
+          timeZone: activeCity.timezone,
           hour: '2-digit',
           hour12: false,
         }).format(now),
         10,
       );
-      // Working sprint window: 09:30 to 19:00 IST
+      // Working sprint window: 09:30 to 19:00 local
       setIsWorkingHours(hour >= 9 && hour < 19);
     };
 
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [activeCity.timezone]);
 
   const toggleCity = () => {
     setCityIndex((prev) => (prev + 1) % CITIES.length);
@@ -111,13 +127,15 @@ export default function CityTelemetry() {
 
       <span className="text-textMain">|</span>
 
-      {/* Real-time IST Clock */}
+      {/* Real-time Local Clock */}
       <div className="flex items-center gap-1.5 text-textMuted font-normal">
         <Clock className="w-3 h-3 text-signal" />
         <span className="text-textMain font-medium">
           {timeStr || '--:--:--'}
         </span>
-        <span className="text-[10px] text-textMuted/80">IST</span>
+        <span className="text-[10px] text-textMuted/80">
+          {activeCity.tzLabel}
+        </span>
       </div>
     </div>
   );
