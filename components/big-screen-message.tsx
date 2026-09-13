@@ -51,7 +51,7 @@ export default function BigScreenMessage() {
 
       <button
         onClick={() => setDismissed(true)}
-        className="p-1 -mr-1 rounded-lg text-textMuted hover:text-textMain hover:bg-surface transition-colors"
+        className="p-1 -mr-1 rounded-lg  text-textMuted hover:text-red hover:bg-surface transition-colors cursor-pointer"
         aria-label="Dismiss banner"
       >
         <X className="w-3.5 h-3.5" />
