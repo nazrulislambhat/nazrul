@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowUpRight, Github, Globe, Layers, Terminal } from 'lucide-react';
 import TiltCard from './ui/3d-tilt-card';
 interface Project {

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import {
   Send,
   CheckCircle2,
@@ -125,7 +125,7 @@ export default function Contact() {
                       required
                       type="text"
                       placeholder="Jane Doe"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-none focus:border-signal-dim transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-signal-dim transition-colors"
                     />
                   </div>
                   <div>
@@ -137,7 +137,7 @@ export default function Contact() {
                       required
                       type="email"
                       placeholder="jane@company.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-none focus:border-signal-dim transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-signal-dim transition-colors"
                     />
                   </div>
                   <div>
@@ -149,14 +149,14 @@ export default function Contact() {
                       required
                       rows={4}
                       placeholder="Let's discuss frontend architecture, open source, or an engineering role..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-none focus:border-signal-dim transition-colors resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-signal-dim transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs disabled:opacity-50 cursor-pointer"
+                    className="w-full py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-2xs disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? (
                       <span>Transmitting...</span>
