@@ -40,8 +40,8 @@ export default function Footer() {
             {/* Availability Pill */}
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-signal-dim/30 bg-surface/80 font-mono text-xs text-signal shrink-0">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red opacity-80" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red shadow-[0_0_8px_#CCF380]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-signal shadow-[0_0_8px_#00F58C]" />
               </span>
               <span className="font-semibold text-textMain">
                 Open to New Contracts &amp; Roles
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
 
           {/* Middle Row: Navigation Columns & Social Outlets */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 font-mono text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 font-mono text-xs">
             {/* Quick Sections */}
             <div className="space-y-2.5">
               <span className="text-[11px] font-bold text-textMuted uppercase tracking-wider">
@@ -120,11 +120,6 @@ export default function Footer() {
                     <Mail className="w-3.5 h-3.5 text-signal" />
                     <span>nazrulislambhat@gmail.com</span>
                   </a>
-                </li>
-                <li>
-                  <span className="text-textMuted/70">
-                    Bengaluru / Srinagar, IN
-                  </span>
                 </li>
               </ul>
             </div>
