@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Clock } from 'lucide-react';
 
 interface CityConfig {
-  code: 'BLR' | 'SXR' | 'SYD';
+  code: 'BLR' | 'SXR' | 'AKL';
   name: string;
   tag: string;
   coords: string;
@@ -32,12 +32,12 @@ const CITIES: CityConfig[] = [
     tzLabel: 'IST',
   },
   {
-    code: 'SYD',
-    name: 'Sydney',
+    code: 'AKL',
+    name: 'Auckland',
     tag: 'Future',
-    coords: '33.8688° S, 151.2093° E',
-    timezone: 'Australia/Sydney',
-    tzLabel: 'AEST',
+    coords: '36.8485° S, 174.7633° E',
+    timezone: 'Pacific/Auckland',
+    tzLabel: 'NZST',
     future: true,
   },
 ];

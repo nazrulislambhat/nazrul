@@ -1,12 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Sun, Moon, Sliders, X, Hammer, Palette } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import {
+  Sun,
+  Moon,
+  Sliders,
+  X,
+  Hammer,
+  Palette,
+  Activity,
+  Cpu,
+  Wifi,
+  Globe,
+  Battery,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useThemeGlass } from '../context/theme-glass-context';
 import MatterShatter from './matter-shatter';
 
-// Define your 5 primary theme colors matching your CSS variables/tailwind config
 const ACCENT_COLORS = [
   { name: 'Signal Green', value: 'signal', bgClass: 'bg-signal' },
   { name: 'Crimson Red', value: 'red', bgClass: 'bg-red-500' },
@@ -20,14 +31,70 @@ export default function GlassControls() {
     useThemeGlass();
   const [open, setOpen] = useState(false);
   const [gravityActive, setGravityActive] = useState(false);
-
-  // State for active primary accent color (defaults to 'signal')
   const [activeColor, setActiveColor] = useState('signal');
 
-  // Function to update the accent color site-wide (updates root CSS variable or data attribute)
+  // Telemetry States
+  const [fps, setFps] = useState(60);
+  const [battery, setBattery] = useState<{
+    level: number;
+    charging: boolean;
+  } | null>(null);
+  const [isOnline, setIsOnline] = useState(true);
+  const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    // 1. Mouse coordinates
+    const handleMouseMove = (e: MouseEvent) => {
+      setCoordinates({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // 2. Network Status
+    setIsOnline(navigator.onLine);
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    // 3. Battery API
+    if ('getBattery' in navigator) {
+      (navigator as any).getBattery().then((bat: any) => {
+        const updateBattery = () => {
+          setBattery({
+            level: Math.round(bat.level * 100),
+            charging: bat.charging,
+          });
+        };
+        updateBattery();
+        bat.addEventListener('levelchange', updateBattery);
+        bat.addEventListener('chargingchange', updateBattery);
+      });
+    }
+
+    // 4. FPS counter
+    let frameCount = 0;
+    let lastTime = performance.now();
+    const calcFps = (time: number) => {
+      frameCount++;
+      if (time - lastTime >= 1000) {
+        setFps(frameCount);
+        frameCount = 0;
+        lastTime = time;
+      }
+      requestAnimationFrame(calcFps);
+    };
+    const animId = requestAnimationFrame(calcFps);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+      cancelAnimationFrame(animId);
+    };
+  }, []);
+
   const handleColorChange = (colorValue: string) => {
     setActiveColor(colorValue);
-    // Example: Update root dataset or custom property so global CSS can catch it
     document.documentElement.setAttribute('data-accent', colorValue);
   };
 
@@ -123,9 +190,61 @@ export default function GlassControls() {
                   min="0"
                   max="100"
                   value={glassIntensity}
-                  onChange={(e) => setGlassIntensity(Number(e.target.value))}
+                  onChange={(e) => {
+                    setGlassIntensity(Number(e.target.value));
+                  }}
                   className="w-full h-1.5 bg-black/10 dark:bg-white/20 rounded-lg appearance-none cursor-pointer accent-signal"
                 />
+              </div>
+
+              {/* Spaceship Telemetry HUD Readout Section */}
+              <div className="flex flex-col gap-2 pt-2 border-t border-borderGlass text-[10px] text-textMuted">
+                <div className="flex items-center justify-between text-signal font-bold uppercase tracking-wider">
+                  <span className="flex items-center gap-1">
+                    <Activity className="w-3 h-3 animate-pulse" /> Telemetry //
+                    ENDURANCE-01
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 gap-2 bg-surface/50 p-2 rounded-lg border border-borderGlass">
+                  <div className="flex items-center gap-1.5">
+                    <Cpu className="w-3 h-3 text-textMuted" />
+                    <span>
+                      FPS: <strong className="text-textMain">{fps}</strong>
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Wifi
+                      className={`w-3 h-3 ${isOnline ? 'text-signal' : 'text-red-500'}`}
+                    />
+                    <span
+                      className={
+                        isOnline ? 'text-textMain' : 'text-red-500 font-bold'
+                      }
+                    >
+                      {isOnline ? 'SYNCED' : 'OFFLINE'}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 col-span-2">
+                    <Globe className="w-3 h-3 text-textMuted" />
+                    <span>
+                      POS:{' '}
+                      <strong className="text-textMain">
+                        [{coordinates.x}, {coordinates.y}]
+                      </strong>
+                    </span>
+                  </div>
+                  {battery && (
+                    <div className="flex items-center gap-1.5 col-span-2">
+                      <Battery className="w-3 h-3 text-textMuted" />
+                      <span>
+                        PWR:{' '}
+                        <strong className="text-textMain">
+                          {battery.level}% {battery.charging ? '⚡' : ''}
+                        </strong>
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Google Gravity Hammer Button */}
@@ -156,7 +275,6 @@ export default function GlassControls() {
         </button>
       </div>
 
-      {/* Matter.js Google Gravity Simulation Mount */}
       <MatterShatter
         isActive={gravityActive}
         onDeactivate={() => setGravityActive(false)}
