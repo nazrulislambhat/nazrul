@@ -84,7 +84,7 @@ export default function Footer() {
                       href={`#${label.toLowerCase()}`}
                       className="group inline-flex items-center gap-2 text-textMuted hover:text-signal transition-colors"
                     >
-                      <Icon className="w-3.5 h-3.5 text-signal/60 group-hover:text-signal group-hover:scale-110 group-hover:-rotate-6 transition-all duration-200" />
+                      <Icon className="w-3.5 h-3.5 text-signal group-hover:text-signal group-hover:scale-110 group-hover:-rotate-6 transition-all duration-200" />
                       <span className="group-hover:underline">{label}</span>
                     </Link>
                   </li>
