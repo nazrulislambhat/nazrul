@@ -1,7 +1,4 @@
 ![Website Deploy](https://deploy-badge.vercel.app/?url=https://nazrulislam.dev/&name=nazrulislam.dev&style=flat-square)
-![Build](https://github.com/{nazrulislambhat}/{nazrul}/actions/workflows/{workflow-file}.yml/badge.svg)
-![License](https://img.shields.io/github/license/{nazrulislambhat}/{nazrul})
-
 # ⚡ Nazrul Islam — Architecture & Systems Portfolio
 
 A high-performance personal platform and architectural showcase built with Next.js App Router, TypeScript, and a custom **Liquid-Glass** design system. Focused on strict Core Web Vitals (CWV) discipline, WCAG 2.1 AA accessibility, and zero-compromise UX.
