@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowDownRight, Terminal, Sparkles } from 'lucide-react';
 import TextReveal from './ui/text-reveal';
 import TiltCard from '@/components/ui/3d-tilt-card';
@@ -17,7 +17,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.1 }}
             whileHover={{ scale: 1.02 }}
-            className="flex items-center gap-2.5 w-fit px-3.5 py-1.5 rounded-full border border-signal-dim/30 bg-surface/80 text-xs font-mono text-signal shadow-xs mb-6 cursor-default"
+            className="flex items-center gap-2.5 w-fit px-3.5 py-1.5 rounded-full border border-signal-dim/30 bg-surface/80 text-xs font-mono text-signal shadow-2xs mb-6 cursor-default"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-75" />
@@ -75,7 +75,7 @@ export default function Hero() {
               >
                 <Link
                   href="#projects"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-2xs cursor-pointer"
                 >
                   <span>View Architecture &amp; Code</span>
                   <ArrowDownRight className="w-4 h-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-200" />

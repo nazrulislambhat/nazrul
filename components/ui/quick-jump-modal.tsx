@@ -24,7 +24,7 @@ export default function QuickJumpModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
       onClick={() => setOpen(false)}
     >
       <div
@@ -49,7 +49,7 @@ export default function QuickJumpModal() {
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between py-2 px-1 text-textMuted hover:text-signal hover:bg-surface/50 rounded transition-colors"
+                className="flex items-center justify-between py-2 px-1 text-textMuted hover:text-signal hover:bg-surface/50 rounded-sm transition-colors"
               >
                 <span>{item.label}</span>
                 <CornerDownLeft className="w-3 h-3 text-textMuted/40" />

@@ -49,7 +49,7 @@ export default function CopyPill({
           <Icon className="w-4 h-4 text-signal shrink-0" />
         </div>
         <span>{value}</span>
-        <span className="p-1 rounded bg-surface border border-borderGlass/60 text-textMuted/60 group-hover:text-signal group-hover:border-signal-dim/40 transition-all ml-1">
+        <span className="p-1 rounded-sm bg-surface border border-borderGlass/60 text-textMuted/60 group-hover:text-signal group-hover:border-signal-dim/40 transition-all ml-1">
           {copied ? (
             <Check className="w-3 h-3 text-volt" />
           ) : (

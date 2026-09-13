@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { Sun, Moon, Sliders, X, Hammer } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+
+import { motion, AnimatePresence } from 'motion/react';
 import { useThemeGlass } from '../context/theme-glass-context';
 import MatterShatter from './matter-shatter';
 

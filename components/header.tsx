@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import CityTelemetry from './ui/city-telemetry';
 import GithubPulse from './ui/github-pulse';
@@ -31,7 +31,7 @@ export default function Header() {
         </div>
 
         {/* Floating Glass Navigation Island */}
-        <div className="flex items-center justify-between py-2.5 px-5 md:px-7 rounded-2xl liquid-glass border border-borderGlass shadow-sm transition-all duration-300">
+        <div className="flex items-center justify-between py-2.5 px-5 md:px-7 rounded-2xl liquid-glass border border-borderGlass shadow-xs transition-all duration-300">
           <Link href="/" className="relative block group">
             <Image
               src={logo}
@@ -59,7 +59,7 @@ export default function Header() {
               href="/resume"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-volt hover:text-black hover:border-volt transition-all shadow-xs text-xs font-semibold"
+              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-volt hover:text-black hover:border-volt transition-all shadow-2xs text-xs font-semibold"
             >
               <span>Resume</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-signal group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

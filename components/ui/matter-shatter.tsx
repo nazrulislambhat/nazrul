@@ -283,7 +283,7 @@ export default function MatterShatter({
           })`,
           transformOrigin: 'bottom left',
         }}
-        className={`hidden md:block pointer-events-none fixed top-0 left-0 z-[110] transition-transform duration-75 ease-out select-none ${
+        className={`hidden md:block pointer-events-none fixed top-0 left-0 z-110 transition-transform duration-75 ease-out select-none ${
           isOverInteractive ? 'opacity-0 scale-75' : 'opacity-100 scale-100'
         }`}
       >
@@ -308,7 +308,7 @@ export default function MatterShatter({
       </div>
 
       {/* Top Floating Action HUD & Single Active Note Card Side-by-Side */}
-      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[105] flex flex-col items-center gap-3 w-full max-w-lg px-4 pointer-events-none">
+      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-105 flex flex-col items-center gap-3 w-full max-w-lg px-4 pointer-events-none">
         {/* The Action HUD */}
         <aside
           id="shatter-hud"
@@ -332,7 +332,7 @@ export default function MatterShatter({
 
           <button
             onClick={shredEverything}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-red/40 bg-red/10 text-red font-bold hover:bg-red hover:text-white transition-all shadow-xs cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-red/40 bg-red/10 text-red font-bold hover:bg-red hover:text-white transition-all shadow-2xs cursor-pointer"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Shred All</span>
@@ -340,7 +340,7 @@ export default function MatterShatter({
 
           <button
             onClick={restoreAll}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-black text-white dark:bg-white dark:text-black font-semibold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-black text-white dark:bg-white dark:text-black font-semibold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-2xs cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Empty &amp; Restore</span>
@@ -376,7 +376,7 @@ export default function MatterShatter({
       <div
         id="shredder-dustbin"
         ref={binRef}
-        className={`fixed bottom-4 right-4 md:bottom-6 md:right-8 z-[95] w-40 sm:w-48 h-36 rounded-3xl liquid-glass border-2 transition-all duration-300 pointer-events-none p-3.5 flex flex-col justify-between items-center text-center ${
+        className={`fixed bottom-4 right-4 md:bottom-6 md:right-8 z-95 w-40 sm:w-48 h-36 rounded-3xl liquid-glass border-2 transition-all duration-300 pointer-events-none p-3.5 flex flex-col justify-between items-center text-center ${
           isIncinerating
             ? 'border-signal scale-105 shadow-[0_0_35px_rgba(5,223,114,0.45)]'
             : 'border-borderGlass shadow-xl'
@@ -395,7 +395,7 @@ export default function MatterShatter({
         {/* Dustbin Vacuum Slot */}
         <div className="relative w-full h-14 rounded-2xl border border-borderGlass bg-surface/80 flex items-center justify-center overflow-hidden">
           <div
-            className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-signal to-transparent ${
+            className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r from-transparent via-signal to-transparent ${
               isIncinerating ? 'opacity-100 animate-pulse' : 'opacity-30'
             }`}
           />
