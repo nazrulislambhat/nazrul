@@ -186,15 +186,19 @@
 /* Print optimization for PDF export */
 @media print {
   @page {
-    margin: 12mm 14mm;
     size: A4 portrait;
+    margin: 7mm 10mm; /* Balanced margins to comfortably fill ~90% of 1 single page */
   }
 
+  html,
   body {
     background: #ffffff !important;
-    color: #000000 !important;
+    color: #0d1821 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
+  /* Completely suppress global floating widgets, headers, footers, and CWV stats pills */
   header,
   footer,
   #glass-controls-island,
@@ -203,20 +207,23 @@
     display: none !important;
   }
 
+  /* Force clean white light mode canvas */
   .liquid-glass,
   .liquid-glass-subtle {
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     box-shadow: none !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 8px !important;
-    padding: 1rem !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  .print-page-break {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  /* Prevent page splitting mid-section */
+  * {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 }
 
