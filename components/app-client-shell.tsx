@@ -20,8 +20,6 @@ export default function AppClientShell({
       <QuickJumpModal />
       <ConsoleGreeting />
       <BigScreenMessage />
-      <CwvBadge />
-      <CalFloatingWidget />
     </ThemeGlassProvider>
   );
 }

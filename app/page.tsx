@@ -8,6 +8,8 @@ import Skills from '../components/skills';
 import Contact from '../components/contact';
 import Footer from '../components/footer';
 import Books from '@/components/ui/books';
+import CwvBadge from '@/components/ui/cwv-badge';
+import CalFloatingWidget from '@/components/ui/cal-floating-widget';
 
 export default function Home() {
   return (
@@ -21,6 +23,8 @@ export default function Home() {
       <Books />
       <Contact />
       <Footer />
+      <CwvBadge />
+      <CalFloatingWidget />
     </main>
   );
 }
