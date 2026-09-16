@@ -121,7 +121,7 @@ export default function GithubPulse() {
         className="group inline-flex items-center gap-1 font-semibold text-textMain hover:text-signal hover:underline transition-colors cursor-pointer"
       >
         <span>{activity.repo}</span>
-        <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        <ArrowUpRight className="w-3 h-3 text-volt group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
       </a>
 
       <span className="text-[9.5px] text-textMuted/70">
