@@ -19,9 +19,9 @@
 
   /* Direct CSS variable mappings for Tailwind v4 */
   --color-background: var(--color-bg, #f5f4fc);
-  --color-surface: var(--color-surface, rgba(245, 248, 253, 0.45));
-  --color-textMain: var(--color-text, #0d1821);
-  --color-textMuted: var(--color-text-muted, rgba(13, 24, 33, 0.65));
+  --color-surface: var(--color-surface, rgba(245, 248, 253, 0.65));
+  --color-textMain: var(--color-text, #050b10);
+  --color-textMuted: var(--color-text-muted, rgba(5, 11, 16, 0.8));
   --color-borderGlass: var(--color-border, rgba(255, 255, 255, 0.95));
 
   --color-coolWhite: #f5f8fd;
@@ -45,43 +45,43 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: var(--color-gray-300, currentcolor);
   }
 }
 
 @layer base {
   :root {
-    --color-bg: #f5f4fc;
-    --color-surface: rgba(245, 248, 253, 0.45);
-    --color-text: #0d1821;
-    --color-text-muted: rgba(13, 24, 33, 0.65);
+    --color-bg: #f2f1f8;
+    --color-surface: rgba(255, 255, 255, 0.75);
+    --color-text: #050b10;
+    --color-text-muted: rgba(5, 11, 16, 0.78);
     --color-border: rgba(255, 255, 255, 0.95);
-    --three-particle: #0d1821;
+    --three-particle: #050b10;
     --glass-blur: 16px;
-    --glass-opacity: 0.45;
-    --glass-specular: 0.9;
+    --glass-opacity: 0.65;
+    --glass-specular: 1;
 
     /* Default Accent (Signal Green) */
-    --accent-signal: #05df72;
-    --accent-signal-dim: #10b981;
+    --accent-signal: #00cc60;
+    --accent-signal-dim: #059669;
   }
 
   .dark {
-    --color-bg: #090e13;
-    --color-surface: rgba(13, 24, 33, 0.55);
-    --color-text: #f5f8fd;
-    --color-text-muted: rgba(245, 248, 253, 0.65);
-    --color-border: rgba(255, 255, 255, 0.15);
+    --color-bg: #06090d;
+    --color-surface: rgba(13, 20, 28, 0.75);
+    --color-text: #ffffff;
+    --color-text-muted: rgba(255, 255, 255, 0.82);
+    --color-border: rgba(255, 255, 255, 0.22);
     --three-particle: #818cf8;
     --glass-blur: 18px;
-    --glass-opacity: 0.35;
-    --glass-specular: 0.25;
+    --glass-opacity: 0.55;
+    --glass-specular: 0.4;
   }
 
   /* Dynamic Accent Theme Maps */
   [data-accent='signal'] {
-    --accent-signal: #05df72;
-    --accent-signal-dim: #10b981;
+    --accent-signal: #00cc60;
+    --accent-signal-dim: #059669;
   }
   [data-accent='red'] {
     --accent-signal: #ef4444;
@@ -122,24 +122,24 @@
 
   ::selection {
     background-color: var(--accent-signal);
-    color: #0d1821;
+    color: #06090d;
   }
 }
 
 /* Liquid Glass Surface Effect */
 .liquid-glass {
   background: var(--color-surface);
-  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   border: 2px solid var(--color-border);
   box-shadow:
-    0 10px 30px -10px rgba(0, 0, 0, 0.05),
-    inset 0 1px 1px 0 rgba(255, 255, 255, var(--glass-specular));
+    0 12px 35px -10px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px 0 rgba(255, 255, 255, var(--glass-specular));
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .liquid-glass-subtle {
   background: var(--color-surface);
-  backdrop-filter: blur(calc(var(--glass-blur) * 0.6)) saturate(140%);
+  backdrop-filter: blur(calc(var(--glass-blur) * 0.6)) saturate(160%);
   border: 2px solid var(--color-border);
 }
 
@@ -154,7 +154,7 @@
   position: absolute;
   bottom: -2px;
   left: 0;
-  height: 1.5px;
+  height: 2px;
   width: 100%;
   border-radius: 1px;
   background-color: currentColor;
@@ -176,29 +176,28 @@
   background: var(--color-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(120, 120, 140, 0.3);
+  background: rgba(120, 120, 140, 0.5);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(120, 120, 140, 0.5);
+  background: rgba(120, 120, 140, 0.8);
 }
 
 /* Print optimization for PDF export */
 @media print {
   @page {
     size: A4 portrait;
-    margin: 7mm 10mm; /* Balanced margins to comfortably fill ~90% of 1 single page */
+    margin: 7mm 10mm;
   }
 
   html,
   body {
     background: #ffffff !important;
-    color: #0d1821 !important;
+    color: #000000 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  /* Completely suppress global floating widgets, headers, footers, and CWV stats pills */
   header,
   footer,
   #glass-controls-island,
@@ -207,7 +206,6 @@
     display: none !important;
   }
 
-  /* Force clean white light mode canvas */
   .liquid-glass,
   .liquid-glass-subtle {
     background: transparent !important;
@@ -220,7 +218,6 @@
     margin: 0 !important;
   }
 
-  /* Prevent page splitting mid-section */
   * {
     break-inside: avoid !important;
     page-break-inside: avoid !important;

@@ -165,7 +165,7 @@ export default function GlassControls() {
                         key={color.value}
                         onClick={() => handleColorChange(color.value)}
                         title={color.name}
-                        className={`h-6 flex-1 rounded-md ${color.bgClass} transition-all duration-200 ${
+                        className={`h-6 flex-1 cursor-pointer rounded-md ${color.bgClass} transition-all duration-200 ${
                           isSelected
                             ? 'ring-2 ring-offset-2 ring-offset-surface ring-white scale-105 shadow-md'
                             : 'opacity-60 hover:opacity-100 hover:scale-105'
@@ -257,7 +257,7 @@ export default function GlassControls() {
                   className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-red/40 bg-red/10 text-red w-full justify-center hover:bg-red hover:text-white transition-all font-semibold"
                 >
                   <Hammer className="w-3 h-3 group-hover:rotate-12 transition-transform" />
-                  <span>Equip Hammer</span>
+                  <span className="cursor-pointer">Equip Hammer</span>
                 </button>
               </div>
             </motion.div>
@@ -271,7 +271,7 @@ export default function GlassControls() {
           aria-label="Settings"
         >
           <Sliders className="w-4 h-4 text-textMain" />
-          <span className="hidden sm:inline">Settings</span>
+          <span className="hidden sm:inline cursor-pointer">Settings</span>
         </button>
       </div>
 
