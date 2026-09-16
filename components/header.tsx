@@ -59,7 +59,7 @@ export default function Header() {
               href="/resume"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-volt hover:text-black hover:border-volt transition-all shadow-2xs text-xs font-semibold"
+              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-green hover:text-black hover:border-green transition-all shadow-2xs text-xs font-semibold"
             >
               <span>Resume</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-signal group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
