@@ -31,7 +31,6 @@ export default function GlassControls() {
     useThemeGlass();
   const [open, setOpen] = useState(false);
   const [gravityActive, setGravityActive] = useState(false);
-  const [activeColor, setActiveColor] = useState('signal');
 
   // Telemetry States
   const [fps, setFps] = useState(60);
@@ -93,11 +92,6 @@ export default function GlassControls() {
     };
   }, []);
 
-  const handleColorChange = (colorValue: string) => {
-    setActiveColor(colorValue);
-    document.documentElement.setAttribute('data-accent', colorValue);
-  };
-
   return (
     <>
       <div
@@ -148,34 +142,6 @@ export default function GlassControls() {
               </div>
 
               {/* Primary Color Selectors */}
-              <div className="flex flex-col gap-2 pt-1 border-t border-borderGlass">
-                <div className="flex items-center justify-between text-textMuted">
-                  <span className="flex items-center gap-1.5">
-                    <Palette className="w-3.5 h-3.5" /> Accent Theme
-                  </span>
-                  <span className="text-textMain capitalize font-semibold">
-                    {activeColor}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between gap-1.5 pt-1">
-                  {ACCENT_COLORS.map((color) => {
-                    const isSelected = activeColor === color.value;
-                    return (
-                      <button
-                        key={color.value}
-                        onClick={() => handleColorChange(color.value)}
-                        title={color.name}
-                        className={`h-6 flex-1 cursor-pointer rounded-md ${color.bgClass} transition-all duration-200 ${
-                          isSelected
-                            ? 'ring-2 ring-offset-2 ring-offset-surface ring-white scale-105 shadow-md'
-                            : 'opacity-60 hover:opacity-100 hover:scale-105'
-                        }`}
-                        aria-label={color.name}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
 
               {/* Slider */}
               <div className="flex flex-col gap-2 pt-1 border-t border-borderGlass">
