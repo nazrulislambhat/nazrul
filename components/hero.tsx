@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden pt-40 md:pt-36 pb-12 md:pb-16">
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
-        <TiltCard className="relative p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass flex flex-col justify-between transition-all duration-300">
+        <div className="relative p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass flex flex-col justify-between transition-all duration-300">
           {/* Availability Status Badge with Micro Pulse */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -68,10 +68,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 pt-6 border-t-2 border-borderGlass"
           >
             <div className="flex flex-wrap items-center gap-3.5">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
+              <motion.div whileTap={{ scale: 0.98 }}>
                 <Link
                   href="#projects"
                   className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-2xs cursor-pointer"
@@ -81,12 +78,9 @@ export default function Hero() {
                 </Link>
               </motion.div>
 
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
+              <motion.div whileTap={{ scale: 0.98 }}>
                 <Link
-                  href="#experience"
+                  href="#contact"
                   className="group flex items-center gap-2 px-5 py-2.5 rounded-xl border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-signal-dim hover:text-signal transition-all cursor-pointer"
                 >
                   <Terminal className="w-4 h-4 text-signal group-hover:rotate-12 transition-transform duration-200" />
@@ -95,17 +89,14 @@ export default function Hero() {
               </motion.div>
             </div>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-center gap-2 font-mono text-xs text-textMuted cursor-default"
-            >
+            <motion.div className="flex items-center gap-2 font-mono text-xs text-textMuted cursor-default">
               <Sparkles className="w-4 h-4 text-signal shrink-0 animate-spin-slow" />
               <span className="font-medium text-textMain">
                 Accessibility &amp; CWV Focused
               </span>
             </motion.div>
           </motion.div>
-        </TiltCard>
+        </div>
       </div>
     </section>
   );
