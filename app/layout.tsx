@@ -10,6 +10,7 @@ import {
 import './globals.css';
 import AppClientShell from '@/components/app-client-shell';
 import ParticleBackground from '@/components/ui/particle-background';
+
 const nunito = Nunito({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -38,15 +39,70 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: 'Nazrul Islam - Full Stack Engineer | Senior Software Developer',
+  metadataBase: new URL('https://nazrulislam.dev'),
+  title: {
+    default: 'Nazrul Islam — Senior Frontend Engineer & Interface Architect',
+    template: '%s | Nazrul Islam',
+  },
   description:
-    'Software Engineer specializing in frontend architecture, React, Next.js, and TypeScript.',
+    'Senior Frontend Engineer specializing in React.js, Next.js, TypeScript, and high-performance UI engineering with AI-augmented workflows.',
+  keywords: [
+    'Nazrul Islam',
+    'Frontend Engineer',
+    'React Developer',
+    'Next.js Expert',
+    'TypeScript',
+    'UI/UX Engineering',
+    'Bengaluru',
+    'Web Performance',
+  ],
+  authors: [{ name: 'Nazrul Islam', url: 'https://nazrulislam.dev' }],
+  creator: 'Nazrul Islam',
+  publisher: 'Nazrul Islam',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://nazrulislam.dev',
+    title: 'Nazrul Islam — Senior Frontend Engineer',
+    description:
+      'Building resilient, high-speed web platforms with React, Next.js, and modern interface architecture.',
+    siteName: 'Nazrul Islam Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nazrul Islam — Senior Frontend Engineer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nazrul Islam — Senior Frontend Engineer',
+    description:
+      'Senior Frontend Engineer specializing in React.js, Next.js, and high-performance web applications.',
+    creator: '@nazrulislambhat',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  manifest: '/manifest.json',
 };
 
 export const viewport: Viewport = {
   themeColor: '#3139fb',
+  width: 'device-width',
+  initialScale: 1,
 };
-<meta name="theme-color" content="#3139fb" />;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
