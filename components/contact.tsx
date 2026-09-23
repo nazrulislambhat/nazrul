@@ -124,7 +124,7 @@ export default function Contact() {
                       name="name"
                       required
                       type="text"
-                      placeholder="Jane Doe"
+                      placeholder="Nazrul Islam"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-signal-dim transition-colors"
                     />
                   </div>
@@ -136,7 +136,7 @@ export default function Contact() {
                       name="email"
                       required
                       type="email"
-                      placeholder="jane@company.com"
+                      placeholder="nazrul@nazrulislam.dev"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-signal-dim transition-colors"
                     />
                   </div>
