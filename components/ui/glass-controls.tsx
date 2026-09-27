@@ -125,7 +125,7 @@ export default function GlassControls() {
                 <span className="text-textMuted">Mode</span>
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:border-signal-dim hover:text-signal transition-all"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain cursor-pointer hover:border-signal-dim hover:text-signal transition-all"
                 >
                   {isDark ? (
                     <>
