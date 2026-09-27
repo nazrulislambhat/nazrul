@@ -11,7 +11,7 @@
   --color-third: #3d155f;
   --color-red: #f43c00;
   --color-green: #22e58b;
-  --color-volt: #ccf380;
+  --color-volt: #22e58b;
 
   --color-signal: var(--accent-signal, #05df72);
   --color-signal-dim: var(--accent-signal-dim, #10b981);
