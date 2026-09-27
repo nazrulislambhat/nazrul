@@ -54,7 +54,10 @@ export default function Footer() {
                 <span>Architecture &amp; Interface Engineering</span>
               </div>
               <h2 className="text-xl md:text-2xl font-bold tracking-tight text-textMain">
-                Let’s build resilient, high-speed web platforms.
+                Let’s build{' '}
+                <span className="text-signal">
+                  resilient, high-speed web platforms.
+                </span>
               </h2>
             </div>
 
@@ -65,7 +68,7 @@ export default function Footer() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-signal" />
               </span>
               <span className="font-semibold text-textMain">
-                Open to New Contracts &amp; Roles
+                Available for new opportunities.
               </span>
             </div>
           </div>
