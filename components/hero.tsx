@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 import { ArrowDownRight, Terminal, Sparkles, Zap } from 'lucide-react';
 import TextReveal from './ui/text-reveal';
+import { TechInline } from '@/components/TechInline';
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden pt-40 md:pt-36 pb-12 md:pb-16 selection:bg-primary selection:text-black">
+    <section className="relative w-full overflow-hidden pt-40 md:pt-36 pb-12 md:pb-16 selection:bg-primary selection:text-secondary">
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="relative p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass flex flex-col justify-between transition-all duration-300 shadow-2xl">
           {/* Availability Status Badge with Micro Pulse */}
@@ -37,7 +38,7 @@ export default function Hero() {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="text-xs md:text-sm font-mono uppercase tracking-widest text-textMuted mb-3 flex items-center gap-2"
             >
-              <Zap className="w-3.5 h-3.5 text-green animate-pulse" />
+              <Zap className="w-3.5 h-3.5 text-primary animate-pulse" />
               <span>Senior Software Engineer • Frontend Specialist</span>
             </motion.div>
 
@@ -49,11 +50,11 @@ export default function Hero() {
               delay={0.2}
             >
               Crafting{' '}
-              <span className="text-green font-extrabold">
+              <span className="text-primary font-extrabold">
                 resilient systems
               </span>
               ,{' '}
-              <span className="text-green font-extrabold">fast web apps</span>
+              <span className="text-primary font-extrabold">fast web apps</span>
               , and clean UI.
             </TextReveal>
 
@@ -66,22 +67,13 @@ export default function Hero() {
                 delay: 0.3,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="text-base text-textMuted max-w-4xl leading-relaxed mb-8 font-normal"
+              className="text-base text-textMuted max-w-4xl leading-[2.1] mb-8 font-normal"
             >
-              Specializing in{' '}
-              <strong className="text-textMain font-semibold underline decoration-signal underline-offset-4">
-                React.js
-              </strong>
-              ,{' '}
-              <strong className="text-textMain font-semibold underline decoration-signal underline-offset-4">
-                Next.js
-              </strong>
-              , and{' '}
-              <strong className="text-textMain font-semibold underline decoration-signal underline-offset-4">
-                TypeScript
-              </strong>{' '}
-              architectures. Obsessed with web performance, zero-jank
-              micro-animations, and AI-augmented developer tooling.
+              Specializing in <TechInline tech="react" delay={0.6} />,{' '}
+              <TechInline tech="next" delay={0.75} />, and{' '}
+              <TechInline tech="ts" delay={0.9} /> architectures. Obsessed with
+              web performance, zero-jank micro-animations, and AI-augmented
+              developer tooling.
             </motion.p>
           </div>
 
@@ -99,7 +91,7 @@ export default function Hero() {
               >
                 <Link
                   href="#projects"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-md cursor-pointer"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-md bg-black text-white hover:bg-primary hover:text-secondary dark:bg-white dark:text-black font-mono text-xs font-bold  dark:hover:bg-primary dark:hover:text-black transition-all shadow-md cursor-pointer"
                 >
                   <span>View Architecture &amp; Code</span>
                   <ArrowDownRight className="w-4 h-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-200" />
@@ -112,9 +104,9 @@ export default function Hero() {
               >
                 <Link
                   href="#contact"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-xl border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-signal hover:text-green transition-all cursor-pointer shadow-sm"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-md border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-signal hover:text-primary transition-all cursor-pointer shadow-sm"
                 >
-                  <Terminal className="w-4 h-4 text-green group-hover:rotate-12 transition-transform duration-200" />
+                  <Terminal className="w-4 h-4 text-primary group-hover:rotate-12 transition-transform duration-200" />
                   <span>Explore Experience</span>
                 </Link>
               </motion.div>
@@ -126,7 +118,7 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="flex items-center gap-2 font-mono text-xs text-textMuted cursor-default"
             >
-              <Sparkles className="w-4 h-4 text-green shrink-0 animate-spin-slow" />
+              <Sparkles className="w-4 h-4 text-primary shrink-0 animate-spin-slow" />
               <span className="font-medium text-textMain">
                 Accessibility &amp; CWV Focused
               </span>

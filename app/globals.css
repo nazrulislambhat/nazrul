@@ -6,16 +6,10 @@
 
 @theme {
   --color-primary: #3139fb;
-  --color-primaryLight: #4831d3;
   --color-secondary: #ccf380;
-  --color-third: #3d155f;
   --color-red: #f43c00;
-  --color-green: #22e58b;
-  --color-volt: #22e58b;
 
-  --color-signal: var(--accent-signal, #05df72);
-  --color-signal-dim: var(--accent-signal-dim, #10b981);
-  --color-signal-deep: #047857;
+  --color-signal: var(--accent-signal, #3139fb);
 
   /* Direct CSS variable mappings for Tailwind v4 */
   --color-background: var(--color-bg, #f5f4fc);
@@ -61,8 +55,8 @@
     --glass-specular: 0.9;
 
     /* Default Accent (Signal Green) */
-    --accent-signal: #05df72;
-    --accent-signal-dim: #10b981;
+    --accent-signal: #3139fb;
+    --accent-signal-dim: #3139fb;
   }
 
   .dark {

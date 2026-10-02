@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'motion/react';
 import { Cpu, Zap, Layout, Terminal } from 'lucide-react';
+import { TechInline } from '@/components/TechInline';
 
 const pillars = [
   {
@@ -26,7 +26,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12"
+      className="relative selection:text-secondary selection:bg-primary w-full overflow-hidden bg-background text-textMain py-8 md:py-12"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
@@ -37,23 +37,23 @@ export default function About() {
           </div>
 
           {/* Section Narrative */}
+
           <div className="max-w-4xl">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-6 leading-tight">
               Bridging robust engineering with uncompromising interface design.
             </h2>
 
-            <div className="space-y-4 text-base md:text-lg text-textMuted leading-relaxed">
+            <div className="space-y-4 text-base md:text-lg text-textMuted leading-[2]">
               <p>
                 I am a senior frontend engineer and architect with over half a
                 decade of experience building production web applications. My
-                work centers on the modern{' '}
-                <strong className="text-textMain font-semibold">
-                  TypeScript, React, and Next.js
-                </strong>{' '}
-                ecosystems, delivering interfaces that remain maintainable as
-                teams and products scale.
+                work centers on the modern <TechInline tech="ts" inView /> ,{' '}
+                <TechInline tech="react" inView delay={0.15} />, and{' '}
+                <TechInline tech="next" inView delay={0.3} /> ecosystems,
+                delivering interfaces that remain maintainable as teams and
+                products scale.
               </p>
-              <p>
+              <p className="leading-relaxed">
                 I value predictable architecture over framework churn: clean
                 state modeling, accessible component libraries, and build
                 tooling tuned for fast feedback loops.

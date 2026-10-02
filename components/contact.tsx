@@ -45,7 +45,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-primary selection:text-secondary"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
@@ -156,7 +156,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-2xs disabled:opacity-50 cursor-pointer"
+                    className="w-full py-3 rounded-l bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:bg-primary hover:text-secondary dark:hover:bg-primary dark:hover:text-black transition-all shadow-2xs disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? (
                       <span>Transmitting...</span>

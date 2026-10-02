@@ -29,7 +29,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Currently Reading',
     coreIdea:
       'Practical interpersonal skills, empathy, and emotional intelligence synthesized with classical Islamic wisdom.',
-    statusColor: '#00F58C',
+    statusColor: '#3139fb',
     width: 44,
     height: 254,
     tiltDeg: -2.2,
@@ -56,7 +56,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Almost Done',
     coreIdea:
       'Chronicles of perseverance, moral convictions, leadership under pressure, and enduring faith.',
-    statusColor: '#38bdf8',
+    statusColor: '#ccf380',
     width: 42,
     height: 246,
     tiltDeg: 1.8,
@@ -81,7 +81,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Almost Done',
     coreIdea:
       'When you want something, all the universe conspires in helping you to achieve it.',
-    statusColor: '#38bdf8',
+    statusColor: '#ccf380',
     width: 32,
     height: 220,
     tiltDeg: -1.5,
@@ -106,7 +106,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Almost Done',
     coreIdea:
       'A counterintuitive approach to living a good life: choose what struggles and values are genuinely worth your finite attention.',
-    statusColor: '#38bdf8',
+    statusColor: '#ccf380',
     width: 36,
     height: 232,
     tiltDeg: 2.5,
@@ -131,7 +131,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Almost Done',
     coreIdea:
       'Rules for focused success in a distracted world: deep, uninterrupted flow produces disproportionate leverage.',
-    statusColor: '#38bdf8',
+    statusColor: '#ccf380',
     width: 38,
     height: 236,
     tiltDeg: -0.8,
@@ -156,7 +156,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Almost Done',
     coreIdea:
       'Doing well with money has a little to do with how smart you are and a lot to do with how you behave.',
-    statusColor: '#38bdf8',
+    statusColor: '#ccf380',
     width: 40,
     height: 240,
     tiltDeg: 3.2,
@@ -183,7 +183,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Almost Done',
     coreIdea:
       'You do not rise to the level of your goals, you fall to the level of your systems. 1% compounding daily.',
-    statusColor: '#38bdf8',
+    statusColor: '#ccf380',
     width: 42,
     height: 246,
     tiltDeg: -2.8,
@@ -212,7 +212,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Partially Read',
     coreIdea:
       'Care about your craft. Software development is continuous refactoring, proactive testing, and eliminating entropy.',
-    statusColor: '#64748b',
+    statusColor: '#f43c00',
     width: 36,
     height: 234,
     tiltDeg: 1.4,
@@ -237,7 +237,7 @@ const READING_LIST: BookItem[] = [
     statusLabel: 'Partially Read',
     coreIdea:
       'Foundational algorithmic problem solving, time-space complexity tradeoffs, and edge-case dissection.',
-    statusColor: '#64748b',
+    statusColor: '#f43c00',
     width: 56,
     height: 262,
     tiltDeg: -3.0,
@@ -325,7 +325,7 @@ export default function Books() {
   return (
     <section
       id="reading"
-      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-primary selection:text-secondary"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="rounded-3xl liquid-glass border border-borderGlass p-6 sm:p-8 md:p-12 xl:p-14 space-y-10">
@@ -344,15 +344,16 @@ export default function Books() {
             <div className="flex flex-wrap items-center gap-3 self-start sm:self-auto">
               <div className="hidden sm:flex items-center gap-3 font-mono text-[10px] text-textMuted border border-borderGlass px-3 py-1.5 rounded-xl bg-surface/50">
                 <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-signal shadow-[0_0_6px_#00F58C]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-signal shadow-[0_0_6px_#3139fb]" />
                   Reading
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400 shadow-[0_0_6px_#38bdf8]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#ccf380]" />
                   Almost Done
                 </span>
+                
                 <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-red shadow-[0_0_6px_#f43c00]" />
                   Partial
                 </span>
               </div>

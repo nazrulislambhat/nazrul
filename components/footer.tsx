@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
   Github,
   Linkedin,
+  Instagram,
   Mail,
   Terminal,
   User,
@@ -26,24 +27,12 @@ const indexLinks = [
   { label: 'Contact', icon: Send },
 ];
 /* Inline official X glyph */
-function XIcon({ className = 'w-4 h-4' }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-transparent pt-4 pb-20 md:pb-24 text-textMain selection:bg-volt selection:text-black">
+    <footer className="w-full bg-transparent pt-4 pb-20 md:pb-24 text-textMain selection:bg-primary selection:text-secondary">
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass flex flex-col">
           {/* Top Row: Brand Statement & Availability Status */}
@@ -62,9 +51,9 @@ export default function Footer() {
             </div>
 
             {/* Availability Pill */}
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-signal-dim/30 bg-surface/80 font-mono text-xs text-signal shrink-0">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-signal bg-surface/80 font-mono text-xs text-signal shrink-0">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-75" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-signal" />
               </span>
               <span className="font-semibold text-textMain">
@@ -131,7 +120,7 @@ export default function Footer() {
             {/* Direct Connect */}
             <div className="space-y-2.5">
               <span className="block text-[11px] font-bold text-textMuted uppercase tracking-wider">
-                Dispatch
+                Email
               </span>
               <ul className="space-y-2">
                 <li>
@@ -141,6 +130,15 @@ export default function Footer() {
                   >
                     <Mail className="w-3.5 h-3.5 text-signal" />
                     <span>nazrulislambhat@gmail.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:nazrulislambhat@gmail.com"
+                    className="inline-flex items-center gap-1.5 text-textMuted hover:text-signal hover:underline transition-colors"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-signal" />
+                    <span>nazrul@stacknothing.com</span>
                   </a>
                 </li>
               </ul>
@@ -171,13 +169,13 @@ export default function Footer() {
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://x.com/nazrulislambhat"
+                  href="https://instagram.com/nazrulislambhat"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="X Profile"
+                  aria-label="Instagram Profile"
                   className="p-2 rounded-xl border border-borderGlass bg-surface/80 text-textMuted hover:border-signal-dim hover:text-signal transition-all"
                 >
-                  <XIcon className="w-4 h-4" />
+                  <Instagram className="w-4 h-4" />
                 </a>
               </div>
             </div>

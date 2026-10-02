@@ -22,7 +22,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 w-full z-40 bg-transparent pointer-events-none">
+    <header className="fixed top-0 selection:text-primary selection:bg-secondary left-0 right-0 w-full z-40 bg-transparent pointer-events-none">
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16 pt-3 sm:pt-4 pointer-events-auto">
         {/* Top Minimal Info Strip */}
         <div className="flex items-center justify-between px-1 mb-2 select-none">

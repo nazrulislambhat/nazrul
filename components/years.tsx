@@ -86,7 +86,7 @@ export default function Years() {
   return (
     <section
       id="experience"
-      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-primary selection:text-secondary"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
@@ -128,7 +128,7 @@ export default function Years() {
                       href={exp.companyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 font-mono text-xs text-signal hover:underline font-medium"
+                      className="inline-flex items-center gap-1 font-mono text-xs text-red hover:underline font-medium"
                     >
                       <span>{exp.company}</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />

@@ -82,7 +82,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-primary selection:text-secondary"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         {/* Outer glass boundary enclosing both title and project cards */}
@@ -104,7 +104,7 @@ export default function Projects() {
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold underline text-textMain hover:text-signal transition-colors"
+                className="font-bold hover:underline text-red transition-colors"
               >
                 GitHub
               </Link>
@@ -162,7 +162,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-signal hover:underline shrink-0"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-red hover:underline shrink-0"
                   >
                     {project.type === 'github' ? (
                       <>
