@@ -47,22 +47,24 @@ export default function About() {
               <p>
                 I am a senior frontend engineer and architect with over half a
                 decade of experience building production web applications. My
-                work centers on the modern <TechInline tech="js" inView /> and{' '}
-                <TechInline tech="ts" inView delay={0.15} /> languages, with{' '}
-                <TechInline tech="react" inView delay={0.3} /> and{' '}
-                <TechInline tech="next" inView delay={0.45} /> ecosystems,
-                delivering interfaces that remain maintainable as teams and
-                products scale.
+                work centers on the modern{' '}
+                <TechInline tech="js" inView iconOnly /> and{' '}
+                <TechInline tech="ts" inView delay={0.15} iconOnly /> languages,
+                with <TechInline tech="react" inView delay={0.3} iconOnly /> and{' '}
+                <TechInline tech="next" inView delay={0.45} iconOnly />{' '}
+                ecosystems, delivering interfaces that remain maintainable as
+                teams and products scale.
               </p>
               <p className="leading-[2]">
                 I value predictable architecture over framework churn: clean
                 state modeling with{' '}
-                <TechInline tech="redux" inView delay={0.6} />, typed data
-                layers over <TechInline tech="graphql" inView delay={0.75} />{' '}
-                and <TechInline tech="node" inView delay={0.9} /> services,
+                <TechInline tech="redux" inView delay={0.6} iconOnly />, typed
+                data layers over{' '}
+                <TechInline tech="graphql" inView delay={0.75} iconOnly /> and{' '}
+                <TechInline tech="node" inView delay={0.9} iconOnly /> services,
                 accessible component libraries styled with{' '}
-                <TechInline tech="tailwind" inView delay={1.05} />, and build
-                tooling tuned for fast feedback loops.
+                <TechInline tech="tailwind" inView delay={1.05} iconOnly />, and
+                build tooling tuned for fast feedback loops.
               </p>
             </div>
           </div>
