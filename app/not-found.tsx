@@ -31,14 +31,14 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full pt-2">
           <Link
             href="/"
-            className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-xs cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-primary hover:text-black dark:hover:bg-primary dark:hover:text-black transition-all shadow-xs cursor-pointer"
           >
             <Home className="w-4 h-4" />
             <span>Return to Core</span>
           </Link>
           <button
             onClick={() => window.location.reload()}
-            className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-borderGlass bg-surface font-mono text-xs font-semibold text-textMain hover:border-signal-dim hover:text-signal transition-all cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-borderGlass bg-surface font-mono text-xs font-semibold text-textMain hover:border-primary-dim hover:text-primary transition-all cursor-pointer"
           >
             <RefreshCw className="w-4 h-4" />
             <span>Re-sync Node</span>

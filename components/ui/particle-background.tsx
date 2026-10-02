@@ -48,7 +48,7 @@ export default function ParticleBackground() {
     // Initialize Particles (Increased density: divider set to 6000 for a rich particle field)
     const particleCount = Math.floor((width * height) / 16000);
     const particles: Particle[] = [];
-    const colors = ['#05DF72', '#CCF380', '#10B981'];
+    const colors = ['#ccf380', '#f43c00', '#ccf380'];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({

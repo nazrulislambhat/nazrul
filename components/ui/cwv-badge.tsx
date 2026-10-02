@@ -97,7 +97,7 @@ export default function CwvBadge() {
       className="fixed bottom-6 left-6 z-40 hidden sm:flex items-center gap-3 px-3.5 py-1.5 rounded-full liquid-glass border border-borderGlass shadow-lg font-mono text-[10.5px] select-none text-textMuted transition-all duration-300 "
     >
       <div className="flex items-center gap-1.5 font-semibold text-textMain">
-        <Activity className="w-3 h-3 text-signal" />
+        <Activity className="w-3 h-3 text-primary" />
         <span className="tracking-wider">CWV</span>
       </div>
 
@@ -106,7 +106,7 @@ export default function CwvBadge() {
       {/* FCP metric */}
       <div className="flex items-center gap-1">
         <span>FCP</span>
-        <span className="font-bold text-signal">
+        <span className="font-bold text-primary">
           {metrics.fcp ? `${metrics.fcp}ms` : 'calc...'}
         </span>
       </div>
@@ -116,7 +116,7 @@ export default function CwvBadge() {
       {/* LCP metric */}
       <div className="flex items-center gap-1">
         <span>LCP</span>
-        <span className="font-bold text-signal">
+        <span className="font-bold text-primary">
           {metrics.lcp ? `${(metrics.lcp / 1000).toFixed(2)}s` : 'calc...'}
         </span>
       </div>
@@ -126,7 +126,7 @@ export default function CwvBadge() {
       {/* CLS metric */}
       <div className="flex items-center gap-1">
         <span>CLS</span>
-        <span className="font-bold text-signal">{metrics.cls}</span>
+        <span className="font-bold text-primary">{metrics.cls}</span>
       </div>
     </aside>
   );

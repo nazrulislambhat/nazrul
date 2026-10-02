@@ -9,7 +9,7 @@
   --color-secondary: #ccf380;
   --color-red: #f43c00;
 
-  --color-signal: var(--accent-signal, #3139fb);
+  --color-primary: var(--accent-primary, #3139fb);
 
   /* Direct CSS variable mappings for Tailwind v4 */
   --color-background: var(--color-bg, #f5f4fc);
@@ -54,9 +54,9 @@
     --glass-opacity: 0.45;
     --glass-specular: 0.9;
 
-    /* Default Accent (Signal Green) */
-    --accent-signal: #3139fb;
-    --accent-signal-dim: #3139fb;
+    /* Default Accent (primary primary) */
+    --accent-primary: #3139fb;
+    --accent-primary-dim: #3139fb;
   }
 
   .dark {
@@ -72,25 +72,25 @@
   }
 
   /* Dynamic Accent Theme Maps */
-  [data-accent='signal'] {
-    --accent-signal: #05df72;
-    --accent-signal-dim: #10b981;
+  [data-accent='primary'] {
+    --accent-primary: #05df72;
+    --accent-primary-dim: #10b981;
   }
   [data-accent='red'] {
-    --accent-signal: #ef4444;
-    --accent-signal-dim: #b91c1c;
+    --accent-primary: #ef4444;
+    --accent-primary-dim: #b91c1c;
   }
-  [data-accent='volt'] {
-    --accent-signal: #ccf380;
-    --accent-signal-dim: #a3d942;
+  [data-accent='primary'] {
+    --accent-primary: #ccf380;
+    --accent-primary-dim: #a3d942;
   }
   [data-accent='cyan'] {
-    --accent-signal: #22d3ee;
-    --accent-signal-dim: #0891b2;
+    --accent-primary: #22d3ee;
+    --accent-primary-dim: #0891b2;
   }
   [data-accent='violet'] {
-    --accent-signal: #a855f7;
-    --accent-signal-dim: #7e22ce;
+    --accent-primary: #a855f7;
+    --accent-primary-dim: #7e22ce;
   }
 
   html {
@@ -114,7 +114,7 @@
   }
 
   ::selection {
-    background-color: var(--accent-signal);
+    background-color: var(--accent-primary);
     color: #0d1821;
   }
 }

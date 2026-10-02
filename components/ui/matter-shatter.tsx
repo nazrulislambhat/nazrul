@@ -313,20 +313,20 @@ export default function MatterShatter({
         <aside
           id="shatter-hud"
           aria-label="Interactive Vacuum Shredder HUD"
-          className="flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-md liquid-glass border border-signal-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-volt selection:text-black pointer-events-auto cursor-default"
+          className="flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-md liquid-glass border border-primary-dim/40 shadow-2xl font-mono text-xs text-textMain selection:bg-primary selection:text-black pointer-events-auto cursor-default"
         >
-          <div className="flex items-center gap-2 text-signal font-bold uppercase">
+          <div className="flex items-center gap-2 text-primary font-bold uppercase">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt opacity-80" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-signal shadow-[0_0_8px_#CCF380]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-80" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_#CCF380]" />
             </span>
-            <Sparkles className="w-3.5 h-3.5 text-volt" />
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
             <span>Clean Recycler</span>
           </div>
 
           <span className="text-textMuted/60">•</span>
           <span>
-            Recycled: <strong className="text-signal">{recycledCount}</strong>{' '}
+            Recycled: <strong className="text-primary">{recycledCount}</strong>{' '}
             cards
           </span>
 
@@ -340,7 +340,7 @@ export default function MatterShatter({
 
           <button
             onClick={restoreAll}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-black text-white dark:bg-white dark:text-black font-semibold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-2xs cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-primary hover:text-secondary dark:hover:bg-primary dark:hover:text-secondary bg-black text-white dark:bg-secondary dark:text-primary font-semibold transition-all shadow-2xs cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Empty &amp; Restore</span>
@@ -351,10 +351,10 @@ export default function MatterShatter({
         {activeNote && (
           <div
             key={activeNote.id}
-            className="recycled-note-card w-full p-4 flex flex-col items-center justify-center text-center rounded-md border border-signal-dim/40 bg-black/90 text-white shadow-2xl backdrop-blur-md pointer-events-auto transition-all animate-in fade-in zoom-in-95 duration-300 cursor-default"
+            className="recycled-note-card w-full p-4 flex flex-col items-center justify-center text-center rounded-md border border-primary bg-primary text-white shadow-2xl backdrop-blur-md pointer-events-auto transition-all animate-in fade-in zoom-in-95 duration-300 cursor-default"
           >
-            <span className="font-mono text-xs text-signal font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-              <span className="inline-block w-1.5 h-1.5 rounded-md bg-volt animate-ping" />
+            <span className="font-mono text-xs text-secondary font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-md bg-primary animate-ping" />
               [ DEPOSITED TO DUSTBIN ]
             </span>
             <p className="font-bold text-xs sm:text-sm mb-3 max-w-md text-white leading-relaxed">
@@ -362,7 +362,7 @@ export default function MatterShatter({
             </p>
             <a
               href="mailto:nazrulislambhat@gmail.com"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-volt text-black hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-secondary text-primary hover:bg-white font-mono text-xs font-bold transition-all shadow-[0_0_15px_-3px_rgba(204,243,128,0.4)] cursor-pointer"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Hire Nazrul</span>
@@ -376,38 +376,40 @@ export default function MatterShatter({
       <div
         id="shredder-dustbin"
         ref={binRef}
-        className={`fixed bottom-4 right-4 md:bottom-6 md:right-8 z-95 w-40 sm:w-48 h-36 rounded-3xl liquid-glass border-2 transition-all duration-300 pointer-events-none p-3.5 flex flex-col justify-between items-center text-center ${
+        className={`fixed bottom-4 right-4 md:bottom-20 md:right-4 z-95 w-40 sm:w-48 h-36 rounded-xl liquid-glass border-2 transition-all duration-300 pointer-events-none p-3.5 flex flex-col justify-between items-center text-center ${
           isIncinerating
-            ? 'border-signal scale-105 shadow-[0_0_35px_rgba(5,223,114,0.45)]'
+            ? 'border-primary scale-105 shadow-[0_0_35px_rgba(5,223,114,0.45)]'
             : 'border-borderGlass shadow-xl'
         }`}
       >
         <div className="w-full flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-textMuted">
           <span className="flex items-center gap-1 font-semibold text-textMain">
             <Flame
-              className={`w-3.5 h-3.5 ${isIncinerating ? 'text-volt animate-bounce' : 'text-signal'}`}
+              className={`w-3.5 h-3.5 ${isIncinerating ? 'text-primary animate-bounce' : 'text-primary'}`}
             />
             Recycler
           </span>
-          <span className="text-signal font-bold">{recycledCount} IN BIN</span>
+          <span className="text-primary font-bold">{recycledCount} IN BIN</span>
         </div>
 
         {/* Dustbin Vacuum Slot */}
-        <div className="relative w-full h-14 rounded-2xl border border-borderGlass bg-surface/80 flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-14 rounded-lg border border-borderGlass flex items-center justify-center overflow-hidden">
           <div
-            className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r from-transparent via-signal to-transparent ${
+            className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r from-transparent via-primary to-transparent ${
               isIncinerating ? 'opacity-100 animate-pulse' : 'opacity-30'
             }`}
           />
           <Trash2
             className={`w-7 h-7 transition-transform duration-200 ${
-              isIncinerating ? 'text-volt scale-125 rotate-6' : 'text-textMuted'
+              isIncinerating
+                ? 'text-primary scale-125 rotate-6'
+                : 'text-textMuted'
             }`}
           />
         </div>
 
         <span className="font-mono text-[9px] text-textMuted flex items-center gap-1">
-          <CheckCircle2 className="w-2.5 h-2.5 text-signal" />
+          <CheckCircle2 className="w-2.5 h-2.5 text-primary" />
           Auto-compacted • 0 Debris
         </span>
       </div>

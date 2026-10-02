@@ -35,6 +35,7 @@ export const DEFAULT_SKILLS: Skill[] = [
   { name: 'JavaScript (ES6+)', group: 'Languages & Core' },
   { name: 'HTML5 / Semantic Web', group: 'Languages & Core' },
   { name: 'CSS3 / Modern Layouts', group: 'Languages & Core' },
+  { name: 'Python', group: 'Languages & Core' },
 
   // Frameworks & Frontend
   { name: 'React.js', group: 'Frameworks & Frontend' },
@@ -637,8 +638,12 @@ function drawScene(ctx: CanvasRenderingContext2D, s: Sim, accent: string) {
 
 interface SkillGlobeProps {
   skills?: Skill[];
-  /** Hex colour of your `signal` token (canvas can't read Tailwind classes). */
+  /** Hex colour of your `primary` token (canvas can't read Tailwind classes). */
   accent?: string;
+  /** Section heading. Pass an empty string to hide it. */
+  title?: string;
+  /** Anchor id for in-page navigation. */
+  id?: string;
   className?: string;
   /**
    * true  → a finger on the globe always rotates it (the page can't scroll from there).
@@ -649,7 +654,9 @@ interface SkillGlobeProps {
 
 export default function SkillGlobe({
   skills = DEFAULT_SKILLS,
-  accent = '#22d3ee',
+  accent = '#f43c00',
+  title = 'Skills, thrown into orbit.',
+  id = 'skills',
   className = '',
   lockTouchScroll = true,
 }: SkillGlobeProps) {
@@ -914,42 +921,55 @@ export default function SkillGlobe({
   };
 
   return (
-    <div className={className}>
-      <div
-        ref={wrapRef}
-        tabIndex={0}
-        role="group"
-        aria-label="Skill globe. Use the arrow keys to rotate."
-        onKeyDown={onKeyDown}
-        className="relative mx-auto w-full selection:text-primary sel rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal "
-      >
-        <canvas
-          ref={canvasRef}
-          role="img"
-          aria-label="Interactive globe of my skills. Drag to rotate it, or drag a skill and release it over the globe to throw it. Keyboard and tap alternatives are provided."
-          className="mx-auto block cursor-grab select-none text-textMain"
-          style={{ touchAction: lockTouchScroll ? 'none' : 'pan-y' }}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={onPointerUp}
-          onPointerCancel={onPointerCancel}
-          onPointerLeave={onPointerLeave}
-        />
-      </div>
+    <section
+      id={id}
+      className={`relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-primary selection:text-secondary ${className}`}
+    >
+      <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
+        <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
+          {title && (
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-8 leading-tight">
+              {title}
+            </h2>
+          )}
 
-      {/* Legend */}
-      <ul className="mx-auto mt-3 flex max-w-[560px] flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-textMuted">
-        {(Object.keys(HUES) as Group[]).map((g) => (
-          <li key={g} className="inline-flex items-center gap-1.5">
-            <span
-              aria-hidden="true"
-              className="h-2 w-2 rounded-full"
-              style={{ background: `hsl(${HUES[g]},75%,60%)` }}
+          <div
+            ref={wrapRef}
+            tabIndex={0}
+            role="group"
+            aria-label="Skill globe. Use the arrow keys to rotate."
+            onKeyDown={onKeyDown}
+            className="relative rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          >
+            <canvas
+              ref={canvasRef}
+              role="img"
+              aria-label="Interactive globe of my skills. Drag to rotate it, or drag a skill and release it over the globe to throw it. Keyboard and tap alternatives are provided."
+              className="mx-auto block cursor-grab select-none text-textMain"
+              style={{ touchAction: lockTouchScroll ? 'none' : 'pan-y' }}
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerCancel}
+              onPointerLeave={onPointerLeave}
             />
-            {g}
-          </li>
-        ))}
-      </ul>
-    </div>
+          </div>
+
+          {/* Legend */}
+          <ul className="mx-auto mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-textMuted">
+            {(Object.keys(HUES) as Group[]).map((g) => (
+              <li key={g} className="inline-flex items-center gap-1.5">
+                <span
+                  aria-hidden="true"
+                  className="h-2 w-2 rounded-full"
+                  style={{ background: `hsl(${HUES[g]},75%,60%)` }}
+                />
+                {g}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
   );
 }

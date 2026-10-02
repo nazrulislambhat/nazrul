@@ -22,7 +22,7 @@ export default function ResumePage() {
   return (
     <div
       id="resume-outer-wrapper"
-      className="min-h-screen w-full bg-background text-textMain py-6 md:py-10 selection:bg-volt selection:text-black print:bg-white print:text-black print:py-0 print:my-0"
+      className="min-h-screen w-full bg-background text-textMain py-6 md:py-10 selection:bg-primary selection:text-black print:bg-white print:text-black print:py-0 print:my-0"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16 print:px-0 print:max-w-none print:w-full">
         {/* Screen Floating Action Bar (Hidden in Print) */}
@@ -32,15 +32,15 @@ export default function ResumePage() {
         >
           <Link
             href="/"
-            className="flex items-center gap-2 font-mono text-xs text-textMuted hover:text-signal transition-colors"
+            className="flex items-center gap-2 font-mono text-xs text-textMuted hover:text-primary transition-colors"
           >
-            <ArrowLeft className="w-4 h-4 text-signal" />
+            <ArrowLeft className="w-4 h-4 text-primary" />
             <span>Return to Portfolio</span>
           </Link>
 
           <button
             onClick={handlePrint}
-            className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-2xs cursor-pointer"
+            className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-primary hover:text-black dark:hover:bg-primary dark:hover:text-black transition-all shadow-2xs cursor-pointer"
           >
             <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             <span>Download PDF</span>
@@ -55,7 +55,7 @@ export default function ResumePage() {
               <h1 className="text-3xl font-extrabold tracking-tight text-textMain print:text-neutral-950 print:text-2xl">
                 Nazrul Islam
               </h1>
-              <p className="text-sm font-semibold text-signal mt-0.5 print:text-neutral-800 print:text-xs">
+              <p className="text-sm font-semibold text-primary mt-0.5 print:text-neutral-800 print:text-xs">
                 Senior Frontend Engineer • React.js | Next.js | TypeScript |
                 AI-Augmented Development
               </p>
@@ -67,48 +67,48 @@ export default function ResumePage() {
                 href="https://nazrulislam.dev"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-signal hover:underline transition-colors"
+                className="group flex items-center gap-1 hover:text-primary hover:underline transition-colors"
               >
-                <Globe className="w-3.5 h-3.5 text-signal print:hidden" />
+                <Globe className="w-3.5 h-3.5 text-primary print:hidden" />
                 <span>nazrulislam.dev</span>
-                <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform print:hidden" />
+                <ArrowUpRight className="w-3 h-3 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform print:hidden" />
               </a>
               <a
                 href="mailto:nazrulislambhat@gmail.com"
-                className="flex items-center gap-1 hover:text-signal hover:underline transition-colors"
+                className="flex items-center gap-1 hover:text-primary hover:underline transition-colors"
               >
-                <Mail className="w-3.5 h-3.5 text-signal print:hidden" />
+                <Mail className="w-3.5 h-3.5 text-primary print:hidden" />
                 <span>nazrulislambhat@gmail.com</span>
               </a>
               <a
                 href="tel:+919469444007"
-                className="flex items-center gap-1 hover:text-signal hover:underline transition-colors"
+                className="flex items-center gap-1 hover:text-primary hover:underline transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-signal print:hidden" />
+                <Phone className="w-3.5 h-3.5 text-primary print:hidden" />
                 <span>+91 9469444007</span>
               </a>
               <a
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-signal hover:underline transition-colors"
+                className="group flex items-center gap-1 hover:text-primary hover:underline transition-colors"
               >
-                <Github className="w-3.5 h-3.5 text-signal print:hidden" />
+                <Github className="w-3.5 h-3.5 text-primary print:hidden" />
                 <span>github.com/nazrulislambhat</span>
-                <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform print:hidden" />
+                <ArrowUpRight className="w-3 h-3 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform print:hidden" />
               </a>
               <a
                 href="https://linkedin.com/in/nazrulislambhat"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-signal hover:underline transition-colors"
+                className="group flex items-center gap-1 hover:text-primary hover:underline transition-colors"
               >
-                <Linkedin className="w-3.5 h-3.5 text-signal print:hidden" />
+                <Linkedin className="w-3.5 h-3.5 text-primary print:hidden" />
                 <span>linkedin.com/in/nazrulislambhat</span>
-                <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform print:hidden" />
+                <ArrowUpRight className="w-3 h-3 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform print:hidden" />
               </a>
               <div className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-signal print:hidden" />
+                <MapPin className="w-3.5 h-3.5 text-primary print:hidden" />
                 <span>Bengaluru / Srinagar, IN</span>
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function ResumePage() {
                     <strong className="text-textMain font-semibold print:text-neutral-950">
                       StackNothing
                     </strong>
-                    <span className="text-signal print:text-neutral-600 font-mono text-[10px]">
+                    <span className="text-primary print:text-neutral-600 font-mono text-[10px]">
                       stacknothing.com
                     </span>
                   </div>
@@ -301,7 +301,7 @@ export default function ResumePage() {
                     <strong className="text-textMain font-semibold print:text-neutral-950">
                       Dhikrly
                     </strong>
-                    <span className="text-signal print:text-neutral-600 font-mono text-[10px]">
+                    <span className="text-primary print:text-neutral-600 font-mono text-[10px]">
                       dhikrly.com
                     </span>
                   </div>

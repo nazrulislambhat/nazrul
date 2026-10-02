@@ -73,7 +73,7 @@ export default function GithubPulse() {
   if (loading) {
     return (
       <div className="hidden sm:flex items-center gap-1.5 font-mono text-[10.5px] text-textMuted/60">
-        <GitCommit className="w-3 h-3 animate-pulse text-signal" />
+        <GitCommit className="w-3 h-3 animate-pulse text-primary" />
         <span>Fetching telemetry...</span>
       </div>
     );
@@ -82,16 +82,16 @@ export default function GithubPulse() {
   if (!activity) {
     return (
       <div className="hidden sm:flex items-center gap-1.5 font-mono text-[10.5px] text-textMuted">
-        <GitCommit className="w-3 h-3 text-signal" />
+        <GitCommit className="w-3 h-3 text-primary" />
         <span>Active on</span>
         <a
           href="https://github.com/nazrulislambhat"
           target="_blank"
           rel="noreferrer"
-          className="group inline-flex items-center gap-0.5 text-textMain hover:text-signal hover:underline transition-colors"
+          className="group inline-flex items-center gap-0.5 text-textMain hover:text-primary hover:underline transition-colors"
         >
           <span>GitHub</span>
-          <ArrowUpRight className="w-3 h-3 text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowUpRight className="w-3 h-3 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </a>
       </div>
     );
@@ -101,7 +101,7 @@ export default function GithubPulse() {
     <div className="hidden sm:flex items-center gap-2 font-mono text-[10.5px] text-textMuted select-none">
       <div className="flex items-center gap-1">
         {activity.type === 'push' ? (
-          <GitCommit className="w-3 h-3 text-signal shrink-0" />
+          <GitCommit className="w-3 h-3 text-primary shrink-0" />
         ) : (
           <GitPullRequest className="w-3 h-3 text-red shrink-0" />
         )}
@@ -118,10 +118,10 @@ export default function GithubPulse() {
         target="_blank"
         rel="noreferrer"
         title={`View repository: ${activity.repo}`}
-        className="group inline-flex items-center gap-1 font-semibold text-textMain hover:text-signal hover:underline transition-colors cursor-pointer"
+        className="group inline-flex items-center gap-1 font-semibold text-textMain hover:text-primary hover:underline transition-colors cursor-pointer"
       >
         <span>{activity.repo}</span>
-        <ArrowUpRight className="w-3 h-3 text-volt group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        <ArrowUpRight className="w-3 h-3 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
       </a>
 
       <span className="text-[9.5px] text-textMuted/70">

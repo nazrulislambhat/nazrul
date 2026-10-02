@@ -112,7 +112,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       className={`${nunito.variable} ${pathway.variable} ${comfortaa.variable} ${inter.variable} ${archivo.variable}`}
     >
       <body
-        className={`${nunito.className} bg-background text-textMain antialiased selection:bg-volt selection:text-black`}
+        className={`${nunito.className} bg-background text-textMain antialiased selection:bg-primary selection:text-black`}
       >
         <ParticleBackground />
         <AppClientShell>{children}</AppClientShell>

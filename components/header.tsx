@@ -22,7 +22,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 selection:text-primary selection:bg-secondary left-0 right-0 w-full z-40 bg-transparent pointer-events-none">
+    <header className="fixed top-0 selection:text-secondary selection:bg-primary left-0 right-0 w-full z-40 bg-transparent pointer-events-none">
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16 pt-3 sm:pt-4 pointer-events-auto">
         {/* Top Minimal Info Strip */}
         <div className="flex items-center justify-between px-1 mb-2 select-none">
@@ -38,7 +38,7 @@ export default function Header() {
               alt="Nazrul Islam Logo"
               width={36}
               height={36}
-              className="rounded-full border-2 border-borderGlass transition-transform duration-200 group-hover:scale-105 group-hover:border-signal-dim/50"
+              className="rounded-full border-2 border-borderGlass transition-transform duration-200 group-hover:scale-105 group-hover:border-primary-dim/50"
               priority
             />
           </Link>
@@ -49,7 +49,7 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-textMuted hover:text-signal animated-border py-1 transition-colors"
+                className="text-textMuted hover:text-primary animated-border py-1 transition-colors"
               >
                 {link.name}
               </Link>
@@ -59,10 +59,10 @@ export default function Header() {
               href="/resume"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-volt hover:text-black hover:border-volt transition-all shadow-2xs text-xs font-semibold"
+              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-primary hover:text-secondary hover:border-primary transition-all shadow-2xs text-xs font-semibold"
             >
               <span>Resume</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-volt group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-primary group-hover:text-secondary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </nav>
 
@@ -74,7 +74,7 @@ export default function Header() {
               aria-label="Toggle Navigation"
             >
               {mobileMenuOpen ? (
-                <X className="w-5 h-5 text-signal" />
+                <X className="w-5 h-5 text-primary" />
               ) : (
                 <Menu className="w-5 h-5" />
               )}
@@ -98,7 +98,7 @@ export default function Header() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-textMuted hover:text-signal py-1.5 transition-colors"
+                    className="text-textMuted hover:text-primary py-1.5 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -108,10 +108,10 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between pt-3 mt-1 border-t border-borderGlass text-textMain font-semibold hover:text-signal transition-colors"
+                  className="flex items-center justify-between pt-3 mt-1 border-t border-borderGlass text-textMain font-semibold hover:text-primary transition-colors"
                 >
                   <span>Resume</span>
-                  <ArrowUpRight className="w-4 h-4 text-signal" />
+                  <ArrowUpRight className="w-4 h-4 text-primary" />
                 </Link>
               </nav>
             </motion.div>

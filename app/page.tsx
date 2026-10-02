@@ -10,7 +10,7 @@ import Footer from '../components/footer';
 import Books from '@/components/ui/books';
 import CwvBadge from '@/components/ui/cwv-badge';
 import CalFloatingWidget from '@/components/ui/cal-floating-widget';
-import SkillGlobe from '@/components/SkillGlobe';
+import SkillGlobe from '@/components/skills-globe';
 
 export default function Home() {
   return (
@@ -20,12 +20,7 @@ export default function Home() {
       <About />
       <Years />
       <Projects />
-      <section id="skills" className="py-20">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-8 leading-tight">
-          Skills, thrown into orbit.
-        </h2>
-        <SkillGlobe accent="#f43c00" />
-      </section>
+      <SkillGlobe />
       <Books />
       <Contact />
       <Footer />

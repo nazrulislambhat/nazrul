@@ -94,7 +94,7 @@ export default function Years() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-10 pb-6 border-b-2 border-borderGlass">
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
-                <Terminal className="w-4 h-4 text-signal" />
+                <Terminal className="w-4 h-4 text-primary" />
                 <span>Career History</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain">
@@ -120,7 +120,7 @@ export default function Years() {
                 {/* Meta Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
                   <div className="flex items-center gap-2 font-mono text-xs text-textMuted">
-                    <Calendar className="w-3.5 h-3.5 text-signal" />
+                    <Calendar className="w-3.5 h-3.5 text-primary" />
                     <span>{exp.period}</span>
                   </div>
                   {exp.companyUrl ? (
@@ -154,7 +154,7 @@ export default function Years() {
                 <ul className="space-y-2 mb-5 text-xs md:text-sm text-textMuted">
                   {exp.highlights.map((point, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-signal shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}

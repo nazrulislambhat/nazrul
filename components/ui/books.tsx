@@ -333,7 +333,7 @@ export default function Books() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b-2 border-borderGlass">
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2.5">
-                <BookOpen className="w-4 h-4 text-signal" />
+                <BookOpen className="w-4 h-4 text-primary" />
                 <span>Intellectual Inputs</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain leading-tight">
@@ -344,14 +344,14 @@ export default function Books() {
             <div className="flex flex-wrap items-center gap-3 self-start sm:self-auto">
               <div className="hidden sm:flex items-center gap-3 font-mono text-[10px] text-textMuted border border-borderGlass px-3 py-1.5 rounded-xl bg-surface/50">
                 <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-signal shadow-[0_0_6px_#3139fb]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_6px_#3139fb]" />
                   Reading
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#ccf380]" />
                   Almost Done
                 </span>
-                
+
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-red shadow-[0_0_6px_#f43c00]" />
                   Partial
@@ -379,11 +379,11 @@ export default function Books() {
                     audioCtxRef.current.resume();
                   }
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-borderGlass bg-surface text-textMuted hover:border-signal-dim hover:text-signal transition-all font-mono text-xs cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-borderGlass bg-surface text-textMuted hover:border-primary-dim hover:text-primary transition-all font-mono text-xs cursor-pointer"
               >
                 {soundEnabled ? (
                   <>
-                    <Volume2 className="w-3.5 h-3.5 text-signal" />
+                    <Volume2 className="w-3.5 h-3.5 text-primary" />
                     <span>ACOUSTICS ON</span>
                   </>
                 ) : (
