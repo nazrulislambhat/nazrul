@@ -6,7 +6,8 @@ import type {
   PointerEvent as ReactPointerEvent,
 } from 'react';
 import { useReducedMotion } from 'framer-motion';
-import { Globe } from 'lucide-react';
+import { Globe, Pause, Play } from 'lucide-react';
+
 /* ───────────────────────── Data ───────────────────────── */
 
 export type Group =
@@ -70,7 +71,7 @@ export const DEFAULT_SKILLS: Skill[] = [
 
 type Vec = [number, number, number];
 
-interface Node {
+interface GlobeNode {
   b: Vec; // base direction on unit sphere (world space)
   d: Vec; // displacement from home (world space, px)
   v: Vec; // velocity (world space, px/s)
@@ -118,7 +119,7 @@ interface Ripple {
 
 interface Sim {
   skills: Skill[];
-  nodes: Node[];
+  nodes: GlobeNode[];
   proj: Proj[];
   widths: number[];
   w: number;
@@ -136,6 +137,7 @@ interface Sim {
   flight: Flight | null;
   ripples: Ripple[];
   reduce: boolean;
+  autoSpin: boolean; // idle rotation on/off (user-controlled)
   visible: boolean;
   textColor: string;
   font: string;
@@ -245,7 +247,7 @@ const WIRE: Vec[][] = (() => {
 function makeSim(skills: Skill[]): Sim {
   const n = skills.length;
   const golden = Math.PI * (3 - Math.sqrt(5));
-  const nodes: Node[] = skills.map((_, i) => {
+  const nodes: GlobeNode[] = skills.map((_, i) => {
     const y = 1 - ((i + 0.5) * 2) / n;
     const r = Math.sqrt(1 - y * y);
     const phi = i * golden;
@@ -277,6 +279,7 @@ function makeSim(skills: Skill[]): Sim {
     flight: null,
     ripples: [],
     reduce: false,
+    autoSpin: true,
     visible: true,
     textColor: '#fff',
     font: 'ui-sans-serif, system-ui, sans-serif',
@@ -384,7 +387,7 @@ function stepSim(s: Sim, dt: number) {
     s.vyaw *= decay;
     s.vpitch *= decay;
     s.rest += dt;
-    const idle = !s.reduce && !s.held && !s.flight && s.hover < 0;
+    const idle = s.autoSpin && !s.reduce && !s.held && !s.flight && s.hover < 0;
     if (idle && s.rest > 1.2) s.yaw += dt * 0.25 * Math.min(1, s.rest - 1.2);
   } else {
     s.rest = 0;
@@ -648,8 +651,13 @@ interface SkillGlobeProps {
   title?: string;
   id?: string;
   className?: string;
+  /**
+   * true  → a finger on the globe always rotates it (the page can't scroll from there).
+   * false → only horizontal drags rotate; vertical drags scroll the page.
+   */
   lockTouchScroll?: boolean;
 }
+
 export default function SkillGlobe({
   skills = DEFAULT_SKILLS,
   accent = '#f43c00',
@@ -657,7 +665,7 @@ export default function SkillGlobe({
   title = 'Skills, thrown into orbit.',
   id = 'skills',
   className = '',
-  lockTouchScroll = true,
+  lockTouchScroll = false,
 }: SkillGlobeProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -667,8 +675,10 @@ export default function SkillGlobe({
   const reduceRef = useRef(false);
   reduceRef.current = !!reduce;
 
+  const spinRef = useRef(true);
   const [selected, setSelected] = useState<number | null>(null);
-  const [throws, setThrows] = useState(0);
+  const [spinning, setSpinning] = useState(true);
+  spinRef.current = spinning;
 
   const clearPress = () => {
     if (pressTimer.current !== null) {
@@ -690,10 +700,7 @@ export default function SkillGlobe({
     const ctx = canvas.getContext('2d')!;
     const s = makeSim(skills);
     sim.current = s;
-    s.onImpact = (i) => {
-      setSelected(i);
-      setThrows((n) => n + 1);
-    };
+    s.onImpact = (i) => setSelected(i);
 
     const readStyle = () => {
       const cs = getComputedStyle(canvas);
@@ -747,6 +754,7 @@ export default function SkillGlobe({
       last = t;
       if (dt <= 0) return;
       s.reduce = reduceRef.current;
+      s.autoSpin = spinRef.current;
       if (frame++ % 90 === 0) readStyle();
       stepSim(s, dt);
       drawScene(ctx, s, accent);
@@ -953,7 +961,7 @@ export default function SkillGlobe({
             <canvas
               ref={canvasRef}
               role="img"
-              aria-label="Interactive globe of my skills. Drag to rotate it, or drag a skill and release it over the globe to throw it. Keyboard and tap alternatives are provided."
+              aria-label="Interactive globe of my skills. Drag to rotate it, or drag a skill and release it over the globe to throw it. The full list of skills, with a button to throw each one, follows below."
               className="mx-auto block cursor-grab select-none text-textMain"
               style={{ touchAction: lockTouchScroll ? 'none' : 'pan-y' }}
               onPointerDown={onPointerDown}
@@ -962,6 +970,42 @@ export default function SkillGlobe({
               onPointerCancel={onPointerCancel}
               onPointerLeave={onPointerLeave}
             />
+          </div>
+
+          {/* Readout: live region + text alternative to the colour-coded dots */}
+          <div className="mt-3 flex items-center justify-center gap-3">
+            <p
+              role="status"
+              className="min-h-6 min-w-0 text-center text-sm text-textMuted"
+            >
+              {selected !== null ? (
+                <>
+                  <span className="font-semibold text-textMain">
+                    {skills[selected].name}
+                  </span>
+                  {' · '}
+                  {skills[selected].group}
+                </>
+              ) : (
+                'Drag to rotate, or drag a skill onto the globe to throw it.'
+              )}
+            </p>
+
+            {/* WCAG 2.2.2: let users stop the automatic rotation */}
+            {!reduce && (
+              <button
+                type="button"
+                onClick={() => setSpinning((v) => !v)}
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-borderGlass px-3 py-1 text-xs text-textMuted hover:text-textMain focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                {spinning ? (
+                  <Pause className="h-3.5 w-3.5" aria-hidden="true" />
+                ) : (
+                  <Play className="h-3.5 w-3.5" aria-hidden="true" />
+                )}
+                {spinning ? 'Pause' : 'Play'}
+              </button>
+            )}
           </div>
 
           {/* Legend */}
