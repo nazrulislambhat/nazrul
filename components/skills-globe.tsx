@@ -51,15 +51,12 @@ export const DEFAULT_SKILLS: Skill[] = [
   { name: 'Micro-Frontends', group: 'Architecture & Standards' },
   { name: 'Core Web Vitals', group: 'Architecture & Standards' },
   { name: 'WCAG 2.1 AA Accessibility', group: 'Architecture & Standards' },
-  { name: 'State Machines', group: 'Architecture & Standards' },
   { name: 'Atomic Design', group: 'Architecture & Standards' },
 
   // Backend
   { name: 'Node.js', group: 'Backend' },
   { name: 'SQL / PostgreSQL', group: 'Backend' },
   { name: 'RESTful & GraphQL APIs', group: 'Backend' },
-  { name: 'Drupal / Twig', group: 'Backend' },
-  { name: 'WordPress Plugins', group: 'Backend' },
 
   // Tooling & Infrastructure
   { name: 'Webpack / Vite', group: 'Tooling & Infrastructure' },
