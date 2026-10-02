@@ -10,7 +10,7 @@ import Footer from '../components/footer';
 import Books from '@/components/ui/books';
 import CwvBadge from '@/components/ui/cwv-badge';
 import CalFloatingWidget from '@/components/ui/cal-floating-widget';
-import SkillGlobe from '@/components/skills-globe';
+import SkillGlobe from '@/components/SkillGlobe';
 
 export default function Home() {
   return (

@@ -138,7 +138,7 @@ export default function Footer() {
                     className="inline-flex items-center gap-1.5 text-textMuted hover:text-primary hover:underline transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5 text-primary" />
-                    <span>nazrul@stacknothing.com</span>
+                    <span>n@nazrulislam.dev</span>
                   </a>
                 </li>
               </ul>

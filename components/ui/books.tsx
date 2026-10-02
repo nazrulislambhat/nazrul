@@ -1,23 +1,15 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import React, { useRef, useState, useCallback } from 'react';
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from 'motion/react';
 import { BookOpen, Volume2, VolumeX } from 'lucide-react';
-
-export interface BookItem {
-  id: string;
-  title: string;
-  author: string;
-  category: string;
-  status: 'reading' | 'partially-read' | 'almost-done';
-  statusLabel: string;
-  coreIdea: string;
-  statusColor: string;
-  width: number;
-  height: number;
-  tiltDeg?: number;
-  renderSpine: () => React.ReactNode;
-}
 
 const READING_LIST: BookItem[] = [
   {
@@ -256,80 +248,214 @@ const READING_LIST: BookItem[] = [
     ),
   },
 ];
+export interface BookItem {
+  id: string;
+  title: string;
+  author: string;
+  category: string;
+  status: 'reading' | 'partially-read' | 'almost-done';
+  statusLabel: string;
+  coreIdea: string;
+  statusColor: string;
+  width: number;
+  height: number;
+  tiltDeg?: number;
+  renderSpine: () => React.ReactNode;
+}
+
+type Filter = 'all' | BookItem['status'];
+
+const FILTERS: { key: Filter; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'reading', label: 'Reading' },
+  { key: 'almost-done', label: 'Almost done' },
+  { key: 'partially-read', label: 'Partial' },
+];
+
+function Spine({
+  book,
+  index,
+  dimmed,
+  mouseX,
+  onHover,
+}: {
+  book: BookItem;
+  index: number;
+  dimmed: boolean;
+  mouseX: MotionValue<number>;
+  onHover: () => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState(false);
+
+  // Distance from pointer to this book's centre → proximity lift
+  const distance = useTransform(mouseX, (v) => {
+    const r = ref.current?.getBoundingClientRect();
+    return r ? v - (r.left + r.width / 2) : 9999;
+  });
+  const lift = useSpring(useTransform(distance, [-140, 0, 140], [0, -18, 0]), {
+    stiffness: 260,
+    damping: 22,
+  });
+
+  const enter = () => {
+    setHovered(true);
+    onHover();
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ width: book.width, height: book.height, y: lift }}
+      animate={{
+        opacity: dimmed ? 0.25 : 1,
+        filter: dimmed ? 'grayscale(1)' : 'grayscale(0)',
+      }}
+      className="relative flex flex-col items-center justify-end"
+    >
+      <div
+        style={{ transform: `rotate(${hovered ? 0 : book.tiltDeg || 0}deg)` }}
+        className="transition-transform duration-300"
+      >
+        <motion.div
+          aria-label={`${book.title} by ${book.author}`}
+          onMouseEnter={enter}
+          onMouseLeave={() => setHovered(false)}
+          onTouchStart={enter}
+          onTouchEnd={() => setTimeout(() => setHovered(false), 900)}
+          animate={{ y: hovered ? -16 : 0, z: hovered ? 36 : 0 }}
+          transition={{ duration: 0.16, ease: 'easeOut' }}
+          style={{
+            width: book.width,
+            height: book.height,
+            transformStyle: 'preserve-3d',
+            transformOrigin: 'bottom center',
+          }}
+          className="relative rounded-t-sm shadow-[4px_0_12px_rgba(0,0,0,0.85)]"
+        >
+          <div className="relative w-full h-full rounded-t-sm overflow-hidden shadow-inner">
+            {book.renderSpine()}
+            <div className="absolute inset-0 bg-linear-to-r from-black/60 via-white/10 to-black/40 pointer-events-none" />
+            {/* sheen that sweeps across on hover */}
+            <motion.div
+              aria-hidden
+              initial={false}
+              animate={{ x: hovered ? '120%' : '-120%' }}
+              transition={{ duration: 0.55, ease: 'easeOut' }}
+              className="absolute inset-y-0 w-1/2 bg-linear-to-r from-transparent via-white/30 to-transparent skew-x-12 pointer-events-none"
+            />
+          </div>
+
+          {/* status tab: grows on hover */}
+          <motion.div
+            animate={{ height: hovered ? 10 : 8 }}
+            style={{
+              backgroundColor: book.statusColor,
+              boxShadow: `0 0 10px ${book.statusColor}`,
+            }}
+            className="absolute -top-2 left-1/2 -translate-x-1/2 w-3/5 rounded-t-xs z-20 pointer-events-none"
+          />
+        </motion.div>
+      </div>
+
+      {/* hover label */}
+      <AnimatePresence>
+        {hovered && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 4 }}
+            transition={{ duration: 0.14 }}
+            className="absolute -top-20 left-1/2 -translate-x-1/2 z-40 w-48 rounded-lg border border-borderGlass bg-surface px-3 py-2 text-center pointer-events-none"
+          >
+            <div className="text-[11px] font-semibold text-textMain">
+              {book.title}
+            </div>
+            <div className="font-mono text-[9px] text-textMuted">
+              {book.author}
+            </div>
+            <div className="mt-1 flex items-center justify-center gap-1.5 font-mono text-[9px] text-textMuted">
+              <span
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: book.statusColor }}
+              />
+              {book.statusLabel}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="absolute bottom-0 w-full h-2 bg-black/90 blur-xs rounded-full pointer-events-none translate-y-1" />
+    </motion.div>
+  );
+}
 
 export default function Books() {
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [filter, setFilter] = useState<Filter>('all');
   const audioCtxRef = useRef<AudioContext | null>(null);
+  const mouseX = useMotionValue(-9999);
 
-  useEffect(() => {
-    const unlockAudio = () => {
-      if (!audioCtxRef.current && typeof window !== 'undefined') {
-        const AudioCtx =
-          window.AudioContext ||
-          (window as unknown as { webkitAudioContext: typeof AudioContext })
-            .webkitAudioContext;
-        audioCtxRef.current = new AudioCtx();
-      }
-      if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
-        audioCtxRef.current.resume();
-      }
-    };
-
-    window.addEventListener('click', unlockAudio, { once: true });
-    window.addEventListener('touchstart', unlockAudio, { once: true });
-
-    return () => {
-      window.removeEventListener('click', unlockAudio);
-      window.removeEventListener('touchstart', unlockAudio);
-    };
+  const getCtx = useCallback(() => {
+    if (typeof window === 'undefined') return null;
+    if (!audioCtxRef.current) {
+      const AudioCtx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext })
+          .webkitAudioContext;
+      audioCtxRef.current = new AudioCtx();
+    }
+    if (audioCtxRef.current.state === 'suspended') audioCtxRef.current.resume();
+    return audioCtxRef.current;
   }, []);
 
-  const playInteractionSound = () => {
-    if (!soundEnabled) return;
-    try {
-      if (!audioCtxRef.current && typeof window !== 'undefined') {
-        const AudioCtx =
-          window.AudioContext ||
-          (window as unknown as { webkitAudioContext: typeof AudioContext })
-            .webkitAudioContext;
-        audioCtxRef.current = new AudioCtx();
+  // Short tone with optional pitch glide
+  const tone = useCallback(
+    (
+      from: number,
+      to: number,
+      dur: number,
+      vol = 0.08,
+      type: OscillatorType = 'sine',
+    ) => {
+      if (!soundEnabled) return;
+      try {
+        const ctx = getCtx();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(from, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(to, ctx.currentTime + dur);
+        gain.gain.setValueAtTime(vol, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + dur);
+      } catch (e) {
+        console.error('Audio play error:', e);
       }
+    },
+    [soundEnabled, getCtx],
+  );
 
-      const ctx = audioCtxRef.current;
-      if (!ctx) return;
+  // Each book has its own pitch, so sweeping across the shelf plays a soft scale
+  const hoverSound = (i: number) => tone(130 + i * 14, 45 + i * 4, 0.06);
 
-      if (ctx.state === 'suspended') {
-        ctx.resume();
-      }
-
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(140, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.05);
-
-      gain.gain.setValueAtTime(0.08, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.05);
-
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start();
-      osc.stop(ctx.currentTime + 0.05);
-    } catch (e) {
-      console.error('Audio play error:', e);
-    }
-  };
+  const counts = (f: Filter) =>
+    f === 'all'
+      ? READING_LIST.length
+      : READING_LIST.filter((b) => b.status === f).length;
 
   return (
     <section
       id="reading"
-      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-primary selection:text-secondary"
+      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-8 md:pb-12 selection:bg-primary selection:text-secondary"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
-        <div className="rounded-3xl liquid-glass border border-borderGlass p-6 sm:p-8 md:p-12 xl:p-14 space-y-10">
-          {/* Header & Controls */}
+        <div className="rounded-3xl liquid-glass border border-borderGlass p-6 sm:p-8 md:p-12 xl:p-14 space-y-8">
+          {/* Header & controls */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b-2 border-borderGlass">
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2.5">
@@ -341,122 +467,84 @@ export default function Books() {
               </h2>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 self-start sm:self-auto">
-              <div className="hidden sm:flex items-center gap-3 font-mono text-[10px] text-textMuted border border-borderGlass px-3 py-1.5 rounded-xl bg-surface/50">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_6px_#3139fb]" />
-                  Reading
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#ccf380]" />
-                  Almost Done
-                </span>
+            <button
+              type="button"
+              onClick={() => {
+                setSoundEnabled(!soundEnabled);
+                getCtx();
+              }}
+              className="self-start sm:self-auto flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-borderGlass bg-surface text-textMuted hover:border-primary-dim hover:text-primary transition-all font-mono text-xs cursor-pointer"
+            >
+              {soundEnabled ? (
+                <>
+                  <Volume2 className="w-3.5 h-3.5 text-primary" />
+                  <span>ACOUSTICS ON</span>
+                </>
+              ) : (
+                <>
+                  <VolumeX className="w-3.5 h-3.5" />
+                  <span>MUTED</span>
+                </>
+              )}
+            </button>
+          </div>
 
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red shadow-[0_0_6px_#f43c00]" />
-                  Partial
-                </span>
-              </div>
-
+          {/* Filter chips (replace the static legend) */}
+          <div className="flex flex-wrap gap-2">
+            {FILTERS.map((f) => (
               <button
+                key={f.key}
                 type="button"
                 onClick={() => {
-                  setSoundEnabled(!soundEnabled);
-                  if (!audioCtxRef.current && typeof window !== 'undefined') {
-                    const AudioCtx =
-                      window.AudioContext ||
-                      (
-                        window as unknown as {
-                          webkitAudioContext: typeof AudioContext;
-                        }
-                      ).webkitAudioContext;
-                    audioCtxRef.current = new AudioCtx();
-                  }
-                  if (
-                    audioCtxRef.current &&
-                    audioCtxRef.current.state === 'suspended'
-                  ) {
-                    audioCtxRef.current.resume();
-                  }
+                  setFilter(f.key);
+                  tone(300, 600, 0.05, 0.04);
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-borderGlass bg-surface text-textMuted hover:border-primary-dim hover:text-primary transition-all font-mono text-xs cursor-pointer"
+                className={`relative px-3 py-1.5 rounded-xl border font-mono text-xs transition-colors cursor-pointer ${
+                  filter === f.key
+                    ? 'border-primary text-textMain'
+                    : 'border-borderGlass text-textMuted hover:text-textMain'
+                }`}
               >
-                {soundEnabled ? (
-                  <>
-                    <Volume2 className="w-3.5 h-3.5 text-primary" />
-                    <span>ACOUSTICS ON</span>
-                  </>
-                ) : (
-                  <>
-                    <VolumeX className="w-3.5 h-3.5" />
-                    <span>MUTED</span>
-                  </>
+                {filter === f.key && (
+                  <motion.span
+                    layoutId="filter-pill"
+                    className="absolute inset-0 rounded-xl bg-primary/15"
+                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                  />
                 )}
+                <span className="relative">
+                  {f.label} · {counts(f.key)}
+                </span>
               </button>
-            </div>
+            ))}
           </div>
 
-          {/* Bookshelf Alcove */}
+          {/* Shelf */}
           <div className="relative pt-2 pb-2 select-none rounded-md overflow-x-auto overflow-y-visible">
-            <div className="relative min-w-[780px] mx-auto bg-linear-to-b from-surface via-background rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.5),0_12px_35px_rgba(0,0,0,0.5)] border border-borderGlass overflow-hidden">
-              {/* Books Array */}
-              <div className="relative z-20 flex items-end justify-center gap-1.5 sm:gap-2 px-14 pt-12 pb-0 perspective-distant">
-                {READING_LIST.map((book) => (
-                  <div
-                    key={book.id}
-                    className="relative flex flex-col items-center justify-end"
-                    style={{
-                      width: `${book.width}px`,
-                      height: `${book.height}px`,
-                      transform: `rotate(${book.tiltDeg || 0}deg) translateZ(0)`,
-                      backfaceVisibility: 'hidden',
-                    }}
-                  >
-                    <motion.div
-                      onMouseEnter={playInteractionSound}
-                      onClick={playInteractionSound}
-                      onTouchStart={playInteractionSound}
-                      whileHover={{
-                        y: -16,
-                        z: 36,
-                        rotateZ: 0,
-                        transition: { duration: 0.16, ease: 'easeOut' },
-                      }}
-                      whileTap={{
-                        y: -12,
-                        transition: { duration: 0.12, ease: 'easeOut' },
-                      }}
-                      style={{
-                        width: `${book.width}px`,
-                        height: `${book.height}px`,
-                        transformStyle: 'preserve-3d',
-                        backfaceVisibility: 'hidden',
-                      }}
-                      className="relative rounded-t-sm cursor-pointer flex flex-col justify-between shadow-[4px_0_12px_rgba(0,0,0,0.85)] transform-[translateZ(0)]"
-                    >
-                      <div className="relative w-full h-full rounded-t-sm overflow-hidden shadow-inner backface-hidden">
-                        {book.renderSpine()}
-                        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-white/10 to-black/40 pointer-events-none" />
-                      </div>
-
-                      <div className="absolute -top-1 left-0 right-0 h-1 bg-borderGlass opacity-80" />
-
-                      <div
-                        style={{ backgroundColor: book.statusColor }}
-                        className="absolute -top-2 left-1/2 -translate-x-1/2 w-3/5 h-2 rounded-t-xs shadow-[0_0_8px_currentColor] z-20 pointer-events-none"
-                      />
-                    </motion.div>
-
-                    <div className="w-full h-2 bg-black/90 blur-xs rounded-full mt-0.5 pointer-events-none" />
-                  </div>
+            <div
+              onMouseMove={(e) => mouseX.set(e.clientX)}
+              onMouseLeave={() => mouseX.set(-9999)}
+              className="relative min-w-[780px] mx-auto bg-linear-to-b from-surface via-background rounded-xl shadow-[inset_0_20px_40px_rgba(0,0,0,0.5),0_12px_35px_rgba(0,0,0,0.5)] border border-borderGlass"
+            >
+              <div className="relative z-20 flex items-end justify-center gap-1.5 sm:gap-2 px-14 pt-20 pb-0">
+                {READING_LIST.map((b, i) => (
+                  <Spine
+                    key={b.id}
+                    book={b}
+                    index={i}
+                    dimmed={filter !== 'all' && b.status !== filter}
+                    mouseX={mouseX}
+                    onHover={() => hoverSound(i)}
+                  />
                 ))}
               </div>
+              <div className="h-3 bg-black/40 border-t border-borderGlass" />
             </div>
-
-            <p className="text-center font-mono text-xs text-textMuted/60 mt-4">
-              Real wood shelf • Quiet corner reflections
-            </p>
           </div>
+
+          <p className="text-center font-mono text-xs text-textMuted/60">
+            Sweep across the shelf
+          </p>
         </div>
       </div>
     </section>
