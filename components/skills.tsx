@@ -59,7 +59,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-primary selection:text-secondary"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
@@ -67,7 +67,7 @@ export default function Skills() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-10 pb-6 border-b-2 border-borderGlass">
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
-                <Terminal className="w-4 h-4 text-signal" />
+                <Terminal className="w-4 h-4 text-primary" />
                 <span>Technical Stack</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain">
@@ -93,8 +93,8 @@ export default function Skills() {
                   className="p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass/60 flex flex-col justify-between"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-signal">
-                      <Icon className="w-4 h-4 text-signal" />
+                    <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-primary">
+                      <Icon className="w-4 h-4 text-primary" />
                     </div>
                     <h3 className="font-mono text-sm font-bold text-textMain uppercase tracking-wider">
                       {group.category}

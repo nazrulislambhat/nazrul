@@ -45,13 +45,13 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain pt-8 md:pt-12 pb-16 md:pb-24 selection:bg-primary selection:text-secondary"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
           {/* Section Eyebrow */}
           <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2.5">
-            <Terminal className="w-4 h-4 text-signal" />
+            <Terminal className="w-4 h-4 text-primary" />
             <span>Direct Channels</span>
           </div>
 
@@ -86,8 +86,8 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-center gap-3 text-textMuted pt-1">
-                  <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-signal">
-                    <MapPin className="w-4 h-4 text-signal shrink-0" />
+                  <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-primary">
+                    <MapPin className="w-4 h-4 text-primary shrink-0" />
                   </div>
                   <span>Bengaluru / Srinagar, IN</span>
                 </div>
@@ -102,7 +102,7 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-8 flex flex-col items-center gap-3"
                 >
-                  <CheckCircle2 className="w-10 h-10 text-signal" />
+                  <CheckCircle2 className="w-10 h-10 text-primary" />
                   <h3 className="font-bold text-lg text-textMain">
                     Message Received
                   </h3>
@@ -125,7 +125,7 @@ export default function Contact() {
                       required
                       type="text"
                       placeholder="Nazrul Islam"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-signal-dim transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-primary-dim transition-colors"
                     />
                   </div>
                   <div>
@@ -137,7 +137,7 @@ export default function Contact() {
                       required
                       type="email"
                       placeholder="nazrul@nazrulislam.dev"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-signal-dim transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-primary-dim transition-colors"
                     />
                   </div>
                   <div>
@@ -149,14 +149,14 @@ export default function Contact() {
                       required
                       rows={4}
                       placeholder="Let's discuss frontend architecture, open source, or an engineering role..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-signal-dim transition-colors resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-primary-dim transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black transition-all shadow-2xs disabled:opacity-50 cursor-pointer"
+                    className="w-full py-3 rounded-lg  font-semibold flex items-center justify-center gap-2 hover:bg-primary hover:text-secondary dark:hover:bg-primary dark:hover:text-secondary bg-black text-white dark:bg-secondary dark:text-primary transition-all shadow-2xs disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? (
                       <span>Transmitting...</span>

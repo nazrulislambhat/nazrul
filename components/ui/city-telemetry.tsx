@@ -92,19 +92,21 @@ export default function CityTelemetry() {
       <span className="relative flex h-2 w-2">
         <span
           className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-            isWorkingHours ? 'bg-red' : 'bg-signal'
+            isWorkingHours ? 'bg-red' : 'bg-primary'
           }`}
         />
         <span
           className={`relative inline-flex rounded-full h-2 w-2 ${
-            isWorkingHours ? 'bg-red shadow-red' : 'bg-signal shadow-signalGlow'
+            isWorkingHours
+              ? 'bg-red shadow-red'
+              : 'bg-primary shadow-primaryGlow'
           }`}
         />
       </span>
 
       {/* Animated City Switcher */}
       <div className="flex items-center gap-1.5 text-textMain font-semibold overflow-hidden">
-        <MapPin className="w-3.5 h-3.5 text-signal shrink-0" />
+        <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCity.code}
@@ -129,7 +131,7 @@ export default function CityTelemetry() {
 
       {/* Real-time Local Clock */}
       <div className="flex items-center gap-1.5 text-textMuted font-normal">
-        <Clock className="w-3 h-3 text-signal" />
+        <Clock className="w-3 h-3 text-primary" />
         <span className="text-textMain font-medium">
           {timeStr || '--:--:--'}
         </span>

@@ -1,4 +1,5 @@
 ![Website Deploy](https://deploy-badge.vercel.app/?url=https://nazrulislam.dev/&name=nazrulislam.dev&style=flat-square)
+
 # ⚡ Nazrul Islam — Architecture & Systems Portfolio
 
 A high-performance personal platform and architectural showcase built with Next.js App Router, TypeScript, and a custom **Liquid-Glass** design system. Focused on strict Core Web Vitals (CWV) discipline, WCAG 2.1 AA accessibility, and zero-compromise UX.
@@ -22,7 +23,7 @@ A high-performance personal platform and architectural showcase built with Next.
 
 This portfolio serves as both an interactive resume and an engineering testbed. It demonstrates scalable UI patterns, predictable component lifecycles, and sub-second delivery.
 
-- **Design Ethos:** Cyber-industrial liquid glass featuring high-contrast specular borders, deep obsidian backdrop blurs, and electric telemetry tokens (`#00F58C` signal, `#D9FF54` volt).
+- **Design Ethos:** Cyber-industrial liquid glass featuring high-contrast specular borders, deep obsidian backdrop blurs, and electric telemetry tokens (`#00F58C` primary, `#D9FF54` primary).
 - **Performance Budget:** Sub-second LCP, zero runtime layout shift (`CLS < 0.01`), and automatic degradation for constrained network environments.
 
 ---

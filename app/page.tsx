@@ -10,6 +10,7 @@ import Footer from '../components/footer';
 import Books from '@/components/ui/books';
 import CwvBadge from '@/components/ui/cwv-badge';
 import CalFloatingWidget from '@/components/ui/cal-floating-widget';
+import SkillGlobe from '@/components/skills-globe';
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
       <About />
       <Years />
       <Projects />
-      <Skills />
+      <SkillGlobe />
       <Books />
       <Contact />
       <Footer />

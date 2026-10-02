@@ -43,15 +43,15 @@ export default function CopyPill({
         type="button"
         onClick={handleCopy}
         title={`Click to copy ${label}`}
-        className={`group flex items-center gap-3 text-textMain hover:text-signal transition-colors font-mono text-xs md:text-sm cursor-pointer select-none ${className}`}
+        className={`group flex items-center gap-3 text-textMain hover:text-primary transition-colors font-mono text-xs md:text-sm cursor-pointer select-none ${className}`}
       >
-        <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-signal group-hover:border-signal-dim/50 group-hover:bg-surface transition-all">
-          <Icon className="w-4 h-4 text-signal shrink-0" />
+        <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-primary group-hover:border-primary-dim/50 group-hover:bg-surface transition-all">
+          <Icon className="w-4 h-4 text-primary shrink-0" />
         </div>
         <span>{value}</span>
-        <span className="p-1 rounded-sm bg-surface border border-borderGlass/60 text-textMuted/60 group-hover:text-signal group-hover:border-signal-dim/40 transition-all ml-1">
+        <span className="p-1 rounded-sm bg-surface border border-borderGlass/60 text-textMuted/60 group-hover:text-primary group-hover:border-primary-dim/40 transition-all ml-1">
           {copied ? (
-            <Check className="w-3 h-3 text-volt" />
+            <Check className="w-3 h-3 text-primary" />
           ) : (
             <Copy className="w-3 h-3" />
           )}
@@ -63,9 +63,9 @@ export default function CopyPill({
         <div
           role="status"
           aria-live="polite"
-          className="absolute -top-8 left-10 z-30 flex items-center gap-1.5 px-2.5 py-1 rounded-full liquid-glass border border-volt/50 shadow-voltGlow font-mono text-[10px] text-textMain animate-in fade-in zoom-in-95 duration-200 pointer-events-none"
+          className="absolute -top-8 left-10 z-30 flex items-center gap-1.5 px-2.5 py-1 rounded-full liquid-glass border border-primary/50 shadow-primaryGlow font-mono text-[10px] text-textMain animate-in fade-in zoom-in-95 duration-200 pointer-events-none"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-volt animate-ping shrink-0" />
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping shrink-0" />
           <span>COPIED TO CLIPBOARD</span>
         </div>
       )}

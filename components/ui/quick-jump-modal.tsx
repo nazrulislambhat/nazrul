@@ -32,7 +32,7 @@ export default function QuickJumpModal() {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-2 pb-3 border-b border-borderGlass text-textMuted">
-          <Command className="w-3.5 h-3.5 text-signal" />
+          <Command className="w-3.5 h-3.5 text-primary" />
           <span className="text-textMain font-semibold">Quick Navigation</span>
           <span className="ml-auto text-[10px] text-textMuted/60">
             ESC to close
@@ -49,7 +49,7 @@ export default function QuickJumpModal() {
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between py-2 px-1 text-textMuted hover:text-signal hover:bg-surface/50 rounded-sm transition-colors"
+                className="flex items-center justify-between py-2 px-1 text-textMuted hover:text-primary hover:bg-surface/50 rounded-sm transition-colors"
               >
                 <span>{item.label}</span>
                 <CornerDownLeft className="w-3 h-3 text-textMuted/40" />

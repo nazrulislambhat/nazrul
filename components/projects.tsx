@@ -82,7 +82,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-volt selection:text-black"
+      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12 selection:bg-primary selection:text-secondary"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         {/* Outer glass boundary enclosing both title and project cards */}
@@ -91,7 +91,7 @@ export default function Projects() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-5 mb-10 pb-6 border-b-2 border-borderGlass">
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
-                <Terminal className="w-4 h-4 text-signal" />
+                <Terminal className="w-4 h-4 text-primary" />
                 <span>Selected Work &amp; Systems</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain">
@@ -104,7 +104,7 @@ export default function Projects() {
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold underline text-textMain hover:text-signal transition-colors"
+                className="font-bold hover:underline text-red transition-colors"
               >
                 GitHub
               </Link>
@@ -126,7 +126,7 @@ export default function Projects() {
                   {/* Category & Role Header */}
                   <div className="flex items-center justify-between gap-3 mb-3.5 font-mono text-xs text-textMuted">
                     <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-borderGlass bg-surface/80 text-textMain">
-                      <Layers className="w-3.5 h-3.5 text-signal" />
+                      <Layers className="w-3.5 h-3.5 text-primary" />
                       {project.category}
                     </span>
                     {project.role && (
@@ -162,7 +162,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-signal hover:underline shrink-0"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-red hover:underline shrink-0"
                   >
                     {project.type === 'github' ? (
                       <>

@@ -63,7 +63,7 @@ jobs:
       # repo and set to post deployment statuses. If you deploy via CLI or
       # a different pipeline, this will time out at max_timeout and fail
       # the whole job — hence continue-on-error below so it doesn't block
-      # the "quality" job's green check.
+      # the "quality" job's primary check.
       - name: Wait for Vercel preview deployment
         uses: patrickedqvist/wait-for-vercel-preview@v1.3.1
         id: waitForVercelPreview

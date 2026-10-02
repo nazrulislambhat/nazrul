@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'motion/react';
 import { Cpu, Zap, Layout, Terminal } from 'lucide-react';
+import { TechInline } from '@/components/tech-in-line';
 
 const pillars = [
   {
@@ -26,36 +26,42 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full overflow-hidden bg-background text-textMain py-8 md:py-12"
+      className="relative selection:text-secondary selection:bg-primary w-full overflow-hidden bg-background text-textMain py-8 md:py-12"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
           {/* Section Eyebrow */}
           <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-3">
-            <Terminal className="w-4 h-4 text-signal" />
+            <Terminal className="w-4 h-4 text-primary" />
             <span>Background &amp; Focus</span>
           </div>
 
           {/* Section Narrative */}
+
           <div className="max-w-4xl">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-6 leading-tight">
               Bridging robust engineering with uncompromising interface design.
             </h2>
 
-            <div className="space-y-4 text-base md:text-lg text-textMuted leading-relaxed">
+            <div className="space-y-4 text-base md:text-lg text-textMuted leading-[2]">
               <p>
                 I am a senior frontend engineer and architect with over half a
                 decade of experience building production web applications. My
-                work centers on the modern{' '}
-                <strong className="text-textMain font-semibold">
-                  TypeScript, React, and Next.js
-                </strong>{' '}
-                ecosystems, delivering interfaces that remain maintainable as
-                teams and products scale.
+                work centers on the modern <TechInline tech="js" inView /> and{' '}
+                <TechInline tech="ts" inView delay={0.15} /> languages, with{' '}
+                <TechInline tech="react" inView delay={0.3} /> and{' '}
+                <TechInline tech="next" inView delay={0.45} /> ecosystems,
+                delivering interfaces that remain maintainable as teams and
+                products scale.
               </p>
-              <p>
+              <p className="leading-[2]">
                 I value predictable architecture over framework churn: clean
-                state modeling, accessible component libraries, and build
+                state modeling with{' '}
+                <TechInline tech="redux" inView delay={0.6} />, typed data
+                layers over <TechInline tech="graphql" inView delay={0.75} />{' '}
+                and <TechInline tech="node" inView delay={0.9} /> services,
+                accessible component libraries styled with{' '}
+                <TechInline tech="tailwind" inView delay={1.05} />, and build
                 tooling tuned for fast feedback loops.
               </p>
             </div>
@@ -75,7 +81,7 @@ export default function About() {
                   className="p-6 rounded-2xl liquid-glass-subtle border border-borderGlass/60 flex flex-col justify-start"
                 >
                   <div className="w-9 h-9 rounded-xl border border-borderGlass bg-surface/80 flex items-center justify-center mb-4 text-textMain">
-                    <Icon className="w-4 h-4 text-signal" />
+                    <Icon className="w-4 h-4 text-primary" />
                   </div>
                   <h3 className="font-mono text-sm font-bold text-textMain mb-2">
                     {pillar.title}
