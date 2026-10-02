@@ -44,6 +44,7 @@ export const DEFAULT_SKILLS: Skill[] = [
   { name: 'Tailwind CSS', group: 'Frameworks & Frontend' },
   { name: 'Redux Toolkit / Zustand', group: 'Frameworks & Frontend' },
   { name: 'Three.js / WebGL', group: 'Frameworks & Frontend' },
+  { name: 'MUI / HeroUI', group: 'Frameworks & Frontend' },
 
   // Architecture & Standards
   { name: 'Design Systems', group: 'Architecture & Standards' },
@@ -51,16 +52,21 @@ export const DEFAULT_SKILLS: Skill[] = [
   { name: 'Core Web Vitals', group: 'Architecture & Standards' },
   { name: 'WCAG 2.1 AA Accessibility', group: 'Architecture & Standards' },
   { name: 'State Machines', group: 'Architecture & Standards' },
+  { name: 'Atomic Design', group: 'Architecture & Standards' },
 
   // Backend
   { name: 'Node.js', group: 'Backend' },
   { name: 'SQL / PostgreSQL', group: 'Backend' },
   { name: 'RESTful & GraphQL APIs', group: 'Backend' },
+  { name: 'Drupal / Twig', group: 'Backend' },
+  { name: 'WordPress Plugins', group: 'Backend' },
 
   // Tooling & Infrastructure
   { name: 'Webpack / Vite', group: 'Tooling & Infrastructure' },
   { name: 'Git & GitHub Actions', group: 'Tooling & Infrastructure' },
   { name: 'Cloudflare Workers / Pages', group: 'Tooling & Infrastructure' },
+  { name: 'Storybook / Pattern Lab', group: 'Tooling & Infrastructure' },
+  { name: 'AI-Augmented Dev Tooling', group: 'Tooling & Infrastructure' },
 ];
 
 /* ───────────────────────── Types ───────────────────────── */
