@@ -661,7 +661,7 @@ export default function SkillGlobe({
   title = 'Skills, thrown into orbit.',
   id = 'skills',
   className = '',
-  lockTouchScroll = true,
+  lockTouchScroll = false,
 }: SkillGlobeProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -931,7 +931,7 @@ export default function SkillGlobe({
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
           {title && (
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-8 leading-tight">
+            <h2 className="text-3xl uppercase sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-8 leading-tight">
               {title}
             </h2>
           )}

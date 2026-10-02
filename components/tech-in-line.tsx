@@ -11,7 +11,7 @@ type Tech =
   | 'tailwind'
   | 'graphql'
   | 'redux'
-  | 'node'; 
+  | 'node';
 
 /* ---------- Animated logos ---------- */
 
@@ -244,10 +244,12 @@ export function TechInline({
   tech,
   delay = 0,
   inView = false,
+  iconOnly = false,
 }: {
   tech: Tech;
   delay?: number;
   inView?: boolean;
+  iconOnly?: boolean;
 }) {
   const reduce = useReducedMotion();
   const animate = !reduce;
@@ -277,10 +279,17 @@ export function TechInline({
       {...entrance}
       transition={{ type: 'spring', stiffness: 260, damping: 16, delay }}
       whileHover={animate ? { scale: 1.12, rotate: -3 } : undefined}
-      className="mx-0.5 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 align-middle text-textMain font-semibold"
+      title={iconOnly ? LABELS[tech] : undefined}
+      className={`mx-0.5 inline-flex items-center rounded-full border align-middle text-textMain font-semibold ${
+        iconOnly ? 'p-1.5' : 'gap-1.5 px-2.5 py-0.5'
+      }`}
     >
       {logo[tech]}
-      <span className="text-[0.85em]">{LABELS[tech]}</span>
+      {iconOnly ? (
+        <span className="sr-only">{LABELS[tech]}</span>
+      ) : (
+        <span className="text-[0.85em]">{LABELS[tech]}</span>
+      )}
     </motion.span>
   );
 }
