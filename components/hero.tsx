@@ -9,7 +9,7 @@ import { TechInline } from '@/components/tech-in-line';
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden pt-40 md:pt-36 pb-12 md:pb-16 selection:bg-primary selection:text-secondary">
+    <section className="relative w-full overflow-hidden pt-40 md:pt-36 pb-8 md:pb-16 selection:bg-primary selection:text-secondary">
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="relative p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass flex flex-col justify-between transition-all duration-300 shadow-2xl">
           {/* Availability Status Badge with Micro Pulse */}
