@@ -6,7 +6,7 @@ import type {
   PointerEvent as ReactPointerEvent,
 } from 'react';
 import { useReducedMotion } from 'framer-motion';
-
+import { Globe } from 'lucide-react';
 /* ───────────────────────── Data ───────────────────────── */
 
 export type Group =
@@ -641,27 +641,23 @@ function drawScene(ctx: CanvasRenderingContext2D, s: Sim, accent: string) {
 
 interface SkillGlobeProps {
   skills?: Skill[];
-  /** Hex colour of your `primary` token (canvas can't read Tailwind classes). */
   accent?: string;
+  /** Small label above the heading. Pass an empty string to hide it. */
+  eyebrow?: string;
   /** Section heading. Pass an empty string to hide it. */
   title?: string;
-  /** Anchor id for in-page navigation. */
   id?: string;
   className?: string;
-  /**
-   * true  → a finger on the globe always rotates it (the page can't scroll from there).
-   * false → only horizontal drags rotate; vertical drags scroll the page.
-   */
   lockTouchScroll?: boolean;
 }
-
 export default function SkillGlobe({
   skills = DEFAULT_SKILLS,
   accent = '#f43c00',
+  eyebrow = 'Tech Stack',
   title = 'Skills, thrown into orbit.',
   id = 'skills',
   className = '',
-  lockTouchScroll = false,
+  lockTouchScroll = true,
 }: SkillGlobeProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -930,10 +926,20 @@ export default function SkillGlobe({
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16">
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
-          {title && (
-            <h2 className="text-3xl uppercase sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain mb-8 leading-tight">
-              {title}
-            </h2>
+          {(eyebrow || title) && (
+            <div className="mb-8">
+              {eyebrow && (
+                <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
+                  <Globe className="w-4 h-4 text-primary" aria-hidden="true" />
+                  <span>{eyebrow}</span>
+                </div>
+              )}
+              {title && (
+                <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain">
+                  {title}
+                </h2>
+              )}
+            </div>
           )}
 
           <div
