@@ -67,14 +67,6 @@ export const metadata: Metadata = {
     description:
       'Building resilient, high-speed web platforms with React, Next.js, and modern interface architecture.',
     siteName: 'Nazrul Islam Portfolio',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Nazrul Islam — Senior Frontend Engineer',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -82,7 +74,6 @@ export const metadata: Metadata = {
     description:
       'Senior Frontend Engineer specializing in React.js, Next.js, and high-performance web applications.',
     creator: '@nazrulislambhat',
-    images: ['/og-image.png'],
   },
   robots: {
     index: true,
