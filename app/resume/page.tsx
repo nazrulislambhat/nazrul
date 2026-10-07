@@ -40,7 +40,7 @@ export default function ResumePage() {
 
           <button
             onClick={handlePrint}
-            className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-primary hover:text-black dark:hover:bg-primary dark:hover:text-black transition-all shadow-2xs cursor-pointer"
+            className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white dark:bg-white dark:text-black font-mono text-xs font-bold hover:bg-primary hover:text-secondary dark:hover:bg-primary dark:hover:text-black transition-all shadow-2xs cursor-pointer"
           >
             <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             <span>Download PDF</span>
