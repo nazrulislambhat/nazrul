@@ -96,7 +96,7 @@ export default function Hero() {
               >
                 <Link
                   href="#projects"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-md hover:bg-primary hover:text-secondary dark:hover:bg-primary dark:hover:text-secondary bg-black text-white dark:bg-secondary dark:text-primary  font-mono text-xs font-bold  transition-all shadow-md cursor-pointer"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-md hover:bg-primary hover:text-secondary dark:hover:bg-primary dark:hover:text-secondary bg-black text-white dark:bg-white dark:text-black  font-mono text-xs font-bold  transition-all shadow-md cursor-pointer"
                 >
                   <span>View Architecture &amp; Code</span>
                   <ArrowDownRight className="w-4 h-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-200" />
@@ -109,9 +109,9 @@ export default function Hero() {
               >
                 <Link
                   href="#contact"
-                  className="group flex items-center gap-2 px-5 py-2.5 rounded-md border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-primary hover:text-primary transition-all cursor-pointer shadow-sm"
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-md border border-borderGlass bg-surface/60 font-mono text-xs text-textMain hover:border-primary hover:text-primary dark:hover:text-secondary dark:hover:border-secondary transition-all cursor-pointer shadow-sm"
                 >
-                  <Terminal className="w-4 h-4 text-primary group-hover:rotate-12 transition-transform duration-200" />
+                  <Terminal className="w-4 h-4 text-primary dark:text-white dark:group-hover:text-secondary group-hover:rotate-12 transition-transform duration-200" />
                   <span>Explore Experience</span>
                 </Link>
               </motion.div>
