@@ -74,11 +74,11 @@ export default function ResumePage() {
                 <ArrowUpRight className="w-3 h-3 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform print:hidden" />
               </a>
               <a
-                href="mailto:nazrulislambhat@gmail.com"
+                href="mailto:n@nazrulislam.dev"
                 className="flex items-center gap-1 hover:text-primary hover:underline transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-primary print:hidden" />
-                <span>nazrulislambhat@gmail.com</span>
+                <span>n@nazrulislam.dev</span>
               </a>
               <a
                 href="tel:+919469444007"

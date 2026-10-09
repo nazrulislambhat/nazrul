@@ -71,7 +71,7 @@ export default function Contact() {
               <div className="space-y-3 font-mono text-xs md:text-sm">
                 <div>
                   <CopyPill
-                    value="nazrulislambhat@gmail.com"
+                    value="n@nazrulislam.dev"
                     label="email address"
                     icon={Mail}
                   />
@@ -136,7 +136,7 @@ export default function Contact() {
                       name="email"
                       required
                       type="email"
-                      placeholder="nazrul@nazrulislam.dev"
+                      placeholder="n@nazrulislam.dev"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-borderGlass bg-surface/80 text-textMain focus:outline-hidden focus:border-primary-dim transition-colors"
                     />
                   </div>
