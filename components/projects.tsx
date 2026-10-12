@@ -1,11 +1,80 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Github, Globe, Layers, Terminal } from 'lucide-react';
-import TiltCard from './ui/3d-tilt-card';
+import {
+  ArrowUpRight,
+  Eye,
+  Github,
+  Globe,
+  Layers,
+  ShieldCheck,
+  Terminal,
+  type LucideIcon,
+} from 'lucide-react';
+
+type ProjectLogo =
+  | { kind: 'favicon'; domain: string }
+  | { kind: 'icon'; icon: LucideIcon };
+
+/**
+ * Renders a project logo. Uses the site's favicon for live projects and
+ * falls back to the project's initial if the image fails to load.
+ */
+function ProjectMark({
+  logo,
+  title,
+  large = false,
+}: {
+  logo: ProjectLogo;
+  title: string;
+  large?: boolean;
+}) {
+  const [failed, setFailed] = useState(false);
+  const box = large ? 'w-14 h-14 md:w-16 md:h-16' : 'w-11 h-11 md:w-12 md:h-12';
+  const wrapper = `shrink-0 flex items-center justify-center rounded-xl border border-borderGlass bg-surface/80 overflow-hidden ${box}`;
+
+  if (logo.kind === 'icon') {
+    const Icon = logo.icon;
+    return (
+      <div className={wrapper} aria-hidden="true">
+        <Icon
+          className={large ? 'w-7 h-7 text-primary' : 'w-6 h-6 text-primary'}
+        />
+      </div>
+    );
+  }
+
+  if (failed) {
+    return (
+      <div
+        className={`${wrapper} font-mono font-bold text-textMain text-lg`}
+        aria-hidden="true"
+      >
+        {title.charAt(0)}
+      </div>
+    );
+  }
+
+  return (
+    <div className={wrapper}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`https://www.google.com/s2/favicons?domain=${logo.domain}&sz=128`}
+        alt={`${title} logo`}
+        width={large ? 36 : 24}
+        height={large ? 36 : 24}
+        loading="lazy"
+        onError={() => setFailed(true)}
+        className={large ? 'w-9 h-9 md:w-10 md:h-10 rounded-xl' : 'w-7 h-7 md:w-8 md:h-8'}
+      />
+    </div>
+  );
+}
+
 interface Project {
+  logo: ProjectLogo;
   title: string;
   role?: string;
   category: 'Enterprise Engineering' | 'Open Source & Tools';
@@ -13,10 +82,14 @@ interface Project {
   tags: string[];
   link: string;
   type: 'github' | 'live';
+  /** Bento placement (applies from md breakpoint up, 6-col grid) */
+  span: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
   {
+    logo: { kind: 'favicon', domain: 'novartis.com' },
     title: 'Novartis',
     role: 'Senior Frontend Engineer',
     category: 'Enterprise Engineering',
@@ -25,18 +98,23 @@ const projects: Project[] = [
     tags: ['Next.js', 'React', 'TypeScript', 'Design Systems'],
     link: 'https://www.novartis.com',
     type: 'live',
+    span: 'md:col-span-4 md:row-span-2',
+    featured: true,
   },
   {
-    title: 'Doctors Without Borders (MSF)',
+    logo: { kind: 'favicon', domain: 'ama-assn.org' },
+    title: 'American Medical Association (AMA)',
     role: 'Frontend Engineering',
     category: 'Enterprise Engineering',
     description:
-      'Led UI architecture for mission-critical humanitarian content platforms. Optimized internationalization (i18n), zero-compromise Core Web Vitals, and resilient caching under low bandwidth.',
+      'Led UI architecture for large-scale medical and clinical information platforms. Optimized internationalization (i18n), zero-compromise Core Web Vitals, and resilient caching under high traffic volumes.',
     tags: ['React', 'Next.js', 'i18n', 'Performance', 'Accessibility'],
-    link: 'https://www.doctorswithoutborders.org',
+    link: 'https://www.ama-assn.org/',
     type: 'live',
+    span: 'md:col-span-2 md:row-span-2',
   },
   {
+    logo: { kind: 'favicon', domain: 'veolia.com' },
     title: 'Veolia',
     role: 'Frontend Engineering',
     category: 'Enterprise Engineering',
@@ -45,8 +123,10 @@ const projects: Project[] = [
     tags: ['TypeScript', 'Design Systems', 'Core Web Vitals'],
     link: 'https://www.veolia.com',
     type: 'live',
+    span: 'md:col-span-2',
   },
   {
+    logo: { kind: 'favicon', domain: 'millboard.com' },
     title: 'Millboard',
     role: 'Frontend Engineering',
     category: 'Enterprise Engineering',
@@ -55,8 +135,34 @@ const projects: Project[] = [
     tags: ['Headless CMS', 'Next.js', 'Asset Optimization'],
     link: 'https://www.millboard.com',
     type: 'live',
+    span: 'md:col-span-4',
   },
   {
+    logo: { kind: 'favicon', domain: 'dhikrly.com' },
+    title: 'Dhikrly',
+    role: 'Founder & Architect',
+    category: 'Open Source & Tools',
+    description:
+      'A minimalist, privacy-first digital mindfulness and remembrance web app. Built with clean state management, instant offline PWA support, and lightweight reactive UI.',
+    tags: ['Next.js', 'Tailwind CSS', 'PWA'],
+    link: 'https://dhikrly.com',
+    type: 'live',
+    span: 'md:col-span-3',
+  },
+  {
+    logo: { kind: 'icon', icon: Eye },
+    title: 'Eye Care Timer Chrome',
+    role: 'Creator & Developer',
+    category: 'Open Source & Tools',
+    description:
+      'A lightweight browser utility extension engineered to protect user eye health by scheduling structured screen breaks, visual reminders, and resting intervals during intense coding sessions.',
+    tags: ['JavaScript', 'Chrome Extension', 'Web APIs'],
+    link: 'https://github.com/nazrulislambhat/eye-care-timer-chrome',
+    type: 'github',
+    span: 'md:col-span-3',
+  },
+  {
+    logo: { kind: 'icon', icon: ShieldCheck },
     title: 'Hostinger Cache Watchdog',
     role: 'Architect',
     category: 'Open Source & Tools',
@@ -65,16 +171,7 @@ const projects: Project[] = [
     tags: ['Automation', 'TypeScript', 'Edge Cache'],
     link: 'https://github.com/nazrulislambhat/hostinger-cache-watchdog',
     type: 'github',
-  },
-  {
-    title: 'Dhikrly',
-    role: 'Founder & Architect',
-    category: 'Open Source & Tools',
-    description:
-      'A minimalist, privacy-first digital mindfulness and remembrance web app. Built with clean state management, instant offline PWA support, and lightweight reactive UI.',
-    tags: ['Next.js', 'Tailwind CSS', 'PWA'],
-    link: 'https://github.com/nazrulislambhat/dhikrly',
-    type: 'github',
+    span: 'md:col-span-6',
   },
 ];
 
@@ -99,7 +196,7 @@ export default function Projects() {
               </h2>
             </div>
             <p className="max-w-md text-xs md:text-sm text-textMuted font-mono">
-              Inspect "all" repositories on{' '}
+              Inspect &quot;all&quot; repositories on{' '}
               <Link
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
@@ -111,8 +208,8 @@ export default function Projects() {
             </p>
           </div>
 
-          {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Bento Grid: 1 col on mobile, 6-col bento from md up */}
+          <div className="grid grid-cols-1 md:grid-cols-6 md:auto-rows-[minmax(14rem,auto)] gap-4 md:gap-5">
             {projects.map((project, idx) => (
               <motion.div
                 key={project.title}
@@ -120,11 +217,11 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
-                className="relative flex flex-col justify-between p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass/60"
+                className={`group relative flex flex-col justify-between p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass/60 transition-colors hover:border-primary/60 ${project.span}`}
               >
                 <div>
                   {/* Category & Role Header */}
-                  <div className="flex items-center justify-between gap-3 mb-3.5 font-mono text-xs text-textMuted">
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-3.5 font-mono text-xs text-textMuted">
                     <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-borderGlass bg-surface/80 text-textMain">
                       <Layers className="w-3.5 h-3.5 text-primary" />
                       {project.category}
@@ -137,10 +234,29 @@ export default function Projects() {
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-xl md:text-2xl font-bold text-textMain mb-2.5">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-textMuted leading-relaxed mb-5 font-normal">
+                  <div className="flex items-center gap-3.5 mb-3">
+                    <ProjectMark
+                      logo={project.logo}
+                      title={project.title}
+                      large={project.featured}
+                    />
+                    <h3
+                      className={`font-bold text-textMain ${
+                        project.featured
+                          ? 'text-2xl md:text-4xl tracking-tight'
+                          : 'text-xl md:text-2xl'
+                      }`}
+                    >
+                      {project.title}
+                    </h3>
+                  </div>
+                  <p
+                    className={`text-textMuted leading-relaxed mb-5 font-normal ${
+                      project.featured
+                        ? 'text-base md:text-lg max-w-2xl'
+                        : 'text-sm md:text-base'
+                    }`}
+                  >
                     {project.description}
                   </p>
                 </div>
@@ -172,7 +288,7 @@ export default function Projects() {
                     ) : (
                       <>
                         <Globe className="w-3.5 h-3.5" />
-                        <span>Platform</span>
+                        <span>Live</span>
                       </>
                     )}
                     <ArrowUpRight className="w-3.5 h-3.5" />
