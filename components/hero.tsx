@@ -17,8 +17,6 @@ export default function Hero() {
             initial={{ opacity: 0, y: -10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
             className="flex items-center gap-2.5 w-fit px-4 py-1.5 rounded-full border border-primary bg-surface/90 text-xs font-mono shadow-xs mb-6 cursor-default backdrop-blur-md"
           >
             <span className="relative flex h-2 w-2">

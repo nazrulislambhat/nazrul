@@ -7,7 +7,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import CityTelemetry from './ui/city-telemetry';
 import GithubPulse from './ui/github-pulse';
-import logo from '../assets/logo.png';
+
+import logoMinimal from '../assets/logoMinimal.png';
+import logoReal from '../assets/logoReal.png';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -20,6 +22,7 @@ const navLinks = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <header className="fixed top-0 selection:text-secondary selection:bg-primary left-0 right-0 w-full z-40 bg-transparent pointer-events-none">
@@ -32,15 +35,40 @@ export default function Header() {
 
         {/* Floating Glass Navigation Island */}
         <div className="flex items-center justify-between py-2.5 px-5 md:px-7 rounded-2xl liquid-glass border border-borderGlass shadow-xs transition-all duration-300">
-          <Link href="/" className="relative block group">
-            <Image
-              src={logo}
-              alt="Nazrul Islam Logo"
-              width={36}
-              height={36}
-              className="rounded-full border-2 border-borderGlass transition-transform duration-200 group-hover:scale-105 group-hover:border-primary-dim/50"
-              priority
-            />
+          {/* Header Logo Section with Clean Face Morph on Hover */}
+          <Link href="/" className="relative block group outline-none">
+            <motion.div
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+              className="relative flex items-center justify-center w-10 h-10 rounded-full overflow-hidden border-2 border-borderGlass shadow-sm bg-surface cursor-pointer"
+            >
+              {/* Minimal Illustration Logo (Default) */}
+              <Image
+                src={logoMinimal}
+                alt="Nazrul Islam Illustration Logo"
+                fill
+                sizes="40px"
+                className={`object-cover transition-opacity duration-300 z-10 ${
+                  isHovered ? 'opacity-0' : 'opacity-100'
+                }`}
+                priority
+              />
+
+              {/* Real Face Logo (Fades in on Hover) */}
+              <Image
+                src={logoReal}
+                alt="Nazrul Islam Real Face"
+                fill
+                sizes="40px"
+                className={`object-cover transition-opacity duration-300 z-10 ${
+                  isHovered ? 'opacity-100' : 'opacity-0'
+                }`}
+                priority
+              />
+            </motion.div>
           </Link>
 
           {/* Desktop Nav */}
@@ -59,10 +87,10 @@ export default function Header() {
               href="/resume"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-primary hover:text-secondary hover:border-primary transition-all shadow-2xs text-xs font-semibold"
+              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-primary hover:text-white hover:border-primary transition-all shadow-2xs text-xs font-semibold"
             >
               <span>Resume</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-primary group-hover:text-secondary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-primary group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </nav>
 
