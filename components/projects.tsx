@@ -1,11 +1,80 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Github, Globe, Layers, Terminal } from 'lucide-react';
+import {
+  ArrowUpRight,
+  Eye,
+  Github,
+  Globe,
+  Layers,
+  ShieldCheck,
+  Terminal,
+  type LucideIcon,
+} from 'lucide-react';
+
+type ProjectLogo =
+  | { kind: 'favicon'; domain: string }
+  | { kind: 'icon'; icon: LucideIcon };
+
+/**
+ * Renders a project logo. Uses the site's favicon for live projects and
+ * falls back to the project's initial if the image fails to load.
+ */
+function ProjectMark({
+  logo,
+  title,
+  large = false,
+}: {
+  logo: ProjectLogo;
+  title: string;
+  large?: boolean;
+}) {
+  const [failed, setFailed] = useState(false);
+  const box = large ? 'w-14 h-14 md:w-16 md:h-16' : 'w-11 h-11 md:w-12 md:h-12';
+  const wrapper = `shrink-0 flex items-center justify-center rounded-xl border border-borderGlass bg-surface/80 overflow-hidden ${box}`;
+
+  if (logo.kind === 'icon') {
+    const Icon = logo.icon;
+    return (
+      <div className={wrapper} aria-hidden="true">
+        <Icon
+          className={large ? 'w-7 h-7 text-primary' : 'w-6 h-6 text-primary'}
+        />
+      </div>
+    );
+  }
+
+  if (failed) {
+    return (
+      <div
+        className={`${wrapper} font-mono font-bold text-textMain text-lg`}
+        aria-hidden="true"
+      >
+        {title.charAt(0)}
+      </div>
+    );
+  }
+
+  return (
+    <div className={wrapper}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`https://www.google.com/s2/favicons?domain=${logo.domain}&sz=128`}
+        alt={`${title} logo`}
+        width={large ? 36 : 24}
+        height={large ? 36 : 24}
+        loading="lazy"
+        onError={() => setFailed(true)}
+        className={large ? 'w-9 h-9 md:w-10 md:h-10 rounded-xl' : 'w-7 h-7 md:w-8 md:h-8'}
+      />
+    </div>
+  );
+}
 
 interface Project {
+  logo: ProjectLogo;
   title: string;
   role?: string;
   category: 'Enterprise Engineering' | 'Open Source & Tools';
@@ -20,6 +89,7 @@ interface Project {
 
 const projects: Project[] = [
   {
+    logo: { kind: 'favicon', domain: 'novartis.com' },
     title: 'Novartis',
     role: 'Senior Frontend Engineer',
     category: 'Enterprise Engineering',
@@ -32,6 +102,7 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    logo: { kind: 'favicon', domain: 'ama-assn.org' },
     title: 'American Medical Association (AMA)',
     role: 'Frontend Engineering',
     category: 'Enterprise Engineering',
@@ -43,6 +114,7 @@ const projects: Project[] = [
     span: 'md:col-span-2 md:row-span-2',
   },
   {
+    logo: { kind: 'favicon', domain: 'veolia.com' },
     title: 'Veolia',
     role: 'Frontend Engineering',
     category: 'Enterprise Engineering',
@@ -54,6 +126,7 @@ const projects: Project[] = [
     span: 'md:col-span-2',
   },
   {
+    logo: { kind: 'favicon', domain: 'millboard.com' },
     title: 'Millboard',
     role: 'Frontend Engineering',
     category: 'Enterprise Engineering',
@@ -65,6 +138,7 @@ const projects: Project[] = [
     span: 'md:col-span-4',
   },
   {
+    logo: { kind: 'favicon', domain: 'dhikrly.com' },
     title: 'Dhikrly',
     role: 'Founder & Architect',
     category: 'Open Source & Tools',
@@ -76,6 +150,7 @@ const projects: Project[] = [
     span: 'md:col-span-3',
   },
   {
+    logo: { kind: 'icon', icon: Eye },
     title: 'Eye Care Timer Chrome',
     role: 'Creator & Developer',
     category: 'Open Source & Tools',
@@ -87,6 +162,7 @@ const projects: Project[] = [
     span: 'md:col-span-3',
   },
   {
+    logo: { kind: 'icon', icon: ShieldCheck },
     title: 'Hostinger Cache Watchdog',
     role: 'Architect',
     category: 'Open Source & Tools',
@@ -158,15 +234,22 @@ export default function Projects() {
                   </div>
 
                   {/* Title & Description */}
-                  <h3
-                    className={`font-bold text-textMain mb-2.5 ${
-                      project.featured
-                        ? 'text-2xl md:text-4xl tracking-tight'
-                        : 'text-xl md:text-2xl'
-                    }`}
-                  >
-                    {project.title}
-                  </h3>
+                  <div className="flex items-center gap-3.5 mb-3">
+                    <ProjectMark
+                      logo={project.logo}
+                      title={project.title}
+                      large={project.featured}
+                    />
+                    <h3
+                      className={`font-bold text-textMain ${
+                        project.featured
+                          ? 'text-2xl md:text-4xl tracking-tight'
+                          : 'text-xl md:text-2xl'
+                      }`}
+                    >
+                      {project.title}
+                    </h3>
+                  </div>
                   <p
                     className={`text-textMuted leading-relaxed mb-5 font-normal ${
                       project.featured
