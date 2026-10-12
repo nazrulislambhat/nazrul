@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { ArrowUpRight, Github, Globe, Layers, Terminal } from 'lucide-react';
+
 interface Project {
   title: string;
   role?: string;
@@ -12,6 +13,9 @@ interface Project {
   tags: string[];
   link: string;
   type: 'github' | 'live';
+  /** Bento placement (applies from md breakpoint up, 6-col grid) */
+  span: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
@@ -24,6 +28,8 @@ const projects: Project[] = [
     tags: ['Next.js', 'React', 'TypeScript', 'Design Systems'],
     link: 'https://www.novartis.com',
     type: 'live',
+    span: 'md:col-span-4 md:row-span-2',
+    featured: true,
   },
   {
     title: 'American Medical Association (AMA)',
@@ -34,6 +40,7 @@ const projects: Project[] = [
     tags: ['React', 'Next.js', 'i18n', 'Performance', 'Accessibility'],
     link: 'https://www.ama-assn.org/',
     type: 'live',
+    span: 'md:col-span-2 md:row-span-2',
   },
   {
     title: 'Veolia',
@@ -44,6 +51,7 @@ const projects: Project[] = [
     tags: ['TypeScript', 'Design Systems', 'Core Web Vitals'],
     link: 'https://www.veolia.com',
     type: 'live',
+    span: 'md:col-span-2',
   },
   {
     title: 'Millboard',
@@ -54,6 +62,7 @@ const projects: Project[] = [
     tags: ['Headless CMS', 'Next.js', 'Asset Optimization'],
     link: 'https://www.millboard.com',
     type: 'live',
+    span: 'md:col-span-4',
   },
   {
     title: 'Dhikrly',
@@ -64,6 +73,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'Tailwind CSS', 'PWA'],
     link: 'https://dhikrly.com',
     type: 'live',
+    span: 'md:col-span-3',
   },
   {
     title: 'Eye Care Timer Chrome',
@@ -74,6 +84,7 @@ const projects: Project[] = [
     tags: ['JavaScript', 'Chrome Extension', 'Web APIs'],
     link: 'https://github.com/nazrulislambhat/eye-care-timer-chrome',
     type: 'github',
+    span: 'md:col-span-3',
   },
   {
     title: 'Hostinger Cache Watchdog',
@@ -84,6 +95,7 @@ const projects: Project[] = [
     tags: ['Automation', 'TypeScript', 'Edge Cache'],
     link: 'https://github.com/nazrulislambhat/hostinger-cache-watchdog',
     type: 'github',
+    span: 'md:col-span-6',
   },
 ];
 
@@ -108,7 +120,7 @@ export default function Projects() {
               </h2>
             </div>
             <p className="max-w-md text-xs md:text-sm text-textMuted font-mono">
-              Inspect "all" repositories on{' '}
+              Inspect &quot;all&quot; repositories on{' '}
               <Link
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
@@ -120,8 +132,8 @@ export default function Projects() {
             </p>
           </div>
 
-          {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Bento Grid: 1 col on mobile, 6-col bento from md up */}
+          <div className="grid grid-cols-1 md:grid-cols-6 md:auto-rows-[minmax(14rem,auto)] gap-4 md:gap-5">
             {projects.map((project, idx) => (
               <motion.div
                 key={project.title}
@@ -129,11 +141,11 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
-                className="relative flex flex-col justify-between p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass/60"
+                className={`group relative flex flex-col justify-between p-6 md:p-8 rounded-2xl liquid-glass-subtle border border-borderGlass/60 transition-colors hover:border-primary/60 ${project.span}`}
               >
                 <div>
                   {/* Category & Role Header */}
-                  <div className="flex items-center justify-between gap-3 mb-3.5 font-mono text-xs text-textMuted">
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-3.5 font-mono text-xs text-textMuted">
                     <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-borderGlass bg-surface/80 text-textMain">
                       <Layers className="w-3.5 h-3.5 text-primary" />
                       {project.category}
@@ -146,10 +158,22 @@ export default function Projects() {
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-xl md:text-2xl font-bold text-textMain mb-2.5">
+                  <h3
+                    className={`font-bold text-textMain mb-2.5 ${
+                      project.featured
+                        ? 'text-2xl md:text-4xl tracking-tight'
+                        : 'text-xl md:text-2xl'
+                    }`}
+                  >
                     {project.title}
                   </h3>
-                  <p className="text-sm md:text-base text-textMuted leading-relaxed mb-5 font-normal">
+                  <p
+                    className={`text-textMuted leading-relaxed mb-5 font-normal ${
+                      project.featured
+                        ? 'text-base md:text-lg max-w-2xl'
+                        : 'text-sm md:text-base'
+                    }`}
+                  >
                     {project.description}
                   </p>
                 </div>
