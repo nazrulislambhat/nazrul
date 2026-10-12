@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { ArrowUpRight, Github, Globe, Layers, Terminal } from 'lucide-react';
-import TiltCard from './ui/3d-tilt-card';
 interface Project {
   title: string;
   role?: string;
@@ -27,13 +26,13 @@ const projects: Project[] = [
     type: 'live',
   },
   {
-    title: 'Doctors Without Borders (MSF)',
+    title: 'American Medical Association (AMA)',
     role: 'Frontend Engineering',
     category: 'Enterprise Engineering',
     description:
-      'Led UI architecture for mission-critical humanitarian content platforms. Optimized internationalization (i18n), zero-compromise Core Web Vitals, and resilient caching under low bandwidth.',
+      'Led UI architecture for large-scale medical and clinical information platforms. Optimized internationalization (i18n), zero-compromise Core Web Vitals, and resilient caching under high traffic volumes.',
     tags: ['React', 'Next.js', 'i18n', 'Performance', 'Accessibility'],
-    link: 'https://www.doctorswithoutborders.org',
+    link: 'https://www.ama-assn.org/',
     type: 'live',
   },
   {
@@ -57,6 +56,26 @@ const projects: Project[] = [
     type: 'live',
   },
   {
+    title: 'Dhikrly',
+    role: 'Founder & Architect',
+    category: 'Open Source & Tools',
+    description:
+      'A minimalist, privacy-first digital mindfulness and remembrance web app. Built with clean state management, instant offline PWA support, and lightweight reactive UI.',
+    tags: ['Next.js', 'Tailwind CSS', 'PWA'],
+    link: 'https://dhikrly.com',
+    type: 'live',
+  },
+  {
+    title: 'Eye Care Timer Chrome',
+    role: 'Creator & Developer',
+    category: 'Open Source & Tools',
+    description:
+      'A lightweight browser utility extension engineered to protect user eye health by scheduling structured screen breaks, visual reminders, and resting intervals during intense coding sessions.',
+    tags: ['JavaScript', 'Chrome Extension', 'Web APIs'],
+    link: 'https://github.com/nazrulislambhat/eye-care-timer-chrome',
+    type: 'github',
+  },
+  {
     title: 'Hostinger Cache Watchdog',
     role: 'Architect',
     category: 'Open Source & Tools',
@@ -64,16 +83,6 @@ const projects: Project[] = [
       'An automated diagnostic tool designed to monitor edge/server-side caching health, detect edge-cache purge anomalies, and prevent stale payload desyncs on critical e-commerce routes.',
     tags: ['Automation', 'TypeScript', 'Edge Cache'],
     link: 'https://github.com/nazrulislambhat/hostinger-cache-watchdog',
-    type: 'github',
-  },
-  {
-    title: 'Dhikrly',
-    role: 'Founder & Architect',
-    category: 'Open Source & Tools',
-    description:
-      'A minimalist, privacy-first digital mindfulness and remembrance web app. Built with clean state management, instant offline PWA support, and lightweight reactive UI.',
-    tags: ['Next.js', 'Tailwind CSS', 'PWA'],
-    link: 'https://github.com/nazrulislambhat/dhikrly',
     type: 'github',
   },
 ];
@@ -172,7 +181,7 @@ export default function Projects() {
                     ) : (
                       <>
                         <Globe className="w-3.5 h-3.5" />
-                        <span>Platform</span>
+                        <span>Live</span>
                       </>
                     )}
                     <ArrowUpRight className="w-3.5 h-3.5" />
