@@ -96,7 +96,7 @@ export default function GlassControls() {
     <>
       <div
         id="glass-controls-island"
-        className="fixed bottom-6 right-6 z-50 font-mono select-none"
+        className="fixed bottom-6 right-6 z-50 font-mono select-none flex flex-col items-end"
       >
         <AnimatePresence>
           {open && (
@@ -233,7 +233,7 @@ export default function GlassControls() {
         {/* Floating Trigger Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="flex items-center gap-2 px-3.5 py-2.5 rounded-full liquid-glass border border-borderGlass shadow-xl text-textMain hover:border-primary-dim/50 hover:scale-105 transition-all text-xs font-semibold"
+          className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl liquid-glass border border-borderGlass shadow-xl text-textMain hover:border-primary-dim/50 hover:scale-105 transition-all text-xs font-semibold cursor-pointer"
           aria-label="Settings"
         >
           <Sliders className="w-4 h-4 text-textMain" />

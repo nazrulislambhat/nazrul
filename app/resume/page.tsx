@@ -22,7 +22,7 @@ export default function ResumePage() {
   return (
     <div
       id="resume-outer-wrapper"
-      className="min-h-screen w-full bg-background text-textMain py-6 md:py-10 selection:bg-primary selection:text-black print:bg-white print:text-black print:py-0 print:my-0"
+      className=" min-h-screen w-full bg-background text-textMain py-6 md:py-10 selection:bg-primary selection:text-secondary print:bg-white print:text-black print:py-0 print:my-0"
     >
       <div className="max-w-site mx-auto px-4 sm:px-8 md:px-12 xl:px-16 print:px-0 print:max-w-none print:w-full">
         {/* Screen Floating Action Bar (Hidden in Print) */}
