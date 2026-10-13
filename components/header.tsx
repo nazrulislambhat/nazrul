@@ -90,7 +90,7 @@ export default function Header() {
               className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain hover:bg-primary hover:text-secondary hover:border-primary transition-all shadow-2xs text-xs font-semibold dark:text-shite "
             >
               <span>Resume</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-primary dark:text-white group-hover:text-secondary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-primary  dark:text-secondary group-hover:text-secondary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </nav>
 
@@ -126,7 +126,7 @@ export default function Header() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-textMuted hover:text-primary py-1.5 transition-colors"
+                    className="text-textMuted hover:text-primary dark:hover:text-secondary py-1.5 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -136,10 +136,10 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between pt-3 mt-1 border-t border-borderGlass text-textMain font-semibold hover:text-primary transition-colors"
+                  className="flex items-center pt-3 mt-1 border-t border-borderGlass text-textMain font-semibold hover:text-primary uppercase gap-1 dark:hover:text-secondary transition-colors"
                 >
                   <span>Resume</span>
-                  <ArrowUpRight className="w-4 h-4 text-primary" />
+                  <ArrowUpRight className="w-4 h-4 text-primary dark:text-secondary" />
                 </Link>
               </nav>
             </motion.div>
