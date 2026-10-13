@@ -40,7 +40,11 @@ function ProjectMark({
     return (
       <div className={wrapper} aria-hidden="true">
         <Icon
-          className={large ? 'w-7 h-7 text-primary' : 'w-6 h-6 text-primary'}
+          className={
+            large
+              ? 'w-7 h-7 text-primary dark:text-secondary'
+              : 'w-6 h-6 text-primary dark:text-secondary'
+          }
         />
       </div>
     );
@@ -188,7 +192,7 @@ export default function Projects() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-5 mb-10 pb-6 border-b-2 border-borderGlass">
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
-                <Terminal className="w-4 h-4 text-primary" />
+                <Terminal className="w-4 h-4 text-primary dark:text-secondary" />
                 <span>Selected Work &amp; Systems</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain">
@@ -223,7 +227,7 @@ export default function Projects() {
                   {/* Category & Role Header */}
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-3.5 font-mono text-xs text-textMuted">
                     <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-borderGlass bg-surface/80 text-textMain">
-                      <Layers className="w-3.5 h-3.5 text-primary" />
+                      <Layers className="w-3.5 h-3.5 text-primary dark:text-secondary" />
                       {project.category}
                     </span>
                     {project.role && (

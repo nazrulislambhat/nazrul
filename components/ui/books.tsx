@@ -459,7 +459,7 @@ export default function Books() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b-2 border-borderGlass">
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2.5">
-                <BookOpen className="w-4 h-4 text-primary" />
+                <BookOpen className="w-4 h-4 text-primary dark:text-secondary" />
                 <span>Intellectual Inputs</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-textMain leading-tight">
@@ -477,7 +477,7 @@ export default function Books() {
             >
               {soundEnabled ? (
                 <>
-                  <Volume2 className="w-3.5 h-3.5 text-primary" />
+                  <Volume2 className="w-3.5 h-3.5 text-primary dark:text-secondary" />
                   <span>ACOUSTICS ON</span>
                 </>
               ) : (
@@ -501,7 +501,7 @@ export default function Books() {
                 }}
                 className={`relative px-3 py-1.5 rounded-xl border font-mono text-xs transition-colors cursor-pointer ${
                   filter === f.key
-                    ? 'border-primary text-textMain'
+                    ? 'border-primary dark:border-secondary dark:bg-transparent dark:text-white  text-textMain'
                     : 'border-borderGlass text-textMuted hover:text-textMain'
                 }`}
               >

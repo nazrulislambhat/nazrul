@@ -32,7 +32,7 @@ export default function About() {
         <div className="p-8 md:p-12 xl:p-14 rounded-3xl liquid-glass border border-borderGlass">
           {/* Section Eyebrow */}
           <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-3">
-            <Terminal className="w-4 h-4 text-primary" />
+            <Terminal className="w-4 h-4 text-primary dark:text-secondary" />
             <span>Background &amp; Focus</span>
           </div>
 
@@ -83,7 +83,7 @@ export default function About() {
                   className="p-6 rounded-2xl liquid-glass-subtle border border-borderGlass/60 flex flex-col justify-start"
                 >
                   <div className="w-9 h-9 rounded-xl border border-borderGlass bg-surface/80 flex items-center justify-center mb-4 text-textMain">
-                    <Icon className="w-4 h-4 text-primary" />
+                    <Icon className="w-4 h-4 text-primary dark:text-secondary" />
                   </div>
                   <h3 className="font-mono text-sm font-bold text-textMain mb-2">
                     {pillar.title}

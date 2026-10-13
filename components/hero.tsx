@@ -17,11 +17,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: -10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-2.5 w-fit px-4 py-1.5 rounded-full border border-primary bg-surface/90 text-xs font-mono shadow-xs mb-6 cursor-default backdrop-blur-md"
+            className="flex items-center gap-2.5 w-fit px-4 py-1.5 rounded-full border dark:border-secondary border-primary bg-surface/90 text-xs font-mono shadow-xs mb-6 cursor-default backdrop-blur-md"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full dark:bg-secondary bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary dark:bg-secondary" />
             </span>
             <span className="font-semibold text-textMain tracking-wide">
               Available for new opportunities
@@ -36,7 +36,7 @@ export default function Hero() {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="text-xs md:text-sm font-mono uppercase tracking-widest text-textMuted mb-3 flex items-center gap-2"
             >
-              <Zap className="w-3.5 h-3.5 text-primary animate-pulse" />
+              <Zap className="w-3.5 h-3.5 text-primary animate-pulse dark:text-secondary" />
               <span>Senior Software Engineer • Frontend Specialist</span>
             </motion.div>
 
@@ -48,11 +48,13 @@ export default function Hero() {
               delay={0.2}
             >
               Crafting{' '}
-              <span className="text-primary font-extrabold">
+              <span className="text-primary dark:text-secondary font-extrabold">
                 resilient systems
               </span>
               ,{' '}
-              <span className="text-primary font-extrabold">fast web apps</span>
+              <span className="text-primary dark:text-secondary font-extrabold">
+                fast web apps
+              </span>
               , and clean UI.
             </TextReveal>
 
@@ -121,7 +123,7 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="flex items-center gap-2 font-mono text-xs text-textMuted cursor-default"
             >
-              <Sparkles className="w-4 h-4 text-primary shrink-0 animate-spin-slow" />
+              <Sparkles className="w-4 h-4 text-primary dark:text-secondary shrink-0 animate-spin-slow" />
               <span className="font-medium text-textMain">
                 Accessibility &amp; CWV Focused
               </span>

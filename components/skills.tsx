@@ -67,7 +67,7 @@ export default function Skills() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-10 pb-6 border-b-2 border-borderGlass">
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
-                <Terminal className="w-4 h-4 text-primary" />
+                <Terminal className="w-4 h-4 text-primary dark:text-secondary" />
                 <span>Technical Stack</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-textMain">

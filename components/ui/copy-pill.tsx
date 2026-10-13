@@ -43,15 +43,15 @@ export default function CopyPill({
         type="button"
         onClick={handleCopy}
         title={`Click to copy ${label}`}
-        className={`group flex items-center gap-3 text-textMain hover:text-primary transition-colors font-mono text-xs md:text-sm cursor-pointer select-none ${className}`}
+        className={`group flex items-center gap-3 text-textMain hover:text-primary transition-colors font-mono text-xs md:text-sm cursor-pointer dark:hover:text-secondary select-none ${className}`}
       >
-        <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-primary group-hover:border-primary-dim/50 group-hover:bg-surface transition-all">
-          <Icon className="w-4 h-4 text-primary shrink-0" />
+        <div className="w-8 h-8 rounded-lg border border-borderGlass bg-surface/80 flex items-center justify-center text-primary group-hover:border-primary-dim group-hover:bg-surface transition-all">
+          <Icon className="w-4 h-4 text-primary shrink-0 dark:text-secondary" />
         </div>
         <span>{value}</span>
-        <span className="p-1 rounded-sm bg-surface border border-borderGlass/60 text-textMuted/60 group-hover:text-primary group-hover:border-primary-dim/40 transition-all ml-1">
+        <span className="p-1 rounded-sm bg-surface border border-borderGlass/60 text-textMuted/60 group-hover:text-primary group-hover:border-primary-dim/40 transition-all ml-1 dark:group-hover:text-secondary">
           {copied ? (
-            <Check className="w-3 h-3 text-primary" />
+            <Check className="w-3 h-3 text-primary dark:text-secondary" />
           ) : (
             <Copy className="w-3 h-3" />
           )}

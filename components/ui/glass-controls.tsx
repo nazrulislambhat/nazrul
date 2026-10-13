@@ -125,16 +125,16 @@ export default function GlassControls() {
                 <span className="text-textMuted">Mode</span>
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain cursor-pointer hover:border-primary-dim hover:text-primary transition-all"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-borderGlass bg-surface text-textMain cursor-pointer hover:border-primary-dim dark:text-white dark:hover:text-secondary hover:text-primary transition-all"
                 >
                   {isDark ? (
                     <>
-                      <Moon className="w-3.5 h-3.5 text-primary" />
+                      <Moon className="w-3.5 h-3.5 text-primary dark:text-secondary" />
                       <span>Dark</span>
                     </>
                   ) : (
                     <>
-                      <Sun className="w-3.5 h-3.5 text-primary" />
+                      <Sun className="w-3.5 h-3.5 text-primary dark:text-secondary" />
                       <span>Light</span>
                     </>
                   )}
@@ -147,7 +147,7 @@ export default function GlassControls() {
               <div className="flex flex-col gap-2 pt-1 border-t border-borderGlass">
                 <div className="flex justify-between text-textMuted">
                   <span>Liquid Glass Blur</span>
-                  <span className="text-primary font-semibold pl-1">
+                  <span className="text-primary dark:text-secondary font-semibold pl-1">
                     {glassIntensity}%
                   </span>
                 </div>
@@ -159,13 +159,13 @@ export default function GlassControls() {
                   onChange={(e) => {
                     setGlassIntensity(Number(e.target.value));
                   }}
-                  className="w-full h-1.5 bg-black/10 dark:bg-white/20 rounded-lg appearance-none cursor-pointer accent-primary"
+                  className="w-full h-1.5 bg-black/10 dark:bg-white/20 rounded-lg appearance-none cursor-pointer accent-primary dark:accent-secondary"
                 />
               </div>
 
               {/* Spaceship Telemetry HUD Readout Section */}
               <div className="flex flex-col gap-2 pt-2 border-t border-borderGlass text-[10px] text-textMuted">
-                <div className="flex items-center justify-between text-primary font-bold uppercase tracking-wider">
+                <div className="flex items-center justify-between text-primary dark:text-secondary font-bold uppercase tracking-wider">
                   <span className="flex items-center gap-1">
                     <Activity className="w-3 h-3 animate-pulse" /> Telemetry //
                     ENDURANCE-01
@@ -180,7 +180,7 @@ export default function GlassControls() {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <Wifi
-                      className={`w-3 h-3 ${isOnline ? 'text-primary' : 'text-red-500'}`}
+                      className={`w-3 h-3 ${isOnline ? 'text-primary dark:text-secondary' : 'text-red-500'}`}
                     />
                     <span
                       className={
