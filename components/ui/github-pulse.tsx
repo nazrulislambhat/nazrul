@@ -101,9 +101,9 @@ export default function GithubPulse() {
     <div className="hidden sm:flex items-center gap-2 font-mono text-[10.5px] text-textMuted select-none">
       <div className="flex items-center gap-1">
         {activity.type === 'push' ? (
-          <GitCommit className="w-3 h-3 text-primary shrink-0" />
+          <GitCommit className="w-3 h-3 text-primary  dark:text-secondary shrink-0" />
         ) : (
-          <GitPullRequest className="w-3 h-3 text-red shrink-0" />
+          <GitPullRequest className="w-3 h-3 text-primary  dark:text-secondary shrink-0" />
         )}
         <span className="text-[10px] text-textMuted/70">
           {activity.type === 'push' ? 'PUSHED TO' : 'PR ON'}
@@ -118,10 +118,10 @@ export default function GithubPulse() {
         target="_blank"
         rel="noreferrer"
         title={`View repository: ${activity.repo}`}
-        className="group inline-flex items-center gap-1 font-semibold text-textMain hover:text-primary hover:underline transition-colors cursor-pointer"
+        className="group inline-flex items-center gap-1 font-semibold text-textMain  dark:hover:text-secondary uppercase hover:text-primary hover:underline transition-colors cursor-pointer"
       >
         <span>{activity.repo}</span>
-        <ArrowUpRight className="w-3 h-3 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        <ArrowUpRight className="w-3 h-3 text-primary dark:text-secondary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
       </a>
 
       <span className="text-[9.5px] text-textMuted/70">

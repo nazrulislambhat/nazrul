@@ -419,7 +419,10 @@ export default function SkillGlobe({
             <div className="mb-8">
               {eyebrow && (
                 <div className="flex items-center gap-2 font-mono text-xs text-textMuted uppercase tracking-widest mb-2">
-                  <Globe className="w-4 h-4 text-primary" aria-hidden="true" />
+                  <Globe
+                    className="w-4 h-4 text-primary dark:text-secondary"
+                    aria-hidden="true"
+                  />
                   <span>{eyebrow}</span>
                 </div>
               )}
