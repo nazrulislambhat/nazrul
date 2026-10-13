@@ -67,7 +67,7 @@ export default function ResumePage() {
                 href="https://nazrulislam.dev"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-primary dark:text-secondary hover:underline transition-colors"
+                className="group flex items-center gap-1 hover:text-primary dark:hover:text-secondary hover:underline transition-colors"
               >
                 <Globe className="w-3.5 h-3.5 text-primary dark:text-secondary print:hidden" />
                 <span>nazrulislam.dev</span>
@@ -75,14 +75,14 @@ export default function ResumePage() {
               </a>
               <a
                 href="mailto:n@nazrulislam.dev"
-                className="flex items-center gap-1 hover:text-primary dark:text-secondary hover:underline transition-colors"
+                className="flex items-center gap-1 hover:text-primary dark:hover:text-secondary hover:underline transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-primary dark:text-secondary print:hidden" />
                 <span>n@nazrulislam.dev</span>
               </a>
               <a
                 href="tel:+919469444007"
-                className="flex items-center gap-1 hover:text-primary dark:text-secondary hover:underline transition-colors"
+                className="flex items-center gap-1 hover:text-primary dark:hover:text-secondary  hover:underline transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-primary dark:text-secondary print:hidden" />
                 <span>+91 9469444007</span>
@@ -91,7 +91,7 @@ export default function ResumePage() {
                 href="https://github.com/nazrulislambhat"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-primary dark:text-secondary hover:underline transition-colors"
+                className="group flex items-center gap-1 hover:text-primary dark:hover:text-secondary hover:underline transition-colors"
               >
                 <Github className="w-3.5 h-3.5 text-primary dark:text-secondary print:hidden" />
                 <span>github.com/nazrulislambhat</span>
@@ -101,7 +101,7 @@ export default function ResumePage() {
                 href="https://linkedin.com/in/nazrulislambhat"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 hover:text-primary dark:text-secondary hover:underline transition-colors"
+                className="group flex items-center gap-1 hover:text-primary dark:hover:text-secondary hover:underline transition-colors"
               >
                 <Linkedin className="w-3.5 h-3.5 text-primary dark:text-secondary print:hidden" />
                 <span>linkedin.com/in/nazrulislambhat</span>
